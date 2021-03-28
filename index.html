@@ -13,9 +13,10 @@ body {
 </style>
 <script>
  function summa() {
-  p = document.getElementById("p");
-  o = document.getElementById("o");
-  kokkukW.value  = p.value+o.value;
+  p = document.getElementById("p").value;
+  o = document.getElementById("o").value;
+  kokku=document.getElementById("kokkukW");
+  kokkukW.value  = p+o;
  }
 </script>
 </head>
