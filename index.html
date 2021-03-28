@@ -26,15 +26,23 @@ body {
                [ 458, 988, 1201, 1446, 1788, 2180, 2670, 3307],
               ];
    aasta=document.getElementById("aasta").value;
-   document.getElementById('v1').innerHTML = Math.round(Number(document.getElementById("kokkukW").value) * Number(hind[aasta][2])*100)/100;
-   document.getElementById('v2').innerHTML = Math.round( ( Number(document.getElementById("p").value) * Number(hind[aasta][3]) + Number(document.getElementById("o").value) * Number(hind[aasta][4]) )*100)/100;
-   document.getElementById('v3').innerHTML = Math.round(Number(document.getElementById("p").value) * Number(hind[aasta][5])*100)/100;
-   document.getElementById('v4').innerHTML = Math.round(Number(document.getElementById("o").value) * Number(hind[aasta][6])*100)/100;
-   document.getElementById('v5').innerHTML = Math.round( ( Number(document.getElementById("p").value) * Number(hind[aasta][5]) + Number(document.getElementById("o").value) * Number(hind[aasta][6]) )*100)/100 + kuutasu[1][document.getElementById("kaitse").value];
-   document.getElementById('tt').innerHTML = Math.round(Number(document.getElementById("kokkukW").value) * Number(hind[aasta][0])*100)/100;
-   document.getElementById('ak').innerHTML = Math.round(Number(document.getElementById("kokkukW").value) * Number(hind[aasta][1])*100)/100;
+   
    document.getElementById('tt').value = Math.round(Number(document.getElementById("kokkukW").value) * Number(hind[aasta][0])*100)/100;
    document.getElementById('ak').value = Math.round(Number(document.getElementById("kokkukW").value) * Number(hind[aasta][1])*100)/100;
+   document.getElementById('v1').value = Math.round(Number(document.getElementById("kokkukW").value) * Number(hind[aasta][2])*100)/100;
+   document.getElementById('v2').value = Math.round( ( Number(document.getElementById("p").value) * Number(hind[aasta][3]) + Number(document.getElementById("o").value) * Number(hind[aasta][4]) )*100)/100;
+   document.getElementById('v3').value = Math.round(Number(document.getElementById("p").value) * Number(hind[aasta][5])*100)/100;
+   document.getElementById('v4').value = Math.round(Number(document.getElementById("o").value) * Number(hind[aasta][6])*100)/100;
+   document.getElementById('v5').value = Math.round( ( Number(document.getElementById("p").value) * Number(hind[aasta][5]) + Number(document.getElementById("o").value) * Number(hind[aasta][6]) )*100)/100 + kuutasu[1][document.getElementById("kaitse").value];
+
+   document.getElementById('v1').innerHTML = document.getElementById('v1').value;
+   document.getElementById('v2').innerHTML = document.getElementById('v2').value;
+   document.getElementById('v3').innerHTML = document.getElementById('v3').value;
+   document.getElementById('v4').innerHTML = document.getElementById('v4').value;
+   document.getElementById('v5').innerHTML = document.getElementById('v5').value;
+   document.getElementById('tt').innerHTML = document.getElementById('tt').value;
+   document.getElementById('ak').innerHTML = document.getElementById('ak').value;
+
 
    
    document.getElementById('v1k').innerHTML = Number(document.getElementById("v1").value) + Math.round(Number(document.getElementById("kokkukW").value) * Number(hind[aasta][0])*100)/100 + Math.round(Number(document.getElementById("kokkukW").value) * Number(hind[aasta][1])*100)/100;
