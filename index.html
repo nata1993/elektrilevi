@@ -16,7 +16,7 @@ body {
  function summa() {
   p = document.getElementById("p");
   o = document.getElementById("o");
-  return Number(p.value) + Number(o.value);
+  return Math.Round(100*(Number(p.value) + Number(o.value)))/100;
  }
 </script>
 </head>
@@ -50,7 +50,6 @@ body {
     <TR><TH>V&otilde;rk 4</TH><TD><P id="v4">0.00</P></TD></TR>   
    </TABLE>
    <button type="button" onclick="document.getElementById('v4').innerHTML = 9.99">ARVUTA</button>
-   <button type="button" onclick="document.getElementById('kokkukW').innerHTML = summa()">KOKKU</button>    
-  </FORM>
+   </FORM>
  </body>
 </html>
