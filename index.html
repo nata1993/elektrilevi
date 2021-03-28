@@ -19,9 +19,9 @@ body {
             [0, 6.14, 7.39, 4.3]
              ];
    aasta=document.getElementById("aasta").value;
-   document.getElementById('v1').innerHTML = Number(document.getElementById("kokkukW").value) * Number(hind[aasta,1]);
+   document.getElementById('v1').innerHTML = Number(document.getElementById("kokkukW").value) * Number(hind[aasta][1]);
    document.getElementById('v2').innerHTML = aasta;
-   document.getElementById('v3').innerHTML = hind[aasta,0];
+   document.getElementById('v3').innerHTML = hind[aasta][0];
    document.getElementById('v4').innerHTML = hind[aasta];
    
   }
