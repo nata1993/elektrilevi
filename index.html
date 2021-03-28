@@ -16,7 +16,8 @@ body {
   p = document.getElementById("p");
   o = document.getElementById("o");
   kokku = document.getElementById("kokkukW") ;
-  kokku.value=p.value+o.value;
+  kokku.value = p.value + o.value;
+  return o.value
  }
 </script>
 </head>
@@ -50,6 +51,7 @@ body {
     <TR><TH>V&otilde;rk 4</TH><TD><P id="v4">0.00</P></TD></TR>   
    </TABLE>
    <button type="button" onclick="document.getElementById('v4').innerHTML = 9.99">ARVUTA</button>
+   <button type="button" onclick="document.getElementById('kokkukW').innerHTML = summa()">KOKKU</button>    
   </FORM>
  </body>
 </html>
