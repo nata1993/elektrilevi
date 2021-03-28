@@ -31,8 +31,8 @@ body {
    document.getElementById('v3').innerHTML = Math.round(Number(document.getElementById("p").value) * Number(hind[aasta][5])*100)/100;
    document.getElementById('v4').innerHTML = Math.round(Number(document.getElementById("o").value) * Number(hind[aasta][6])*100)/100;
    document.getElementById('v5').innerHTML = Math.round( ( Number(document.getElementById("p").value) * Number(hind[aasta][5]) + Number(document.getElementById("o").value) * Number(hind[aasta][6]) )*100)/100 + kuutasu[1][document.getElementById("kaitse").value];
-   document.getElementById('tt').innerHTML = Math.round(Number(document.getElementById("kokkukW").value) * Number(hind[aasta][1])*100)/100;
-   document.getElementById('ak').innerHTML = Math.round(Number(document.getElementById("kokkukW").value) * Number(hind[aasta][2])*100)/100;
+   document.getElementById('tt').innerHTML = Math.round(Number(document.getElementById("kokkukW").value) * Number(hind[aasta][0])*100)/100;
+   document.getElementById('ak').innerHTML = Math.round(Number(document.getElementById("kokkukW").value) * Number(hind[aasta][1])*100)/100;
   }
  function summa() {
   p = document.getElementById("p");
@@ -65,14 +65,14 @@ body {
       <OPTION VALUE="7">63
     </SELECT>
   <TABLE><CAPTION>..</CAPTION>
-    <TR><TH>Pakett</TH><TH>HIND</TH></TR>
-    <TR><TH>V&otilde;rk 1</TH><TD><P id="v1">0.00</P></TD></TR>
-    <TR><TH>V&otilde;rk 2</TH><TD><P id="v2">0.00</P></TD></TR>
-    <TR><TH>V&otilde;rk 2 kuutasuga</TH><TD><P id="v5">0.00</P></TD></TR>
-    <TR><TH>V&otilde;rk 3</TH><TD><P id="v3">0.00</P></TD></TR>
-    <TR><TH>V&otilde;rk 4</TH><TD><P id="v4">0.00</P></TD></TR>
-    <TR><TH>Taastuvenergiatasu</TH><TD><P id="tt">0.00</P></TD></TR>
-    <TR><TH>Aktsiis</TH><TD><P id="ak">0.00</P></TD></TR>   
+   <TR><TH>Pakett</TH><TH>HIND</TH><TH>KOKKU (HIND+Tasud+KM)</TH></TR>
+   <TR><TH>V&otilde;rk 1</TH><TD><P id="v1">0.00</P></TD><TD id="v1k">0.00</TD></TR>
+    <TR><TH>V&otilde;rk 2</TH><TD><P id="v2">0.00</P></TD><TD id="v2k">0.00</TD></TR>
+    <TR><TH>V&otilde;rk 2 kuutasuga</TH><TD><P id="v5">0.00</P></TD><TD id="v5k">0.00</TD></TR>
+    <TR><TH>V&otilde;rk 3</TH><TD><P id="v3">0.00</P></TD><TD id="v3k">0.00</TD></TR>
+    <TR><TH>V&otilde;rk 4</TH><TD><P id="v4">0.00</P></TD><TD id="v4k">0.00</TD></TR>
+    <TR><TH>Taastuvenergiatasu</TH><TD colspan=2><P id="tt">0.00</P></TD></TR>
+    <TR><TH>Aktsiis</TH><TD colspan=2><P id="ak">0.00</P></TD></TR>   
    </TABLE>
    <button type="button" onclick="arvuta()">ARVUTA</button>
    </FORM>
