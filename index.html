@@ -13,10 +13,15 @@ body {
  DIV { margin:1; text-indent: 2em }
 </style>
 <script>
+ function arvuta()
+  {
+   document.getElementById('v1').innerHTML = Number(document.getElementById("kokkukW").value) * 6.14;
+  }
  function summa() {
   p = document.getElementById("p");
   o = document.getElementById("o");
   return Math.round(100*(Number(p.value) + Number(o.value)))/100;
+  arvuta();
  }
 </script>
 </head>
