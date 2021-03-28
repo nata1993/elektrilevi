@@ -15,15 +15,16 @@ body {
 <script>
  function arvuta()
   {
-   hind = [ [0, 6.14, 7.39, 4.3, 0.01],
-            [0, 6.14, 7.39, 4.3, 0.37]
+   hind = [ [0, 5.12, 6.16, 3.58, 4.23, 2.46, 2.28, 2.74, 1.58],
+            [0, 5.12, 6.16, 3.58, 4.23, 2.46, 2.28, 2.74, 1.58],
+            [0, 6.34, 7.62, 4.43, 0.01],
              ];
    aasta=document.getElementById("aasta").value;
    document.getElementById('v1').innerHTML = Math.round(Number(document.getElementById("kokkukW").value) * Number(hind[aasta][1])*100)/100;
    document.getElementById('v2').innerHTML = Math.round( ( Number(document.getElementById("p").value) * Number(hind[aasta][2]) + Number(document.getElementById("o").value) * Number(hind[aasta][3]) )*100)/100;
    document.getElementById('v3').innerHTML = Math.round(Number(document.getElementById("p").value) * Number(hind[aasta][4])*100)/100;
    document.getElementById('v4').innerHTML = Math.round(Number(document.getElementById("o").value) * Number(hind[aasta][4])*100)/100;
-   
+   document.getElementById('v4').innerHTML = Math.round(Number(document.getElementById("o").value) * Number(hind[aasta][4])*100)/100;
   }
  function summa() {
   p = document.getElementById("p");
@@ -38,20 +39,21 @@ body {
  <FORM>
    Vali aasta
      <SELECT NAME="aasta" id="aasta">
+      <OPTION VALUE="2">2017
       <OPTION VALUE="0">2020
       <OPTION VALUE="1" SELECTED>2021
     </SELECT>
  Mitu kWh p&auml;eval <input type="text" id="p" size="4" onchange="document.getElementById('kokkukW').value = summa()"> &ouml;&ouml;sel <input type="text" id="o" size="4" onchange="document.getElementById('kokkukW').value = summa()"> = <input id="kokkukW" size=4 value="0.00"> kokku<BR>
  Peakaitse suurus amprites
      <SELECT NAME="kaitse">
-      <OPTION VALUE="korter">korter
-      <OPTION VALUE="16" SELECTED>16
-      <OPTION VALUE="20">20
-      <OPTION VALUE="25">25
-      <OPTION VALUE="32">32
-      <OPTION VALUE="40">40
-      <OPTION VALUE="50">50
-      <OPTION VALUE="63">63
+      <OPTION VALUE="4">korter
+      <OPTION VALUE="5" SELECTED>16
+      <OPTION VALUE="6">20
+      <OPTION VALUE="7">25
+      <OPTION VALUE="8">32
+      <OPTION VALUE="9">40
+      <OPTION VALUE="10">50
+      <OPTION VALUE="11">63
     </SELECT>
   <TABLE><CAPTION>..</CAPTION>
     <TR><TH>Pakett</TH><TH>HIND</TH></TR>
