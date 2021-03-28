@@ -20,6 +20,7 @@ body {
    document.getElementById('v1').innerHTML = Number(document.getElementById("kokkukW").value) * hind[aasta[0]];
    document.getElementById('v2').innerHTML = aasta;
    document.getElementById('v3').innerHTML = hind[aasta[0]];
+   document.getElementById('v4').innerHTML = 9.99;
    
   }
  function summa() {
@@ -33,12 +34,11 @@ body {
 <body>
 <h1>Elektrilevi v&otilde;rgupaketi kalkulaator</h1>
  <FORM>
-   <p id="aasta">Vali aasta
-     <SELECT NAME="aasta">
+   Vali aasta
+     <SELECT NAME="aasta" id="aasta">
       <OPTION VALUE="0">2020
       <OPTION VALUE="1" SELECTED>2021
     </SELECT>
-   </P>
  Mitu kWh p&auml;eval <input type="text" id="p" size="4" onchange="document.getElementById('kokkukW').innerHTML = summa()"> &ouml;&ouml;sel <input type="text" id="o" size="4" onchange="document.getElementById('kokkukW').innerHTML = summa()"> = <NAV id="kokkukW">0.00</NAV> kokku<BR>
  Peakaitse suurus amprites
      <SELECT NAME="kaitse">
