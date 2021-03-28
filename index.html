@@ -21,7 +21,7 @@ body {
    aasta=document.getElementById("aasta").value;
    document.getElementById('v1').innerHTML = Number(document.getElementById("kokkukW").value) * Number(hind[aasta][1]);
    document.getElementById('v2').innerHTML = aasta;
-   document.getElementById('v3').innerHTML = Number(document.getElementById("kokkukW").value);
+   document.getElementById('v3').innerHTML = document.getElementById('kokkukW').value;
    document.getElementById('v4').innerHTML = hind[aasta];
    
   }
