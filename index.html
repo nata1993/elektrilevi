@@ -16,8 +16,7 @@ body {
   p = document.getElementById("p");
   o = document.getElementById("o");
   kokku = document.getElementById("kokkukW") ;
-  kokku.value = p.value + o.value;
-  return kokku.value
+  return p.value + o.value;
  }
 </script>
 </head>
@@ -30,7 +29,7 @@ body {
       <OPTION VALUE="2021" SELECTED>2021
     </SELECT>
    </P>
- Mitu kWh p&auml;eval <input type="text" id="p" size="4" onchange="summa()"> &ouml;&ouml;sel <input type="text" id="o" size="4" onchange="summa()"> = <DIV id="kokkukW">0.00</DIV> kokku<BR>
+ Mitu kWh p&auml;eval <input type="text" id="p" size="4" onchange="document.getElementById('kokkukW').innerHTML = summa()"> &ouml;&ouml;sel <input type="text" id="o" size="4" onchange="document.getElementById('kokkukW').innerHTML = summa()"> = <DIV id="kokkukW">0.00</DIV> kokku<BR>
  Peakaitse suurus amprites
      <SELECT NAME="kaitse">
       <OPTION VALUE="korter">korter
