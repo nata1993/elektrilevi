@@ -31,8 +31,8 @@ body {
    document.getElementById('ak').value = Math.round(Number(document.getElementById("kokkukW").value) * Number(hind[aasta][1])*100)/100;
    document.getElementById('v1').value = Math.round(Number(document.getElementById("kokkukW").value) * Number(hind[aasta][2])*100)/100;
    document.getElementById('v2').value = Math.round( ( Number(document.getElementById("p").value) * Number(hind[aasta][3]) + Number(document.getElementById("o").value) * Number(hind[aasta][4]) )*100)/100;
-   document.getElementById('v3').value = Math.round(Number(document.getElementById("p").value) * Number(hind[aasta][5])*100)/100;
-   document.getElementById('v4').value = Math.round(Number(document.getElementById("o").value) * Number(hind[aasta][6])*100)/100;
+   document.getElementById('v3').value = Math.round( ( Number(document.getElementById("kokkukW").value) * Number(hind[aasta][7]) )*100)/100 + kuutasu[2][document.getElementById("kaitse").value];
+   document.getElementById('v4').value = Math.round( ( Number(document.getElementById("p").value) * Number(hind[aasta][8]) + Number(document.getElementById("o").value) * Number(hind[aasta][9]) )*100)/100 + kuutasu[2][document.getElementById("kaitse").value];
    document.getElementById('v5').value = Math.round( ( Number(document.getElementById("p").value) * Number(hind[aasta][5]) + Number(document.getElementById("o").value) * Number(hind[aasta][6]) )*100)/100 + kuutasu[1][document.getElementById("kaitse").value];
    tt_ak= document.getElementById('tt').value + document.getElementById('ak').value;
    
