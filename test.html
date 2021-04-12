@@ -57,7 +57,7 @@ function readFile(input) {
         var cellNum;
 display("READ " + rows[0]);
         for (rowNum = 0; rowNum < rows.length; ++rowNum) {
-          cells = rows[rowNum].split(";");          //         display("row " + rowNum +                  " has " + cells.length + " values(s)");
+          cells = rows[rowNum].split(";").replace('"');          //         display("row " + rowNum +                  " has " + cells.length + " values(s)");
           display(rowNum + " : " + cells[1] + " -    " + cells[2]);
         }
       }
