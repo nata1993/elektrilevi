@@ -66,8 +66,8 @@ function readFile(input) {
       }
 
       function showData(data) {
-//        var rows = data.split(/\s+/);
-        var rows = data.split("\n");
+        var rows = data.split(/\s+/);
+//        var rows = data.split("\n");
         var rowNum;
         var cells;
         var cellNum;
@@ -94,8 +94,7 @@ display("READ " + rows);
 
  <body>
   <H1>TERE READING</H1>
- <input type="file" onchange="readFile(this)">
-  
- <button id="download" type="button" onclick="readFile(this)" name="button">CSV</button>
-  </body>
+  <input type="file" onchange="readFile(this)"> 
+  <button id="download" type="button" onclick="readFile(this)" name="button">CSV</button>
+ </body>
 </html>
