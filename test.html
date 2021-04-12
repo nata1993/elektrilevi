@@ -71,7 +71,7 @@ function readFile(input) {
         var rowNum;
         var cells;
         var cellNum;
-
+display("READ " + rows);
         for (rowNum = 0; rowNum < rows.length; ++rowNum) {
           cells = rows[rowNum].split(";");
           display("row " + rowNum +
@@ -93,9 +93,9 @@ function readFile(input) {
 </head>
 
  <body>
-  <H1>TERE READ</H1>
+  <H1>TERE READING</H1>
  <input type="file" onchange="readFile(this)">
   
- <button id="download" type="button" onclick="readFile()" name="button">CSV</button>
+ <button id="download" type="button" onclick="readFile(this)" name="button">CSV</button>
   </body>
 </html>
