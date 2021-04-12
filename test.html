@@ -32,23 +32,7 @@ function readFile(input) {
   };
 }
 
- 
-// function getText(){
-    // read text from URL location
-//    var request = new XMLHttpRequest();
-//    request.open('GET', 'https://dashboard.elering.ee/api/nps/price/csv?start=2021-04-11T21:00:00.000Z&end=2021-04-12T20:59:59.999Z&fields=ee', true);//
-//    request.send(null);
-//  request.onreadystatechange = function () {
-//        if (request.readyState === 4 && request.status === 200) {
-//            var type = request.getResponseHeader('Content-Type');
-//            if (type.indexOf("text") !== 1) {
-//                return request.responseText;
-//            }
-//        }
-//    }
-//}
-
-    function kuva() {
+     function kuva() {
       var xhr = new XMLHttpRequest();
       xhr.onreadystatechange = handleStateChange;
       xhr.open("GET", "https://dashboard.elering.ee/api/nps/price/csv?start=2021-04-11T21:00:00.000Z&end=2021-04-12T20:59:59.999Z&fields=ee");
@@ -61,6 +45,7 @@ function readFile(input) {
             xhr.status < 300) {
           display("Got response");
           showData(xhr.responseText);
+         // return xhr.responseText ;
         }
       }
 
@@ -70,11 +55,10 @@ function readFile(input) {
         var rowNum;
         var cells;
         var cellNum;
-display("READ " + rows);
+display("READ " + rows[0]);
         for (rowNum = 0; rowNum < rows.length; ++rowNum) {
-          cells = rows[rowNum].split(";");
- //         display("row " + rowNum +                  " has " + cells.length + " values(s)");
-          display(rowNum + cells[1] + " : " + cells[2]);
+          cells = rows[rowNum].split(";");          //         display("row " + rowNum +                  " has " + cells.length + " values(s)");
+          display(rowNum + " : " + cells[1] + " -    " + cells[2]);
         }
       }
 
