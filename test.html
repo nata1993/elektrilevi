@@ -14,6 +14,12 @@ body {
 </style>
 <script>
 
+ function display(msg) {
+   var p = document.createElement('p');
+    p.innerHTML = String(msg);
+    document.body.appendChild(p);
+   }
+ 
 function showFile(input) {
   let file = input.files[0];
   alert(`File name: ${file.name}`); // e.g my.png
@@ -39,13 +45,12 @@ function readFile(input) {
       var xhr = new XMLHttpRequest();
       xhr.onreadystatechange = handleStateChange;
       xhr.open("GET", "https://dashboard.elering.ee/api/nps/price/csv?start=2021-04-11T21:00:00.000Z&end=2021-04-12T20:59:59.999Z&fields=ee");
-      xhr.send();
-//      display("Request sent");
+      xhr.send();   //      display("Request sent");
+      
       function handleStateChange() {
         if (xhr.readyState == 4 &&
             xhr.status >= 200 &&
-            xhr.status < 300) {
-//          display("Got response");
+            xhr.status < 300) {  //          display("Got response");
           showData(xhr.responseText);
          // return xhr.responseText ;
         }
@@ -78,11 +83,7 @@ function csvToArray(text) {
          display(rowNum + " : " + cells[1] + " -    " + cells[2]);
         }
       }
-      function display(msg) {
-        var p = document.createElement('p');
-        p.innerHTML = String(msg);
-        document.body.appendChild(p);
-      }
+
     }
  
  
