@@ -24,8 +24,8 @@ function readFile(input) {
   let file = input.files[0];
   let reader = new FileReader();
   reader.readAsText(file);
- alert(`File name: ${file.name}`);
   reader.onload = function() {
+    alert(`File name: ${file.name}`);
     console.log(reader.result);
     showData(reader.result);
   };
