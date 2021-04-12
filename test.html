@@ -27,8 +27,9 @@ function readFile(input) {
   reader.onload = function() {
     alert(`File name: ${file.name}`);
     console.log(reader.result);
-    showData(reader.result);
   };
+ showData(reader.result);
+
   reader.onerror = function() {
     console.log(reader.error);
   };
