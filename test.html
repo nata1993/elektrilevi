@@ -64,6 +64,67 @@ function readFile(input) {
     cell1.innerHTML = outer_text[0];
     cell2.innerHTML = outer_text[1];
 }
+ 
+ function csvExport(){
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200){ 
+            console.log(this.responseText);
+        }
+    };
+    xmlhttp.open("GET", "csvExport.php", true);
+    xmlhttp.send();
+}
+ 
+ function downloadAsFile(csv, fileName) {
+  var file = new File([csv], fileName, { type: "text/csv" })
+  var anUrl = window.URL.createObjectURL(file)
+  var a = window.document.createElement('a');
+  a.href = window.URL.createObjectURL(file)
+  a.download = fileName;
+  a.click();
+}
+ 
+    (function kuva() {
+
+      var xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = handleStateChange;
+      xhr.open("GET", "https://dashboard.elering.ee/api/nps/price/csv?start=2021-04-11T21:00:00.000Z&end=2021-04-12T20:59:59.999Z&fields=ee");
+      xhr.send();
+      display("Request sent");
+
+      function handleStateChange() {
+        if (xhr.readyState == 4 &&
+            xhr.status >= 200 &&
+            xhr.status < 300) {
+          display("Got response");
+          showData(xhr.responseText);
+        }
+      }
+
+      function showData(data) {
+        var rows = data.split(/\s+/);
+        var rowNum;
+        var cells;
+        var cellNum;
+
+        for (rowNum = 0; rowNum < rows.length; ++rowNum) {
+          cells = rows[rowNum].split(",");
+          display("row " + rowNum +
+                  " has " + cells.length + " values(s)");
+          display("row " + rowNum + "'s first value is " +
+                  cells[0]);
+        }
+      }
+
+      function display(msg) {
+        var p = document.createElement('p');
+        p.innerHTML = String(msg);
+        document.body.appendChild(p);
+      }
+    })();
+ 
+ 
 </script>
 </head>
 <body>
@@ -78,6 +139,7 @@ function readFile(input) {
 <td>% of used RAM</td> 
   </tr>
 </table>
+<button id="download" type="button" onclick="kuva()" name="button">CSV</button>
 
   </body>
 </html>
