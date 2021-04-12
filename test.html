@@ -67,7 +67,7 @@ function readFile(input) {
 
       function showData(data) {
 //        var rows = data.split(/\s+/);
-        var rows = data.split(/\n/);
+        var rows = data.split("\n");
         var rowNum;
         var cells;
         var cellNum;
@@ -95,16 +95,7 @@ function readFile(input) {
  <body>
   <H1>TERE READ</H1>
  <input type="file" onchange="readFile(this)">
- <table class="gridtable" id="tHP">
-  <tr>
-<th colspan=2>HP</th>
-  </tr>
-  <tr>
-<td># SN</td>
-<td>% of used RAM</td> 
-  </tr>
-</table>
-<button id="download" type="button" onclick="kuva()" name="button">CSV</button>
-
+  
+ <button id="download" type="button" onclick="readFile()" name="button">CSV</button>
   </body>
 </html>
