@@ -27,6 +27,7 @@ function readFile(input) {
  alert(`File name: ${file.name}`);
   reader.onload = function() {
     console.log(reader.result);
+    showData(reader.result);
   };
   reader.onerror = function() {
     console.log(reader.error);
@@ -38,13 +39,12 @@ function readFile(input) {
       xhr.onreadystatechange = handleStateChange;
       xhr.open("GET", "https://dashboard.elering.ee/api/nps/price/csv?start=2021-04-11T21:00:00.000Z&end=2021-04-12T20:59:59.999Z&fields=ee");
       xhr.send();
-      display("Request sent");
-
+//      display("Request sent");
       function handleStateChange() {
         if (xhr.readyState == 4 &&
             xhr.status >= 200 &&
             xhr.status < 300) {
-          display("Got response");
+//          display("Got response");
           showData(xhr.responseText);
          // return xhr.responseText ;
         }
@@ -67,20 +67,16 @@ function csvToArray(text) {
     return ret;
 };
 
-      
       function showData(data) {
-//        var rows = data.split(/\s+/);
-//        var rows = data.split("\n");
+//        var rows = data.split(/\s+/);       var rows = data.split("\n");
         var rows = csvToArray(data);
         var rowNum;
-        var cells;
-        var cellNum;
+        var cells;   //        var cellNum;
         for (rowNum = 0; rowNum < rows.length; ++rowNum) {
          cells = rows[rowNum][0].split(";") ;        //         display("row " + rowNum +                  " has " + cells.length + " values(s)");
          display(rowNum + " : " + cells[1] + " -    " + cells[2]);
         }
       }
-
       function display(msg) {
         var p = document.createElement('p');
         p.innerHTML = String(msg);
