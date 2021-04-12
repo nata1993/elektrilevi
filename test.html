@@ -76,7 +76,7 @@ function csvToArray(text) {
         var cells;
         var cellNum;
         for (rowNum = 0; rowNum < rows.length; ++rowNum) {
-display("READ " + rows[rowNum][0]);
+display("READ " + rows[rowNum][0].split(";"));
 //         cells = rows[rowNum].split(";") ;        //         display("row " + rowNum +                  " has " + cells.length + " values(s)");
 //         display(rowNum + " : " + cells[1] + " -    " + cells[2]);
         }
