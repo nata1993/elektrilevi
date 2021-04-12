@@ -34,20 +34,20 @@ function readFile(input) {
 }
 
  
- function getText(){
+// function getText(){
     // read text from URL location
-    var request = new XMLHttpRequest();
-    request.open('GET', 'https://dashboard.elering.ee/api/nps/price/csv?start=2021-04-11T21:00:00.000Z&end=2021-04-12T20:59:59.999Z&fields=ee', true);
-    request.send(null);
-    request.onreadystatechange = function () {
-        if (request.readyState === 4 && request.status === 200) {
-            var type = request.getResponseHeader('Content-Type');
-            if (type.indexOf("text") !== 1) {
-                return request.responseText;
-            }
-        }
-    }
-}
+//    var request = new XMLHttpRequest();
+//    request.open('GET', 'https://dashboard.elering.ee/api/nps/price/csv?start=2021-04-11T21:00:00.000Z&end=2021-04-12T20:59:59.999Z&fields=ee', true);//
+//    request.send(null);
+//  request.onreadystatechange = function () {
+//        if (request.readyState === 4 && request.status === 200) {
+//            var type = request.getResponseHeader('Content-Type');
+//            if (type.indexOf("text") !== 1) {
+//                return request.responseText;
+//            }
+//        }
+//    }
+//}
 
     (function kuva() {
       var xhr = new XMLHttpRequest();
@@ -66,7 +66,8 @@ function readFile(input) {
       }
 
       function showData(data) {
-        var rows = data.split(/\s+/);
+//        var rows = data.split(/\s+/);
+        var rows = data.split(/\n/);
         var rowNum;
         var cells;
         var cellNum;
@@ -85,12 +86,13 @@ function readFile(input) {
         p.innerHTML = String(msg);
         document.body.appendChild(p);
       }
-    })();
+    });
  
  
 </script>
 </head>
-<body>
+
+ <body>
   <H1>TERE READ</H1>
  <input type="file" onchange="readFile(this)">
  <table class="gridtable" id="tHP">
