@@ -49,7 +49,7 @@ function readFile(input) {
 //    }
 //}
 
-    (function kuva() {
+    function kuva() {
       var xhr = new XMLHttpRequest();
       xhr.onreadystatechange = handleStateChange;
       xhr.open("GET", "https://dashboard.elering.ee/api/nps/price/csv?start=2021-04-11T21:00:00.000Z&end=2021-04-12T20:59:59.999Z&fields=ee");
@@ -86,7 +86,7 @@ display("READ " + rows);
         p.innerHTML = String(msg);
         document.body.appendChild(p);
       }
-    });
+    }
  
  
 </script>
@@ -95,6 +95,6 @@ display("READ " + rows);
  <body>
   <H1>TERE READING</H1>
   <input type="file" onchange="showFile(this)"> 
-  <button id="download" type="button" onclick="readFile(this)" name="button">CSV</button>
+  <button id="download" type="button" onclick="kuva()" name="button">CSV</button>
  </body>
 </html>
