@@ -96,7 +96,7 @@ function csvToArray(text) {
         var cells;   //        var cellNum;
         for (rowNum = 0; rowNum < rows.length-1; ++rowNum) {
          cells = rows[rowNum][0].split(";") ;        //         display("row " + rowNum +                  " has " + cells.length + " values(s)");
-utc.push(cells[0].replace(",","."));aeg.push(cells[1].substr(-5,5));hind.push(cells[2]);
+utc.push(cells[0]);aeg.push(cells[1].substr(-5,5));hind.push(cells[2].replace(",","."));
          display(rowNum + " : " + cells[1] + " -    " + cells[2]);
         }
        display ("AEG "  + aeg) ;
