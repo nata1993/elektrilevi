@@ -51,7 +51,7 @@ function readFile(input) {
         if (xhr.readyState == 4 &&
             xhr.status >= 200 &&
             xhr.status < 300) {  //          display("Got response");
-  var reads = csvToArray(xhr.responseText); 
+  var reads = xhr.responseText; 
          showData(reads);
          // return xhr.responseText ;
         }
