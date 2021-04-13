@@ -52,15 +52,13 @@ function readFile(input) {
             xhr.status < 300) {  //          display("Got response");
              var reads = xhr.responseText; 
              var rida = showData(reads);
-             console.log("HIND" + rida.hind );
-             console.log("AEG" + rida.aeg );
-             console.log("AEG" + rida.utc );
+  //           console.log("HIND" + rida.hind );
          // return xhr.responseText ;
            }
        
      var data = {
                  labels: [ rida.aeg ],
-                 series: [  rida.hind ] 
+                 series: [ rida.hind ] 
                 };
      new Chartist.Line('.ct-chart', data, {
       labelOffset: {   x: 0,      y: 0 },
@@ -96,9 +94,9 @@ function csvToArray(text) {
         for (rowNum = 1; rowNum < rows.length-1; ++rowNum) {
          cells = rows[rowNum][0].split(";") ;        //         display("row " + rowNum +                  " has " + cells.length + " values(s)");
 utc.push(cells[0]);aeg.push(cells[1].substr(-5,5));hind.push(cells[2].replace(",","."));
-         display(rowNum + " : " + cells[1] + " -    " + cells[2]);
+  //       display(rowNum + " : " + cells[1] + " -    " + cells[2]);
         }
-       display ("AEG "  + aeg) ;
+  //     display ("AEG "  + aeg) ;
       return {
               utc:utc,
               aeg:aeg,
