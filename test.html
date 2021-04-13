@@ -56,7 +56,8 @@ function readFile(input) {
           showData(xhr.responseText);
          // return xhr.responseText ;
         }
-       var data = {
+       
+     var data = {
   // A labels array that can contain any sort of values
   labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
   // Our series array that contains series objects or in this case series data arrays
@@ -101,8 +102,6 @@ function csvToArray(text) {
       }
 
     }
- 
- 
 </script>
 </head>
 
@@ -111,5 +110,7 @@ function csvToArray(text) {
   <input type="file" onchange="readFile(this)"> 
   <button id="download" type="button" onclick="kuva()" name="button">CSV</button>
   <div class="ct-chart ct-perfect-fourth"></div>
+  <div class="ct-chart-line ct-perfect-fourth"></div>
+  <div class="ct-chart-bar ct-perfect-fourth"></div>
  </body>
 </html>
