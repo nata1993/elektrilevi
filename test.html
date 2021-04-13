@@ -50,27 +50,25 @@ function readFile(input) {
         if (xhr.readyState == 4 &&
             xhr.status >= 200 &&
             xhr.status < 300) {  //          display("Got response");
-  var reads = xhr.responseText; 
-      var a1,a2,a3;   
-         var rida = showData(reads);
-         console.log("HIND" + rida.hind[1] );
-         console.log("AEG" + rida.aeg );
-         console.log("AEG" + rida.utc );
+             var reads = xhr.responseText; 
+             var rida = showData(reads);
+             console.log("HIND" + rida.hind[1] );
+             console.log("AEG" + rida.aeg );
+             console.log("AEG" + rida.utc );
          // return xhr.responseText ;
-        }
-    
+           }
+       
      var data = {
-  // A labels array that can contain any sort of values
-  labels: [ rida.aeg],
-  // Our series array that contains series objects or in this case series data arrays
-  series: [  rida.hind ] 
-               };
-
-// Create a new line chart object where as first parameter we pass in a selector
-// that is resolving to our chart container element. The Second parameter
-// is the actual data object.
-new Chartist.Line('.ct-chart', data);       
-      }
+                 labels: [ rida.aeg],
+                 series: [  rida.hind ] 
+                };
+     new Chartist.Line('.ct-chart', data, {
+  fullWidth: true,
+  chartPadding: {
+    right: 0
+  }
+});       
+ }
 
 function csvToArray(text) {
     let p = '', row = [''], ret = [row], i = 0, r = 0, s = !0, l;
