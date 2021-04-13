@@ -52,7 +52,8 @@ function readFile(input) {
             xhr.status >= 200 &&
             xhr.status < 300) {  //          display("Got response");
   var reads = xhr.responseText; 
-         showData(reads);
+      var a1,a2,a3;   
+         [a1,a2,a3] = showData(reads);
          // return xhr.responseText ;
         }
     
@@ -91,13 +92,16 @@ function csvToArray(text) {
 
       function showData(data) {
 //        var rows = data.split(/\s+/);       var rows = data.split("\n");
+       var utc=[],aeg=[],hind=[];
         var rows = csvToArray(data);
         var rowNum;
         var cells;   //        var cellNum;
         for (rowNum = 0; rowNum < rows.length; ++rowNum) {
          cells = rows[rowNum][0].split(";") ;        //         display("row " + rowNum +                  " has " + cells.length + " values(s)");
+utc.push(cells[0]);aeg.push(cells[1]);hind.push(cells[2]);
          display(rowNum + " : " + cells[1] + " -    " + cells[2]);
         }
+      return [utc:utc,aeg:aeg,hind:hind];
       }
 
     }
