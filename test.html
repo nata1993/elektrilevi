@@ -52,7 +52,7 @@ function readFile(input) {
             xhr.status < 300) {  //          display("Got response");
              var reads = xhr.responseText; 
              var rida = showData(reads);
-             console.log("HIND" + rida.hind[1] );
+             console.log("HIND" + rida.hind );
              console.log("AEG" + rida.aeg );
              console.log("AEG" + rida.utc );
          // return xhr.responseText ;
@@ -93,7 +93,7 @@ function csvToArray(text) {
         var rows = csvToArray(data);
         var rowNum;
         var cells;   //        var cellNum;
-        for (rowNum = 0; rowNum < rows.length-1; ++rowNum) {
+        for (rowNum = 1; rowNum < rows.length-1; ++rowNum) {
          cells = rows[rowNum][0].split(";") ;        //         display("row " + rowNum +                  " has " + cells.length + " values(s)");
 utc.push(cells[0]);aeg.push(cells[1].substr(-5,5));hind.push(cells[2].replace(",","."));
          display(rowNum + " : " + cells[1] + " -    " + cells[2]);
