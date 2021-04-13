@@ -52,12 +52,10 @@ function readFile(input) {
             xhr.status < 300) {  //          display("Got response");
              var reads = xhr.responseText; 
              var rida = showData(reads);
-  //           console.log("HIND" + rida.hind );
-         // return xhr.responseText ;
+           return xhr.responseText ;
            }
        
      var data = {
-     //            labels: [ "00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00", "00:00"  ],
             labels:  rida.aeg  ,
             series:  [ 0, rida.hind]  
                 };
