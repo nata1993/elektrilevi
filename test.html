@@ -51,10 +51,11 @@ function readFile(input) {
         if (xhr.readyState == 4 &&
             xhr.status >= 200 &&
             xhr.status < 300) {  //          display("Got response");
-          showData(xhr.responseText);
+  var rows = csvToArray(xhr.responseText); 
+         showData(rows);
          // return xhr.responseText ;
         }
-    var rows = csvToArray(xhr.responseText); 
+    
      var data = {
   // A labels array that can contain any sort of values
   labels: ['00', '01', '02', '03', '04'],
