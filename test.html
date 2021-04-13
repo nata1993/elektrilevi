@@ -59,10 +59,11 @@ function readFile(input) {
            }
        
      var data = {
-                 labels: [ rida.aeg],
+                 labels: [ rida.aeg ],
                  series: [  rida.hind ] 
                 };
      new Chartist.Line('.ct-chart', data, {
+      labelOffset: {   x: 0,      y: 0 },
   fullWidth: true,
   chartPadding: {
     right: 0
