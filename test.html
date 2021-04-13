@@ -53,7 +53,7 @@ function readFile(input) {
   var reads = xhr.responseText; 
       var a1,a2,a3;   
          var rida = showData(reads);
-         console.log("RIDA" + rida[0] );
+         console.log("RIDA" + rida.hind );
          // return xhr.responseText ;
         }
     
@@ -97,7 +97,7 @@ function csvToArray(text) {
 utc.push(cells[0]);aeg.push(cells[1]);hind.push(cells[2]);
          display(rowNum + " : " + cells[1] + " -    " + cells[2]);
         }
-       display ("UTC "  + utc) ;
+       display ("HIND "  + hind) ;
       return {
               utc:utc,
               aeg:aeg,
