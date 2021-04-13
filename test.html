@@ -61,7 +61,7 @@ function readFile(input) {
     
      var data = {
   // A labels array that can contain any sort of values
-  labels: [ rida.utc],
+  labels: [ rida.aeg],
   // Our series array that contains series objects or in this case series data arrays
   series: [  rida.hind ] 
                };
@@ -96,10 +96,10 @@ function csvToArray(text) {
         var cells;   //        var cellNum;
         for (rowNum = 0; rowNum < rows.length-1; ++rowNum) {
          cells = rows[rowNum][0].split(";") ;        //         display("row " + rowNum +                  " has " + cells.length + " values(s)");
-utc.push(cells[0]);aeg.push(cells[1]);hind.push(cells[2]);
+utc.push(cells[0]);aeg.push(cells[1].substr(-5,5));hind.push(cells[2]);
          display(rowNum + " : " + cells[1] + " -    " + cells[2]);
         }
-//       display ("HIND "  + hind) ;
+       display ("AEG "  + aeg) ;
       return {
               utc:utc,
               aeg:aeg,
