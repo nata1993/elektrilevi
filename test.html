@@ -43,7 +43,7 @@ function readFile(input) {
      function kuva() {
       var xhr = new XMLHttpRequest();
       xhr.onreadystatechange = handleStateChange;
-      xhr.open("GET", "https://dashboard.elering.ee/api/nps/price/csv?start=2021-04-11T21:00:00.000Z&end=2021-04-12T20:59:59.999Z&fields=ee");
+      xhr.open("GET", "https://dashboard.elering.ee/api/nps/price/csv?start=2021-04-13T21:00:00.000Z&end=2021-04-14T20:59:59.999Z&fields=ee");
       xhr.send();   //      display("Request sent");
       
       function handleStateChange() {
@@ -85,7 +85,7 @@ function csvToArray(text) {
 
       function showData(data) {
 //        var rows = data.split(/\s+/);       var rows = data.split("\n");
-       var utc=[],aeg=["X"],hind=[];
+       var utc=[],aeg=["."],hind=[0];
         var rows = csvToArray(data);
         var rowNum;
         var cells;   //        var cellNum;
