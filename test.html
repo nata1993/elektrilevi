@@ -41,7 +41,6 @@ function readFile(input) {
     console.log(reader.error);
   };
 }
-
      function kuva() {
       var xhr = new XMLHttpRequest();
       xhr.onreadystatechange = handleStateChange;
@@ -55,13 +54,13 @@ function readFile(input) {
           showData(xhr.responseText);
          // return xhr.responseText ;
         }
-       
+    var rows = csvToArray(xhr.responseText); 
      var data = {
   // A labels array that can contain any sort of values
-  labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+  labels: ['00', '01', '02', '03', '04'],
   // Our series array that contains series objects or in this case series data arrays
   series: [
-    [5, 2, 4, 2, 0]
+    rows
   ]
 };
 
@@ -126,8 +125,8 @@ function csvToArray(text) {
   <H1>TERE READING</H1>
   <input type="file" onchange="readFile(this)"> 
   <button id="download" type="button" onclick="kuva()" name="button">CSV</button>
-  <div class="ct-chart ct-perfect-fourth">D1</div>
-  <div class="ct-chart-line ct-perfect-fourth">D2</div>
-  <div class="ct-chart-bar ct-perfect-fourth">D3</div>
+  <div class="ct-chart ct-perfect-fourth"></div>
+  <div class="ct-chart-line ct-perfect-fourth"></div>
+  <div class="ct-chart-bar ct-perfect-fourth"></div>
  </body>
 </html>
