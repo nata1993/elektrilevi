@@ -54,9 +54,9 @@ function readFile(input) {
              var rida = showData(reads);
            // return xhr.responseText ;
            }
-       
+       rida.aeg.push("XX");
      var data = {
-            labels:  "0", rida.aeg  ,
+            labels:  rida.aeg  ,
             series:  [ 0, rida.hind]  
                 };
      new Chartist.Line('.ct-chart', data, {
