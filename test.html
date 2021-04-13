@@ -35,12 +35,11 @@ function readFile(input) {
     alert(`File name: ${file.name}`);
     console.log(reader.result);
   };
-
-
   reader.onerror = function() {
     console.log(reader.error);
   };
 }
+  
      function kuva() {
       var xhr = new XMLHttpRequest();
       xhr.onreadystatechange = handleStateChange;
@@ -61,19 +60,15 @@ function readFile(input) {
   // A labels array that can contain any sort of values
   labels: ['00', '01', '02', '03', '04'],
   // Our series array that contains series objects or in this case series data arrays
-  series: [
-    reads
-  ]
-};
+  series: [  rida[2] ] 
+               };
 
 // Create a new line chart object where as first parameter we pass in a selector
 // that is resolving to our chart container element. The Second parameter
 // is the actual data object.
-new Chartist.Line('.ct-chart', data);
-       
+new Chartist.Line('.ct-chart', data);       
       }
 
-      
 function csvToArray(text) {
     let p = '', row = [''], ret = [row], i = 0, r = 0, s = !0, l;
     for (l of text) {
@@ -105,24 +100,7 @@ utc.push(cells[0]);aeg.push(cells[1]);hind.push(cells[2]);
       }
 
     }
-  
-  
-  
-    new Chartist.Bar('.ct-chart-bar', {
-      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-      series: [
-        [5, 4, 3, 7, 5, 10, 3]
-      ]
-    }, {
-      axisX: {
-        // On the x-axis start means top and end means bottom
-        position: 'start'
-      },
-      axisY: {
-        // On the y-axis start means left and end means right
-        position: 'end'
-      }
-    });
+
 </script>
 </head>
 
