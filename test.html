@@ -61,7 +61,12 @@ function readFile(input) {
            }
      var data = {
             labels:  rida.aeg  ,
-            series:  [ rida.hind]  
+            series:  [ 
+             {
+              name:'HIND',
+              data:rida.hind
+             }
+             ]
                 };
      new Chartist.Line('.ct-chart', data, {
       high: 80,
@@ -71,6 +76,10 @@ function readFile(input) {
   fullWidth: true,
   chartPadding: {
     right: 50
+      series: {
+       'HIND': {
+       lineSmooth: Chartist.Interpolation.step()
+    },
   }
 });       
  }
