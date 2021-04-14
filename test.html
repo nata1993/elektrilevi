@@ -10,6 +10,11 @@ body {
   background-size: cover;
 }
  P { margin:0; text-indent: 2em }
+ .ct-series-a .ct-line {
+  stroke: red;
+  stroke-width: 5px;
+  stroke-dasharray: 10px 20px;
+}
 </style>
  <script src="chartist.js">
  </script>
@@ -61,7 +66,6 @@ function readFile(input) {
      new Chartist.Line('.ct-chart', data, {
       high: 80,
       low: 0,
-      stroke: red,
       divisor:4,
       showArea: true,
   fullWidth: true,
