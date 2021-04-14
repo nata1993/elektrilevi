@@ -36,10 +36,10 @@ var cal = {
   // (A) PROPERTIES
   mName : ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], // Month Names
   data : null, // Events for the selected period
-  sDay : 0, // Current selected day
-  sMth : 0, // Current selected month
-  sYear : 0, // Current selected year
-  sMon : false, // Week start on Monday?
+  sDay : 14, // Current selected day
+  sMth : 4, // Current selected month
+  sYear : 2021, // Current selected year
+  sMon : true, // Week start on Monday?
 
   // (B) DRAW CALENDAR FOR SELECTED MONTH
   list : function () {
@@ -53,15 +53,8 @@ var cal = {
         endDay = new Date(cal.sYear, cal.sMth, daysInMth).getDay(); // last day of the month
 
     // (B2) LOAD DATA FROM LOCALSTORAGE
-    cal.data = localStorage.getItem("cal-" + cal.sMth + "-" + cal.sYear);
-    if (cal.data==null) {
-      localStorage.setItem("cal-" + cal.sMth + "-" + cal.sYear, "{}");
-      cal.data = {};
-    } else {
-      cal.data = JSON.parse(cal.data);
-    }
 
-    // (B3) DRAWING CALCULATIONS
+   // (B3) DRAWING CALCULATIONS
     // Determine the number of blank squares before start of month
     var squares = [];
     if (cal.sMon && startDay != 1) {
@@ -130,54 +123,15 @@ var cal = {
       }
     }
 
-    // (B5) REMOVE ANY PREVIOUS ADD/EDIT EVENT DOCKET
-    cal.close();
   },
-
+ 
   // (C) SHOW EDIT EVENT DOCKET FOR SELECTED DAY
   show : function (el) {
     // (C1) FETCH EXISTING DATA
     cal.sDay = el.getElementsByClassName("dd")[0].innerHTML;
+ }
 
-    // (C2) DRAW EVENT FORM
-    var tForm = "<h1>" + (cal.data[cal.sDay] ? "EDIT" : "ADD") + " EVENT</h1>";
-    tForm += "<div id='evt-date'>" + cal.sDay + " " + cal.mName[cal.sMth] + " " + cal.sYear + "</div>";
-    tForm += "<textarea id='evt-details' required>" + (cal.data[cal.sDay] ? cal.data[cal.sDay] : "") + "</textarea>";
-    tForm += "<input type='button' value='Close' onclick='cal.close()'/>";
-    tForm += "<input type='button' value='Delete' onclick='cal.del()'/>";
-    tForm += "<input type='submit' value='Save'/>";
 
-    // (C3) ATTACH EVENT FORM
-    var eForm = document.createElement("form");
-    eForm.addEventListener("submit", cal.save);
-    eForm.innerHTML = tForm;
-    var container = document.getElementById("event");
-    container.innerHTML = "";
-    container.appendChild(eForm);
-  },
-
-  // (D) CLOSE EVENT DOCKET
-  close : function () {
-    document.getElementById("cal-event").innerHTML = "";
-  },
- 
-  // (E) SAVE EVENT
-  save : function (evt) {
-    evt.stopPropagation();
-    evt.preventDefault();
-    cal.data[cal.sDay] = document.getElementById("evt-details").value;
-    localStorage.setItem("cal-" + cal.sMth + "-" + cal.sYear, JSON.stringify(cal.data));
-    cal.list();
-  },
-
-  // (F) DELETE EVENT FOR SELECTED DATE
-  del : function () {
-    if (confirm("Remove event?")) {
-      delete cal.data[cal.sDay];
-      localStorage.setItem("cal-" + cal.sMth + "-" + cal.sYear, JSON.stringify(cal.data));
-      cal.list();
-    }
-  }
 };
 
 // (G) INIT - DRAW MONTH & YEAR SELECTOR
@@ -229,8 +183,7 @@ window.addEventListener("load", function () {
   <!-- [CALENDAR] -->
   <div id="cal-container"></div>
 
-  <!-- [EVENT] -->
-  <div id="cal-event"></div>
+
  </div>
  </body>
 </html>
