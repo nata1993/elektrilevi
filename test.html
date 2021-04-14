@@ -59,10 +59,11 @@ function readFile(input) {
             series:  [ rida.hind]  
                 };
      new Chartist.Line('.ct-chart', data, {
-      labelOffset: {   x: 0,      y: 0 },
+      low: 0,
+      showArea: false,
   fullWidth: true,
   chartPadding: {
-    right: 0
+    right: 30
   }
 });       
  }
@@ -85,7 +86,7 @@ function csvToArray(text) {
 
       function showData(data) {
 //        var rows = data.split(/\s+/);       var rows = data.split("\n");
-       var utc=[],aeg=["."],hind=[0];
+       var utc=[],aeg=[],hind=[];
         var rows = csvToArray(data);
         var rowNum;
         var cells;   //        var cellNum;
