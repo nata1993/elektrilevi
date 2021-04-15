@@ -66,7 +66,7 @@ body {
  <script>
 var cal = {
   // (A) PROPERTIES
-  mName : ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], // Month Names
+  mName : ["Jaan", "Veeb", "Märts", "Apr", "Mai", "Juuni", "Juuli", "Aug", "Sep", "Okt", "Nov", "Dets"], // Month Names
   data : null, // Events for the selected period
   sDay : 14, // Current selected day
   sMth : 3, // Current selected month
@@ -84,8 +84,7 @@ var cal = {
         startDay = new Date(cal.sYear, cal.sMth, 1).getDay(), // first day of the month
         endDay = new Date(cal.sYear, cal.sMth, daysInMth).getDay(); // last day of the month
 
-    // (B2) LOAD DATA FROM LOCALSTORAGE
-
+   // (B2) LOAD DATA FROM LOCALSTORAGE
    // (B3) DRAWING CALCULATIONS
     // Determine the number of blank squares before start of month
     var squares = [];
@@ -176,7 +175,7 @@ window.addEventListener("load", function () {
   // (G3) APPEND YEARS
   // Set to 10 years range. Change this as you like.
   var year = document.getElementById("cal-yr");
-  for (var i = nowYear-10; i<=nowYear+10; i++) {
+  for (var i = nowYear-10; i<=nowYear; i++) {
     var opt = document.createElement("option");
     opt.value = i;
     opt.innerHTML = i;
@@ -186,8 +185,8 @@ window.addEventListener("load", function () {
 
   // (G4) START - DRAW CALENDAR
   document.getElementById("cal-set").addEventListener("click", cal.list);
-  alert(cal.sYear);
-// cal.list();
+//  alert(cal.sYear);
+ cal.list();
 });
 
 </script>
