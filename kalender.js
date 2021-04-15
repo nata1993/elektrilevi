@@ -1,6 +1,6 @@
 var cal = {
   // (A) PROPERTIES
-  mName : ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], // Month Names
+  mName : ["Jaan", "Veeb", "Märts", "Apr", "Mai", "Juuni", "Juuli", "Aug", "Sep", "Okt", "Nov", "Dets"], // Month Names
   data : null, // Events for the selected period
   sDay : 14, // Current selected day
   sMth : 3, // Current selected month
@@ -18,8 +18,7 @@ var cal = {
         startDay = new Date(cal.sYear, cal.sMth, 1).getDay(), // first day of the month
         endDay = new Date(cal.sYear, cal.sMth, daysInMth).getDay(); // last day of the month
 
-    // (B2) LOAD DATA FROM LOCALSTORAGE
-
+   // (B2) LOAD DATA FROM LOCALSTORAGE
    // (B3) DRAWING CALCULATIONS
     // Determine the number of blank squares before start of month
     var squares = [];
@@ -55,8 +54,9 @@ var cal = {
     // First row - Days
     var cRow = document.createElement("tr"),
         cCell = null,
-        days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
-    if (cal.sMon) { days.push(days.shift()); }
+//        days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+        days = ["P", "E", "T", "K", "N", "R", "L"];
+        if (cal.sMon) { days.push(days.shift()); }
     for (var d of days) {
       cCell = document.createElement("td");
       cCell.innerHTML = d;
@@ -75,24 +75,18 @@ var cal = {
       else {
         cCell.innerHTML = "<div class='dd'>"+squares[i]+"</div>";
         cCell.addEventListener("click", function(){
-          alert(this.name);
+          alert(this.getElementsByClassName("dd")[0].innerHTML);
         });
       }
       cRow.appendChild(cCell);
-      if (i!=0 && (i+1)%7==0) {
-        cTable.appendChild(cRow);
-        cRow = document.createElement("tr");
-        cRow.classList.add("day");
-      }
+       if (i!=0 && (i+1)%7==0) {
+         cTable.appendChild(cRow);
+         cRow = document.createElement("tr");
+         cRow.classList.add("day");
+       }
     }
+  }
 
-  },
- 
-  // (C) SHOW EDIT EVENT DOCKET FOR SELECTED DAY
-  show : function (el) {
-    // (C1) FETCH EXISTING DATA
-    cal.sDay = el.getElementsByClassName("dd")[0].innerHTML;
- }
 };
 
 // (G) INIT - DRAW MONTH & YEAR SELECTOR
@@ -115,7 +109,7 @@ window.addEventListener("load", function () {
   // (G3) APPEND YEARS
   // Set to 10 years range. Change this as you like.
   var year = document.getElementById("cal-yr");
-  for (var i = nowYear-10; i<=nowYear+10; i++) {
+  for (var i = nowYear-10; i<=nowYear; i++) {
     var opt = document.createElement("option");
     opt.value = i;
     opt.innerHTML = i;
@@ -125,7 +119,6 @@ window.addEventListener("load", function () {
 
   // (G4) START - DRAW CALENDAR
   document.getElementById("cal-set").addEventListener("click", cal.list);
-  alert(cal.sYear);
+//  alert(cal.sYear);
  cal.list();
-   alert(cal.sMon);
 });
