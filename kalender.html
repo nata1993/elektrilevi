@@ -121,8 +121,9 @@ var cal = {
     // First row - Days
     var cRow = document.createElement("tr"),
         cCell = null,
-        days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
-    if (cal.sMon) { days.push(days.shift()); }
+//        days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+        days = ["P", "E", "T", "K", "N", "R", "L"];
+        if (cal.sMon) { days.push(days.shift()); }
     for (var d of days) {
       cCell = document.createElement("td");
       cCell.innerHTML = d;
@@ -145,20 +146,14 @@ var cal = {
         });
       }
       cRow.appendChild(cCell);
-      if (i!=0 && (i+1)%7==0) {
-        cTable.appendChild(cRow);
-        cRow = document.createElement("tr");
-        cRow.classList.add("day");
-      }
+       if (i!=0 && (i+1)%7==0) {
+         cTable.appendChild(cRow);
+         cRow = document.createElement("tr");
+         cRow.classList.add("day");
+       }
     }
+  }
 
-  },
- 
-  // (C) SHOW EDIT EVENT DOCKET FOR SELECTED DAY
-  show : function (el) {
-    // (C1) FETCH EXISTING DATA
-    cal.sDay = el.getElementsByClassName("dd")[0].innerHTML;
- }
 };
 
 // (G) INIT - DRAW MONTH & YEAR SELECTOR
