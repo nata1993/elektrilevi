@@ -29,7 +29,6 @@ body {
   width: 100%;
   border-collapse: collapse;
 }
-
 </style>
  <script>
 var cal = {
@@ -164,7 +163,9 @@ window.addEventListener("load", function () {
 
   // (G4) START - DRAW CALENDAR
   document.getElementById("cal-set").addEventListener("click", cal.list);
-  cal.list();
+  alert(cal.sYear);
+ cal.list();
+   alert(cal.sMon);
 });
 
 </script>
@@ -179,11 +180,9 @@ window.addEventListener("load", function () {
     <select id="cal-yr"></select>
     <input id="cal-set" type="button" value="SET"/>
   </div>
-
   <!-- [CALENDAR] -->
   <div id="cal-container"></div>
-
-
  </div>
+  
  </body>
 </html>
