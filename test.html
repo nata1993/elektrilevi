@@ -10,14 +10,10 @@ body {
   background-size: cover;
 }
  P { margin:0; text-indent: 2em }
- .ct-series-a .ct-line {
-  stroke: red;
-//  stroke-width: 5px;
-//  stroke-dasharray: 10px 20px;
 }
 </style>
  <script src="chartist.js"></script>
- <script language="javascript" type="text/javascript" src="datetimepicker.js">
+ <script language="javascript" type="text/javascript" src="kalender.js">
  <script>
  function display(msg) {
    var p = document.createElement('p');
@@ -122,7 +118,6 @@ utc.push(cells[0]);aeg.push(cells[1].substr(-5,5));hind.push(cells[2].replace(",
 
  <body>
   <H1>TERE READING</H1>
-  <input id="demo1" type="text" size="25"><a href="javascript:NewCal('demo1','ddmmyyyy')"><img src="cal.gif" width="16" height="16" border="0" alt="Pick a date"></a><BR>
   <input type="file" onchange="readFile(this)"> 
   <button id="download" type="button" onclick="kuva()" name="button">CSV</button>
   <div class="ct-chart ct-perfect-fourth"></div>
