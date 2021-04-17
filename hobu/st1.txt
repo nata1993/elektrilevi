@@ -1,0 +1,7 @@
+1;A;Sissesõit keskmises sammus;1;Sujuvus, peatus, üleminekud. Otsesus.
+1;X;Peatus, tervitus;;Kontakt
+1;XC;Jätkata töötraavis (lubatud läbi 2-4sammu);;
+2;C;Sõiduga vasakule;1;Otsesus, traavi energia, õige asetus
+2;CHKA;Jätkata rajal töötraavis;;nurkades
+3;A;Ring vasakule 20 m töötraavis;1;Ringi suurus ja kuju, kontakt, paine ja
+3;;Jätkata rajal töötraavis;;tasakaal
