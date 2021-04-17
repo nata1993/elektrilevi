@@ -12,6 +12,23 @@ body {
 </style>
 <script>
  function loe(){
+  var container = document.getElementById("cal-container"),
+        cTable = document.createElement("table");
+    cTable.id = "calendar";
+    container.innerHTML = "";
+    container.appendChild(cTable);
+
+  var cRow = document.createElement("tr"),
+        cCell = null,
+        headline = ["Nr", "", "Harjutus", "Hinne", "K", "Kokku", "Direktiivid","Kommentaarid"];
+    for (var d of headline) {
+      cCell = document.createElement("td");
+      cCell.innerHTML = d;
+      cRow.appendChild(cCell);
+    }
+    cRow.classList.add("head");
+    cTable.appendChild(cRow);
+  
   var client = new XMLHttpRequest();
  client.open('GET', 'https://hr-john.github.io/elektrilevi/hobu/st1.txt');
  client.onreadystatechange = function() {
@@ -25,5 +42,6 @@ client.send();
  <body>
   <H1>TERE READING</H1>
  <button type="button" onclick="loe()">LOE ST1</button>
+   <div id="SKEEM"></div>
  </body>
 </html>
