@@ -10,22 +10,20 @@ body {
   background-size: cover;
 }
 </style>
- <script>
-   </script>
+<script>
+ function loe(){
+  var client = new XMLHttpRequest();
+ client.open('GET', 'https://hr-john.github.io/elektrilevi/hobu/st1.txt');
+ client.onreadystatechange = function() {
+  alert(client.responseText);
+ }
+client.send();
+ }
+</script>
 </head>
 
  <body>
   <H1>TERE READING</H1>
-<div id="cal-wrap">
-  <!-- [PERIOD SELECTOR] -->
-  <div id="cal-date">
-    <select id="cal-mth"></select>
-    <select id="cal-yr"></select>
-    <input id="cal-set" type="button" value="SET"/>
-  </div>
-  <!-- [CALENDAR] -->
-  <div id="cal-container"></div>
- </div>
-  
+ <button type="button" onclick="loe()">LOE ST1</button>
  </body>
 </html>
