@@ -77,8 +77,9 @@ body {
           nr.push(cells[0]);mark.push(cells[1]);harjutus.push(cells[2]);koefitsent.push(cells[3]);direktiiv.push(cells[4]);
            if ( reanr === nr[nr.length-1] ) { ridu++ }
            else { ridu=0 ; reanr = cells[0]; }
+          }// for rowNum
           var total = rowNum;
-                      alert("NR" + nr[i] + " "+rowNum + " " + ridu);
+          alert("NR " + nr[i] + " "+rowNum + " " + ridu);
 
           cRow = document.createElement("tr");
           cRow.classList.add("sisu");
@@ -88,9 +89,9 @@ body {
             cCell.addEventListener("click", function(){
              alert(this.getElementsByClassName("dd")[0].innerHTML);
             });
-           } // for
+           } // for i to total
       cRow.appendChild(cCell);
-    }// for rowNum
+
          
   //          display(rowNum + " : " + cells[1] + " -    " + cells[2]);
       }; // insertTable
