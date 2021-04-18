@@ -87,7 +87,8 @@ body {
     //        cCell = document.createElement("td");
             cRow = document.createElement("tr");
             cRow.classList.add("sisu");
-            cRow.innerHTML = "<TD rowspan=\""+rowspan[nr[i]]+"\">"+nr[i]+"</TD><TD>"+mark[i]+"</TD><TD>"+harjutus[i]+"</TD><TD rowspan=\""+rowspan[nr[i]]+"\">"+"HINNE"+"</TD><TD>"+koefitsent[i]+"</TD><TD>"+"LOPPHINNE"+"</TD><TD>"+direktiiv[i]+"</TD><TD>"+"KOMMENTAAR"+"</TD>" ;
+            cRow.innerHTML = (rowspan[nr[i]]>0?"<TD rowspan=\""+rowspan[nr[i]]+"\">"+nr[i]+"</TD><TD>"+mark[i]+"</TD><TD>"+harjutus[i]+"</TD><TD rowspan=\""+rowspan[nr[i]]+"\">"+"HINNE"+"</TD><TD>"+koefitsent[i]+"</TD><TD>"+"LOPPHINNE"+"</TD><TD>"+direktiiv[i]+"</TD><TD>"+"KOMMENTAAR"+"</TD>":
+                              "<TD>"+mark[i]+"</TD><TD>"+harjutus[i]+"</TD><TD>"+koefitsent[i]+"</TD><TD>"+"LOPPHINNE"+"</TD><TD>"+direktiiv[i]+"</TD><TD>"+"KOMMENTAAR"+"</TD>";
             rowspan[nr[i]]=0;       
             //            cCell.addEventListener("click", function(){
 //             alert(this.getElementsByClassName("dd")[0].innerHTML);
