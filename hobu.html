@@ -88,7 +88,8 @@ body {
             cRow = document.createElement("tr");
             cRow.classList.add("sisu");
             cRow.innerHTML = "<TD rowspan=\""+rowspan[nr[i]]+"\">"+nr[i]+"</TD><TD>"+mark[i]+"</TD><TD>"+harjutus[i]+"</TD><TD rowspan=\""+rowspan[nr[i]]+"\">"+"HINNE"+"</TD><TD>"+koefitsent[i]+"</TD><TD>"+"LOPPHINNE"+"</TD><TD>"+direktiiv[i]+"</TD><TD>"+"KOMMENTAAR"+"</TD>" ;
-//            cCell.addEventListener("click", function(){
+            rowspan[nr[i]]=0;       
+            //            cCell.addEventListener("click", function(){
 //             alert(this.getElementsByClassName("dd")[0].innerHTML);
 //            });
 //                  cRow.appendChild(cCell);
