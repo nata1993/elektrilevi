@@ -25,10 +25,10 @@ body {
     container.appendChild(cTable);
 
   var cRow = document.createElement("tr"),
-      cRow.classList.add("head");
         cCell = null,
         headline = ["Nr", "", "Harjutus", "Hinne", "K", "Kokku", "Direktiivid","Kommentaarid"];
-    for (var d of headline) {
+  cRow.classList.add("head");
+  for (var d of headline) {
       cCell = document.createElement("td");
       cCell.innerHTML = d;
       cRow.appendChild(cCell);
