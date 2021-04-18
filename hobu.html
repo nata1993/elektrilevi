@@ -83,13 +83,14 @@ body {
 
           cRow = document.createElement("tr");
           cRow.classList.add("sisu");
-           for (var i=0; i<7; i++) {
-            cCell = document.createElement("td");
-            cCell.innerHTML = "<div class='dd'>"+nr[i]+"</div>";
-            cCell.addEventListener("click", function(){
-             alert(this.getElementsByClassName("dd")[0].innerHTML);
-            });
-                  cRow.appendChild(cCell);
+           for (var i=0; i<total; i++) {
+    //        cCell = document.createElement("td");
+            cRow.innerHTML = "<TD>"+nr[i]+"</TD><TD>"+mark[i]+"</TD><TD>"+harjutus[i]+"</TD><TD>"+"HINNE"+"</TD><TD>"+koefitsent[i]+"</TD><TD>"+"LOPPHINNE"+"</TD><TD>"+direktiiv[i]+"</TD><TD>"+"KOMMENTAAR"+"</TD>" ;
+//            cCell.addEventListener("click", function(){
+//             alert(this.getElementsByClassName("dd")[0].innerHTML);
+//            });
+//                  cRow.appendChild(cCell);
+    cTable.appendChild(cRow);
 
            } // for i to total
       cTable.appendChild(cRow);
