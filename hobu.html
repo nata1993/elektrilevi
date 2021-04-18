@@ -75,28 +75,22 @@ body {
          for (rowNum = 0; rowNum < rows.length-1; ++rowNum) {
           cells = rows[rowNum][0].split(";") ;       
           nr.push(cells[0]);mark.push(cells[1]);harjutus.push(cells[2]);koefitsent.push(cells[3]);direktiiv.push(cells[4]);
-          if ( reanr === nr.peek() ) { ridu++ }
-          else { ridu=0 }
-          
-             // Days in Month
-          
-    var total = rowNum;
-    cRow = document.createElement("tr");
-    cRow.classList.add("sisu");
-    for (var i=0; i<total; i++) {
-      cCell = document.createElement("td");
-      cCell.innerHTML = "<div class='dd'>"+nr[i]+"</div>";
-      cCell.addEventListener("click", function(){
-          alert(this.getElementsByClassName("dd")[0].innerHTML);
-        });
-      }
+           if ( reanr === nr.peek() ) { ridu++ }
+           else { ridu=0 }
+          var total = rowNum;
+          cRow = document.createElement("tr");
+          cRow.classList.add("sisu");
+           for (var i=0; i<total; i++) {
+            cCell = document.createElement("td");
+            cCell.innerHTML = "<div class='dd'>"+nr[i]+"</div>";
+            cCell.addEventListener("click", function(){
+             alert(this.getElementsByClassName("dd")[0].innerHTML);
+            });
+           } // for
       cRow.appendChild(cCell);
-    }
-  }
-          
-          
-          //          display(rowNum + " : " + cells[1] + " -    " + cells[2]);
-         }; // for
+    }// for rowNum
+         
+  //          display(rowNum + " : " + cells[1] + " -    " + cells[2]);
       }; // insertTable
 
   
