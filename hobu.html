@@ -19,8 +19,8 @@ body {
  
  function loe(){
   var container = document.getElementById("SKEEM"),
-        cTable = document.createElement("table");
-    cTable.id = "calendar";
+    cTable = document.createElement("table");
+    cTable.id = "SKEEM";
     container.innerHTML = "";
     container.appendChild(cTable);
 
@@ -78,7 +78,7 @@ body {
            if ( reanr === nr[nr.length-1] ) { ridu++ }
            else { ridu=0 ; reanr = cells[0]; }
           var total = rowNum;
-                      alert(rowNum + " " + ridu);
+                      alert("NR" + nr[i] + " "+rowNum + " " + ridu);
 
           cRow = document.createElement("tr");
           cRow.classList.add("sisu");
