@@ -79,8 +79,9 @@ body {
            if ( reanr === nr[nr.length-1] ) { ridu++ }
            else { colspan[reanr]=ridu; alert ( "RIDU "+ridu+" "+cells[0])  ;ridu=0 ; reanr = cells[0]; }
           }// for rowNum
+  colspan[reanr]=ridu;
           var total = rowNum;
-          alert("NR " + colspan[0] + " "+ colspan[1] + " " +  colspan[2]);
+          alert("NR " + colspan[1] + " "+ colspan[2] + " " +  colspan[3]);
 
            for (var i=0; i<total; i++) {
     //        cCell = document.createElement("td");
