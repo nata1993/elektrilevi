@@ -81,10 +81,10 @@ body {
           var total = rowNum;
           alert("NR " + nr[0] + " "+rowNum + " " + ridu);
 
-          cRow = document.createElement("tr");
           cRow.classList.add("sisu");
            for (var i=0; i<total; i++) {
     //        cCell = document.createElement("td");
+            cRow = document.createElement("tr");
             cRow.innerHTML = "<TD>"+nr[i]+"</TD><TD>"+mark[i]+"</TD><TD>"+harjutus[i]+"</TD><TD>"+"HINNE"+"</TD><TD>"+koefitsent[i]+"</TD><TD>"+"LOPPHINNE"+"</TD><TD>"+direktiiv[i]+"</TD><TD>"+"KOMMENTAAR"+"</TD>" ;
 //            cCell.addEventListener("click", function(){
 //             alert(this.getElementsByClassName("dd")[0].innerHTML);
