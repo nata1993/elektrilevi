@@ -11,6 +11,12 @@ body {
 }
 </style>
 <script>
+  function display(msg) {
+   var p = document.createElement('p');
+    p.innerHTML = String(msg);
+    document.body.appendChild(p);
+   }
+ 
  function loe(){
   var container = document.getElementById("SKEEM"),
         cTable = document.createElement("table");
@@ -80,14 +86,14 @@ body {
         var rows = csvToArray(data);
         var rowNum;
         var cells;   //        var cellNum;
-        for (rowNum = 1; rowNum < rows.length-1; ++rowNum) {
-         cells = rows[rowNum][0].split(";") ;        //         display("row " + rowNum +                  " has " + cells.length + " values(s)");
-nr.push(cells[0]);mark.push(cells[1]);harjutus.push(cells[2]);koefitsent.push(cells[3]);direktiiv.push(cells[4]);
-         display(rowNum + " : " + cells[1] + " -    " + cells[2]);
-        }
-      }
+         for (rowNum = 1; rowNum < rows.length-1; ++rowNum) {
+          cells = rows[rowNum][0].split(";") ;       
+          nr.push(cells[0]);mark.push(cells[1]);harjutus.push(cells[2]);koefitsent.push(cells[3]);direktiiv.push(cells[4]);
+          display(rowNum + " : " + cells[1] + " -    " + cells[2]);
+         };
+      };
 
-    }
+    };
     
 client.send();
  }
