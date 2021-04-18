@@ -79,25 +79,27 @@ body {
            else { ridu=0 ; reanr = cells[0]; }
           }// for rowNum
           var total = rowNum;
-          alert("NR " + nr[i] + " "+rowNum + " " + ridu);
+          alert("NR " + nr[0] + " "+rowNum + " " + ridu);
 
           cRow = document.createElement("tr");
           cRow.classList.add("sisu");
-           for (var i=0; i<total; i++) {
+           for (var i=0; i<7; i++) {
             cCell = document.createElement("td");
             cCell.innerHTML = "<div class='dd'>"+nr[i]+"</div>";
             cCell.addEventListener("click", function(){
              alert(this.getElementsByClassName("dd")[0].innerHTML);
             });
+                  cRow.appendChild(cCell);
+
            } // for i to total
-      cRow.appendChild(cCell);
+//      cRow.appendChild(cCell);
 
          
   //          display(rowNum + " : " + cells[1] + " -    " + cells[2]);
       }; // insertTable
 
   
- };
+ }; // loe
  
 </script>
 </head>
