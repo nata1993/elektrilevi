@@ -69,7 +69,7 @@ body {
 
  function insertTable(data) {
 //        var rows = data.split(/\s+/);       var rows = data.split("\n");
-       var nr=[],mark=[],harjutus=[],koefitsent=[],direktiiv=[],colspan=[] ;
+       var nr=[],mark=[],harjutus=[],koefitsent=[],direktiiv=[],rowspan=[] ;
         var rows = csvToArray(data);
         var rowNum,reanr=1,ridu=0;
         var cells;   //        var cellNum;
@@ -77,9 +77,9 @@ body {
           cells = rows[rowNum][0].split(";") ;       
           nr.push(cells[0]);mark.push(cells[1]);harjutus.push(cells[2]);koefitsent.push(cells[3]);direktiiv.push(cells[4]);
            if ( reanr === nr[nr.length-1] ) { ridu++ }
-           else { colspan[reanr]=ridu; alert ( "RIDU "+ridu+" "+cells[0])  ;ridu=0 ; reanr = cells[0]; }
+           else { rowspan[reanr]=ridu+1; ridu=0 ; reanr = cells[0]; }
           }// for rowNum
-  colspan[reanr]=ridu;
+  rowspan[reanr]=ridu+1;
           var total = rowNum;
           alert("NR " + colspan[1] + " "+ colspan[2] + " " +  colspan[3]);
 
@@ -87,7 +87,7 @@ body {
     //        cCell = document.createElement("td");
             cRow = document.createElement("tr");
             cRow.classList.add("sisu");
-            cRow.innerHTML = "<TD>"+nr[i]+"</TD><TD>"+mark[i]+"</TD><TD>"+harjutus[i]+"</TD><TD>"+"HINNE"+"</TD><TD>"+koefitsent[i]+"</TD><TD>"+"LOPPHINNE"+"</TD><TD>"+direktiiv[i]+"</TD><TD>"+"KOMMENTAAR"+"</TD>" ;
+            cRow.innerHTML = "<TD rowspan=\""+rowspan[nr[i]]+"\">"+nr[i]+"</TD><TD>"+mark[i]+"</TD><TD>"+harjutus[i]+"</TD><TD rowspan=\""+rowspan[nr[i]]+"\">"+"HINNE"+"</TD><TD>"+koefitsent[i]+"</TD><TD>"+"LOPPHINNE"+"</TD><TD>"+direktiiv[i]+"</TD><TD>"+"KOMMENTAAR"+"</TD>" ;
 //            cCell.addEventListener("click", function(){
 //             alert(this.getElementsByClassName("dd")[0].innerHTML);
 //            });
