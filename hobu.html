@@ -77,10 +77,10 @@ body {
           cells = rows[rowNum][0].split(";") ;       
           nr.push(cells[0]);mark.push(cells[1]);harjutus.push(cells[2]);koefitsent.push(cells[3]);direktiiv.push(cells[4]);
            if ( reanr === nr[nr.length-1] ) { ridu++ }
-           else { alert ( "RIDU "+ridu+" "+cells[0])  ;ridu=0 ; reanr = cells[0]; }
+           else { colspan[reanr]=ridu; alert ( "RIDU "+ridu+" "+cells[0])  ;ridu=0 ; reanr = cells[0]; }
           }// for rowNum
           var total = rowNum;
-//          alert("NR " + nr[0] + " "+rowNum + " " + ridu);
+          alert("NR " + colspan[0] + " "+ colspan[1] + " " +  colspan[2]);
 
            for (var i=0; i<total; i++) {
     //        cCell = document.createElement("td");
