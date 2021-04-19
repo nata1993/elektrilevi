@@ -37,6 +37,7 @@ body {
     cTable.appendChild(cRow);
   
   var skeemif = new XMLHttpRequest(), fnimi=document.getElementById("file");
+   alert("FNIMI"+fnimi);
    skeemif.onreadystatechange = handleStateChange;
    skeemif.open('GET', 'https://hr-john.github.io/elektrilevi/hobu/'+fnimi);
    skeemif.send();
