@@ -16,3 +16,9 @@
 9;EB;Üle maneeži keskmises sammus;;Üleminekud.
 9;B;Pööre vasakule;;
 9;Pärast B;2-3 m pärast B üleminek töötraavile;;
+10;[B] MCHEKA;Töötraav rajal;1;Traavi energia, tasakaal, õige asetus pööretel
+11;A;Keskliinile;1;Pöörde täpsus ja sujuvus, traavi
+11;;;;energia. Otsesus keskliinil.
+12;X;Peatus (lubatud läbi 2-4 sammu),;1;Sujuvus, peatus, üleminekud. Otsesus.
+12;liikumatus, tervitus;;Kontakt.
+13;;Lahkumine väljakult läbi A pika ratsmega;1;;
