@@ -36,9 +36,9 @@ body {
     }
     cTable.appendChild(cRow);
   
-  var skeemif = new XMLHttpRequest();
+  var skeemif = new XMLHttpRequest(), fnimi=document.getElementById("file");
    skeemif.onreadystatechange = handleStateChange;
-   skeemif.open('GET', 'https://hr-john.github.io/elektrilevi/hobu/st1.txt');
+   skeemif.open('GET', 'https://hr-john.github.io/elektrilevi/hobu/'+fnimi);
    skeemif.send();
   
     function handleStateChange() {
@@ -113,7 +113,7 @@ body {
  <body>
   <H1>TERE READING</H1>
  <FORM>
- <SELECT name="file">
+ <SELECT id="file" name="file">
  <OPTION VALUE="st1.txt">ST1
  <OPTION VALUE="ABC.txt">ABC1 
  </SELECT>
