@@ -1,0 +1,10 @@
+1;A;Sissesõit keskmises sammus;1;Sujuvus, peatus, üleminekud. 
+1;X;Peatus, tervitus;;Otsesus. Kontakt
+1;XC;Jätkata töötraavis (lubatud läbi 2-4sammu);;
+2;C;Sõiduga vasakule;1;Otsesus, täpsus, traavi rütm ja
+2;HXF;Diagonaal töötraavis;;energia.
+2;FA;Töötraav;;
+3;A;Ring paremale 20 m töötraavis;1;Ringi suurus ja kuju, kontakt, paine ja
+3;AK;Töötraav;;tasakaal. Traavi energia
+4;KXM;Diagonaal töötraavis;1;Otsesus, täpsus, traavi rütm ja
+4;MC;Töötraav;;energia
