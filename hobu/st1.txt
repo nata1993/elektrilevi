@@ -10,3 +10,9 @@
 6;Pärast E;2-3 m pärast E üleminek töötraavile;1;Ülemineku sujuvus, sammu aktiivsus
 7;[E] HCMBFA;Jätkata rajal töötraavis;1;Ülemineku sujuvus, traavi energia.
 7;;;;Töögalopi tasakaal.
+8;A;Ring paremale 20 m töötraavis;1;Ringi suurus ja kuju, kontakt, paine ja
+8;;;;tasakaal.
+9;Enne E;2-3 m enne E üleminek keskmisele sammule;1;Ülemineku sujuvus, sammu aktiivsus,
+9;EB;Üle maneeži keskmises sammus;;Üleminekud.
+9;B;Pööre vasakule;;
+9;Pärast B;2-3 m pärast B üleminek töötraavile;;
