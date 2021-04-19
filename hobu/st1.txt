@@ -8,3 +8,5 @@
 4;A;Üleminek keskmisele sammule;1;Ülemineku sujuvus ja tasakaal.
 5;FE;Suunamuutus keskmisel sammul;1;Sammu aktiivsus, otsesus, kontakt
 6;Pärast E;2-3 m pärast E üleminek töötraavile;1;Ülemineku sujuvus, sammu aktiivsus
+7;[E] HCMBFA;Jätkata rajal töötraavis;1;Ülemineku sujuvus, traavi energia.
+7;;;;Töögalopi tasakaal.
