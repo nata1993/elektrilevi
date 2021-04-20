@@ -8,3 +8,5 @@
 3;AK;Töötraav;;tasakaal. Traavi energia
 4;KXM;Diagonaal töötraavis;1;Otsesus, täpsus, traavi rütm ja
 4;MC;Töötraav;;energia
+5;C;Ring vasakule 20 m töötraavis;1;Ringi suurus ja kuju, kontakt, paine ja
+5;;;;tasakaal. Traavi energia.
