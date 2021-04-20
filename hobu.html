@@ -88,7 +88,7 @@ body {
     //        cCell = document.createElement("td");
             cRow = document.createElement("tr");
             cRow.classList.add("sisu");
-            cRow.innerHTML = (rowspan[nr[i]]>0?"<TD rowspan=\""+rowspan[nr[i]]+"\">"+nr[i]+"</TD><TD>"+mark[i]+"</TD><TD>"+harjutus[i]+"</TD><TD rowspan=\""+rowspan[nr[i]]+"\">"+"<div class='hinne'>HINNE</div>"+"</TD><TD>"+koefitsent[i]+"</TD><TD>"+"LOPPHINNE"+"</TD><TD>"+direktiiv[i]+"</TD><TD>"+"KOMMENTAAR"+"</TD>":
+            cRow.innerHTML = (rowspan[nr[i]]>0?"<TD rowspan=\""+rowspan[nr[i]]+"\">"+nr[i]+"</TD><TD>"+mark[i]+"</TD><TD>"+harjutus[i]+"</TD><TD rowspan=\""+rowspan[nr[i]]+"\">"+"<div class='hinne'><INPUT TYPE='text' size=3></div>"+"</TD><TD>"+koefitsent[i]+"</TD><TD>"+"LOPPHINNE"+"</TD><TD>"+direktiiv[i]+"</TD><TD>"+"KOMMENTAAR"+"</TD>":
                               "<TD>"+mark[i]+"</TD><TD>"+harjutus[i]+"</TD><TD>"+koefitsent[i]+"</TD><TD>"+"LOPPHINNE"+"</TD><TD>"+direktiiv[i]+"</TD><TD>"+"KOMMENTAAR"+"</TD>");
             cRow.addEventListener("click", function(){
              alert(this.getElementsByClassName("hinne")[0].innerHTML);
