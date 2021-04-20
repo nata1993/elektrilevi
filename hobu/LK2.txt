@@ -1,0 +1,3 @@
+1;A;Sissesõit töötraavil;1;Traavi kvaliteet, peatus, üleminekud.
+1;X;Peatus, liikumatus, tervitus;;Otsesus. Kontakt ja kukla asend.
+1;XC;Töötraav;;
