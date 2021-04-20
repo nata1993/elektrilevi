@@ -50,3 +50,21 @@
 15;;20 x 40 man. jõuda rajale B ja M vahel;;
 15;;Jätkata rajal kontragalopis;;
 16;M;Jalavahetus õhus;1;Korrektsus, tasakaal, sujuvus, ülesmäge
+16;MC;Koondgalopp;;suundumus, otsesus. Galopi kvaliteet
+16;;;;enne ja pärast jalavahetust.
+17;CA;Serpentiin 3 aasast;1;Galopi kvaliteet, aasade korrektsus.
+17;;Jalavahetustega läbi sammu keskliini;;
+17;;ületades;;
+18;;1. jalavahetus läbi sammu paremale;1;Üleminekute sujuvus ja tasakaal, 3-5
+18;;;;korrektset sammu
+19;;2. jalavahetus läbi sammu vasakule;1;Üleminekute sujuvus ja tasakaal, 3-5
+19;;;;korrektset sammu
+20;AFB;Koondtraav;1;Sirutuse sujuvus, selja tõstmine,
+20;BE;Poolring 20 m täisistakus, kaela pika;;traavi kvaliteet. Poolringi täpsus.
+20;;ratsmega ette alla sirutades,;;Üleminek traavile.
+20;;kontakti, tasakaalu ja aktiivsust säilitades;;
+20;EKA;Koondtraav;;
+21;A;Keskliinile;1;Galopi kvaliteet, peatus ja
+21;X;Peatus, liikumatus, tervitus;;üleminekud. Otsesus. Kontakt ja kukla
+21;;;;asend;
+22;;Lahkumine väljakult läbi A pika ratsmega;;
