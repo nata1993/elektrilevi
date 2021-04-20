@@ -1,1 +1,16 @@
 1;A;Sissesõit koondgalopil;1;Alüüride kvaliteet, peatus ja
+1;X;Peatus, liikumatus, tervitus;;üleminekud. Otsesus. Kontakt ja kukla
+1;;Jätkata koondtraavis;;asend.
+1;XC;Koondtraav;;
+2;C;Sõiduga paremale;1;Traavi korrapärasus ja kvaliteet; paine
+2;MB;Koondtraav;;ja stabiilne paindenurk. Koondatus,
+2;BF;Õlad sees paremale;;tasakaal ja sujuvus.
+3;FD;Poolvolt paremale (10 m);2;Traavi korrapärasus ja kvaliteet,
+3;DB;Küljendus paremale;;ühtlane paine, koondatus, tasakaal,
+3;;20 x 40 man. jõuda rajale B ja M vahel;;sujuvus, ristsamm. Poolvoldi suurus ja
+3;MC;Koondtraav;;kuju.
+4;C;Peatus, taandamine 5 sammu;1;Peatuse tasakaal, otsesus, kontakt.
+4;CH;Jätkata koheselt koondtraavis;;Õige arv diagonaalseid samme.
+5;HE;Koondtraav;1;Traavi korrapärasus ja kvaliteet; paine
+5;EK;Õlad sees vasakule;;ja stabiilne paindenurk. Koondatus,
+5;;;;tasakaal ja sujuvus.
