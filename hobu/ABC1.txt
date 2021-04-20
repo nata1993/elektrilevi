@@ -10,3 +10,13 @@
 4;MC;Töötraav;;energia
 5;C;Ring vasakule 20 m töötraavis;1;Ringi suurus ja kuju, kontakt, paine ja
 5;;;;tasakaal. Traavi energia.
+6;C;Üleminek keskmisele sammule;1;Ülemineku sujuvus, sammu aktiivsus
+6;CH;Keskmine samm;;
+6;HB;Suunamuutus keskmises sammus;;
+7;Pärast B;Jätkata rajal töötraavis;1;Üleminekute sujuvus, töögalopi
+7;F ja K vahel;Üleminek galopile paremast jalast;1;tasakaal.
+7;KE;Töögalopp;1;
+8;E;Ring paremale 20 m töögalopis;1;Ringi suurus ja kuju, kontakt, paine ja
+8;;;;tasakaal.
+9;Enne E;Enne rajale jõudmist üleminek töötraavile;1;Ülemineku sujuvus, traavi energia.
+9;;Jätkata rajal töötraavis;;
