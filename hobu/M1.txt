@@ -14,3 +14,39 @@
 5;HE;Koondtraav;1;Traavi korrapärasus ja kvaliteet; paine
 5;EK;Õlad sees vasakule;;ja stabiilne paindenurk. Koondatus,
 5;;;;tasakaal ja sujuvus.
+6;KD;Poolvolt vasakule (10 m);2;Traavi korrapärasus ja kvaliteet,
+6;DE;Küljendus vasakule;;ühtlane paine, koondatus, tasakaal,
+6;;20 x 40 man. jõuda rajale E ja H vahel;;sujuvus, ristsamm. Poolvoldi suurus ja
+6;HCM;Koondtraav;;kuju.
+7;MXK;Keskmine traav;1;Korrapärasus, elastsus, tasakaal,
+7;KAF;Koondtraav;;tagaveerandite hõivatus, raami ja
+7;;;;sammude pikenemine. Üleminekud.
+7;;;;Koondatus
+8;FXH;Pikendatud traav;1;Korrapärasus, elastsus, tasakaal,
+8;HC;Koondtraav;;tagaveerandite hõivatus, raami ja
+8;;;;sammude pikenemine. Üleminekud.
+8;;;;Erinevus keskmisest traavist.
+9;CM;Keskmine samm;1;Korrapärasus, selja nõtkus, aktiivsus,
+9;;;;sammude ja raami pikenemine,
+9;;;;Õlavabadus. Üleminek sammule.
+10;ME;Pikendatud samm;2;Korrapärasus, selja nõtkus, aktiivsus,
+10;;;;jäljest üle astumine, Õlavabadus.
+10;;;;Sirutus ratsmesse.
+11;Pärast E;Üleminek koondgalopile vasakust jalast;1;Ülemineku täpsus, sujuvus ja otsesus,
+11;;Jätkata koondgalopis;;galopi kvaliteet
+12;KD;Poolvolt vasakule 10 m;2;Galopi kvaliteet.  Koondatus,
+12;DE;Küljendus vasakule;;tasakaal, ühtlane paine, sujuvus.
+12;;20 x 40 man. jõuda rajale E ja H vahel;;
+12;;Jätkata rajal kontragalopis;;
+13;H;Jalavahetus õhus;2;Korrektsus, tasakaal, sujuvus, ülesmäge
+13;HCM;Koondgalopp;;suundumus, otsesus. Galopi kvaliteet
+13;;;;enne ja pärast jalavahetust.
+14;MF;Pikendatud galopp;1;Galopi kvaliteet, Sammude ja raami
+14;Enne F;Koondgalopp;;pikenemine. Tasakaal, ülesmäge
+14;;;;suundumus, otsesus. Mõlemad
+14;;;;üleminekud.
+15;FD;Poolvolt vasakule 10 m;2;Galopi kvaliteet.  Koondatus,
+15;DB;Küljendus paremale;;tasakaal, ühtlane paine, sujuvus.
+15;;20 x 40 man. jõuda rajale B ja M vahel;;
+15;;Jätkata rajal kontragalopis;;
+16;M;Jalavahetus õhus;1;Korrektsus, tasakaal, sujuvus, ülesmäge
