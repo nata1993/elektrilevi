@@ -20,3 +20,19 @@
 8;;;;tasakaal.
 9;Enne E;Enne rajale jõudmist üleminek töötraavile;1;Ülemineku sujuvus, traavi energia.
 9;;Jätkata rajal töötraavis;;
+10;C;Üleminek keskmisele sammule;1;Üleminek, sammu aktiivsus
+10;CM;Keskmine samm;;
+10;ME;Suunamuutus keskmises sammus
+11;Pärast E;Jätkata rajal töötraavis;1;Üleminekute sujuvus, töögalopi
+11;K ja F vahel;Üleminek töögalopile vasakust jalast;1;tasakaal.
+11;FB;Töögalopp;;
+12;B;Ring vasakule 20 m töögalopis;1;Ring vasakule 20 m töögalopis
+12;;;;tasakaal.
+13;Enne B;Enne rajale jõudmist üleminek töötraavile;1;Ülemineku sujuvus.
+13;;Jätkata rajal töötraavis;;
+14;CHEXBFA;Töötraav, lubatud nurki lõigata;1;Traavi energia, tasakaal, õige asetus;
+14;;;;pööretes.;
+15;A;Keskliinile;1;Sujuvus, peatus, üleminekud.
+15;X;Peatus (lubatud läbi 2-4 sammu),;;Otsesus. Kontakt.
+15;;liikumatus, tervitus;;
+16;;Lahkumine väljakult läbi A pika ratsmega
