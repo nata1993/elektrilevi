@@ -22,7 +22,7 @@
 9;;Jätkata rajal töötraavis;;
 10;C;Üleminek keskmisele sammule;1;Üleminek, sammu aktiivsus
 10;CM;Keskmine samm;;
-10;ME;Suunamuutus keskmises sammus
+10;ME;Suunamuutus keskmises sammus;;
 11;Pärast E;Jätkata rajal töötraavis;1;Üleminekute sujuvus, töögalopi
 11;K ja F vahel;Üleminek töögalopile vasakust jalast;1;tasakaal.
 11;FB;Töögalopp;;
