@@ -1,3 +1,43 @@
 1;A;Sissesõit töötraavil;1;Traavi kvaliteet, peatus, üleminekud.
 1;X;Peatus, liikumatus, tervitus;;Otsesus. Kontakt ja kukla asend.
 1;XC;Töötraav;;
+2;C;Sõiduga vasakule;2;Sammude korrapärasus, tasakaal,
+2;HXF;Sammude venitamine diagonaalil;;hõivatus, maa-haaramine. Raami
+2;FAK;Töötraav;;pikenemine. Otsesus.
+3;K ja E vahel [V];Volt paremale (10 m);1;Traavi korrapärasus, tasakaal,
+3;;;;energia, paine, voldi suurus ja kuju.
+4;E;Pööre paremale;1;Traavi kvaliteet, tasakaal pööretel.
+4;B;Pööre vasakule;;
+5;B ja M vahel [R];Volt vasakule (10 m);1;Traavi korrapärasus, tasakaal,
+5;MCH;Töötraav;;energia, paine. Voldi suurus ja kuju.
+6;Enne H;Keskmine samm;1;Sammude korrapärasus, tasakaal,
+6;HX;Sääre eest astumine sammus;;hõivatus, maa-haaramine. Raami
+6;;;;pikenemine. Otsesus.
+7;XK;Sääre eest astumine sammus;1;Sammu aktiivsus, kontroll hobuse
+7;;;;ristsammu ja otsesuse üle, paine.
+7;;;;Üleminek sammule.
+8;KAF;Keskmine samm, näidata raami pikenemist,;2;Sammu  rütm, aktiivsus, selja nõtkus,
+8;;samas ratsmekontakti säilitades.;;maa-haaramine, kontakt.
+9;FK;Poolring keskmises sammus;2;Ülemineku sujuvus, tasakaal ja
+9;;Keskliini ületades üleminek töögalopile;;;otsesus
+9;KA;Töögalopp;;
+10,AF;Töögalopp;1;Kontragalopi kvaliteet, tasakaal ja
+10;FM;Aas kontragalopis, 5 m rajalt;;enesekandmine. Otsesus.
+10;MC;Töögalopp;;
+11;C;Keskliinile, töögalopp;2;Üleminekute sujuvus ja tasakaal.
+11;X;Jalavahetus läbi 3-4 traavisammu;;Otsesus keskliinil, galopi kvaliteet.
+11;A;Sõiduga paremale, töögalopp;;
+12;KH;Aas kontragalopis, 5 m rajalt;1;Kontragalopi kvaliteet, tasakaal ja
+12;HCM;Töögalopp;;enesekandmine. Otsesus.
+13;MF;Sammude venitamine rajal;2;Galopi kvaliteet, sammude ja raami
+13;FA;Töögalopp;;pikenemine. Tasakaal, ülesmäge
+13;;;;suundumus, otsesus. Üleminekud.
+14;A;Üleminek töötraavile;2;Tasakaal, sirutus, kontakti säilimine,
+14;AK;Töötraav;;ringi suurus ja kuju, ratsmete tagasi
+14;KF;Pooling 20 m, kergendades, lastes hobusel;;võtmine. Üleminek traavile.
+14;;ette alla sirutada, ratset pikendades;;
+14;Enne F;Ratsmed lühendada;;
+14;FA;Töötraav;;
+15;A;Keskliinile;1;Traavi kvaliteet, peatus, üleminekud.
+15;X;Peatus, liikumatus, tervitus;;Otsesus. Kontakt ja kukla asend.
+16;;Lahkumine väljakult läbi A pika ratsmega;1;
