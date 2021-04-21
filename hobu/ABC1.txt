@@ -35,4 +35,3 @@
 15;A;Keskliinile;1;Sujuvus, peatus, üleminekud.
 15;X;Peatus (lubatud läbi 2-4 sammu),;;Otsesus. Kontakt.
 15;;liikumatus, tervitus;;
-16;;Lahkumine väljakult läbi A pika ratsmega;;
