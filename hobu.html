@@ -68,7 +68,7 @@ body {
    return ret;
  }; // csvToArray
 
- function addNewClass(elem){ alert("KLASS"+elem) ; elem.className="newClass"; }
+
   
  function insertTable(data) {
 //        var rows = data.split(/\s+/);       var rows = data.split("\n");
@@ -76,6 +76,8 @@ body {
         var rows = csvToArray(data);
         var rowNum,reanr=1,ridu=0;
         var cells;   //        var cellNum;
+   function addNewClass(elem){ alert("KLASS"+elem) ; elem.className="newClass"; }
+  
          for (rowNum = 0; rowNum < rows.length-1; ++rowNum) {
           cells = rows[rowNum][0].split(";") ;       
           nr.push(cells[0]);mark.push(cells[1]);harjutus.push(cells[2]);koefitsent.push(cells[3]);direktiiv.push(cells[4]);
@@ -93,7 +95,7 @@ body {
             cRow.innerHTML = (rowspan[nr[i]]>0?"<TD rowspan=\""+rowspan[nr[i]]+"\">"+nr[i]+"</TD><TD>"+mark[i]+"</TD><TD>"+harjutus[i]+"</TD><TD rowspan=\""+rowspan[nr[i]]+"\">"+"<INPUT class='hind' id='hinne' TYPE='text' size='3' onchange='addNewClass(this)'>"+"</TD><TD>"+koefitsent[i]+"</TD><TD>"+"LOPPHINNE"+"</TD><TD>"+direktiiv[i]+"</TD><TD>"+"KOMMENTAAR"+"</TD>":
                               "<TD>"+mark[i]+"</TD><TD>"+harjutus[i]+"</TD><TD>"+koefitsent[i]+"</TD><TD>"+"LOPPHINNE"+"</TD><TD>"+direktiiv[i]+"</TD><TD>"+"KOMMENTAAR"+"</TD>");
             cRow.addEventListener("click", function(){
-             alert(this.getElementsByClassName("hinne")[0]);
+             alert(this.getElementsByClassName("hinne"));
              });
             rowspan[nr[i]]=0;
 //                  cRow.appendChild(cCell);
