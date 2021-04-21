@@ -67,4 +67,3 @@
 21;A;Keskliinile;1;Galopi kvaliteet, peatus ja
 21;X;Peatus, liikumatus, tervitus;;üleminekud. Otsesus. Kontakt ja kukla
 21;;;;asend;
-22;;Lahkumine väljakult läbi A pika ratsmega;;
