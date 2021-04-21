@@ -21,4 +21,3 @@
 11;;;;energia. Otsesus keskliinil.
 12;X;Peatus (lubatud läbi 2-4 sammu),;1;Sujuvus, peatus, üleminekud. Otsesus.
 12;;liikumatus, tervitus;;Kontakt.
-13;;Lahkumine väljakult läbi A pika ratsmega;1;;
