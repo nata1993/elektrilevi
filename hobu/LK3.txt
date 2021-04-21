@@ -6,3 +6,8 @@
 3;X;Volt vasakule (10 m);;Traavi korrapärasus, tasakaal,
 3;;;;energia, paine, voldi suurus ja kuju.
 4;X;Peatus 5 sek;1;Peatuse tasakaal, kontakt,
+4;;Jätkata töötraavis;;üleminekud.
+5;X;Volt paremale (10 m);1;Traavi korrapärasus, tasakaal,
+5;;;;energia, paine, voldi suurus ja kuju.
+6;XBFA;Töötraav;1;Traavi kvaliteet, paine ja tasakaal
+6;;;;pööretel.
