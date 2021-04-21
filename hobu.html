@@ -100,7 +100,10 @@ body {
     cTable.appendChild(cRow);
 
            } // for i to total
-      cTable.appendChild(cRow);
+       cRow = document.createElement("tr");
+       cRow.classList.add("lopp");
+       cRow.innerHTML = ("<TD></TD><TD>Lahkumine väljakult läbi A pika ratsmega</TD><TD></TD><TD></TD><TD></TD>");
+       cTable.appendChild(cRow);
 
          
   //          display(rowNum + " : " + cells[1] + " -    " + cells[2]);
