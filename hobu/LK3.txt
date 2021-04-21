@@ -1,0 +1,8 @@
+1;A;Sissesõit töötraavil;1;Traavi kvaliteet, peatus, üleminekud.
+1;X;Peatus, liikumatus, tervitus;;Otsesus. Kontakt ja kukla asend.
+1;XC;Töötraav;;
+2;C;Sõiduga vasakule;1;Sammude korrapärasus, tasakaal,
+2;CHE;Töötraav;;hõivatus.
+3;X;Volt vasakule (10 m);;Traavi korrapärasus, tasakaal,
+3;;;;energia, paine, voldi suurus ja kuju.
+4;X;Peatus 5 sek;1;Peatuse tasakaal, kontakt,
