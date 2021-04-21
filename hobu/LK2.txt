@@ -40,4 +40,3 @@
 14;FA;Töötraav;;
 15;A;Keskliinile;1;Traavi kvaliteet, peatus, üleminekud.
 15;X;Peatus, liikumatus, tervitus;;Otsesus. Kontakt ja kukla asend.
-16;;Lahkumine väljakult läbi A pika ratsmega;1;
