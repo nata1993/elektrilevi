@@ -93,7 +93,7 @@ body {
             cRow.innerHTML = (rowspan[nr[i]]>0?"<TD rowspan=\""+rowspan[nr[i]]+"\">"+nr[i]+"</TD><TD>"+mark[i]+"</TD><TD>"+harjutus[i]+"</TD><TD rowspan=\""+rowspan[nr[i]]+"\">"+"<INPUT class='hinne' TYPE='text' size='3' MAXLENGTH='3'>"+"</TD><TD>"+koefitsent[i]+"</TD><TD><div class='lopphinne'>LOPPHINNE</div></TD><TD>"+direktiiv[i]+"</TD><TD>"+"KOMMENTAAR"+"</TD>":
                               "<TD>"+mark[i]+"</TD><TD>"+harjutus[i]+"</TD><TD>"+koefitsent[i]+"</TD><TD>"+"LOPPHINNE"+"</TD><TD>"+direktiiv[i]+"</TD><TD>"+"KOMMENTAAR"+"</TD>");
             cRow.addEventListener("change", function(){
-             alert(this.getElementsByClassName("lopphinne")[0].value + " " +this.getElementsByClassName("hinne")[0].value+" "+koefitsent[i]);
+             alert(this.getElementsByClassName("lopphinne")[0].value = this.getElementsByClassName("hinne")[0].value);
              });
             rowspan[nr[i]]=0;
 //                  cRow.appendChild(cCell);
