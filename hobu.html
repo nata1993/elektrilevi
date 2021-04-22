@@ -87,17 +87,24 @@ body {
  //         alert("NR " + rowspan[1] + " "+ rowspan[2] + " " +  rowspan[3]);
 
            for (var i=0; i<total; i++) {
-            cCell = document.createElement("td");
-            cCell.rowspan=rowspan[nr[i]] ;
-            cCell.classList.add("hinne");
+//            cCell = document.createElement("td");
+//            cCell.rowspan=rowspan[nr[i]] ;
+//            cCell.classList.add("hinne");
 //            cCell.innerHTML="<INPUT class='hinne' TYPE='text' size='3' MAXLENGTH='3'>" ;
-            cCell.innerHTML="<INPUT TYPE='text' size='3' MAXLENGTH='3'>" ;
+//            cCell.innerHTML="<INPUT TYPE='text' size='3' MAXLENGTH='3'>" ;
             cRow = document.createElement("tr");
             cRow.classList.add("sisu");
-            cRow.appendChild(cCell);
+//            cRow.appendChild(cCell);
 //            cRow.innerHTML = (rowspan[nr[i]]>0?"<TD rowspan=\""+rowspan[nr[i]]+"\">"+nr[i]+"</TD><TD>"+mark[i]+"</TD><TD>"+harjutus[i]+"</TD><TD rowspan=\""+rowspan[nr[i]]+"\">"+"<INPUT class='hinne' TYPE='text' size='3' MAXLENGTH='3'>"+"</TD><TD><DIV class='koef'>"+koefitsent[i]+"</DIV></TD><TD><div class='lopphinne'>LOPPHINNE</div></TD><TD>"+direktiiv[i]+"</TD><TD rowspan=\""+rowspan[nr[i]]+"\"><TEXTAREA rows=\""+rowspan[nr[i]]+"\">KOMMENTAAR</TEXTAREA></TD>":
-            cRow.innerHTML = (rowspan[nr[i]]>0?"<TD rowspan=\""+rowspan[nr[i]]+"\">"+nr[i]+"</TD><TD>"+mark[i]+"</TD><TD>"+harjutus[i]+"</TD>"+"<TD><DIV class='koef'>"+koefitsent[i]+"</DIV></TD><TD><div class='lopphinne'>LOPPHINNE</div></TD><TD>"+direktiiv[i]+"</TD><TD rowspan=\""+rowspan[nr[i]]+"\"><TEXTAREA rows=\""+rowspan[nr[i]]+"\">KOMMENTAAR</TEXTAREA></TD>":
+            cRow.innerHTML = (rowspan[nr[i]]>0?"<TD rowspan=\""+rowspan[nr[i]]+"\">"+nr[i]+"</TD><TD>"+mark[i]+"</TD><TD>"+harjutus[i]+"</TD><div id='hinne'></div><TD><DIV class='koef'>"+koefitsent[i]+"</DIV></TD><TD><div class='lopphinne'>LOPPHINNE</div></TD><TD>"+direktiiv[i]+"</TD><TD rowspan=\""+rowspan[nr[i]]+"\"><TEXTAREA rows=\""+rowspan[nr[i]]+"\">KOMMENTAAR</TEXTAREA></TD>":
                               "<TD>"+mark[i]+"</TD><TD>"+harjutus[i]+"</TD><TD>"+koefitsent[i]+"</TD><TD>"+""+"</TD><TD>"+direktiiv[i]+"</TD>");
+            var cHinne = document.getElementById("hinne"),
+             cHinne.innerHTML = "";
+             cHinne = document.createElement("td");
+             cHinne.rowspan=rowspan[nr[i]] ;
+             cHinne.innerHTML="<INPUT TYPE='text' size='3' MAXLENGTH='3'>" ;
+             cRow.appendChild(cHinne);
+
             cRow.addEventListener("change", function(){
              alert(this.getElementsByClassName("lopphinne")[0].innerHTML = this.getElementsByClassName("hinne")[0].value * this.getElementsByClassName("koef")[0].innerHTML);
              });
