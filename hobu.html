@@ -95,7 +95,7 @@ body {
             cRow = document.createElement("tr");
             cRow.classList.add("sisu");
 //            cRow.innerHTML = (rowspan[nr[i]]>0?"<TD rowspan=\""+rowspan[nr[i]]+"\">"+nr[i]+"</TD><TD>"+mark[i]+"</TD><TD>"+harjutus[i]+"</TD><TD rowspan=\""+rowspan[nr[i]]+"\">"+"<INPUT class='hinne' TYPE='text' size='3' MAXLENGTH='3'>"+"</TD><TD><DIV class='koef'>"+koefitsent[i]+"</DIV></TD><TD><div class='lopphinne'>LOPPHINNE</div></TD><TD>"+direktiiv[i]+"</TD><TD rowspan=\""+rowspan[nr[i]]+"\"><TEXTAREA rows=\""+rowspan[nr[i]]+"\">KOMMENTAAR</TEXTAREA></TD>":
-            cRow.innerHTML = (rowspan[nr[i]]>0?"<TD rowspan=\""+rowspan[nr[i]]+"\">"+nr[i]+"</TD><TD>"+mark[i]+"</TD><TD>"+harjutus[i]+"</TD>"+cCell+"<TD><DIV class='koef'>"+koefitsent[i]+"</DIV></TD><TD><div class='lopphinne'>LOPPHINNE</div></TD><TD>"+direktiiv[i]+"</TD><TD rowspan=\""+rowspan[nr[i]]+"\"><TEXTAREA rows=\""+rowspan[nr[i]]+"\">KOMMENTAAR</TEXTAREA></TD>":
+            cRow.innerHTML = (rowspan[nr[i]]>0?"<TD rowspan=\""+rowspan[nr[i]]+"\">"+nr[i]+"</TD><TD>"+mark[i]+"</TD><TD>"+harjutus[i]+"</TD>"+cCell.innerHTML+"<TD><DIV class='koef'>"+koefitsent[i]+"</DIV></TD><TD><div class='lopphinne'>LOPPHINNE</div></TD><TD>"+direktiiv[i]+"</TD><TD rowspan=\""+rowspan[nr[i]]+"\"><TEXTAREA rows=\""+rowspan[nr[i]]+"\">KOMMENTAAR</TEXTAREA></TD>":
                               "<TD>"+mark[i]+"</TD><TD>"+harjutus[i]+"</TD><TD>"+koefitsent[i]+"</TD><TD>"+""+"</TD><TD>"+direktiiv[i]+"</TD>");
             cRow.addEventListener("change", function(){
              alert(this.getElementsByClassName("lopphinne")[0].innerHTML = this.getElementsByClassName("hinne")[0].value * this.getElementsByClassName("koef")[0].innerHTML);
