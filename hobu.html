@@ -98,7 +98,7 @@ body {
 //            cRow.innerHTML = (rowspan[nr[i]]>0?"<TD rowspan=\""+rowspan[nr[i]]+"\">"+nr[i]+"</TD><TD>"+mark[i]+"</TD><TD>"+harjutus[i]+"</TD><TD rowspan=\""+rowspan[nr[i]]+"\">"+"<INPUT class='hinne' TYPE='text' size='3' MAXLENGTH='3'>"+"</TD><TD><DIV class='koef'>"+koefitsent[i]+"</DIV></TD><TD><div class='lopphinne'>LOPPHINNE</div></TD><TD>"+direktiiv[i]+"</TD><TD rowspan=\""+rowspan[nr[i]]+"\"><TEXTAREA rows=\""+rowspan[nr[i]]+"\">KOMMENTAAR</TEXTAREA></TD>":
             cRow.innerHTML = (rowspan[nr[i]]>0?"<TD rowspan=\""+rowspan[nr[i]]+"\">"+nr[i]+"</TD><TD>"+mark[i]+"</TD><TD>"+harjutus[i]+"</TD><div id='hinne'></div><TD><DIV class='koef'>"+koefitsent[i]+"</DIV></TD><TD><div class='lopphinne'>LOPPHINNE</div></TD><TD>"+direktiiv[i]+"</TD><TD rowspan=\""+rowspan[nr[i]]+"\"><TEXTAREA rows=\""+rowspan[nr[i]]+"\">KOMMENTAAR</TEXTAREA></TD>":
                               "<TD>"+mark[i]+"</TD><TD>"+harjutus[i]+"</TD><TD>"+koefitsent[i]+"</TD><TD>"+""+"</TD><TD>"+direktiiv[i]+"</TD>");
-            var cHinne = document.getElementById("hinne"),
+            var cHinne = document.getElementById("hinne");
              cHinne.innerHTML = "";
              cHinne = document.createElement("td");
              cHinne.rowspan=rowspan[nr[i]] ;
