@@ -103,7 +103,7 @@ body {
              });
             rowspan[nr[i]]=0;
             cTable.appendChild(cRow);            
-            cRow.getElementsByClassName("hinne")[0]=cCell;
+            cRow.getElementsByClassName("hinne")[0].innerHTML=cCell.innerHTML;
 //            cHinne.appendChild(cCell);            
            } // for i to total
        cRow = document.createElement("tr");
