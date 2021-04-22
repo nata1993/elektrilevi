@@ -87,11 +87,10 @@ body {
  //         alert("NR " + rowspan[1] + " "+ rowspan[2] + " " +  rowspan[3]);
 
            for (var i=0; i<total; i++) {
-//            cCell = document.createElement("td");
-//            cCell.rowspan=rowspan[nr[i]] ;
+            cCell = document.createElement("td");
+            cCell.rowspan=rowspan[nr[i]] ;
 //            cCell.classList.add("hinne");
-//            cCell.innerHTML="<INPUT class='hinne' TYPE='text' size='3' MAXLENGTH='3'>" ;
-//            cCell.innerHTML="<INPUT TYPE='text' size='3' MAXLENGTH='3'>" ;
+            cCell.innerHTML="<INPUT TYPE='text' size='3' MAXLENGTH='3'>" ;
             cRow = document.createElement("tr");
             cRow.classList.add("sisu");
 //            cRow.appendChild(cCell);
@@ -102,14 +101,10 @@ body {
             cRow.addEventListener("change", function(){
              alert(this.getElementsByClassName("lopphinne")[0].innerHTML = this.getElementsByClassName("hinne")[0].value * this.getElementsByClassName("koef")[0].innerHTML);
              });
+            rowspan[nr[i]]=0;
             cTable.appendChild(cRow);            
             cHinne = document.getElementById("hinne");
-            cHinne.innerHTML = "";
-            cCell = document.createElement("td");
-            cCell.rowspan=rowspan[nr[i]] ;
-            cCell.innerHTML="<INPUT TYPE='text' size='3' MAXLENGTH='3'>" ;
             cHinne.appendChild(cCell);            
-            rowspan[nr[i]]=0;
            } // for i to total
        cRow = document.createElement("tr");
        cRow.classList.add("lopp");
