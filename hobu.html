@@ -98,12 +98,6 @@ body {
 //            cRow.innerHTML = (rowspan[nr[i]]>0?"<TD rowspan=\""+rowspan[nr[i]]+"\">"+nr[i]+"</TD><TD>"+mark[i]+"</TD><TD>"+harjutus[i]+"</TD><TD rowspan=\""+rowspan[nr[i]]+"\">"+"<INPUT class='hinne' TYPE='text' size='3' MAXLENGTH='3'>"+"</TD><TD><DIV class='koef'>"+koefitsent[i]+"</DIV></TD><TD><div class='lopphinne'>LOPPHINNE</div></TD><TD>"+direktiiv[i]+"</TD><TD rowspan=\""+rowspan[nr[i]]+"\"><TEXTAREA rows=\""+rowspan[nr[i]]+"\">KOMMENTAAR</TEXTAREA></TD>":
             cRow.innerHTML = (rowspan[nr[i]]>0?"<TD rowspan=\""+rowspan[nr[i]]+"\">"+nr[i]+"</TD><TD>"+mark[i]+"</TD><TD>"+harjutus[i]+"</TD><div id='hinne'></div><TD><DIV class='koef'>"+koefitsent[i]+"</DIV></TD><TD><div class='lopphinne'>LOPPHINNE</div></TD><TD>"+direktiiv[i]+"</TD><TD rowspan=\""+rowspan[nr[i]]+"\"><TEXTAREA rows=\""+rowspan[nr[i]]+"\">KOMMENTAAR</TEXTAREA></TD>":
                               "<TD>"+mark[i]+"</TD><TD>"+harjutus[i]+"</TD><TD>"+koefitsent[i]+"</TD><TD>"+""+"</TD><TD>"+direktiiv[i]+"</TD>");
-            cHinne = document.getElementById("hinne");
-            cHinne.innerHTML = "";
-            cCell = document.createElement("td");
-            cCell.rowspan=rowspan[nr[i]] ;
-            cCell.innerHTML="<INPUT TYPE='text' size='3' MAXLENGTH='3'>" ;
-            cHinne.appendChild(cCell);
 
             cRow.addEventListener("change", function(){
              alert(this.getElementsByClassName("lopphinne")[0].innerHTML = this.getElementsByClassName("hinne")[0].value * this.getElementsByClassName("koef")[0].innerHTML);
@@ -111,6 +105,13 @@ body {
             rowspan[nr[i]]=0;
 //                  cRow.appendChild(cCell);
     cTable.appendChild(cRow);
+            
+            cHinne = document.getElementById("hinne");
+            cHinne.innerHTML = "";
+            cCell = document.createElement("td");
+            cCell.rowspan=rowspan[nr[i]] ;
+            cCell.innerHTML="<INPUT TYPE='text' size='3' MAXLENGTH='3'>" ;
+            cHinne.appendChild(cCell);
 
            } // for i to total
        cRow = document.createElement("tr");
