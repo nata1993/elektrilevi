@@ -11,3 +11,48 @@
 5;;;;energia, paine, voldi suurus ja kuju.
 6;XBFA;Töötraav;1;Traavi kvaliteet, paine ja tasakaal
 6;;;;pööretel.
+7;A;Keskliinile, hobune otseks;2;Traavi aktiivsus, kontroll hobuse
+7;DE;Sääre eest astumine vasakule;;ristsammu ja otsesuse üle, paine.
+7;;20 x 40 man. jõudes rajale E ja H vahel  [S];;
+7;;Jätkata rajal töötraavis
+8;C;Ring 20 m töötraavis;2;Traavi kvaliteet. Raami ja
+8;;Keskliini ületades 3 sammuks ratse ette;;enesekandmise säilimine.
+8;;anda;;
+8;CM;Töötraav;;
+9;MXK;Keskmine traav;1;Sammude korrapärasus, tasakaal,
+9;KA;Töötraav;;hõivatus, maa-haaramine. Raami
+9;;;;pikenemine. Otsesus.
+10;A;Keskliinile, hobune otseks;2;Traavi aktiivsus, kontroll hobuse
+10;DB;Sääre eest astumine paremale;;ristsammu ja otsesuse üle, paine.
+10;;20 x 40 man. jõudes rajale B ja M vahel  [R];;
+10;;Jätkata rajal töötraavis;;
+11;C;Ring 20 m, kergendades, lastes hobusel;2;Tasakaal, sirutus, kontakti säilimine,
+11;;ette alla sirutada, ratset pikendades;;ringi suurus ja kuju, ratsmete tagasi
+11;Enne C;Ratsmed lühendada;;võtmine. Üleminek traavile.
+12;C;Üleminek keskmisele sammule;2;Üleminek sammule. Sammu aktiivsus,
+12;CH;Keskmine samm;;selja nõtkus, maa-haaramine, kaela
+12;HB;Vaba samm;;vabadus ja ette-alla sirutus.
+13;B [F];Keskmine samm;1;Sammu aktiivsus, otsesus, kontakt.
+13;Enne F;Üleminek töögalopile;;;Ratsmete võtmine. Ülemineku
+13;;;;sujuvus ja tasakaal.
+14;FD;Poolring paremale töögalopis 10 m;1;Galopi kvaliteet, tasakaal ja
+14;;Tagasisõiduga rajale B-s;;enesekandmine. Paine, poolvoldi suurus
+14;BM;Kontragalopp;;ja kuju. Tasakaal kontragalopis.
+15;M;Üleminek sammule;1;Ülemineku ja sammu kvaliteet.
+15;MC;Keskmine samm;;Otsesus.
+16;C;Üleminek töögalopile vasakust jalast;1;Ülemineku sujuvus ja otsesus.
+16;CH;Töögalopp;;
+17;HE [K];Keskmine galopp;1;Galopi kvaliteet, sammude ja raami
+17;Enne K;Töögalopp;;pikenemine. Tasakaal, ülesmäge
+17;;;;suundumus, otsesus. Üleminekud.
+18;KD;Poolring vasakule töögalopis 10 m;1;Galopi kvaliteet, tasakaal ja otsesus.
+18;;Tagasisõiduga rajale E-s;;
+18;EH;Kontragalopp;;
+19;H;Üleminek sammule;1;Ülemineku ja sammu kvaliteet.
+19;HC;Keskmine samm;;Otsesus.
+20;C;Üleminek töögalopile paremast jalast;1;Ülemineku sujuvus, galopi kvaliteet.
+20;CMBX;Töögalopp;;
+21;X;Üleminek töötraavile;1;Ülemineku sujuvus ja tasakaal. Traavi
+21;XEKA;Töötraav;;kvaliteet.
+22;A;Keskliinile;1;Traavi kvaliteet, peatus, üleminekud.
+23;X;Peatus, liikumatus, tervitus;;Otsesus. Kontakt ja kukla asend.
