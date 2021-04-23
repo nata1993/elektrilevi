@@ -14,7 +14,7 @@
 7;A;Keskliinile, hobune otseks;2;Traavi aktiivsus, kontroll hobuse
 7;DE;Sääre eest astumine vasakule;;ristsammu ja otsesuse üle, paine.
 7;;20 x 40 man. jõudes rajale E ja H vahel  [S];;
-7;;Jätkata rajal töötraavis
+7;;Jätkata rajal töötraavis;;
 8;C;Ring 20 m töötraavis;2;Traavi kvaliteet. Raami ja
 8;;Keskliini ületades 3 sammuks ratse ette;;enesekandmise säilimine.
 8;;anda;;
