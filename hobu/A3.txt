@@ -1,0 +1,9 @@
+1;A;Sissesõit töötraavil;1;Traavi kvaliteet, peatus, üleminekud.
+1;X;Peatus, liikumatus, tervitus;;Otsesus. Kontakt ja kukla asend.
+1;;Jätkata töötraavil;;
+1;XC;Töötraav;;
+2;C;Sõiduga paremale;1;Traavi korrapärasus, tasakaal,
+2;CMB;Töötraav;;energia. Poolringi täpsus.
+2;BX;Poolring paremale 10 m;;
+2;;Tagasisõiduga rajale M-s;;
+2;MC;Töötraav;;
