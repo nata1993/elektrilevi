@@ -75,7 +75,7 @@ var cal = {
       else {
         cCell.innerHTML = "<div class='dd'>"+squares[i]+"</div>";
         cCell.addEventListener("click", function(){
-          alert(this.getElementsByClassName("dd")[0].innerHTML);
+          return this.getElementsByClassName("dd")[0].innerHTML;
         });
       }
       cRow.appendChild(cCell);
@@ -118,6 +118,6 @@ window.addEventListener("load", function () {
   }
 
   // (G4) START - DRAW CALENDAR
-//  document.getElementById("cal-set").addEventListener("click", cal.list);
+  document.getElementById("cal-set").addEventListener("click", cal.list);
  cal.list();
 });
