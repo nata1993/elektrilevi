@@ -93,6 +93,7 @@ function readFile(input) {
       xhr.onreadystatechange = handleStateChange;
       var utc = new Date().toJSON().slice(0,10);
 //      document.write(utc);
+      alert ( kp ) ;
       xhr.open("GET", "https://dashboard.elering.ee/api/nps/price/csv?start="+utc+"T21:00:00.000Z&end=2021-04-15T20:59:59.999Z&fields=ee");
       xhr.send();   //      display("Request sent");
       
