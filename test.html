@@ -93,7 +93,8 @@ function readFile(input) {
      function kuva() {
       var xhr = new XMLHttpRequest();
       xhr.onreadystatechange = handleStateChange;
-      var utc = new Date().toJSON().slice(0,10);
+//      var utc = new Date().toJSON().slice(0,10);
+      var yesterday = new Date(Date(kp)).valueOf()-1000*60*60*24);
 //      document.write(utc);
       alert ( utc + " " + kp ) ;
       xhr.open("GET", "https://dashboard.elering.ee/api/nps/price/csv?start="+utc+"T21:00:00.000Z&end="+utc+"T20:59:59.999Z&fields=ee");
