@@ -118,7 +118,6 @@ window.addEventListener("load", function () {
   }
 
   // (G4) START - DRAW CALENDAR
-  document.getElementById("cal-set").addEventListener("click", cal.list);
-//  alert(cal.sYear);
+//  document.getElementById("cal-set").addEventListener("click", cal.list);
  cal.list();
 });
