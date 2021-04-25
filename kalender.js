@@ -74,8 +74,8 @@ var cal = {
       if (squares[i]=="b") { cCell.classList.add("blank"); }
       else {
         cCell.innerHTML = "<div class='dd'>"+squares[i]+"</div>";
-        cCell.addEventListener("click", KP(){
-          return(this.getElementsByClassName("dd")[0].innerHTML);
+        cCell.addEventListener("click", function(){
+          alert(this.getElementsByClassName("dd")[0].innerHTML);
         });
       }
       cRow.appendChild(cCell);
