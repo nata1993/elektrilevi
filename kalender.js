@@ -76,7 +76,7 @@ var cal = {
       else {
         cCell.innerHTML = "<div class='dd'>"+squares[i]+"</div>";
         cCell.addEventListener("click", function vaartus(){
-          var vaeg = Date(cal.sYear,cal.mNr[cal.sMth],this.getElementsByClassName("dd")[0].innerHTML);
+          var vaeg = new Date(cal.sYear,cal.mNr[cal.sMth],this.getElementsByClassName("dd")[0].innerHTML);
           kp = vaeg.toDateString() ; // .toUTCString ;
           alert ( vaeg + "KP" + kp ) ;
         });
