@@ -1,7 +1,6 @@
 var cal = {
   // (A) PROPERTIES
   mName : ["Jaan", "Veeb", "Märts", "Apr", "Mai", "Juuni", "Juuli", "Aug", "Sep", "Okt", "Nov", "Dets"], // Month Names
-  mNr : [ "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"] ,
   data : null, // Events for the selected period
   sDay : 14, // Current selected day
   sMth : 3, // Current selected month
@@ -75,10 +74,10 @@ var cal = {
       if (squares[i]=="b") { cCell.classList.add("blank"); }
       else {
         cCell.innerHTML = "<div class='dd'>"+squares[i]+"</div>";
-        cCell.addEventListener("click", function vaartus(){
+        cCell.addEventListener("click", function (){
           var vaeg = new Date(cal.sYear,cal.sMth,this.getElementsByClassName("dd")[0].innerHTML);
-                kp = vaeg.getTime() ; // .toUTCString ;
-  //        alert ( vaeg + " KP " + "kp" ) ;
+          kp = vaeg.getTime() ;
+          this.getElementsByClassName("cal-day")[0].innerHTML = this.getElementsByClassName("dd")[0].innerHTML ;
         });
       }
       cRow.appendChild(cCell);
