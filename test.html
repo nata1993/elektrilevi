@@ -59,7 +59,7 @@ body {
  
 </style>
  <script>
-     var kp= new Date() ;
+     var kp= 0 ;  //new Date() ;
  </script>
  <script src="chartist.js"></script>
  <script language="javascript" type="text/javascript" src="kalender.js"></script>
@@ -94,7 +94,7 @@ function readFile(input) {
       var xhr = new XMLHttpRequest();
       xhr.onreadystatechange = handleStateChange;
 //      var utc = new Date().toJSON().slice(0,10);
-      var yesterday = new Date(Date(kp).valueOf()-1000*60*60*24);
+      var yesterday = new Date(kp-1000*60*60*24);
 //      document.write(utc);
       alert ( yesterday + " " + kp + " " + Date(kp).getTime() ) ;
   //    xhr.open("GET", "https://dashboard.elering.ee/api/nps/price/csv?start="+ yesterday +"T21:00:00.000Z&end="+kp+"T20:59:59.999Z&fields=ee");
