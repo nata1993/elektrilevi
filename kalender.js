@@ -77,7 +77,7 @@ var cal = {
         cCell.addEventListener("click", function (){
           var vaeg = new Date(cal.sYear,cal.sMth,this.getElementsByClassName("dd")[0].innerHTML);
           kp = vaeg.getTime() ;
-          this.getElementsByClassName("cal-day")[0].innerHTML = this.getElementsByClassName("dd")[0].innerHTML ;
+          this.getElementById"cal-day")[0].innerHTML = this.getElementsByClassName("dd")[0].innerHTML ;
         });
       }
       cRow.appendChild(cCell);
