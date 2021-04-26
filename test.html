@@ -95,7 +95,7 @@ function readFile(input) {
       xhr.onreadystatechange = handleStateChange;
      var utc = new Date().toJSON().slice(0,10);
       var yesterday = new Date(kp-1000*3600*24);
-      alert ( yesterday.parse("yyyy-MM-dd") + " " + kp + " " + Date(kp) + " UTC ", utc ) ;
+      alert ( Date.parse(yesterday) + " " + kp + " " + Date(kp) + " UTC ", utc ) ;
   //    xhr.open("GET", "https://dashboard.elering.ee/api/nps/price/csv?start="+ yesterday +"T21:00:00.000Z&end="+kp+"T20:59:59.999Z&fields=ee");
   //    xhr.send();   //      display("Request sent");
       
