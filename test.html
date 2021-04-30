@@ -119,11 +119,13 @@ function readFile(input) {
      new Chartist.Line('.ct-chart', data, {
        high: 80,
        low: 0,
+      showPoint: false,
+      lineSmooth: false,
        divisor:4,
        showArea: false,
        fullWidth: false,
-       chartPadding: {      right: 50      } //,
-      // series: {  'HIND': { lineSmooth: Chartist.Interpolation.step() } }
+   //    chartPadding: {      right: 50      } ,
+       series: {  'HIND': { lineSmooth: Chartist.Interpolation.step() } } // Näitab hind ühtlaselt tunni jooksul
       } );
  }
 
