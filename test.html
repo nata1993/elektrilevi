@@ -2,7 +2,7 @@
 <html lang="et-EE">
 <head>
  <TITLE>
-   Sobiva Elektrilevi paketi leidmine
+   Sobiva Elektri b&ouml;rsihinna leidmine
  </TITLE>
 <style>
 body {
@@ -120,8 +120,8 @@ function readFile(input) {
        high: 80,
        low: 0,
        divisor:4,
-       showArea: true,
-       fullWidth: true,
+       showArea: false,
+       fullWidth: false,
        chartPadding: {      right: 50      },
        series: {  'HIND': { lineSmooth: Chartist.Interpolation.step() } }
       } );
@@ -182,7 +182,7 @@ utc.push(cells[0]);aeg.push(cells[1].substr(-5,5));hind.push(cells[2].replace(",
   
   <input type="file" onchange="readFile(this)"> 
   <button id="download" type="button" onclick="kuva()" name="button">CSV</button>
-  <div class="ct-chart ct-perfect-fourth"></div>
+  <div class="ct-chart ct-square"></div>
   <div class="ct-chart-line ct-perfect-fourth"></div>
   <div class="ct-chart-bar ct-perfect-fourth"></div>
  </body>
