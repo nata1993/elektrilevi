@@ -115,7 +115,6 @@ function readFile(input) {
              var reads = xhr.responseText; 
              var rida = showData(reads);
            // return xhr.responseText ;
-           }
      var data = {
             labels:  rida.aeg ,
             series:  [ 
@@ -136,6 +135,8 @@ function readFile(input) {
    //    chartPadding: {      right: 50      } ,
        series: {  'HIND': { lineSmooth: Chartist.Interpolation.step() } } // Näitab hind ühtlaselt tunni jooksul
       } );
+        
+           }
  }
 
 function csvToArray(text) {
