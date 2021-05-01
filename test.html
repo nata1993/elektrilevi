@@ -95,7 +95,7 @@ body {
    var rows = csvToArray(msg);
    var rowNum;
    var cells;   //        var cellNum;
-      for (rowNum = 1; rowNum < rows.length-1 || rowNum < 10; ++rowNum) {
+      for (rowNum = 1; rowNum < rows.length-1 || rowNum > 10; ++rowNum) {
         p.innerHTML = rows[rowNum];
     document.body.appendChild(p);
  
@@ -113,7 +113,7 @@ function readFile(input) {
   reader.onload = function() {
     display(reader.result);
     alert(`File name: ${file.name}`);
-    console.log(reader.result);
+ //   console.log(reader.result);
   };
   reader.onerror = function() {
     console.log(reader.error);
