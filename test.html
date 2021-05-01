@@ -95,14 +95,14 @@ body {
    var rows = csvToArray(msg);
    var rowNum;
    var cells;   //        var cellNum;
-      for (rowNum = 1; rowNum < rows.length-1 && rowNum < 10; ++rowNum) {
+      for (rowNum = 1; rowNum < rows.length-1 && rowNum < 100; ++rowNum) {
         p.innerHTML = rows[rowNum];
     document.body.appendChild(p);
  alert ( rowNum ) ;
  //        cells = rows[rowNum][0].split(";") ;       
  //      utc.push(cells[0]);aeg.push(cells[1].substr(-5,5));hind.push(cells[2].replace(",","."));
         }
-  p.innerHTML = rows[3];
+  p.innerHTML = rows[13];
     document.body.appendChild(p);
    }
   
@@ -134,6 +134,7 @@ function readFile(input) {
             xhr.status >= 200 &&
             xhr.status < 300) {  //          display("Got response");
              var reads = xhr.responseText; 
+         alert ( reads ) ;
              var rida = showData(reads);
            // return xhr.responseText ;
      var data = {
