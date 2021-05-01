@@ -102,7 +102,7 @@ body {
  //        cells = rows[rowNum][0].split(";") ;       
  //      utc.push(cells[0]);aeg.push(cells[1].substr(-5,5));hind.push(cells[2].replace(",","."));
         }
-  p.innerHTML = rows[2];
+  p.innerHTML = rows[3];
     document.body.appendChild(p);
    }
   
@@ -113,7 +113,7 @@ function readFile(input) {
   reader.onload = function() {
     display(reader.result);
     alert(`File name: ${file.name}`);
-    console.log(reader.result);
+ //   console.log(reader.result);
   };
   reader.onerror = function() {
     console.log(reader.error);
