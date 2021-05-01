@@ -95,7 +95,7 @@ body {
    var rows = csvToArray(msg);
    var rowNum;
    var cells;   //        var cellNum;
-      for (rowNum = 1; rowNum < rows.length-1 && rowNum < 100; ++rowNum) {
+      for (rowNum = 1; rowNum < rows.length-1 || rowNum > 15; ++rowNum) {
         p.innerHTML = rows[rowNum];
     document.body.appendChild(p);
  alert ( rowNum ) ;
