@@ -72,9 +72,37 @@ body {
  <script src="chartist.js"></script>
  <script language="javascript" type="text/javascript" src="kalender.js"></script>
  <script>
+ 
+  function csvToArray(text) {
+    let p = '', row = [''], ret = [row], i = 0, r = 0, s = !0, l;
+    for (l of text) {
+        if ('"' === l) {
+            if (s && l === p) row[i] += l;
+            s = !s;
+        } else if (',' === l && s) l = row[++i] = '';
+        else if ('\n' === l && s) {
+            if ('\r' === p) row[i] = row[i].slice(0, -1);
+            row = ret[++r] = [l = '']; i = 0;
+        } else row[i] += l;
+        p = l;
+    }
+    return ret;
+};
+  
  function display(msg) {
    var p = document.createElement('p');
-    p.innerHTML = String(msg).slice(100,1000);
+   // p.innerHTML = String(msg).slice(100,1000);
+   var rows = csvToArray(data);
+   var rowNum;
+   var cells;   //        var cellNum;
+      for (rowNum = 1; rowNum < rows.length-1 || rowNum < 10; ++rowNum) {
+        p.innerHTML = rows[rowNum];
+    document.body.appendChild(p);
+ 
+ //        cells = rows[rowNum][0].split(";") ;       
+ //      utc.push(cells[0]);aeg.push(cells[1].substr(-5,5));hind.push(cells[2].replace(",","."));
+        }
+  p.innerHTML = rows[2];
     document.body.appendChild(p);
    }
   
@@ -136,21 +164,6 @@ function readFile(input) {
            }
  }
 
-function csvToArray(text) {
-    let p = '', row = [''], ret = [row], i = 0, r = 0, s = !0, l;
-    for (l of text) {
-        if ('"' === l) {
-            if (s && l === p) row[i] += l;
-            s = !s;
-        } else if (',' === l && s) l = row[++i] = '';
-        else if ('\n' === l && s) {
-            if ('\r' === p) row[i] = row[i].slice(0, -1);
-            row = ret[++r] = [l = '']; i = 0;
-        } else row[i] += l;
-        p = l;
-    }
-    return ret;
-};
 
       function showData(data) {
 //        var rows = data.split(/\s+/);       var rows = data.split("\n");
