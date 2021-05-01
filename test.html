@@ -92,7 +92,7 @@ body {
  function display(msg) {
    var p = document.createElement('p');
    // p.innerHTML = String(msg).slice(100,1000);
-   var rows = csvToArray(data);
+   var rows = csvToArray(msg);
    var rowNum;
    var cells;   //        var cellNum;
       for (rowNum = 1; rowNum < rows.length-1 || rowNum < 10; ++rowNum) {
