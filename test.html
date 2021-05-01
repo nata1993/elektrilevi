@@ -74,16 +74,10 @@ body {
  <script>
  function display(msg) {
    var p = document.createElement('p');
-    p.innerHTML = String(msg);
+    p.innerHTML = String(msg).slice(1,100);
     document.body.appendChild(p);
    }
- 
-function showFile(input) {
-  let file = input.files[0];
-  alert(`File name: ${file.name}`); // e.g my.png
-  alert(`Last modified: ${file.lastModified}`); // e.g 1552830408824
-}
- 
+  
 function readFile(input) {
   let file = input.files[0];
   let reader = new FileReader();
@@ -164,7 +158,7 @@ function csvToArray(text) {
         var rows = csvToArray(data);
         var rowNum;
         var cells;   //        var cellNum;
-        for (rowNum = 1; rowNum < rows.length-1; ++rowNum) {
+        for (rowNum = 1; rowNum < rows.length-1 ; ++rowNum) {
          cells = rows[rowNum][0].split(";") ;        //         display("row " + rowNum +                  " has " + cells.length + " values(s)");
 utc.push(cells[0]);aeg.push(cells[1].substr(-5,5));hind.push(cells[2].replace(",","."));
   //       display(rowNum + " : " + cells[1] + " -    " + cells[2]);
