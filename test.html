@@ -154,7 +154,7 @@ xhr.open("GET", "https://dashboard.elering.ee/api/nps/price/csv?start="+ start_t
              }
              ]
                 };
-         alert ( rida.hind ) ;
+         alert ( rida.hind[1] ) ;
      new Chartist.Line('.ct-chart', data, {
        high: Math.max(rida.hind) ,
        low: 0,
