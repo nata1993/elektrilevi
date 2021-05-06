@@ -154,13 +154,13 @@ xhr.open("GET", "https://dashboard.elering.ee/api/nps/price/csv?start="+ start_t
              }
              ]
                 };
-         alert ( Math.max.apply(Math,rida.hind) ) ;
+         alert (  Math.ceil(Math.max.apply(Math,rida.hind)/10)*10  ) ;
      new Chartist.Line('.ct-chart', data, {
-       high: Math.max.apply(Math,rida.hind) ,
+       high: Math.ceil(Math.max.apply(Math,rida.hind)/10)*10 ,
        low: 0,
       showPoint: false,
   //    lineSmooth: false,
-       divisor:4,
+  //     divisor:4,
   //     showArea: false,
   //     fullWidth: false,
       axisY: {
