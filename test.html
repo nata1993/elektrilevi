@@ -154,8 +154,9 @@ xhr.open("GET", "https://dashboard.elering.ee/api/nps/price/csv?start="+ start_t
              }
              ]
                 };
+         alert ( math.max(data.data) ) ;
      new Chartist.Line('.ct-chart', data, {
-       high: 80,
+       high: math.max(data.data) ,
        low: 0,
       showPoint: false,
   //    lineSmooth: false,
