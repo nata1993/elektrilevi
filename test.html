@@ -98,7 +98,7 @@ body {
       for (rowNum = 1; rowNum < rows.length-1  /* && rowNum < 15*/ ; ++rowNum) {
         p.innerHTML += rows[rowNum] + "<BR>";
        cells = rows[rowNum][0].split(";") ; 
-       if ( KP<>cells[0] )
+       if ( KP != cells[0] )
        {
          KP=cells[0];
          alert ( KP ) ;
