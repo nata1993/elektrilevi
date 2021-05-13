@@ -93,13 +93,17 @@ body {
    var p = document.createElement('p');
    // p.innerHTML = String(msg).slice(100,1000);
    var rows = csvToArray(msg);
-   var rowNum;
+   var rowNum, KP="";
    var cells;   //        var cellNum;
       for (rowNum = 1; rowNum < rows.length-1  /* && rowNum < 15*/ ; ++rowNum) {
         p.innerHTML += rows[rowNum] + "<BR>";
        cells = rows[rowNum][0].split(";") ; 
-//    document.body.appendChild(p);
-// alert ( cells[1] ) ;
+       if ( KP<>cells[0] )
+       {
+         KP=cells[0];
+         alert ( KP ) ;
+       }
+        //    document.body.appendChild(p);
  //        cells = rows[rowNum][0].split(";") ;       
  //      utc.push(cells[0]);aeg.push(cells[1].substr(-5,5));hind.push(cells[2].replace(",","."));
       }
