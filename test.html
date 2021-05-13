@@ -93,14 +93,15 @@ body {
    var p = document.createElement('p');
    // p.innerHTML = String(msg).slice(100,1000);
    var rows = csvToArray(msg);
-   var rowNum, KP="";
+   var rowNum, KP="",r_date;
    var cells;   //        var cellNum;
       for (rowNum = 1; rowNum < rows.length-1  /* && rowNum < 15*/ ; ++rowNum) {
         p.innerHTML += rows[rowNum] + "<BR>";
        cells = rows[rowNum][0].split(";") ; 
-       if ( KP != cells[0] )
+       r_date = cells[0].split(" ") ;       
+       if ( KP != r_date[0] )
        {
-         KP=cells[0];
+         KP=r_date[0];
          alert ( KP ) ;
        }
         //    document.body.appendChild(p);
