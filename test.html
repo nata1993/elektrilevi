@@ -143,11 +143,10 @@ function readFile(input) {
   
   
      function kuva() {
-      var utc = new Date(kp).toJSON().slice(0,10);
+      var utc = new Date(kp).toJSON().slice(0,10), reads;
       var yesterday = new Date(kp-1000*3600*24).toJSON().slice(0,10);
      alert ( "EILE " + yesterday + " " + utc ) ;
-      GetPrice(yesterday,utc,function(text)) ;
-       var reads = text ; 
+      GetPrice(yesterday,utc,reads) ;
          alert ( reads ) ;
        var rida = showData(reads);
        var data = {
