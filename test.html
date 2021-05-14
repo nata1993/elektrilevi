@@ -177,25 +177,23 @@ function readFile(input) {
     } // kuva 
 
 
-      function showData(data) {
+   function showData(data) {
 //        var rows = data.split(/\s+/);       var rows = data.split("\n");
        var utc=[],aeg=[],hind=[];
-        var rows = csvToArray(data);
-        var rowNum;
-        var cells;   //        var cellNum;
+       var rows = csvToArray(data);
+       var rowNum;
+       var cells;   //        var cellNum;
         for (rowNum = 1; rowNum < rows.length-1 ; ++rowNum) {
          cells = rows[rowNum][0].split(";") ;        //         display("row " + rowNum +                  " has " + cells.length + " values(s)");
 utc.push(cells[0]);aeg.push(cells[1].substr(-5,5));hind.push(cells[2].replace(",","."));
   //       display(rowNum + " : " + cells[1] + " -    " + cells[2]);
-        }
+        } // for rowNum
   //     display ("AEG "  + aeg) ;
       return {
               utc:utc,
               aeg:aeg,
               hind:hind};
-      }
-
-    }
+      } // showData
 
 </script>
 </head>
