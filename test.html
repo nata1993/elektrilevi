@@ -128,58 +128,54 @@ function readFile(input) {
   };
 }
  
-  function GetPrice(start_time,end_time) {
+  function GetPrice(start_time,end_time,answer) {
+   var xhr = new XMLHttpRequest();
+   xhr.onreadystatechange = handleStateChange;
    xhr.open("GET", "https://dashboard.elering.ee/api/nps/price/csv?start="+ start_time+"&end="+end_time+"&fields=ee");
    xhr.send();   //      display("Request sent");
-  }
+   
+      function handleStateChange() {
+        answer = null ; 
+        if (xhr.readyState == 4 && xhr.status >= 200 && xhr.status < 300) 
+           { answer = xhr.responseText; }
+        } ; // handleStateChange
+  } // GetPrice
   
   
      function kuva() {
-      var xhr = new XMLHttpRequest();
-      xhr.onreadystatechange = handleStateChange;
-     var utc = new Date(kp).toJSON().slice(0,10);
+      var utc = new Date(kp).toJSON().slice(0,10);
       var yesterday = new Date(kp-1000*3600*24).toJSON().slice(0,10);
      alert ( "EILE " + yesterday + " " + utc ) ;
-//      GetPrice(yesterday,utc) ;
-      xhr.open("GET", "https://dashboard.elering.ee/api/nps/price/csv?start="+ yesterday +"T21:00:00.000Z&end="+utc+"T20:59:59.999Z&fields=ee");
-      xhr.send();   //      display("Request sent");
-      
-      function handleStateChange() {
-        if (xhr.readyState == 4 &&
-            xhr.status >= 200 &&
-            xhr.status < 300) {  //          display("Got response");
-             var reads = xhr.responseText; 
+      GetPrice(yesterday,utc,function(text)) ;
+       var reads = text ; 
          alert ( reads ) ;
-             var rida = showData(reads);
-           // return xhr.responseText ;
-     var data = {
-            labels:  rida.aeg ,
-            series:  [ 
-             {
-              name:'HIND',
-              data:rida.hind
-             }
-             ]
-                };
-         alert (  Math.ceil(Math.max.apply(Math,rida.hind)/10)*10  ) ;
-     new Chartist.Line('.ct-chart', data, {
-       high: Math.ceil(Math.max.apply(Math,rida.hind)/10)*10 ,
-       low: 0,
-      showPoint: false,
+       var rida = showData(reads);
+       var data = {
+             labels:  rida.aeg ,
+             series:  [ 
+               {
+                name:'HIND',
+                data:rida.hind
+               }
+              ]
+           };
+ //        alert (  Math.ceil(Math.max.apply(Math,rida.hind)/10)*10  ) ;
+       new Chartist.Line('.ct-chart', data, {
+         high: Math.ceil(Math.max.apply(Math,rida.hind)/10)*10 ,
+         low: 0,
+         showPoint: false,
   //    lineSmooth: false,
   //     divisor:4,
   //     showArea: false,
   //     fullWidth: false,
-      axisY: {
-    Offset: 20,
-    onlyInteger: true
-  },
+         axisY: {
+           Offset: 20,
+           onlyInteger: true
+          },
    //    chartPadding: {      right: 50      } ,
-       series: {  'HIND': { lineSmooth: Chartist.Interpolation.step() } } // Näitab hind ühtlaselt tunni jooksul
-      } );
-        
-           }
- }
+         series: {  'HIND': { lineSmooth: Chartist.Interpolation.step() } } // Näitab hind ühtlaselt tunni jooksul
+        } ); // Chartist.Line    
+    } // kuva 
 
 
       function showData(data) {
