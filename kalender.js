@@ -78,7 +78,7 @@ var cal = {
           var vaeg = new Date(cal.sYear,cal.sMth,this.getElementsByClassName("dd")[0].innerHTML);
           kp = vaeg ;
           document.getElementById("cal-day").innerHTML = this.getElementsByClassName("dd")[0].innerHTML ;
-         alert ( "! " + kp + " !" + this.getElementsByClassName("dd")[0].innerHTML) ; 
+ //        alert ( "! " + kp + " !" + this.getElementsByClassName("dd")[0].innerHTML) ; 
         });
       }
       cRow.appendChild(cCell);
