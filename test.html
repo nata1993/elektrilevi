@@ -102,7 +102,7 @@ body {
        if ( KP != r_date[0] )
        {
          KP=r_date[0];
-         alert ( KP ) ;
+         alert ( Date(r_date[0]).toJSON().slice(0,10) ) ;
          //GetPrice();
        }
         //    document.body.appendChild(p);
@@ -131,9 +131,10 @@ function readFile(input) {
   function GetPrice(start_time,end_time,answer) {
    var xhr = new XMLHttpRequest();
    xhr.onreadystatechange = handleStateChange;
+// "https://dashboard.elering.ee/api/nps/price/csv?start=2020-12-31T21:00:00.000Z&end=2021-01-01T20:59:59.999Z&fields=ee");
    xhr.open("GET", "https://dashboard.elering.ee/api/nps/price/csv?start="+ start_time+"T21:00:00.000Z&end="+end_time+"T20:59:59.999Z&fields=ee");
    xhr.send();   //      display("Request sent");
-   
+
       function handleStateChange() {
         answer = null ; 
         if (xhr.readyState == 4 && xhr.status >= 200 && xhr.status < 300) 
@@ -148,7 +149,7 @@ function readFile(input) {
 //          alert ( "KP " + kp + 1000*3600*24 ) ;
       var yesterday = new Date(kp).toJSON().slice(0,10), reads;
       var utc = new Date(kp+1000*3600*24).toJSON().slice(0,10);
-     alert ( "EILE " + yesterday + " " + utc ) ;
+//     alert ( "EILE " + yesterday + " " + utc ) ;
       GetPrice(yesterday,utc,reads) ;
          alert ( "READS " + reads ) ;
        var rida = showData(reads);
