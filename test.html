@@ -95,7 +95,7 @@ body {
    var rows = csvToArray(msg);
    var rowNum, KP="",r_date;
    var cells;   //        var cellNum;
-      for (rowNum = 1; rowNum < rows.length-1  /* && rowNum < 15*/ ; ++rowNum) {
+      for (rowNum = 2; rowNum < rows.length-1  /* && rowNum < 15*/ ; ++rowNum) {
         p.innerHTML += rows[rowNum] + "<BR>";
        cells = rows[rowNum][0].split(";") ; 
        r_date = cells[0].split(" ") ;       
