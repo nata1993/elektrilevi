@@ -131,7 +131,7 @@ function readFile(input) {
   function GetPrice(start_time,end_time,answer) {
    var xhr = new XMLHttpRequest();
    xhr.onreadystatechange = handleStateChange;
-   xhr.open("GET", "https://dashboard.elering.ee/api/nps/price/csv?start="+ start_time+""T21:00:00.000Z&end="+end_time+"T20:59:59.999Z&fields=ee");
+   xhr.open("GET", "https://dashboard.elering.ee/api/nps/price/csv?start="+ start_time+"T21:00:00.000Z&end="+end_time+"T20:59:59.999Z&fields=ee");
    xhr.send();   //      display("Request sent");
    
       function handleStateChange() {
