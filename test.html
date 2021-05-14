@@ -137,8 +137,9 @@ function readFile(input) {
       function handleStateChange() {
         answer = null ; 
         if (xhr.readyState == 4 && xhr.status >= 200 && xhr.status < 300) 
-           { answer = xhr.responseText; }
-       alert ( "START " + start_time + " " + end_time + " " + answer ) ;
+           { answer = xhr.responseText; 
+             alert ( "START " + start_time + " " + end_time + " " + answer ) ;
+           }
         } ; // handleStateChange
   } // GetPrice
   
