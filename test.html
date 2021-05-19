@@ -101,9 +101,12 @@ body {
        r_date = cells[0].replace(/(\d{2})\.(\d{2})\.(\d{4}) [A-Za-z0-9.,-:]*/,'$3-$2-$1') ; //split(" ") ;       
        if ( KP != r_date )
        {
-         KP=r_date ; // [0].replace(/(\d{2})\.(\d{2})\.(\d{4}) (*)/,'$3-$2-$1');
+         KP=r_date ; 
            alert ( KP + " KP " + Date.parse(KP) ) ;
 //           alert ( Date(KP).toJSON().slice(0,10) ) ;
+      var utc = new Date(KP+1000*3600*24).toJSON().slice(0,10),reads;
+      GetPrice(KP,utc,reads) ;
+//     alert ( "EILE " + yesterday + " " + utc ) ;
          //GetPrice();
        }
         //    document.body.appendChild(p);
