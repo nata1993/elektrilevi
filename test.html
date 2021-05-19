@@ -98,10 +98,10 @@ body {
       for (rowNum = 2; rowNum < rows.length-1  /* && rowNum < 15*/ ; ++rowNum) {
         p.innerHTML += rows[rowNum] + "<BR>";
        cells = rows[rowNum][0].split(";") ; 
-       r_date = cells[0].split(" ") ;       
-       if ( KP != r_date[0] )
+       r_date = cells[0].replace(/(\d{2})\.(\d{2})\.(\d{4}) (*)/,'$3-$2-$1') ; //split(" ") ;       
+       if ( KP != r_date )
        {
-         KP=r_date[0].replace(/(\d{2})\.(\d{2})\.(\d{4})/,'$3-$2-$1');
+         KP=r_date ; [0].replace(/(\d{2})\.(\d{2})\.(\d{4}) (*)/,'$3-$2-$1');
            alert ( KP + " KP " + Date.parse(KP) ) ;
 //           alert ( Date(KP).toJSON().slice(0,10) ) ;
          //GetPrice();
