@@ -101,8 +101,8 @@ body {
        r_date = cells[0].split(" ") ;       
        if ( KP != r_date[0] )
        {
-         KP=r_date[0];
-           alert ( KP + " KP " + Date.parse(KP) ) ;
+         KP=r_date[0].split('.');
+           alert ( KP + " KP " + Date.parse(KP[2],KP[1]-1,KP[0]) ) ;
 //           alert ( Date(KP).toJSON().slice(0,10) ) ;
          //GetPrice();
        }
