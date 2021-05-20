@@ -102,11 +102,10 @@ body {
        if ( KP != r_date )
        {
          KP=r_date ; 
-           alert ( KP + " KP " + Date.parse(KP) ) ;
-//           alert ( Date(KP).toJSON().slice(0,10) ) ;
+//           alert ( KP + " KP " + Date.parse(KP) ) ;
       var yesterday = new Date(Date.parse(KP)-1000*3600*24).toJSON().slice(0,10),reads;
       GetPrice( yesterday, KP, reads) ;
-//     alert ( "EILE " + yesterday + " " + utc ) ;
+     alert ( "HIND " + yesterday + " " + reads ) ;
          //GetPrice();
        }
         //    document.body.appendChild(p);
@@ -134,7 +133,7 @@ function readFile(input) {
  
   function GetPrice(start_time,end_time,answer) {
    var xhr = new XMLHttpRequest();
-   alert ( "GETPRICE " + "https://dashboard.elering.ee/api/nps/price/csv?start="+ start_time+"T21:00:00.000Z&end="+end_time+"T20:59:59.999Z&fields=ee") ;
+//   alert ( "GETPRICE " + "https://dashboard.elering.ee/api/nps/price/csv?start="+ start_time+"T21:00:00.000Z&end="+end_time+"T20:59:59.999Z&fields=ee") ;
    xhr.onreadystatechange = handleStateChange;
 // "https://dashboard.elering.ee/api/nps/price/csv?start=2020-12-31T21:00:00.000Z&end=2021-01-01T20:59:59.999Z&fields=ee");
    xhr.open("GET", "https://dashboard.elering.ee/api/nps/price/csv?start="+ start_time+"T21:00:00.000Z&end="+end_time+"T20:59:59.999Z&fields=ee");
@@ -144,7 +143,7 @@ function readFile(input) {
         answer = null ; 
         if (xhr.readyState == 4 && xhr.status >= 200 && xhr.status < 300) 
            { answer = xhr.responseText; 
-             alert ( "START " + start_time + " " + end_time + " " + answer ) ;
+   //          alert ( "START " + start_time + " " + end_time + " " + answer ) ;
            }
         } ; // handleStateChange
 // https://gist.github.com/chrisdiana/e2c2861a7e494c74ee9e   
