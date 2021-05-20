@@ -105,7 +105,8 @@ body {
 //           alert ( KP + " KP " + Date.parse(KP) ) ;
       var yesterday = new Date(Date.parse(KP)-1000*3600*24).toJSON().slice(0,10),reads;
       GetPrice( yesterday, KP, reads) ;
-     alert ( "HIND " + yesterday + " " + reads ) ;
+//     alert ( "HIND " + yesterday + " " + reads ) ;
+        var rida = showData(reads);
          //GetPrice();
        }
         //    document.body.appendChild(p);
