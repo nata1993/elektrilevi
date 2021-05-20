@@ -142,9 +142,9 @@ function readFile(input) {
 
       function handleStateChange() {
 //        answer = null ; 
-        if (xhr.readyState == 4 && xhr.status >= 200 && xhr.status < 300) 
+        if (xhr.readyState === 4 && xhr.status >= 200 && xhr.status < 300) 
            { answer(xhr.status == 200 ? xhr.responseText : null); 
- //            alert ( "START " + start_time + " " + end_time + " " + answer ) ;
+             alert ( "START " + start_time + " " + end_time + " " + answer ) ;
            }
         } ; // handleStateChange
 // https://gist.github.com/chrisdiana/e2c2861a7e494c74ee9e   
