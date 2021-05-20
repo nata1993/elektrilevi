@@ -107,7 +107,7 @@ body {
          var yesterday = new Date(Date.parse(KP)-1000*3600*24).toJSON().slice(0,10),reads;
 //      GetPrice( yesterday, KP, reads) ;
         GetPrice(yesterday,KP,function(reads) {
-          alert ( yesterday  +" READS " + reads ) ;
+          console ( yesterday  +" READS " + reads ) ;
           for ( priceRow = 0 ; priceRow<24; ++priceRow ) {
            alert ( priceRow + "priceRow" + reads[priceRow] ) ;
           }
