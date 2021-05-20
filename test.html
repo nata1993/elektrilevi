@@ -104,8 +104,8 @@ body {
          KP=r_date ; 
            alert ( KP + " KP " + Date.parse(KP) ) ;
 //           alert ( Date(KP).toJSON().slice(0,10) ) ;
-      var utc = new Date(Date.parse(KP)+1000*3600*24).toJSON().slice(0,10),reads;
-      GetPrice(KP,utc,reads) ;
+      var yesterday = new Date(Date.parse(KP)-1000*3600*24).toJSON().slice(0,10),reads;
+      GetPrice( yesterday, KP, reads) ;
 //     alert ( "EILE " + yesterday + " " + utc ) ;
          //GetPrice();
        }
