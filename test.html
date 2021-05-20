@@ -144,7 +144,7 @@ function readFile(input) {
         answer = null ; 
         if (xhr.readyState == 4 && xhr.status >= 200 && xhr.status < 300) 
            { answer(xhr.responseText); 
-             alert ( "START " + start_time + " " + end_time + " " + answer ) ;
+ //            alert ( "START " + start_time + " " + end_time + " " + answer ) ;
            }
         } ; // handleStateChange
 // https://gist.github.com/chrisdiana/e2c2861a7e494c74ee9e   
@@ -169,8 +169,11 @@ function readFile(input) {
       var yesterday = new Date(kp).toJSON().slice(0,10), reads;
       var utc = new Date(kp+1000*3600*24).toJSON().slice(0,10);
 //     alert ( "EILE " + yesterday + " " + utc ) ;
-      GetPrice(yesterday,utc,reads) ;
+      GetPrice(yesterday,utc,function(reads) {
          alert ( "READS " + reads ) ;
+       
+      }
+       ) ;
        var rida = showData(reads);
        var data = {
              labels:  rida.aeg ,
