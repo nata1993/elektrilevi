@@ -56,7 +56,6 @@ body {
   font-size: 1.2em;
   color: #999;
 }
- 
  .ct-series-a .ct-line {
   /* Set the colour of this series line */
   fill: green;
@@ -74,7 +73,6 @@ body {
  <script>
  
   function csvToArray(text) {
- //  alert ( "TEXT " + text ) ;
     let p = '', row = [''], ret = [row], i = 0, r = 0, s = !0, l;
     for (l of text) {
         if ('"' === l) {
@@ -97,25 +95,20 @@ body {
    var rowNum, KP="",r_date,priceRow,price_24;
    var cells;   //        var cellNum;
       for (rowNum = 2; rowNum < rows.length-1  /* && rowNum < 15*/ ; ++rowNum) {
-        p.innerHTML += rows[rowNum] + "<BR>";
        cells = rows[rowNum][0].split(";") ; 
        r_date = cells[0].replace(/(\d{2})\.(\d{2})\.(\d{4}) [A-Za-z0-9.,-:]*/,'$3-$2-$1') ; //split(" ") ;       
-       if ( KP != r_date )
-       {
-         KP=r_date ; 
-           alert ( KP + " KP " + Date.parse(KP) ) ;
-         var yesterday = new Date(Date.parse(KP)-1000*3600*24).toJSON().slice(0,10),reads;
-//      GetPrice( yesterday, KP, reads) ;
-        GetPrice(yesterday,KP,function(reads) {
-          var rida = showData(reads);
-          console.log ( yesterday  +" READS KP" + KP + " "+ reads ) ;
-//          for ( priceRow = 0 ; priceRow<24; ++priceRow ) {
-//           alert ( priceRow + "priceRow" + rida.hind[priceRow] ) ;
-//          }
-         });
-//      alert ( "HIND " + yesterday + " KP " + KP + " \n" + reads ) ;
- //       var rida = showData(reads);
-       }
+        if ( KP != r_date )
+         {
+          KP=r_date ; 
+          alert ( KP + " KP " + Date.parse(KP) ) ;
+          var yesterday = new Date(Date.parse(KP)-1000*3600*24).toJSON().slice(0,10),reads;
+          GetPrice(yesterday,KP,function(reads) {
+           var rida = showData(reads);
+           console.log ( yesterday  +" READS KP" + KP + " "+ reads ) ;
+//          for ( priceRow = 0 ; priceRow<24; ++priceRow ) { alert ( priceRow + "priceRow" + rida.hind[priceRow] ) ;  }
+            });
+         } //  if KP
+       p.innerHTML += rows[rowNum] + " " + rida.hind[rowNum] + " "  + rows[rowNum] * rida.hind[rowNum] + "<BR>";
         //    document.body.appendChild(p);
  //        cells = rows[rowNum][0].split(";") ;       
  //      utc.push(cells[0]);aeg.push(cells[1].substr(-5,5));hind.push(cells[2].replace(",","."));
