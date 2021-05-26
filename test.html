@@ -94,7 +94,7 @@ body {
    var rida, rows = csvToArray(msg);
    var rowNum, KP="",r_date,priceRow,price_24;
    var cells;   //        var cellNum;
-   rida['hind']=[0] ;
+   rida.hind[0]=0 ;
       for (rowNum = 2; rowNum < rows.length-1  /* && rowNum < 15*/ ; ++rowNum) {
        cells = rows[rowNum][0].split(";") ; 
        r_date = cells[0].replace(/(\d{2})\.(\d{2})\.(\d{4}) [A-Za-z0-9.,-:]*/,'$3-$2-$1') ; //split(" ") ;       
