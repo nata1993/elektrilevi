@@ -101,15 +101,15 @@ body {
          {
           KP=r_date ;
           var yesterday = new Date(Date.parse(KP)-1000*3600*24).toJSON().slice(0,10),reads;
-          alert ( KP + " KP " + Date.parse(KP) ) ; 
+//          alert ( KP + " KP " + Date.parse(KP) ) ; 
           GetPrice(yesterday , KP,function(reads) {
            rida = showData(reads);
-           alert ( "READS KP" + KP + " "+ reads ) ;
+//           alert ( "READS KP" + KP + " "+ reads ) ;
            console.log ( "REAHIND " + rida.hind ) ;
 //          for ( priceRow = 0 ; priceRow<24; ++priceRow ) { alert ( priceRow + "priceRow" + rida.hind[priceRow] ) ;  }
             });
          } //  if KP
-       p.innerHTML += rowNum + " " + rows[rowNum] + " " + rida.hind[ (rowNum-2) % 24] + " "  + cells[1] + "*" +  rida.hind[rowNum] + "<BR>";
+       p.innerHTML += rowNum + " " + rows[rowNum] + " " + rida.hind[ (rowNum-2) % 24] + " "  + cells[1] * rida.hind[ (rowNum-2) % 24] + "<BR>";
         //    document.body.appendChild(p);
  //        cells = rows[rowNum][0].split(";") ;       
  //      utc.push(cells[0]);aeg.push(cells[1].substr(-5,5));hind.push(cells[2].replace(",","."));
