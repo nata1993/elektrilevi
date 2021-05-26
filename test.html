@@ -101,11 +101,11 @@ body {
         if ( KP != r_date )
          {
           KP=r_date ;
-          var nextday = new Date(Date.parse(KP)+1000*3600*24).toJSON().slice(0,10),reads;
+          var yesterday = new Date(Date.parse(KP)-1000*3600*24).toJSON().slice(0,10),reads;
           alert ( KP + " KP " + Date.parse(KP) + " NEXT " + nextday ) ; 
-          GetPrice(KP, nextday,function(reads) {
+          GetPrice(yesterday , KP,function(reads) {
            rida = showData(reads);
-           console.log ( nextday  +" READS KP" + KP + " "+ reads ) ;
+           alert ( "READS KP" + KP + " "+ reads ) ;
            console.log ( "REAHIND " + rida.hind ) ;
 //          for ( priceRow = 0 ; priceRow<24; ++priceRow ) { alert ( priceRow + "priceRow" + rida.hind[priceRow] ) ;  }
             });
