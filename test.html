@@ -103,10 +103,10 @@ body {
 
           alert ( KP + " KP " + Date.parse(KP) + "RDATE" + r_date ) ;
                     KP=r_date ; 
-          var yesterday = new Date(Date.parse(KP)-1000*3600*24).toJSON().slice(0,10),reads;
-          GetPrice(yesterday,KP,function(reads) {
+          var nextday = new Date(Date.parse(KP)+1000*3600*24).toJSON().slice(0,10),reads;
+          GetPrice(KP, nextday,function(reads) {
            rida = showData(reads);
-           console.log ( yesterday  +" READS KP" + KP + " "+ reads ) ;
+           console.log ( nextday  +" READS KP" + KP + " "+ reads ) ;
            console.log ( "REAHIND " + rida.hind ) ;
 //          for ( priceRow = 0 ; priceRow<24; ++priceRow ) { alert ( priceRow + "priceRow" + rida.hind[priceRow] ) ;  }
             });
