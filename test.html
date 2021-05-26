@@ -71,7 +71,15 @@ body {
  <script src="chartist.js"></script>
  <script language="javascript" type="text/javascript" src="kalender.js"></script>
  <script>
- 
+  
+ function sleep(milliseconds) {
+  const date = Date.now();
+  let currentDate = null;
+  do {
+    currentDate = Date.now();
+  } while (currentDate - date < milliseconds);
+  }
+  
   function csvToArray(text) {
     let p = '', row = [''], ret = [row], i = 0, r = 0, s = !0, l;
     for (l of text) {
@@ -144,10 +152,10 @@ function readFile(input) {
       function handleStateChange() {
 //        answer = null ; 
 //        if (xhr.readyState === 4 && xhr.status >= 200 && xhr.status < 300) 
-          while (xhr.readyState != 4 ) 
+          do 
            { answer(xhr.status == 200 ? xhr.responseText : null); 
  //            alert ( "START " + start_time + " " + end_time + " " + answer ) ;
-           }
+           } while (xhr.readyState != 4 ) ;
         } ; // handleStateChange
 // https://gist.github.com/chrisdiana/e2c2861a7e494c74ee9e   
 //   function handleStateChange(me) {
