@@ -93,7 +93,7 @@ body {
    // p.innerHTML = String(msg).slice(100,1000);
    var rida={ hind:[0] }, rows = csvToArray(msg);
    var rowNum, KP="",r_date,priceRow,price_24;
-   var cells;   //        var cellNum;
+   var cells,toodang;   //        var cellNum;
    // rida.hind[0]=0 ;
       for (rowNum = 2; rowNum < rows.length-1  /* && rowNum < 15*/ ; ++rowNum) {
        cells = rows[rowNum][0].split(";") ; 
@@ -110,7 +110,8 @@ body {
 //          for ( priceRow = 0 ; priceRow<24; ++priceRow ) { alert ( priceRow + "priceRow" + rida.hind[priceRow] ) ;  }
             });
          } //  if KP
-       p.innerHTML += rowNum + " " + rows[rowNum] + " " + rida.hind[ (rowNum-2) % 24] + " "  + rows[rowNum][0].split(";") + "*" +  rida.hind[rowNum] + "<BR>";
+       toodang=rows[rowNum].split(";")
+       p.innerHTML += rowNum + " " + rows[rowNum] + " " + rida.hind[ (rowNum-2) % 24] + " "  + toodang[1] + "*" +  rida.hind[rowNum] + "<BR>";
         //    document.body.appendChild(p);
  //        cells = rows[rowNum][0].split(";") ;       
  //      utc.push(cells[0]);aeg.push(cells[1].substr(-5,5));hind.push(cells[2].replace(",","."));
