@@ -102,7 +102,7 @@ body {
          {
           KP=r_date ;
           var yesterday = new Date(Date.parse(KP)-1000*3600*24).toJSON().slice(0,10),reads;
-          alert ( KP + " KP " + Date.parse(KP) + " NEXT " + nextday ) ; 
+          alert ( KP + " KP " + Date.parse(KP) ) ; 
           GetPrice(yesterday , KP,function(reads) {
            rida = showData(reads);
            alert ( "READS KP" + KP + " "+ reads ) ;
