@@ -109,7 +109,7 @@ body {
 //          for ( priceRow = 0 ; priceRow<24; ++priceRow ) { alert ( priceRow + "priceRow" + rida.hind[priceRow] ) ;  }
             });
          } //  if KP
-       p.innerHTML += rowNum + " " + rows[rowNum] + " " + rida.hind[ (rowNum-2) % 24] + " "  + cells[1] * rida.hind[ (rowNum-2) % 24] + "<BR>";
+       p.innerHTML += rowNum + " " + rows[rowNum] + " " + rida.hind[ (rowNum-2) % 24] + " "  + Math.round(cells[1] * rida.hind[ (rowNum-2) % 24]*100)/100 + "<BR>";
         //    document.body.appendChild(p);
  //        cells = rows[rowNum][0].split(";") ;       
  //      utc.push(cells[0]);aeg.push(cells[1].substr(-5,5));hind.push(cells[2].replace(",","."));
