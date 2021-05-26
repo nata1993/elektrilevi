@@ -93,7 +93,7 @@ body {
    // p.innerHTML = String(msg).slice(100,1000);
    var rida={ hind:[0] }, rows = csvToArray(msg);
    var rowNum, KP="",r_date,priceRow,price_24;
-   var cells;   //        var cellNum;
+   var cells,summa;   //        var cellNum;
       for (rowNum = 2; rowNum < rows.length-1  /* && rowNum < 15*/ ; ++rowNum) {
        cells = rows[rowNum][0].split(";") ; 
        r_date = cells[0].replace(/(\d{2})\.(\d{2})\.(\d{4}) [A-Za-z0-9.,-:]*/,'$3-$2-$1') ; //split(" ") ;       
@@ -109,13 +109,14 @@ body {
 //          for ( priceRow = 0 ; priceRow<24; ++priceRow ) { alert ( priceRow + "priceRow" + rida.hind[priceRow] ) ;  }
             });
          } //  if KP
-       p.innerHTML += rowNum + " " + rows[rowNum] + " " + rida.hind[ (rowNum-2) % 24] + " "  + Math.round(cells[1] * rida.hind[ (rowNum-2) % 24]*100)/100 + "<BR>";
+       summa += Math.round(cells[1] * rida.hind[ (rowNum-2) % 24]*10)/100 ;
+       document.getElementById('summa').innerHTML = summa ;
+       p.innerHTML += rowNum + " " + rows[rowNum] + " " + rida.hind[ (rowNum-2) % 24] + " "  + Math.round(cells[1] * rida.hind[ (rowNum-2) % 24]*10)/100 + "<BR>";
         //    document.body.appendChild(p);
  //        cells = rows[rowNum][0].split(";") ;       
  //      utc.push(cells[0]);aeg.push(cells[1].substr(-5,5));hind.push(cells[2].replace(",","."));
       }
-  
-  p.innerHTML += rows[rowNum];
+    p.innerHTML += rows[rowNum];
     document.body.appendChild(p);
    }
   
@@ -223,7 +224,7 @@ function readFile(input) {
  </script>
 </head>
 <body>
- <H1>TERE READING</H1>
+ <H1>SUMMA <div id="summa">0.00</div></H1>
   <div class="ct-chart"></div>
   
   <div id="cal-wrap">
