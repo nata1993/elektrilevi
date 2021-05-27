@@ -102,7 +102,7 @@ body {
    var rida={ hind:[0] }, rows = csvToArray(msg);
    var rowNum, KP="",r_date,priceRow,price_24;
    var cells,arve_summa=0;   //        var cellNum;
-      for (rowNum = 2; rowNum < rows.length-1   && rowNum < 55 ; ++rowNum) {
+      for (rowNum = 2; rowNum < rows.length-1 /*  && rowNum < 55 */ ; ++rowNum) {
        cells = rows[rowNum][0].split(";") ; 
        r_date = cells[0].replace(/(\d{2})\.(\d{2})\.(\d{4}) [A-Za-z0-9.,-:]*/,'$3-$2-$1') ; //split(" ") ;       
         if ( KP != r_date )
@@ -118,7 +118,7 @@ body {
             });
          } //  if KP
        p.innerHTML += rida.hind[rowNum] + "<BR>";
-        console.log (  rowNum + "<BR>" ) ;
+        console.log (  rowNum + rida.hind " ) ;
        p.innerHTML += rowNum + " " + rows[rowNum] + " " + rida.hind[ (rowNum-2) % 24] + " "  + Math.round(cells[1] * rida.hind[ (rowNum-2) % 24]*10)/100 + "<BR>";
        arve_summa += Math.round(cells[1] * rida.hind[ (rowNum-2) % 24]*10)/100 ;
  //      document.getElementById('summa').innerHTML = arve_summa ;
