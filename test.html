@@ -141,13 +141,13 @@ function readFile(input) {
     console.log(reader.error);
   };
 }
- 
-  function transferComplete(evt) {
-   answer(xhr.status == 200 ? xhr.responseText : null) ;
-   console.log("The transfer is complete.");
-}
-  
+   
   function GetPrice(start_time,end_time,answer) {
+    function transferComplete(evt) {
+      answer(xhr.status == 200 ? xhr.responseText : null) ;
+      console.log("The transfer is complete.");
+     }
+
    var xhr = new XMLHttpRequest();
 //   xhr.addEventListener("progress", updateProgress);
 //   xhr.addEventListener("load", transferComplete);
