@@ -142,9 +142,20 @@ function readFile(input) {
   };
 }
  
+  function transferComplete(evt) {
+   answer(xhr.status == 200 ? xhr.responseText : null)
+   console.log("The transfer is complete.");
+}
+  
   function GetPrice(start_time,end_time,answer) {
    var xhr = new XMLHttpRequest();
-   xhr.onreadystatechange = handleStateChange;
+//   xhr.addEventListener("progress", updateProgress);
+//   xhr.addEventListener("load", transferComplete);
+   xhr.addEventListener("loadend", transferComplete);
+
+   //   xhr.addEventListener("error", transferFailed);
+//   xhr.addEventListener("abort", transferCanceled);
+//   xhr.onreadystatechange = handleStateChange;
 // "https://dashboard.elering.ee/api/nps/price/csv?start=2020-12-31T21:00:00.000Z&end=2021-01-01T20:59:59.999Z&fields=ee");
    xhr.open("GET", "https://dashboard.elering.ee/api/nps/price/csv?start="+ start_time+"T21:00:00.000Z&end="+end_time+"T20:59:59.999Z&fields=ee");
    xhr.send();  
@@ -154,7 +165,7 @@ function readFile(input) {
         if (xhr.readyState === 4 && xhr.status >= 200 && xhr.status < 300) 
 //          do 
            { answer(xhr.status == 200 ? xhr.responseText : null); 
-             alert ( "START " + start_time + " " + end_time + " " + xhr.status + " XHR " + xhr.readyState) ;
+ //            alert ( "START " + start_time + " " + end_time + " " + xhr.status + " XHR " + xhr.readyState) ;
            } ; // while (xhr.readyState != 4 ) ;
         } ; // handleStateChange
 // https://gist.github.com/chrisdiana/e2c2861a7e494c74ee9e   
