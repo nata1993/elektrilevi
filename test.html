@@ -117,7 +117,7 @@ body {
          // for ( priceRow = 0 ; priceRow<24; ++priceRow ) { alert ( priceRow + "priceRow" + rida.hind[3] ) ;  }
             });
          } //  if KP
-       p.innerHTML += rida.hind + "<BR>";
+       p.innerHTML += rida.hind[rowNum] + "<BR>";
        p.innerHTML += rowNum + " " + rows[rowNum] + " " + rida.hind[ (rowNum-2) % 24] + " "  + Math.round(cells[1] * rida.hind[ (rowNum-2) % 24]*10)/100 + "<BR>";
        arve_summa += Math.round(cells[1] * rida.hind[ (rowNum-2) % 24]*10)/100 ;
  //      document.getElementById('summa').innerHTML = arve_summa ;
