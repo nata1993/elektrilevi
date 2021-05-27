@@ -114,7 +114,8 @@ body {
            rida = showData(reads);
 //           alert ( "READS KP" + KP + " "+ reads ) ;
            console.log ( "REAHIND " + rida.hind ) ;
-//          for ( priceRow = 0 ; priceRow<24; ++priceRow ) { alert ( priceRow + "priceRow" + rida.hind[priceRow] ) ;  }
+         // for ( priceRow = 0 ; priceRow<24; ++priceRow )
+          { alert ( priceRow + "priceRow" + rida.hind[3] ) ;  }
             });
          } //  if KP
        p.innerHTML += rowNum + " " + rows[rowNum] + " " + rida.hind[ (rowNum-2) % 24] + " "  + Math.round(cells[1] * rida.hind[ (rowNum-2) % 24]*10)/100 + "<BR>";
@@ -145,21 +146,19 @@ function readFile(input) {
   function GetPrice(start_time,end_time,answer) {
     function transferComplete(evt) {
       answer(xhr.status == 200 ? xhr.responseText : null) ;
-      console.log("The transfer is complete.");
+//      console.log("The transfer is complete.");
      }
 
    var xhr = new XMLHttpRequest();
 //   xhr.addEventListener("progress", updateProgress);
 //   xhr.addEventListener("load", transferComplete);
    xhr.addEventListener("loadend", transferComplete);
-
    //   xhr.addEventListener("error", transferFailed);
 //   xhr.addEventListener("abort", transferCanceled);
 //   xhr.onreadystatechange = handleStateChange;
 // "https://dashboard.elering.ee/api/nps/price/csv?start=2020-12-31T21:00:00.000Z&end=2021-01-01T20:59:59.999Z&fields=ee");
    xhr.open("GET", "https://dashboard.elering.ee/api/nps/price/csv?start="+ start_time+"T21:00:00.000Z&end="+end_time+"T20:59:59.999Z&fields=ee");
    xhr.send();  
-
       function handleStateChange() {
 //        answer = null ; 
         if (xhr.readyState === 4 && xhr.status >= 200 && xhr.status < 300) 
