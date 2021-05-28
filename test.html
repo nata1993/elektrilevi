@@ -101,7 +101,7 @@ body {
    // p.innerHTML = String(msg).slice(100,1000);
    var rida={ hind:[0] }, rows = csvToArray(msg);
    var rowNum, KP="",r_date,priceRow,price_24;
-   var cells,arve_summa=0;   //        var cellNum;
+   var cells,arve_summa=0,paeva_hind;   //        var cellNum;
       for (rowNum = 2; rowNum < rows.length-1 /*  && rowNum < 55 */ ; ++rowNum) {
        cells = rows[rowNum][0].split(";") ; 
        r_date = cells[0].replace(/(\d{2})\.(\d{2})\.(\d{4}) [A-Za-z0-9.,-:]*/,'$3-$2-$1') ; //split(" ") ;       
@@ -110,13 +110,18 @@ body {
           KP=r_date ;
           var yesterday = new Date(Date.parse(KP)-1000*3600*24).toJSON().slice(0,10),reads;
 //          alert ( KP + " KP " + Date.parse(KP) ) ; 
-          GetPrice(yesterday , KP,function(reads) {
+          GetPrice(yesterday , KP,paeva_hind, function(reads) {
            rida = showData(reads);
-           alert ( "READS KP" + KP + " "+ reads ) ;
+ //          alert ( "READS KP" + KP + " "+ reads ) ;
            console.log ( rowNum + " REAHIND " + rida.hind ) ;
          // for ( priceRow = 0 ; priceRow<24; ++priceRow ) { alert ( priceRow + "priceRow" + rida.hind[3] ) ;  }
             });
+          paeva_hind=0;
          } //  if KP
+       else
+        {
+         paeva_hind.push(cells[1]);
+        }
        p.innerHTML += rida.hind[rowNum] + "<BR>";
         console.log (  rowNum + rida.hind ) ;
        p.innerHTML += rowNum + " " + rows[rowNum] + " " + rida.hind[ (rowNum-2) % 24] + " "  + Math.round(cells[1] * rida.hind[ (rowNum-2) % 24]*10)/100 + "<BR>";
@@ -144,12 +149,12 @@ function readFile(input) {
   };
 }
    
-  function GetPrice(start_time,end_time,answer) {
+  function GetPrice(start_time,end_time,prices, answer) {
     function transferComplete(evt) {
       answer(xhr.status == 200 ? xhr.responseText : null) ;
 //      console.log("The transfer is complete.");
      }
-
+alert ( prices ) ;
    var xhr = new XMLHttpRequest();
 //   xhr.addEventListener("progress", updateProgress);
 //   xhr.addEventListener("load", transferComplete);
@@ -189,7 +194,7 @@ function readFile(input) {
       var yesterday = new Date(kp).toJSON().slice(0,10), reads;
       var utc = new Date(kp+1000*3600*24).toJSON().slice(0,10);
 //     alert ( "EILE " + yesterday + " " + utc ) ;
-      GetPrice(yesterday,utc,function(reads) {
+      GetPrice(yesterday,utc,,function(reads) {
          alert ( "READS " + reads ) ;
        
       }
