@@ -123,7 +123,7 @@ body {
         {
          paeva_hind.push( cells[1] );
         }
-       p.innerHTML += rida.hind[rowNum] + "<BR>";
+  //     p.innerHTML += rida.hind[rowNum] + "<BR>";
    //     console.log (  rowNum + rida.hind ) ;
  //      p.innerHTML += rowNum + " " + rows[rowNum] + " " + rida.hind[ (rowNum-2) % 24] + " "  + Math.round(cells[1] * rida.hind[ (rowNum-2) % 24]*10)/100 + "<BR>";
        arve_summa += Math.round(cells[1] * rida.hind[ (rowNum-2) % 24]*10)/100 ;
@@ -174,9 +174,9 @@ function readFile(input) {
         if (xhr.readyState === 4 && xhr.status >= 200 && xhr.status < 300) 
            { answer(xhr.status == 200 ? xhr.responseText : null);
              rows = csvToArray(xhr.responseText);
-              for (i = 0; i < rows.length-1 ; ++i) {
+              for (i = 1; i < rows.length-1 ; ++i) {
                cells = rows[i][0].split(";") ; 
-               p.innerHTML += rows[i] + " " + cells[1] + " " + rows[i]*cells[1] ;
+               p.innerHTML += rows[i] + " XXX " + cells[1] + " XXX " + rows[i]*cells[1] + "<BR>" ;
               }
           alert ( "START " + i + " " + rows[i]) ;
 
