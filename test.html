@@ -176,7 +176,7 @@ function readFile(input) {
              rows = csvToArray(xhr.responseText);
               for (i = 1; i < rows.length-1 ; ++i) {
                cells = rows[i][0].split(";") ; 
-               p.innerHTML += rows[i] + " XXX " + cells[2] + " XXX " + prices[i-1] + Math(prices[i-i]*cells[2]) + "<BR>" ;
+               p.innerHTML += rows[i] + " XXX " + cells[2] + " XXX " + prices[i-1] + Math.round( prices[i-i]*cells[2] ) + "<BR>" ;
               }
           alert ( "START " + i + " " + rows[i]) ;
 
