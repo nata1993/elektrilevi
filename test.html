@@ -170,11 +170,11 @@ function readFile(input) {
       function handleStateChange() {
 //        answer = null ; 
         if (xhr.readyState === 4 && xhr.status >= 200 && xhr.status < 300) 
-           { answer(xhr.status == 200 ? xhr.responseText : null); 
-              for (i = 0; i < xhr.responseText.length-1 ; ++i) {
+           { answer(xhr.status == 200 ? xhr.responseText : null);
+            var rows = csvToArray(xhr.responseText.length);
+              for (i = 0; i < rows.length-1 ; ++i) {
               }
-                        alert ( "START " + i + " " + xhr.responseText) ;
-
+                        alert ( "START " + i + " " + rows[i]) ;
            }
         } ; // handleStateChange
 // https://gist.github.com/chrisdiana/e2c2861a7e494c74ee9e   
