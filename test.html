@@ -174,15 +174,18 @@ function readFile(input) {
        var p = document.createElement('p');
         if (xhr.readyState === 4 && xhr.status >= 200 && xhr.status < 300) 
            { answer(xhr.status == 200 ? xhr.responseText : null);
-             rows = csvToArray(xhr.responseText);
-              console.log( "Kilowats" + kws ) ;
-              console.log( "PRICE" + hind ) ;
-              for (i = 1; i < rows.length-1 ; ++i) {
-               cells = rows[i][0].split(";") ;
-               hind=cells[2].replace(",",".");
-               p.innerHTML += rows[i] + " XXX " + hind + " XXX " + kws[i-1] + " X "+ Math.round( kws[i-1]*hind ) + "<BR>" ;
-              }
-              console.log( "PRICE" + rows ) ;
+            if ( xhr.status ==200 )
+             { 
+               rows = csvToArray(xhr.responseText);
+               console.log( "Kilowats" + kws ) ;
+               console.log( "PRICE" + hind ) ;
+                for (i = 1; i < rows.length-1 ; ++i) {
+                  cells = rows[i][0].split(";") ;
+                  hind=cells[2].replace(",",".");
+                  p.innerHTML += rows[i] + " XXX " + hind + " XXX " + kws[i-1] + " X "+ Math.round( kws[i-1]*hind ) + "<BR>" ;
+                 }
+               console.log( "PRICE" + rows ) ;
+             }
            }
          document.body.appendChild(p);
 
