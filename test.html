@@ -105,7 +105,6 @@ body {
       for (rowNum = 2; rowNum < rows.length-1   && rowNum < 55  ; ++rowNum) {
        cells = rows[rowNum][0].split(";") ; 
        r_date = cells[0].replace(/(\d{2})\.(\d{2})\.(\d{4}) [A-Za-z0-9.,-:]*/,'$3-$2-$1') ; //split(" ") ;
-       paeva_hind.push( cells[1] );
         if ( !KP )
          {
           KP=r_date ;
@@ -113,15 +112,16 @@ body {
          }
         if ( KP != r_date )
          {
-          KP=r_date ;
-          var yesterday = new Date(Date.parse(KP)-1000*3600*24).toJSON().slice(0,10),reads;
           //          alert ( KP + " KP " + Date.parse(KP) ) ;  
           GetPrice(yesterday , KP,paeva_hind, function(reads) {
           rida = showData(reads);
             });
-          console.log (  rowNum + paeva_hind ) ;
+          console.log (  rowNum + " " + paeva_hind ) ;
           paeva_hind=[];
+          KP=r_date ;
+          var yesterday = new Date(Date.parse(KP)-1000*3600*24).toJSON().slice(0,10),reads;
          } //  if KP
+        paeva_hind.push( cells[1] );
 //       arve_summa += Math.round(cells[1] * rida.hind[ (rowNum-2) % 24]*10)/100 ;
       } // for rowNum
 //    p.innerHTML += rows[rowNum];
