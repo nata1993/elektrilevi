@@ -102,7 +102,7 @@ body {
    var rida={ hind:[0] }, rows = csvToArray(msg);
    var rowNum, KP="",r_date,priceRow,price_24;
    var cells,arve_summa=0,paeva_kw=[];   //        var cellNum;
-      for (rowNum = 2; rowNum < rows.length-1   && rowNum < 55  ; ++rowNum) {
+      for (rowNum = 2; rowNum < rows.length-1 /*  && rowNum < 55 */  ; ++rowNum) {
        cells = rows[rowNum][0].split(";") ; 
        r_date = cells[0].replace(/(\d{2})\.(\d{2})\.(\d{4}) [A-Za-z0-9.,-:]*/,'$3-$2-$1') ; //split(" ") ;
         if ( !KP )
@@ -175,7 +175,7 @@ function readFile(input) {
         if (xhr.readyState === 4 && xhr.status >= 200 && xhr.status < 300) 
            { answer(xhr.status == 200 ? xhr.responseText : null);
              rows = csvToArray(xhr.responseText);
-            alert ( "Kilowats" + kws ) ;
+//            alert ( "Kilowats" + kws ) ;
               for (i = 1; i < rows.length-1 ; ++i) {
                cells = rows[i][0].split(";") ;
                hind=cells[2].replace(",",".");
