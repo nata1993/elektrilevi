@@ -174,7 +174,7 @@ function readFile(input) {
        var p = document.createElement('p');
         if (xhr.readyState === 4 && xhr.status >= 200 && xhr.status < 300) 
            { answer(xhr.status == 200 ? xhr.responseText : null);
-            if ( xhr.status ==200 )
+            if ( xhr.status == 200 )
              { 
                rows = csvToArray(xhr.responseText);
  //              console.log( "Kilowats" + kws ) ;
@@ -185,9 +185,10 @@ function readFile(input) {
                   p.innerHTML += rows[i] + " XXX " + hind + " XXX " + kws[i-1] + " X "+ Math.round( kws[i-1]*hind ) + "<BR>" ;
                  }
    //            console.log( "PRICE" + rows ) ;
+                       document.body.appendChild(p);
+
              }
            }
-         document.body.appendChild(p);
 
         } ; // handleStateChange
 // https://gist.github.com/chrisdiana/e2c2861a7e494c74ee9e   
