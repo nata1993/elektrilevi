@@ -113,7 +113,7 @@ body {
           GetPrice(yesterday , KP,paeva_hind, function(reads) {
            rida = showData(reads);
  //          alert ( "READS KP" + KP + " "+ reads ) ;
-           console.log ( rowNum + " REAHIND " + rida.hind ) ;
+ //          console.log ( rowNum + " REAHIND " + rida.hind ) ;
          // for ( priceRow = 0 ; priceRow<24; ++priceRow ) { alert ( priceRow + "priceRow" + rida.hind[3] ) ;  }
             });
           console.log (  rowNum + paeva_hind ) ;
@@ -155,8 +155,9 @@ function readFile(input) {
       answer(xhr.status == 200 ? xhr.responseText : null) ;
 //      console.log("The transfer is complete.");
      }
-alert ( prices ) ;
+// alert ( prices ) ;
    var xhr = new XMLHttpRequest();
+   var i;
 //   xhr.addEventListener("progress", updateProgress);
 //   xhr.addEventListener("load", transferComplete);
 //   xhr.addEventListener("loadend", transferComplete);
@@ -170,7 +171,9 @@ alert ( prices ) ;
 //        answer = null ; 
         if (xhr.readyState === 4 && xhr.status >= 200 && xhr.status < 300) 
            { answer(xhr.status == 200 ? xhr.responseText : null); 
- //            alert ( "START " + start_time + " " + end_time + " " + xhr.status + " XHR " + xhr.readyState) ;
+              for (i = 0; i < xhr.responseText.length-1 ; ++i) {
+            alert ( "START " + i + " " + xhr.status) ;
+              }
            }
         } ; // handleStateChange
 // https://gist.github.com/chrisdiana/e2c2861a7e494c74ee9e   
