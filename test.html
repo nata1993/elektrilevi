@@ -124,15 +124,15 @@ body {
          } //  if KP
         paeva_kw.push( cells[1] );
 //       arve_summa += Math.round(cells[1] * rida.hind[ (rowNum-2) % 24]*10)/100 ;
+         sleep (100) ;
       } // for rowNum
   
           KP=r_date ;
           GetPrice(yesterday , KP,paeva_kw, function(reads) {
           rida = showData(reads);
             });
-          console.log (  rowNum + " " + paeva_kw ) ;
-         sleep (100) ;
-  
+          console.log ( Math.round(rowNum/24) + " " rowNum + " "+ paeva_kw ) ;
+
 //    p.innerHTML += rows[rowNum];
 //    document.body.appendChild(p);
    }
