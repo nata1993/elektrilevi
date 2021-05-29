@@ -125,7 +125,7 @@ body {
         }
        p.innerHTML += rida.hind[rowNum] + "<BR>";
    //     console.log (  rowNum + rida.hind ) ;
-       p.innerHTML += rowNum + " " + rows[rowNum] + " " + rida.hind[ (rowNum-2) % 24] + " "  + Math.round(cells[1] * rida.hind[ (rowNum-2) % 24]*10)/100 + "<BR>";
+ //      p.innerHTML += rowNum + " " + rows[rowNum] + " " + rida.hind[ (rowNum-2) % 24] + " "  + Math.round(cells[1] * rida.hind[ (rowNum-2) % 24]*10)/100 + "<BR>";
        arve_summa += Math.round(cells[1] * rida.hind[ (rowNum-2) % 24]*10)/100 ;
  //      document.getElementById('summa').innerHTML = arve_summa ;
        //    document.body.appendChild(p);
@@ -169,13 +169,20 @@ function readFile(input) {
    xhr.send();  
       function handleStateChange() {
 //        answer = null ; 
+       var rows, cells ;
+       var p = document.createElement('p');
         if (xhr.readyState === 4 && xhr.status >= 200 && xhr.status < 300) 
            { answer(xhr.status == 200 ? xhr.responseText : null);
-            var rows = csvToArray(xhr.responseText);
+             rows = csvToArray(xhr.responseText);
               for (i = 0; i < rows.length-1 ; ++i) {
+               cells = rows[rowNum][0].split(";") ; 
+               p.innerHTML += rows[i] + " " + cells[1] + " " + rows[i]*cells[1] ;
               }
-                        alert ( "START " + i + " " + rows[i]) ;
+          alert ( "START " + i + " " + rows[i]) ;
+
            }
+         document.body.appendChild(p);
+
         } ; // handleStateChange
 // https://gist.github.com/chrisdiana/e2c2861a7e494c74ee9e   
 //   function handleStateChange(me) {
