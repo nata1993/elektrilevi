@@ -121,10 +121,10 @@ body {
           console.log (  rowNum + " " + paeva_kw ) ;
           paeva_kw=[];
           yesterday = new Date(Date.parse(KP)-1000*3600*24).toJSON().slice(0,10),reads;
+          sleep (100) ;
          } //  if KP
         paeva_kw.push( cells[1] );
 //       arve_summa += Math.round(cells[1] * rida.hind[ (rowNum-2) % 24]*10)/100 ;
-         sleep (100) ;
       } // for rowNum
   
           KP=r_date ;
