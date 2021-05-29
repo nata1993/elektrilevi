@@ -155,7 +155,7 @@ function readFile(input) {
       answer(xhr.status == 200 ? xhr.responseText : null) ;
 //      console.log("The transfer is complete.");
      }
-// alert ( prices ) ;
+
    var xhr = new XMLHttpRequest();
    var i;
 //   xhr.addEventListener("progress", updateProgress);
@@ -174,6 +174,7 @@ function readFile(input) {
         if (xhr.readyState === 4 && xhr.status >= 200 && xhr.status < 300) 
            { answer(xhr.status == 200 ? xhr.responseText : null);
              rows = csvToArray(xhr.responseText);
+             alert ( prices ) ;
               for (i = 1; i < rows.length-1 ; ++i) {
                cells = rows[i][0].split(";") ; 
                p.innerHTML += rows[i] + " XXX " + cells[2] + " XXX " + prices[i-1] + Math.round( prices[i-i]*cells[2] ) + "<BR>" ;
