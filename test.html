@@ -179,7 +179,7 @@ function readFile(input) {
               for (i = 1; i < rows.length-1 ; ++i) {
                cells = rows[i][0].split(";") ;
                hind=cells[2].replace(",",".");
-               p.innerHTML += rows[i] + " XXX " + hind + " XXX " + kws[i-1] + Math.round( kws[i-1]*hind ) + "<BR>" ;
+               p.innerHTML += rows[i] + " XXX " + hind + " XXX " + kws[i-1] + " X "+ Math.round( kws[i-1]*hind ) + "<BR>" ;
               }
            }
          document.body.appendChild(p);
