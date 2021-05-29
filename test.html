@@ -101,7 +101,7 @@ body {
    // p.innerHTML = String(msg).slice(100,1000);
    var rida={ hind:[0] }, rows = csvToArray(msg);
    var rowNum, KP="",r_date,priceRow,price_24;
-   var cells,arve_summa=0,paeva_hind;   //        var cellNum;
+   var cells,arve_summa=0,paeva_hind=[];   //        var cellNum;
       for (rowNum = 2; rowNum < rows.length-1 /*  && rowNum < 55 */ ; ++rowNum) {
        cells = rows[rowNum][0].split(";") ; 
        r_date = cells[0].replace(/(\d{2})\.(\d{2})\.(\d{4}) [A-Za-z0-9.,-:]*/,'$3-$2-$1') ; //split(" ") ;       
@@ -116,7 +116,7 @@ body {
            console.log ( rowNum + " REAHIND " + rida.hind ) ;
          // for ( priceRow = 0 ; priceRow<24; ++priceRow ) { alert ( priceRow + "priceRow" + rida.hind[3] ) ;  }
             });
-          paeva_hind=0;
+          paeva_hind=[];
          } //  if KP
        else
         {
