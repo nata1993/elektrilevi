@@ -171,8 +171,8 @@ body {
               for (i = 1; i < rows.length-1 ; i++) {
                 cells = rows[i][0].split(";") ;
                 hind=cells[2].replace(",",".");
-                vahe_summa += Math.round( kws[i-1]*hind*10 ) ;
-                vahe_kw += Math.round(kws[i-1]*100) ;
+                vahe_summa += Math.round( kws[i-1]*hind*100 ) ;
+                vahe_kw += Math.round(kws[i-1]*1000) ;
                 p_end.innerHTML += rows[i] + " XXX " + hind + " XXX " + kws[i-1] + " X "+ Math.round( kws[i-1]*hind*100 )/100 + "<BR>" ;
                }
    //            console.log( "PRICE" + rows ) ;
