@@ -126,7 +126,7 @@ body {
       } // for rowNum
   
      KP=r_date ;
-     GetPrice(yesterday , KP,paeva_kw ) ;
+     GetPrice(yesterday , Date(Date.parse(KP)+1000*3600*24).toJSON().slice(0,10),paeva_kw ) ;
   //, function(reads) {
  //    rida = showData(reads);
  //      });
