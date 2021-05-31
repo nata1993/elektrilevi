@@ -159,6 +159,8 @@ function readFile(input) {
 
    var xhr = new XMLHttpRequest();
    var i, hind;
+   var p = document.createElement('p');
+
 //   xhr.addEventListener("progress", updateProgress);
 //   xhr.addEventListener("load", transferComplete);
 //   xhr.addEventListener("loadend", transferComplete);
@@ -171,7 +173,6 @@ function readFile(input) {
       function handleStateChange() {
 //        answer = null ; 
        var rows, cells ;
-       var p = document.createElement('p');
         if (xhr.readyState === 4 && xhr.status >= 200 && xhr.status < 300) 
            { answer(xhr.status == 200 ? xhr.responseText : null);
             if ( xhr.status == 200 )
@@ -179,15 +180,15 @@ function readFile(input) {
                rows = csvToArray(xhr.responseText);
                console.log( "Kilowats" + kws ) ;
  //              console.log( "PRICE" + hind ) ;
-                for (i = 1; i < rows.length-1 ; ++i) {
+               p.innerHTML="<BR>";
+                for (i = 1; i < rows.length ; ++i) {
                   cells = rows[i][0].split(";") ;
                   hind=cells[2].replace(",",".");
                   p.innerHTML += rows[i] + " XXX " + hind + " XXX " + kws[i-1] + " X "+ Math.round( kws[i-1]*hind ) + "<BR>" ;
                  }
    //            console.log( "PRICE" + rows ) ;
                        document.body.appendChild(p);
-
-             }
+             } // if xhr.status == 200
            }
 
         } ; // handleStateChange
