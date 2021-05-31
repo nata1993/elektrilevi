@@ -115,9 +115,7 @@ body {
          {
           //          alert ( KP + " KP " + Date.parse(KP) ) ;  
           KP=r_date ;
-          GetPrice(yesterday , KP,paeva_kw, function(reads) {
-          rida = showData(reads);
-            });
+          GetPrice(yesterday , KP,paeva_kw );
 //          console.log ( Math.round(rowNum/24) + " " + rowNum + " "+ paeva_kw ) ;
           paeva_kw=[];
           yesterday = new Date(Date.parse(KP)-1000*3600*24).toJSON().slice(0,10),reads;
@@ -128,9 +126,10 @@ body {
       } // for rowNum
   
      KP=r_date ;
-     GetPrice(yesterday , KP,paeva_kw, function(reads) {
+     GetPrice(yesterday , KP,paeva_kw ) ;
+  //, function(reads) {
  //    rida = showData(reads);
-       });
+ //      });
      console.log ( Math.round(rowNum/24) + " " + rowNum + " "+ paeva_kw ) ;
 
 //    p.innerHTML += rows[rowNum];
@@ -151,7 +150,7 @@ function readFile(input) {
   };
 }
    
-  function GetPrice(start_time,end_time,kws, answer) {
+  function GetPrice(start_time,end_time,kws /*, answer */ ) {
     function transferComplete(evt) {
       answer(xhr.status == 200 ? xhr.responseText : null) ;
 //      console.log("The transfer is complete.");
@@ -173,22 +172,23 @@ function readFile(input) {
 //        answer = null ; 
        var rows, cells ;
         var p_end = document.createElement('p');
-        if (xhr.readyState === 4 && xhr.status >= 200 && xhr.status < 300) 
+/*        if (xhr.readyState === 4 && xhr.status >= 200 && xhr.status < 300) 
            { answer(xhr.status == 200 ? xhr.responseText : null);
-            if ( xhr.status == 200 )
-             { 
-               rows = csvToArray(xhr.responseText);
-               console.log( "Kilowats" + kws ) ;
+           } // if xhr.status == 200
+ */          
+        if ( xhr.readyState == 4 )
+           { 
+             rows = csvToArray(xhr.responseText);
+             console.log( "Kilowats" + kws ) ;
  //              console.log( "PRICE" + hind ) ;
-               p_end.innerHTML="<BR>";
-                for (i = 1; i < rows.length ; ++i) {
-                  cells = rows[i][0].split(";") ;
-                  hind=cells[2].replace(",",".");
-                  p_end.innerHTML += rows[i] + " XXX " + hind + " XXX " + kws[i-1] + " X "+ Math.round( kws[i-1]*hind ) + "<BR>" ;
-                 }
+             p_end.innerHTML="<BR>";
+              for (i = 1; i < rows.length ; ++i) {
+                cells = rows[i][0].split(";") ;
+                hind=cells[2].replace(",",".");
+                p_end.innerHTML += rows[i] + " XXX " + hind + " XXX " + kws[i-1] + " X "+ Math.round( kws[i-1]*hind ) + "<BR>" ;
+               }
    //            console.log( "PRICE" + rows ) ;
              document.body.appendChild(p_end);
-             } // if xhr.status == 200
            }
 
         } ; // handleStateChange
