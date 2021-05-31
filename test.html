@@ -159,8 +159,7 @@ function readFile(input) {
 
    var xhr = new XMLHttpRequest();
    var i, hind;
-   var p_end = document.createElement('p');
-
+  
 //   xhr.addEventListener("progress", updateProgress);
 //   xhr.addEventListener("load", transferComplete);
 //   xhr.addEventListener("loadend", transferComplete);
@@ -173,6 +172,7 @@ function readFile(input) {
       function handleStateChange() {
 //        answer = null ; 
        var rows, cells ;
+        var p_end = document.createElement('p');
         if (xhr.readyState === 4 && xhr.status >= 200 && xhr.status < 300) 
            { answer(xhr.status == 200 ? xhr.responseText : null);
             if ( xhr.status == 200 )
