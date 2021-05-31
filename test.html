@@ -125,7 +125,7 @@ body {
 //       arve_summa += Math.round(cells[1] * rida.hind[ (rowNum-2) % 24]*10)/100 ;
       } // for rowNum
   
-     KP=new Date(Date.parse(r_date)+1000*3600*24).toJSON().slice(0,10) ;
+     KP=new Date(Date.parse(r_date)).toJSON().slice(0,10) ;
      GetPrice(yesterday , KP ,paeva_kw ) ;
   //, function(reads) {
  //    rida = showData(reads);
