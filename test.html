@@ -101,7 +101,7 @@ body {
    // p.innerHTML = String(msg).slice(100,1000);
    var rida={ hind:[0] }, rows = csvToArray(msg);
    var rowNum, KP="",r_date,priceRow;
-   var cells,arve_summa=0, kogu_kw=0, paeva_kw=[];   //        var cellNum;
+   var cells, arve_summa=0, kogu_kw=0, paeva_kw=[];   //        var cellNum;
       for (rowNum = 2; rowNum < rows.length-1 /*  && rowNum < 55 */  ; ++rowNum) {
        cells = rows[rowNum][0].split(";") ; 
        r_date = cells[0].replace(/(\d{2})\.(\d{2})\.(\d{4}) [A-Za-z0-9.,-:]*/,'$3-$2-$1') ; //split(" ") ;
@@ -134,23 +134,8 @@ body {
 
 //    p.innerHTML += rows[rowNum];
 //    document.body.appendChild(p);
-   }
   
-function readFile(input) {
-  let file = input.files[0];
-  let reader = new FileReader();
-  reader.readAsText(file);
-  reader.onload = function() {
-    display(reader.result);
-//    alert(`File name: ${file.name}`);
- //   console.log(reader.result);
-  };
-  reader.onerror = function() {
-    console.log(reader.error);
-  };
-}
-   
-  function GetPrice(start_time,end_time,kws /*, answer */ ) {
+    function GetPrice(start_time,end_time,kws /*, answer */ ) {
     function transferComplete(evt) {
       answer(xhr.status == 200 ? xhr.responseText : null) ;
 //      console.log("The transfer is complete.");
@@ -211,6 +196,24 @@ function readFile(input) {
 //   alert ( "GETPRICE " + "https://dashboard.elering.ee/api/nps/price/csv?start="+ start_time+"T21:00:00.000Z&end="+end_time+"T20:59:59.999Z&fields=ee") ;
   } // GetPrice
   
+
+  
+   }
+  
+function readFile(input) {
+  let file = input.files[0];
+  let reader = new FileReader();
+  reader.readAsText(file);
+  reader.onload = function() {
+    display(reader.result);
+//    alert(`File name: ${file.name}`);
+ //   console.log(reader.result);
+  };
+  reader.onerror = function() {
+    console.log(reader.error);
+  };
+}
+   
   
      function kuva() {
 //          alert ( "KP " + kp + 1000*3600*24 ) ;
