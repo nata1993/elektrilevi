@@ -108,17 +108,17 @@ body {
         if ( !KP )
          {
           KP=r_date ;
-//          var yesterday = new Date(Date.parse(KP)-1000*3600*24).toJSON().slice(0,10),reads;
-          var yesterday = new Date(Date.parse(KP)).toJSON().slice(0,10),reads; 
+          var yesterday = new Date(Date.parse(KP)-1000*3600*24).toJSON().slice(0,10),reads;
+//          var yesterday = new Date(Date.parse(KP)).toJSON().slice(0,10),reads; 
          }
         if ( KP != r_date )
          {
           //          alert ( KP + " KP " + Date.parse(KP) ) ;  
-          KP=r_date ;
           GetPrice(yesterday , KP,paeva_kw );
-//          console.log ( Math.round(rowNum/24) + " " + rowNum + " "+ paeva_kw ) ;
-          paeva_kw=[];
           yesterday = new Date(Date.parse(KP)).toJSON().slice(0,10),reads;
+          KP=r_date ;
+          //          console.log ( Math.round(rowNum/24) + " " + rowNum + " "+ paeva_kw ) ;
+          paeva_kw=[];          
 //          sleep (100) ;
          } //  if KP
         paeva_kw.push( cells[1] );
