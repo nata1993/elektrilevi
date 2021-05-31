@@ -162,19 +162,23 @@ body {
  */          
         if ( xhr.readyState == 4 )
            { 
+             var vahe_summa=0, vahe_kw =0; ;
              rows = csvToArray(xhr.responseText);
              console.log( "Kilowats " + start_time + " " + end_time + " " + kws ) ;
              console.log( "PRICE" + rows.length + " " + rows[1] ) ;
              p_end.innerHTML="<BR>";
-              for (i = 1; i < rows.length-1 ; ++i) {
+              for (i = 1; i < rows.length ; i++) {
                 cells = rows[i][0].split(";") ;
                 hind=cells[2].replace(",",".");
-                arve_summa += Math.round( kws[i-1]*hind*10 ) ;
-                kogu_kw += Math.round(kws[i-1]*100) ;
+                vahe_summa += Math.round( kws[i-1]*hind*10 ) ;
+                vahe_kw += Math.round(kws[i-1]*100) ;
                 p_end.innerHTML += rows[i] + " XXX " + hind + " XXX " + kws[i-1] + " X "+ Math.round( kws[i-1]*hind*100 )/100 + "<BR>" ;
                }
    //            console.log( "PRICE" + rows ) ;
+            p_end.innerHTML += "KW " + vahe_kw + " SUMMA " + vahe_summa + "<BR>" ;
              document.body.appendChild(p_end);
+            arve_summa += vahe_summa ;
+            kogu_kw += vahe_kw ;
             document.getElementById("summa").innerHTML="SUMMA " + arve_summa ;
             document.getElementById("kw").innerHTML="kW "+ kogu_kw ;
            }
