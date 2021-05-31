@@ -179,7 +179,7 @@ function readFile(input) {
         if ( xhr.readyState == 4 )
            { 
              rows = csvToArray(xhr.responseText);
-             console.log( "Kilowats " + kws ) ;
+             console.log( "Kilowats " + start_time + " " + end_time + " " + kws ) ;
              console.log( "PRICE" + rows.length + " " + rows ) ;
              p_end.innerHTML="<BR>";
               for (i = 1; i < rows.length-1 ; ++i) {
