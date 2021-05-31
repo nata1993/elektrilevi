@@ -180,7 +180,7 @@ function readFile(input) {
            { 
              rows = csvToArray(xhr.responseText);
              console.log( "Kilowats" + kws ) ;
- //              console.log( "PRICE" + hind ) ;
+             console.log( "PRICE" + rows ) ;
              p_end.innerHTML="<BR>";
               for (i = 1; i < rows.length ; ++i) {
                 cells = rows[i][0].split(";") ;
