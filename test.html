@@ -162,7 +162,8 @@ body {
  */          
         if ( xhr.readyState == 4 )
            { 
-             var vahe_summa=0, vahe_kw =0; ;
+             var vahe_summa=0, vahe_kw =0;
+             rows = [] ;
              rows = csvToArray(xhr.responseText);
              console.log( "Kilowats " + start_time + " " + end_time + " " + kws ) ;
              console.log( "PRICE" + rows.length + " " + rows[1] ) ;
@@ -200,9 +201,7 @@ body {
 //   alert ( "GETPRICE " + "https://dashboard.elering.ee/api/nps/price/csv?start="+ start_time+"T21:00:00.000Z&end="+end_time+"T20:59:59.999Z&fields=ee") ;
   } // GetPrice
   
-
-  
-   }
+   } // display
   
 function readFile(input) {
   let file = input.files[0];
