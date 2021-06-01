@@ -198,10 +198,11 @@ body {
             document.getElementById("t_summa").innerHTML= Math.round(kogu_ukw*document.getElementById("marginaal").value/1000)/100 ;
             document.getElementById("t_summa_km").innerHTML= Math.round(kogu_ukw*document.getElementById("marginaal").value/1000*1.2)/100 ;
             document.getElementById("k_summa").innerHTML=  Math.round(k_summa/1000)/100 - Math.round((kogu_kw-kogu_ukw)*document.getElementById("marginaal").value/1000)/100 ;
-            var itm=document.getElementById("k_summa").lastChild ;
+            var itm=document.getElementById("k_summa") ;
             var cln=itm.cloneNode(true);
-            // document.getElementById("k_summa_km").InnerHTML =
-            alert( "A" + $('marginaal').html()) ;
+            cln.removeAttribute("k_summa") ;
+            document.getElementById("k_summa_km").appendChild(cln) ;
+//            alert( "A" + $('marginaal').html()) ;
            }
 
         } ; // handleStateChange
