@@ -195,6 +195,8 @@ body {
             document.getElementById("usumma_km").innerHTML=  Math.round(u_summa/1000*1.2)/100 ;
             document.getElementById("m_summa").innerHTML= Math.round(kogu_kw*document.getElementById("marginaal").value/1000)/100 ;
             document.getElementById("m_summa_km").innerHTML= Math.round(kogu_kw*document.getElementById("marginaal").value/1000*1.2)/100 ;
+            document.getElementById("t_summa").innerHTML= Math.round(kogu_ukw*document.getElementById("marginaal").value/1000)/100 ;
+            document.getElementById("t_summa_km").innerHTML= Math.round(kogu_ukw*document.getElementById("marginaal").value/1000*1.2)/100 ;
             document.getElementById("k_summa").innerHTML=  Math.round(k_summa/1000)/100 ;
             document.getElementById("k_summa_km").innerHTML=  Math.round(k_summa/1000*1.2)/100 ;
            }
@@ -298,6 +300,7 @@ function readFile(input) {
   <TR><TH>Toodetud</TH><TD><div id="kw">00.00</div></TD><TD><div id="summa">0.00</div></TD><TD><div id="summa_km">0.00</div></TD></TR>
   <TR><TH>Tarbitud</TH><TD><div id="ukw">00.00</div></TD><TD><div id="usumma">0.00</div></TD><TD><div id="usumma_km">0.00</div></TD></TR>
   <TR><TH>Marginaal</TH><TD></TD><TD><div id="m_summa">0.00</div></TD><TD><div id="m_summa_km">0.00</div></TD></TR>
+  <TR><TH>M tarbimisel</TH><TD></TD><TD><div id="t_summa">0.00</div></TD><TD><div id="t_summa_km">0.00</div></TD></TR>
   <TR><TH>Kokku</TH><TD><div id="kw">00.00</div></TD><TD><div id="k_summa">0.00</div></TD><TD><div id="k_summa_km">0.00</div></TD></TR>  
 <TABLE>
  
