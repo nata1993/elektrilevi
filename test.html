@@ -185,11 +185,11 @@ body {
 //            alert ( vahe_usumma ) ;
             kogu_kw += vahe_kw ;
             kogu_ukw+= vahe_ukw;
-            document.getElementById("summa").innerHTML="SUMMA " + Math.round(arve_summa/1000)/100 ;
-            document.getElementById("kw").innerHTML="kW "+ Math.round(kogu_kw/10)/100 ;
-            document.getElementById("ukw").innerHTML="kW "+ Math.round(kogu_ukw/10)/100 ;
-            document.getElementById("usumma").innerHTML="SUMMA " + Math.round(u_summa/1000)/100 ;
-            document.getElementById("m_summa").innerHTML="SUMMA " + Math.round(kogu_kw*document.getElementById("marginaal").value/10)/100 ;
+            document.getElementById("summa").innerHTML=   Math.round(arve_summa/1000)/100 ;
+            document.getElementById("kw").innerHTML =     Math.round(kogu_kw/10)/100 ;
+            document.getElementById("ukw").innerHTML =    Math.round(kogu_ukw/10)/100 ;
+            document.getElementById("usumma").innerHTML=  Math.round(u_summa/1000)/100 ;
+            document.getElementById("m_summa").innerHTML= Math.round(kogu_kw*document.getElementById("marginaal").value/10)/100 ;
            }
 
         } ; // handleStateChange
