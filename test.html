@@ -201,8 +201,7 @@ body {
             var src=document.getElementById("k_summa"),
                 dst=document.getElementById("k_summa_km") ;
             let evilclone = src.innerHTML ;
-            dst.innerHTML = evilclone ;
-//            alert( "A" + $('marginaal').html()) ;
+            dst.innerHTML = Math.round(evilclone*120)/100 ;
            }
 
         } ; // handleStateChange
