@@ -188,6 +188,7 @@ body {
             document.getElementById("kw").innerHTML="kW "+ Math.round(kogu_kw/10)/100 ;
             document.getElementById("ukw").innerHTML="kW "+ Math.round(kogu_ukw/10)/100 ;
             document.getElementById("usumma").innerHTML="SUMMA " + Math.round(u_summa/1000)/100 ;
+            document.getElementById("m_summa").innerHTML="SUMMA " + Math.round(kogu_kw*document.getElementById("marginaal").value/10)/100 ;
            }
 
         } ; // handleStateChange
@@ -283,7 +284,7 @@ function readFile(input) {
  </script>
 </head>
 <body>
- Sisesta marginaal <input id="marginal" type="text"> senti kWh
+ Sisesta marginaal <input id="marginaal" type="text"> senti kWh <div id="m_summa">0.00</div>
  <H1>Toodetud <div class="toodetud"><div id="kw">kW 00.00</div><div id="summa"> SUMMA 0.00</div></div></H1>
  <H1>Tarbitud <div id="ukw">kW 00.00</div><div id="usumma"> SUMMA 0.00</div></H1>
 
