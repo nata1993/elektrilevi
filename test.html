@@ -101,7 +101,7 @@ body {
    // p.innerHTML = String(msg).slice(100,1000);
    var rida={ hind:[0] }, rows = csvToArray(msg);
    var rowNum, KP="",r_date,priceRow;
-   var cells, arve_summa=0, kogu_kw=0, paeva_kw=[];   //        var cellNum;
+   var cells, arve_summa=0, kogu_kw=0, paeva_kw=[], u_kw;   //        var cellNum;
       for (rowNum = 2; rowNum < rows.length-1 /*  && rowNum < 55 */  ; ++rowNum) {
        cells = rows[rowNum][0].split(";") ; 
        r_date = cells[0].replace(/(\d{2})\.(\d{2})\.(\d{4}) [A-Za-z0-9.,-:]*/,'$3-$2-$1') ; //split(" ") ;
@@ -114,19 +114,19 @@ body {
         if ( KP != r_date )
          {
           //          alert ( KP + " KP " + Date.parse(KP) ) ;  
-          GetPrice(yesterday , KP,paeva_kw );
+          GetPrice(yesterday , KP,paeva_kw, u_kw );
           yesterday = new Date(Date.parse(KP)).toJSON().slice(0,10),reads;
           KP=r_date ;
           //          console.log ( Math.round(rowNum/24) + " " + rowNum + " "+ paeva_kw ) ;
-          paeva_kw=[];          
+          paeva_kw=[]; u_kws=[];
 //          sleep (100) ;
          } //  if KP
-        paeva_kw.push( cells[1] );
+        paeva_kw.push( cells[1] ); u_kw.push( cells[2] ) ;
 //       arve_summa += Math.round(cells[1] * rida.hind[ (rowNum-2) % 24]*10)/100 ;
       } // for rowNum
   
      KP=new Date(Date.parse(r_date)).toJSON().slice(0,10) ;
-     GetPrice(yesterday , KP ,paeva_kw ) ;
+     GetPrice(yesterday , KP ,paeva_kw, u_kw ) ;
   //, function(reads) {
  //    rida = showData(reads);
  //      });
@@ -135,7 +135,7 @@ body {
 //    p.innerHTML += rows[rowNum];
 //    document.body.appendChild(p);
   
-    function GetPrice(start_time,end_time,kws /*, answer */ ) {
+    function GetPrice(start_time,end_time,kws, ukws /*, answer */ ) {
     function transferComplete(evt) {
       answer(xhr.status == 200 ? xhr.responseText : null) ;
 //      console.log("The transfer is complete.");
@@ -168,7 +168,7 @@ body {
              console.log( "Kilowats " + start_time + " " + end_time + " " + kws ) ;
              console.log( "PRICE" + rows.length + " " + rows[1] ) ;
              p_end.innerHTML="<BR>";
-              for (i = 1; i < rows.length-1 ; i++) {
+              for (i = 1; i < rows.length-1 && i <= kws.length ; i++) {
                 cells = rows[i][0].split(";") ;
                 hind=cells[2].replace(",",".");
                 vahe_summa += Math.round( kws[i-1]*hind*100 ) ;
@@ -180,8 +180,8 @@ body {
              document.body.appendChild(p_end);
             arve_summa += vahe_summa ;
             kogu_kw += vahe_kw ;
-            document.getElementById("summa").innerHTML="SUMMA " + arve_summa ;
-            document.getElementById("kw").innerHTML="kW "+ kogu_kw ;
+            document.getElementById("summa").innerHTML="SUMMA " + Math.round(arve_summa/1000)/100 ;
+            document.getElementById("kw").innerHTML="kW "+ Math.round(kogu_kw/10)/100 ;
            }
 
         } ; // handleStateChange
@@ -277,8 +277,10 @@ function readFile(input) {
  </script>
 </head>
 <body>
- <H1><div id="kw">kW 00.00</div><div id="summa"> SUMMA 0.00</div></H1>
-  <div class="ct-chart"></div>
+ <H1>Toodetud <div id="kw">kW 00.00</div><div id="summa"> SUMMA 0.00</div></H1>
+ <H1>Tarbitud <div id="ukw">kW 00.00</div><div id="usumma"> SUMMA 0.00</div></H1>
+
+ <div class="ct-chart"></div>
   
   <div id="cal-wrap">
    <!-- [PERIOD SELECTOR] -->
