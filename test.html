@@ -201,7 +201,7 @@ body {
             var itm=document.getElementById("k_summa").lastChild ;
             var cln=itm.cloneNode(true);
             // document.getElementById("k_summa_km").InnerHTML =
-             document.getElementById("k_summa_km").appendChild(cln) ;
+            $("k_summa_km").html($("k_summa").html()) ;
            }
 
         } ; // handleStateChange
