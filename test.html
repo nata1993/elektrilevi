@@ -101,7 +101,7 @@ body {
    // p.innerHTML = String(msg).slice(100,1000);
    var rida={ hind:[0] }, rows = csvToArray(msg);
    var rowNum, KP="",r_date,priceRow;
-   var cells, arve_summa=0, kogu_kw=0, kogu_ukw=0, paeva_kw=[], u_kw=[], u_summa=0;   //        var cellNum;
+   var cells, arve_summa=0, kogu_kw=0, kogu_ukw=0, paeva_kw=[], u_kw=[], u_summa=0, k_summa=0;   //        var cellNum;
       for (rowNum = 2; rowNum < rows.length-1 /*  && rowNum < 55 */  ; ++rowNum) {
        cells = rows[rowNum][0].split(";") ; 
        r_date = cells[0].replace(/(\d{2})\.(\d{2})\.(\d{4}) [A-Za-z0-9.,-:]*/,'$3-$2-$1') ; //split(" ") ;
@@ -162,7 +162,7 @@ body {
  */          
         if ( xhr.readyState == 4 )
            { 
-             var vahe_summa=0, vahe_kw =0, vahe_ukw=0, vahe_usumma=0;
+             var vahe_summa=0, vahe_kw =0, vahe_ukw=0, vahe_usumma=0, vahe_ksumma=0;
              rows = [] ;
              rows = csvToArray(xhr.responseText);
              console.log( "Kilowats " + start_time + " " + end_time + " " + kws ) ;
@@ -175,6 +175,7 @@ body {
                 vahe_usumma += Math.round( ukws[i-1]*hind*100 ) ;
                 vahe_kw += Math.round(kws[i-1]*1000) ;
                 vahe_ukw += Math.round(ukws[i-1]*1000) ;
+                vahe_ksumma+=Math.round(kws[i-1]*hind*100  - ukws[i-1]*hind*100 ) ;
                 p_end.innerHTML += rows[i] + " XXX " + hind + " XXX " + kws[i-1] + " X "+ Math.round( kws[i-1]*hind*100 ) + "<BR>" ;
                }
    //            console.log( "PRICE" + rows ) ;
@@ -185,6 +186,7 @@ body {
 //            alert ( vahe_usumma ) ;
             kogu_kw += vahe_kw ;
             kogu_ukw+= vahe_ukw;
+            k_summa += vahe_ksumma ;
             document.getElementById("summa").innerHTML=   Math.round(arve_summa/1000)/100 ;
             document.getElementById("summa_km").innerHTML=   Math.round(arve_summa/1000*1.2)/100 ;
             document.getElementById("kw").innerHTML =     Math.round(kogu_kw/10)/100 ;
@@ -193,6 +195,8 @@ body {
             document.getElementById("usumma_km").innerHTML=  Math.round(u_summa/1000*1.2)/100 ;
             document.getElementById("m_summa").innerHTML= Math.round(kogu_kw*document.getElementById("marginaal").value/1000)/100 ;
             document.getElementById("m_summa_km").innerHTML= Math.round(kogu_kw*document.getElementById("marginaal").value/1000*1.2)/100 ;
+            document.getElementById("k_summa").innerHTML=  Math.round(k_summa/1000)/100 ;
+            document.getElementById("k_summa_km").innerHTML=  Math.round(k_summa/1000*1.2)/100 ;
            }
 
         } ; // handleStateChange
