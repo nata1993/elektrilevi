@@ -99,8 +99,8 @@ body {
             document.body.appendChild(p_end);
             arve_summa += vahe_summa ;
             kogu_kw += vahe_kw ;
-            document.getElementById("summa").innerHTML="SUMMA " + arve_summa ;
-            document.getElementById("kw").innerHTML="kW "+ kogu_kw ;
+            document.getElementById("summa").innerHTML="SUMMA " + Math.round(arve_summa/100)/100 ;
+            document.getElementById("kw").innerHTML="kWh "+ Math.round(kogu_kw/100) ;
            }
 
         } ; // handleStateChange
@@ -168,7 +168,7 @@ function readFile(input) {
  </script>
 </head>
 <body>
- <H1><div id="kw">kW 00.00</div><div id="summa"> SUMMA 0.00</div></H1>
+ <H1><div id="kw">kWh 00.00</div><div id="summa"> SUMMA 0.00</div></H1>
   <div class="ct-chart"></div>
 
   Palun anna <A href="http://e.elering.ee">elering</A> lehelt loetud csv laiendiga faili.
