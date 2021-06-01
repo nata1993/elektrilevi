@@ -101,7 +101,7 @@ body {
    // p.innerHTML = String(msg).slice(100,1000);
    var rida={ hind:[0] }, rows = csvToArray(msg);
    var rowNum, KP="",r_date,priceRow;
-   var cells, arve_summa=0, kogu_kw=0, paeva_kw=[], u_kw;   //        var cellNum;
+   var cells, arve_summa=0, kogu_kw=0, paeva_kw=[], u_kw=[];   //        var cellNum;
       for (rowNum = 2; rowNum < rows.length-1 /*  && rowNum < 55 */  ; ++rowNum) {
        cells = rows[rowNum][0].split(";") ; 
        r_date = cells[0].replace(/(\d{2})\.(\d{2})\.(\d{4}) [A-Za-z0-9.,-:]*/,'$3-$2-$1') ; //split(" ") ;
@@ -118,7 +118,7 @@ body {
           yesterday = new Date(Date.parse(KP)).toJSON().slice(0,10),reads;
           KP=r_date ;
           //          console.log ( Math.round(rowNum/24) + " " + rowNum + " "+ paeva_kw ) ;
-          paeva_kw=[]; u_kws=[];
+          paeva_kw=[]; u_kw=[];
 //          sleep (100) ;
          } //  if KP
         paeva_kw.push( cells[1] ); u_kw.push( cells[2] ) ;
