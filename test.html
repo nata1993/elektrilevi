@@ -197,9 +197,9 @@ body {
             document.getElementById("m_summa_km").innerHTML= Math.round(kogu_kw*document.getElementById("marginaal").value/1000*1.2)/100 ;
             document.getElementById("t_summa").innerHTML= Math.round(kogu_ukw*document.getElementById("marginaal").value/1000)/100 ;
             document.getElementById("t_summa_km").innerHTML= Math.round(kogu_ukw*document.getElementById("marginaal").value/1000*1.2)/100 ;
-            var elem=document.getElementById("k_summa").innerHTML=  Math.round(k_summa/1000)/100 - Math.round((kogu_kw-kogu_ukw)*document.getElementById("marginaal").value/1000)/100 ;
-            document.write(elem);
-            document.getElementById("k_summa_km").innerHTML= document.getElementById("k_summa").InnerHTML ;
+            var itm=document.getElementById("k_summa").innerHTML=  Math.round(k_summa/1000)/100 - Math.round((kogu_kw-kogu_ukw)*document.getElementById("marginaal").value/1000)/100 ;
+            var cln=itm.cloneNode(true);
+            document.getElementById("k_summa_km").innerHTML= document.getElementById("k_summa").appendChild(cln) ;
            }
 
         } ; // handleStateChange
