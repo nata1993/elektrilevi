@@ -286,9 +286,15 @@ function readFile(input) {
 </head>
 <body>
  Sisesta marginaal <input id="marginaal" type="text"> senti kWh <div id="m_summa">0.00</div>
- <H1>Toodetud <div class="toodetud"><div id="kw">kW 00.00</div><div id="summa"> SUMMA 0.00</div></div></H1>
- <H1>Tarbitud <div id="ukw">kW 00.00</div><div id="usumma"> SUMMA 0.00</div></H1>
-
+ <TABLE>
+  
+  <TH><TD></TD><TD>kWh</TD><TD>SUMMA</TD><TD>Summa+KM</TD></TH>
+  <TR><TD>Toodetud</TD><TD><div id="kw">kW 00.00</div></TD><TD><div id="summa">0.00</div></TD><TD><div id="summa_km">0.00</div></TD></TR>
+  <TR><TD>Tarbitud</TD><TD><div id="ukw">kW 00.00</div></TD><TD><div id="usumma">0.00</div></TD><TD><div id="usumma_km">0.00</div></TD></TR>
+  <TR><TD>Marginaal</TD><TD></TD><TD><div id="msumma">0.00</div></TD><TD><div id="msumma_km">0.00</div></TD></TR>
+  <TR><TD>Toodetud</TD><TD><div id="kw">kW 00.00</div></TD><TD><div id="k_summa">0.00</div></TD><TD><div id="k_summa_km">0.00</div></TD></TR>  
+<TABLE>
+ 
  <div class="ct-chart"></div>
   
   <div id="cal-wrap">
