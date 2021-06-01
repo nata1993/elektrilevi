@@ -162,7 +162,7 @@ body {
  */          
         if ( xhr.readyState == 4 )
            { 
-             var vahe_summa=0, vahe_kw =0;
+             var vahe_summa=0, vahe_kw =0, vahe_ukw=0;
              rows = [] ;
              rows = csvToArray(xhr.responseText);
              console.log( "Kilowats " + start_time + " " + end_time + " " + kws ) ;
@@ -173,6 +173,7 @@ body {
                 hind=cells[2].replace(",",".");
                 vahe_summa += Math.round( kws[i-1]*hind*100 ) ;
                 vahe_kw += Math.round(kws[i-1]*1000) ;
+                vahe_ukw += Math.round(ukws[i-1]*1000) ;
                 p_end.innerHTML += rows[i] + " XXX " + hind + " XXX " + kws[i-1] + " X "+ Math.round( kws[i-1]*hind*100 ) + "<BR>" ;
                }
    //            console.log( "PRICE" + rows ) ;
@@ -182,6 +183,7 @@ body {
             kogu_kw += vahe_kw ;
             document.getElementById("summa").innerHTML="SUMMA " + Math.round(arve_summa/1000)/100 ;
             document.getElementById("kw").innerHTML="kW "+ Math.round(kogu_kw/10)/100 ;
+            document.getElementById("ukw").innerHTML="kW "+ Math.round(vahe_ukw/10)/100 ;
            }
 
         } ; // handleStateChange
