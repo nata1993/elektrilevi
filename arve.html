@@ -99,8 +99,8 @@ body {
             document.body.appendChild(p_end);
             arve_summa += vahe_summa ;
             kogu_kw += vahe_kw ;
-            document.getElementById("summa").innerHTML="SUMMA " + Math.round(arve_summa/100)/100 ;
-            document.getElementById("kw").innerHTML="kWh "+ Math.round(kogu_kw/100) ;
+            document.getElementById("summa").innerHTML="SUMMA " + Math.round(arve_summa/1000)/100 ;
+            document.getElementById("kw").innerHTML="kWh "+ Math.round(kogu_kw/10)/100 ;
            }
 
         } ; // handleStateChange
