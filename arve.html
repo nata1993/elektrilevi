@@ -42,7 +42,7 @@ body {
  function display(msg) {
    var rida={ hind:[0] }, rows = csvToArray(msg);
    var rowNum, KP="",r_date,priceRow;
-   var cells, arve_summa=0, kogu_kw=0, paeva_kw=[];   //        var cellNum;
+   var cells, arve_summa=0, kogu_kw=0, kogu_ukw=0, paeva_kw=[], u_kw=[], u_summa=0, k_summa=0;   //        var cellNum;
       for (rowNum = 2; rowNum < rows.length-1 ; ++rowNum) {
        cells = rows[rowNum][0].split(";") ; 
        r_date = cells[0].replace(/(\d{2})\.(\d{2})\.(\d{4}) [A-Za-z0-9.,-:]*/,'$3-$2-$1') ; //split(" ") ;
@@ -54,35 +54,35 @@ body {
         if ( KP != r_date )
          {
           //          alert ( KP + " KP " + Date.parse(KP) ) ;  
-          GetPrice(yesterday , KP,paeva_kw );
+          GetPrice(yesterday , KP,paeva_kw, u_kw );
           yesterday = new Date(Date.parse(KP)).toJSON().slice(0,10),reads;
           KP=r_date ;
           //          console.log ( Math.round(rowNum/24) + " " + rowNum + " "+ paeva_kw ) ;
-          paeva_kw=[];          
+          paeva_kw=[]; u_kw=[];
          } //  if KP
-        paeva_kw.push( cells[1] );
+       paeva_kw.push( cells[1] ); u_kw.push( cells[2] ) ;
       } // for rowNum
-     KP=new Date(Date.parse(r_date)).toJSON().slice(0,10) ;
-     GetPrice(yesterday , KP ,paeva_kw ) ;
-     console.log ( Math.round(rowNum/24) + " " + rowNum + " "+ paeva_kw ) ;
-     function GetPrice(start_time,end_time,kws ) {
-      function transferComplete(evt) {
-       answer(xhr.status == 200 ? xhr.responseText : null) ;
-     }
+   KP=new Date(Date.parse(r_date)).toJSON().slice(0,10) ;
+   GetPrice(yesterday , KP ,paeva_kw, u_kw ) ;
+   console.log ( Math.round(rowNum/24) + " " + rowNum + " "+ paeva_kw ) ;
 
-   var xhr = new XMLHttpRequest();
-   var i, hind;
-  
-   xhr.onreadystatechange = handleStateChange;
+     function GetPrice(start_time,end_time, kws, ukws ) {
+        function transferComplete(evt) {
+         answer(xhr.status == 200 ? xhr.responseText : null) ;
+         }
+      var xhr = new XMLHttpRequest();
+      var i, hind; 
+      xhr.onreadystatechange = handleStateChange;
 // "https://dashboard.elering.ee/api/nps/price/csv?start=2020-12-31T21:00:00.000Z&end=2021-01-01T20:59:59.999Z&fields=ee");
-   xhr.open("GET", "https://dashboard.elering.ee/api/nps/price/csv?start="+ start_time+"T21:00:00.000Z&end="+end_time+"T20:59:59.999Z&fields=ee");
-   xhr.send();  
-      function handleStateChange() {
-       var rows, cells ;
+      xhr.open("GET", "https://dashboard.elering.ee/api/nps/price/csv?start="+ start_time+"T21:00:00.000Z&end="+end_time+"T20:59:59.999Z&fields=ee");
+      xhr.send();  
+	  
+       function handleStateChange() {
+        var rows, cells ;
         var p_end = document.createElement('p');
-        if ( xhr.readyState == 4 )
+          if ( xhr.readyState == 4 )
            { 
-             var vahe_summa=0, vahe_kw =0;
+             var vahe_summa=0, vahe_kw =0, vahe_ukw=0, vahe_usumma=0, vahe_ksumma=0;
              rows = [] ;
              rows = csvToArray(xhr.responseText);
 //             console.log( "Kilowats " + start_time + " " + end_time + " " + kws ) ;
@@ -92,15 +92,34 @@ body {
                 cells = rows[i][0].split(";") ;
                 hind=cells[2].replace(",",".");
                 vahe_summa += Math.round( kws[i-1]*hind*100 ) ;
+                vahe_usumma += Math.round( ukws[i-1]*hind*100 ) ;
                 vahe_kw += Math.round(kws[i-1]*1000) ;
+                vahe_ukw += Math.round(ukws[i-1]*1000) ;
+                vahe_ksumma+=Math.round(kws[i-1]*hind*100  - ukws[i-1]*hind*100 ) ;
                 p_end.innerHTML += rows[i] + " XXX " + hind + " XXX " + kws[i-1] + " X "+ Math.round( kws[i-1]*hind*100 ) + "<BR>" ;
                }
-            p_end.innerHTML += "KW " + vahe_kw + " SUMMA " + vahe_summa + "<BR>" ;
+            p_end.innerHTML += "KW " + vahe_kw + " SUMMA " + vahe_summa + " X " + vahe_usumma+ "<BR>" ;
             document.body.appendChild(p_end);
             arve_summa += vahe_summa ;
+            u_summa += vahe_usumma ;
             kogu_kw += vahe_kw ;
+            kogu_ukw+= vahe_ukw;
+            k_summa += vahe_ksumma ;
             document.getElementById("summa").innerHTML="SUMMA " + Math.round(arve_summa/1000)/100 ;
-            document.getElementById("kw").innerHTML="kWh "+ Math.round(kogu_kw/10)/100 ;
+            document.getElementById("summa_km").innerHTML=   Math.round(arve_summa/1000*1.2)/100 ;
+            document.getElementById("kw").innerHTML =     Math.round(kogu_kw/10)/100 ;
+            document.getElementById("ukw").innerHTML =    Math.round(kogu_ukw/10)/100 ;
+            document.getElementById("usumma").innerHTML=  Math.round(u_summa/1000)/100 ;
+            document.getElementById("usumma_km").innerHTML=  Math.round(u_summa/1000*1.2)/100 ;
+            document.getElementById("m_summa").innerHTML= Math.round(kogu_kw*document.getElementById("marginaal").value/1000)/100 ;
+            document.getElementById("m_summa_km").innerHTML= Math.round(kogu_kw*document.getElementById("marginaal").value/1000*1.2)/100 ;
+            document.getElementById("t_summa").innerHTML= Math.round(kogu_ukw*document.getElementById("marginaal").value/1000)/100 ;
+            document.getElementById("t_summa_km").innerHTML= Math.round(kogu_ukw*document.getElementById("marginaal").value/1000*1.2)/100 ;
+            document.getElementById("k_summa").innerHTML=  Math.round(k_summa/1000)/100 - Math.round((kogu_kw-kogu_ukw)*document.getElementById("marginaal").value/1000)/100 ;
+            var src=document.getElementById("k_summa"),
+                dst=document.getElementById("k_summa_km") ;
+            let evilclone = src.innerHTML ;
+            dst.innerHTML = Math.round(evilclone*120)/100 ;
            }
 
         } ; // handleStateChange
@@ -168,12 +187,19 @@ function readFile(input) {
  </script>
 </head>
 <body>
- <H1><div id="kw">kWh 00.00</div><div id="summa"> SUMMA 0.00</div></H1>
- <H1>k&auml;ibemaksuta</H1>
+ Sisesta marginaal <input id="marginaal" type="text"> senti kWh
+ <TABLE>
+  <TR><TH></TH><TH>kWh</TH><TH>SUMMA</TH><TH>Summa+KM</TH></TR>
+  <TR><TH>Toodetud</TH><TD><div id="kw">00.00</div></TD><TD><div id="summa">0.00</div></TD><TD><div id="summa_km">0.00</div></TD></TR>
+  <TR><TH>Tarbitud</TH><TD><div id="ukw">00.00</div></TD><TD><div id="usumma">0.00</div></TD><TD><div id="usumma_km">0.00</div></TD></TR>
+  <TR><TH>Marginaal</TH><TD></TD><TD><div id="m_summa">0.00</div></TD><TD><div id="m_summa_km">0.00</div></TD></TR>
+  <TR><TH>M tarbimisel</TH><TD></TD><TD><div id="t_summa">0.00</div></TD><TD><div id="t_summa_km">0.00</div></TD></TR>
+  <TR><TH>Kokku</TH><TD><div id="kw">00.00</div></TD><TD><div id="k_summa">0.00</div></TD><TD><div id="k_summa_km">0.00</div></TD></TR>  
+<TABLE>
+
   <div class="ct-chart"></div>
 
   Palun anna <A href="https://e.elering.ee" target="_blank">elering</A> lehelt loetud csv laiendiga faili.
   <input type="file" onchange="readFile(this)"> 
  </body>
 </html>
-  
