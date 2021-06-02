@@ -294,17 +294,32 @@ function readFile(input) {
               hind:hind};
       } // showData
   
+    function Checkboks(id)
+{ var i=0, sisu="" ;
+  var cb = document.getElementById('cb');
+  for (;i<4;i++) {
+    alert( cb.value ) ;
+   };
+  switch (id)
+   {
+    case 1:    alert("you need"); break ;
+    case 2:    alert("a"); break ;
+    case 3:    alert("m"); break ;
+    case 4:    alert("mt"); break ;
+   }
+}
+  
  </script>
 </head>
 <body>
- Sisesta marginaal <input id="marginaal" type="text"> senti kWh
+ Sisesta m&uuml;&uuml;gimarginaal <input id="marginaal" type="text" size="5"> senti kWh ja ostumarginaal <input id="omarginaal" type="text" size=5> senti kWh. K&uuml;mnendkoha eraldajana kasuta punkti (".").
  <TABLE>
-  <TR><TH></TH><TH>kWh</TH><TH>SUMMA</TH><TH>Summa+KM</TH></TR>
-  <TR><TH>Toodetud</TH><TD><div id="kw">00.00</div></TD><TD><div id="summa">0.00</div></TD><TD><div id="summa_km">0.00</div></TD></TR>
-  <TR><TH>Tarbitud</TH><TD><div id="ukw">00.00</div></TD><TD><div id="usumma">0.00</div></TD><TD><div id="usumma_km">0.00</div></TD></TR>
-  <TR><TH>Marginaal</TH><TD></TD><TD><div id="m_summa">0.00</div></TD><TD><div id="m_summa_km">0.00</div></TD></TR>
-  <TR><TH>M tarbimisel</TH><TD></TD><TD><div id="t_summa">0.00</div></TD><TD><div id="t_summa_km">0.00</div></TD></TR>
-  <TR><TH>Kokku</TH><TD><div id="kw">00.00</div></TD><TD><div id="k_summa">0.00</div></TD><TD><div id="k_summa_km">0.00</div></TD></TR>  
+  <TR><TH colspan="2"></TH><TH>kWh</TH><TH>SUMMA</TH><TH>Summa+KM</TH></TR>
+  <TR><TH><INPUT type="checkbox" onclick="Checkboks(1)" id="cb" name="k"></TH><TH>Toodetud</TH><TD><div id="kw">00.00</div></TD><TD><div id="summa">0.00</div></TD><TD><div id="summa_km">0.00</div></TD></TR>
+  <TR><TH><INPUT type="checkbox" onclick="Checkboks(2)" id="cb" name="t"></TH><TH>Tarbitud</TH><TD><div id="ukw">00.00</div></TD><TD><div id="usumma">0.00</div></TD><TD><div id="usumma_km">0.00</div></TD></TR>
+  <TR><TH><INPUT type="checkbox" onclick="Checkboks(3)" id="cb" name="m"></TH><TH>Marginaal</TH><TD></TD><TD><div id="m_summa">0.00</div></TD><TD><div id="m_summa_km">0.00</div></TD></TR>
+  <TR><TH><INPUT type="checkbox" onclick="Checkboks(4)" id="cb" name="mt"></TH><TH>M tarbimisel</TH><TD></TD><TD><div id="t_summa">0.00</div></TD><TD><div id="t_summa_km">0.00</div></TD></TR>
+  <TR><TH></TH><TH>Kokku</TH><TD><div id="kw">00.00</div></TD><TD><div id="k_summa">0.00</div></TD><TD><div id="k_summa_km">0.00</div></TD></TR>  
 <TABLE>
  
  <div class="ct-chart"></div>
