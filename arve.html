@@ -1,3 +1,34 @@
+
+Skip to content
+Pull requests
+Issues
+Marketplace
+Explore
+@hr-john
+hr-john /
+elektrilevi
+Public
+
+1
+0
+
+    0
+
+Code
+Pull requests
+Actions
+Security
+Insights
+
+    Settings
+
+elektrilevi/arve.html
+@hr-john
+hr-john Update arve.html
+Latest commit 66ea25d on Jun 3
+History
+1 contributor
+207 lines (192 sloc) 8.72 KB
 <!DOCTYPE html>
 <html lang="et-EE">
 <head>
@@ -107,9 +138,9 @@ body {
             document.getElementById("summa_km").innerHTML=   Math.round(arve_summa/1000*1.2)/100 ;
             document.getElementById("kw").innerHTML =     Math.round(kogu_kw/10)/100 ;
             document.getElementById("ukw").innerHTML =    Math.round(kogu_ukw/10)/100 ;
-            document.getElementById("usumma").innerHTML=  -Math.round(u_summa/100)/100 ;
+            document.getElementById("usumma").innerHTML=  -Math.round(u_summa/1000)/100 ;
             document.getElementById("usumma_km").innerHTML=  -Math.round(u_summa/1000*1.2)/100 ;
-            document.getElementById("m_summa").innerHTML= -Math.round(kogu_kw*document.getElementById("marginaal").value/100)/100 ;
+            document.getElementById("m_summa").innerHTML= -Math.round(kogu_kw*document.getElementById("marginaal").value/1000)/100 ;
             document.getElementById("m_summa_km").innerHTML= -Math.round(kogu_kw*document.getElementById("marginaal").value/1000*1.2)/100 ;
             document.getElementById("t_summa").innerHTML= -Math.round(kogu_ukw*document.getElementById("tmarginaal").value/1000)/100 ;
             document.getElementById("t_summa_km").innerHTML= -Math.round(kogu_ukw*document.getElementById("tmarginaal").value/1000*1.2)/100 ;
@@ -205,3 +236,18 @@ function readFile(input) {
   <input type="file" onchange="readFile(this)"> 
  </body>
 </html>
+
+    © 2021 GitHub, Inc.
+    Terms
+    Privacy
+    Security
+    Status
+    Docs
+
+    Contact GitHub
+    Pricing
+    API
+    Training
+    Blog
+    About
+
