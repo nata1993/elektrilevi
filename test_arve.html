@@ -82,17 +82,19 @@ body {
         var p_end = document.createElement('p');
           if ( xhr.readyState == 4 )
            { 
-             var vahe_summa=0, vahe_usumma=0, vahe_kw =0, vahe_ukw=0;
+             var vahe_summa=0, vahe_usumma=0, vahe_kw =0, vahe_ukw=0, vahe_tm_summa=0, marginaal=0;
              rows = [] ;
              rows = csvToArray(xhr.responseText);
 //             console.log( "Kilowats " + start_time + " " + end_time + " " + kws ) ;
 //             console.log( "PRICE" + rows.length + " " + rows[1] ) ;
              p_end.innerHTML="<BR>";
+ 	     marginaal=document.getElementById("marginaal").value;   
               for (i = 1; i < rows.length-1 && i <= kws.length; i++) {
                 cells = rows[i][0].split(";") ;
                 hind=cells[2].replace(",",".");
                 vahe_summa += Math.round( kws[i-1]*hind*100 ) ;
                 vahe_usumma += Math.round( ukws[i-1]*hind*100 ) ;
+                vahe_tm_summa += Math.round( ukws[i-1]*hind*100-marginaal ) ;
                 vahe_kw += Math.round(kws[i-1]*1000) ;
                 vahe_ukw += Math.round(ukws[i-1]*1000) ;
                 p_end.innerHTML += rows[i] + " XXX " + hind + " XXX " + kws[i-1] + " X "+ Math.round( kws[i-1]*hind*100 ) + "<BR>" ;
@@ -101,6 +103,7 @@ body {
             document.body.appendChild(p_end);
             arve_summa += vahe_summa ;
             u_summa += vahe_usumma ;
+            tm_summa += vahe_tm_summa ;
             kogu_kw += vahe_kw ;
             kogu_ukw+= vahe_ukw;
             document.getElementById("summa").innerHTML= Math.round(arve_summa/1000)/100 ;
@@ -109,8 +112,10 @@ body {
             document.getElementById("ukw").innerHTML =    Math.round(kogu_ukw/10)/100 ;
             document.getElementById("usumma").innerHTML=  -Math.round(u_summa/1000)/100 ;
             document.getElementById("usumma_km").innerHTML=  -Math.round(u_summa/1000*1.2)/100 ;
-            document.getElementById("m_summa").innerHTML= -Math.round(kogu_kw*document.getElementById("marginaal").value/1000)/100 ;
-            document.getElementById("m_summa_km").innerHTML= -Math.round(kogu_kw*document.getElementById("marginaal").value/1000*1.2)/100 ;
+            document.getElementById("m_summa").innerHTML= -Math.round(kogu_kw*marginaal/1000)/100 ;
+            document.getElementById("m_summa_km").innerHTML= -Math.round(kogu_kw*marginaal/1000*1.2)/100 ;
+            document.getElementById("tm_summa").innerHTML= -Math.round(tm_summa/1000)/100 ;
+            document.getElementById("tm_summa_km").innerHTML= -Math.round(tm_suma/1000*1.2)/100 ;
             document.getElementById("t_summa").innerHTML= -Math.round(kogu_ukw*document.getElementById("tmarginaal").value/1000)/100 ;
             document.getElementById("t_summa_km").innerHTML= -Math.round(kogu_ukw*document.getElementById("tmarginaal").value/1000*1.2)/100 ;
 			Checkboks() ;
