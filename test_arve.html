@@ -94,7 +94,7 @@ body {
                 hind=cells[2].replace(",",".");
                 vahe_summa += Math.round( kws[i-1]*hind*100 ) ;
                 vahe_usumma += Math.round( ukws[i-1]*hind*100 ) ;
-                vahe_tm_summa += Math.trunc( kws[i-1]*(hind-marginaal*10) ) ;
+                vahe_tm_summa += Math.trunc( kws[i-1]*(hind-marginaal*10)*100 ) ;
                 vahe_kw += Math.round(kws[i-1]*1000) ;
                 vahe_ukw += Math.round(ukws[i-1]*1000) ;
                 p_end.innerHTML += rows[i] + " XXX " + hind + " XXX " + kws[i-1] + " X "+ Math.round( kws[i-1]*hind*100 ) + "<BR>" ;
