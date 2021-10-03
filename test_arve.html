@@ -114,8 +114,8 @@ body {
             document.getElementById("usumma_km").innerHTML=  -Math.round(u_summa/1000*1.2)/100 ;
             document.getElementById("m_summa").innerHTML= -Math.round(kogu_kw*marginaal/1000)/100 ;
             document.getElementById("m_summa_km").innerHTML= -Math.round(kogu_kw*marginaal/1000*1.2)/100 ;
-            document.getElementById("tm_summa").innerHTML= -Math.round(tm_summa/100)/1000 ;
-            document.getElementById("tm_summa_km").innerHTML= -Math.round(tm_summa/1000*1.2)/100 ;
+            document.getElementById("tm_summa").innerHTML= Math.round(tm_summa/100)/1000 ;
+            document.getElementById("tm_summa_km").innerHTML= Math.round(tm_summa/1000*1.2)/100 ;
             document.getElementById("t_summa").innerHTML= -Math.round(kogu_ukw*document.getElementById("tmarginaal").value/1000)/100 ;
             document.getElementById("t_summa_km").innerHTML= -Math.round(kogu_ukw*document.getElementById("tmarginaal").value/1000*1.2)/100 ;
 			Checkboks() ;
