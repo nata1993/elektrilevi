@@ -42,7 +42,7 @@ body {
  function display(msg) {
    var rida={ hind:[0] }, rows = csvToArray(msg);
    var rowNum, KP="",r_date,priceRow;
-   var cells, arve_summa=0, kogu_kw=0, kogu_ukw=0, paeva_kw=[], u_kw=[], u_summa=0;   //        var cellNum;
+   var cells, arve_summa=0, kogu_kw=0, kogu_ukw=0, paeva_kw=[], u_kw=[], u_summa=0, tm_summa=0 ;  //        var cellNum;
       for (rowNum = 2; rowNum < rows.length-1 ; ++rowNum) {
        cells = rows[rowNum][0].split(";") ; 
        r_date = cells[0].replace(/(\d{2})\.(\d{2})\.(\d{4}) [A-Za-z0-9.,-:]*/,'$3-$2-$1') ; //split(" ") ;
@@ -94,7 +94,7 @@ body {
                 hind=cells[2].replace(",",".");
                 vahe_summa += Math.round( kws[i-1]*hind*100 ) ;
                 vahe_usumma += Math.round( ukws[i-1]*hind*100 ) ;
-                vahe_tm_summa += Math.round( ukws[i-1]*hind*100-marginaal ) ;
+                vahe_tm_summa += Math.round( ukws[i-1]*(hind-marginaal)*100 ) ;
                 vahe_kw += Math.round(kws[i-1]*1000) ;
                 vahe_ukw += Math.round(ukws[i-1]*1000) ;
                 p_end.innerHTML += rows[i] + " XXX " + hind + " XXX " + kws[i-1] + " X "+ Math.round( kws[i-1]*hind*100 ) + "<BR>" ;
@@ -115,7 +115,7 @@ body {
             document.getElementById("m_summa").innerHTML= -Math.round(kogu_kw*marginaal/1000)/100 ;
             document.getElementById("m_summa_km").innerHTML= -Math.round(kogu_kw*marginaal/1000*1.2)/100 ;
             document.getElementById("tm_summa").innerHTML= -Math.round(tm_summa/1000)/100 ;
-            document.getElementById("tm_summa_km").innerHTML= -Math.round(tm_suma/1000*1.2)/100 ;
+            document.getElementById("tm_summa_km").innerHTML= -Math.round(tm_summa/1000*1.2)/100 ;
             document.getElementById("t_summa").innerHTML= -Math.round(kogu_ukw*document.getElementById("tmarginaal").value/1000)/100 ;
             document.getElementById("t_summa_km").innerHTML= -Math.round(kogu_ukw*document.getElementById("tmarginaal").value/1000*1.2)/100 ;
 			Checkboks() ;
