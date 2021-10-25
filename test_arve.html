@@ -41,9 +41,10 @@ body {
   
  function display(msg) {
    var rida={ hind:[0] }, rows = csvToArray(msg);
-   var rowNum, KP="",r_date,priceRow;
+   var rowNum, KP="",r_date,priceRow, algus=4;
    var cells, arve_summa=0, kogu_kw=0, kogu_ukw=0, paeva_kw=[], u_kw=[], u_summa=0, tm_summa=0 ;  //        var cellNum;
-      for (rowNum = 2; rowNum < rows.length-1 ; ++rowNum) {
+   console.log(rows[1]) ;
+      for (rowNum = algus; rowNum < rows.length-1 ; ++rowNum) {
        cells = rows[rowNum][0].split(";") ; 
        r_date = cells[0].replace(/(\d{2})\.(\d{2})\.(\d{4}) [A-Za-z0-9.,-:]*/,'$3-$2-$1') ; //split(" ") ;
         if ( !KP )
