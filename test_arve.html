@@ -63,7 +63,7 @@ body {
           //          console.log ( Math.round(rowNum/24) + " " + rowNum + " "+ paeva_kw ) ;
           paeva_kw=[]; u_kw=[];
          } //  if KP
-         if (cells.length>tootmine) { tootmine=2 };
+         if (cells.length<tootmine) { tootmine=2 };
        toodang= cells[tootmine].replace(",",".") ;
        tarbimine= cells[2].replace(",",".") ;	  
        paeva_kw.push( toodang ); u_kw.push( tarbimine ) ;
