@@ -66,7 +66,7 @@ body {
          if (cells.length<tootmine) { tootmine=2 };
        toodang= cells[tootmine].replace(",",".") ;
        tarbimine= cells[2].replace(",",".") ;	  
-       paeva_kw.push( toodang ); u_kw.push( tarbimine ) ;
+       paeva_kw.push( cells[tootmine].replace(",",".") ); u_kw.push( cells[2].replace(",",".") ) ;
       } // for rowNum
    KP=new Date(Date.parse(r_date)).toJSON().slice(0,10) ;
    GetPrice(yesterday , KP ,paeva_kw, u_kw ) ;
