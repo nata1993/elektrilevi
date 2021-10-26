@@ -63,8 +63,9 @@ body {
           //          console.log ( Math.round(rowNum/24) + " " + rowNum + " "+ paeva_kw ) ;
           paeva_kw=[]; u_kw=[];
          } //  if KP
+	 toodang= cells[tootmine].replace(",",".") ;
          if (cells.length<tootmine) { tootmine=2 };
-       paeva_kw.push( cells[tootmine].replace(",",".") ); u_kw.push( cells[2].replace(",",".") ) ;
+       paeva_kw.push( toodang ); u_kw.push( cells[2].replace(",",".") ) ;
       } // for rowNum
    KP=new Date(Date.parse(r_date)).toJSON().slice(0,10) ;
    GetPrice(yesterday , KP ,paeva_kw, u_kw ) ;
