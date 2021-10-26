@@ -47,7 +47,7 @@ body {
     if ( cells[0] == "EIC" ) {algus=4; tootmine=4} ;
    console.log ( "ALGUS " + algus + rows[0] + " " + tootmine ) ;
       for (rowNum = algus; rowNum < rows.length-1 ; ++rowNum) {
-       cells = rows[rowNum].split(";") ; 
+       cells = rows[rowNum][0].split(";") ; 
        r_date = cells[0].replace(/(\d{2})\.(\d{2})\.(\d{4}) [A-Za-z0-9.,-:]*/,'$3-$2-$1') ; //split(" ") ;
         if ( !KP )
          {
