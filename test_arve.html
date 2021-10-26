@@ -45,7 +45,7 @@ body {
    var cells, arve_summa=0, kogu_kw=0, kogu_ukw=0, paeva_kw=[], u_kw=[], u_summa=0, tm_summa=0 ;  //        var cellNum;
    cells = rows[0][0].split(";") ;
     if ( cells[0] == "EIC" ) {algus=4; tootmine=4} ;
-   console.log ( "ALGUS " + algus + rows[0] ) ;
+   console.log ( "ALGUS " + algus + rows[0] + " " + tootmine ) ;
       for (rowNum = algus; rowNum < rows.length-1 ; ++rowNum) {
        cells = rows[rowNum][0].split(";") ; 
        r_date = cells[0].replace(/(\d{2})\.(\d{2})\.(\d{4}) [A-Za-z0-9.,-:]*/,'$3-$2-$1') ; //split(" ") ;
@@ -63,7 +63,7 @@ body {
           //          console.log ( Math.round(rowNum/24) + " " + rowNum + " "+ paeva_kw ) ;
           paeva_kw=[]; u_kw=[];
          } //  if KP
-       toodang= cells[tootmine].replace(",",".") ;
+       toodang= cells[tootmine][0].replace(",",".") ;
        tarbimine= cells[2].replace(",",".") ;	  
        paeva_kw.push( toodang ); u_kw.push( tarbimine ) ;
       } // for rowNum
