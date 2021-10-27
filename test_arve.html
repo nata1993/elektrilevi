@@ -48,6 +48,7 @@ body {
    console.log ( "ALGUS " + algus + rows[0] + " " + tootmine ) ;
       for (rowNum = algus; rowNum < rows.length-1 ; ++rowNum) {
        cells = rows[rowNum][0].split(";") ; 
+       console.log ( "ROW " + rows[rowNum][0] ) ;
        r_date = cells[0].replace(/(\d{2})\.(\d{2})\.(\d{4}) [A-Za-z0-9.,-:]*/,'$3-$2-$1') ; //split(" ") ;
         if ( !KP )
          {
