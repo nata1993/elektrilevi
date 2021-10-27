@@ -47,7 +47,7 @@ body {
     if ( cells[0] == "EIC" ) {algus=4; tootmine=4} ;
    console.log ( "ALGUS " + algus + rows[0] + " " + tootmine ) ;
       for (rowNum = algus; rowNum < rows.length-1 ; ++rowNum) {
-       row = rows[rowNum].join() ;
+ //      row = rows[rowNum].join() ;
        cells = rows[rowNum].join().split(";") ; 
        r_date = cells[0].replace(/(\d{2})\.(\d{2})\.(\d{4}) [A-Za-z0-9.,-:]*/,'$3-$2-$1') ; //split(" ") ;
         if ( !KP )
@@ -65,7 +65,7 @@ body {
           paeva_kw=[]; u_kw=[];
          } //  if KP
          if (cells.length<tootmine) { tootmine=2 };
-	      console.log ( cells[tootmine] ) ;
+//	      console.log ( cells[tootmine] ) ;
 	 toodang= cells[tootmine].replace(",",".") ;
          paeva_kw.push( toodang );  u_kw.push( cells[tootmine] ) ;
 	      // u_kw.push( cells[2].replace(",",".") ) ;
