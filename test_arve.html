@@ -75,8 +75,8 @@ body {
    console.log ( Math.round(rowNum/24) + " " + rowNum + " "+ paeva_kw ) ;
 
      function GetPrice(start_time,end_time, kws, ukws ) {
-	console.log(kws) ;
-	console.log(ukws) ;	     
+	console.log("KWs"+kws) ;
+	console.log("u KWs" + ukws) ;	     
         function transferComplete(evt) {
          answer(xhr.status == 200 ? xhr.responseText : null) ;
          }
