@@ -41,10 +41,10 @@ body {
   
  function display(msg) {
    var rida={ hind:[0] }, rows = csvToArray(msg);
-   var rowNum, row, KP="",r_date,priceRow, algus=2, tootmine=1, toodang=0, tarbimine=0;
+   var rowNum, row, KP="",r_date,priceRow, algus=2, tootmine=1, toodang=0, tarbimine=2;
    var cells, arve_summa=0, kogu_kw=0, kogu_ukw=0, paeva_kw=[], u_kw=[], u_summa=0, tm_summa=0 ;  //        var cellNum;
    cells = rows[0][0].split(";") ;
-    if ( cells[0] == "EIC" ) {algus=4; tootmine=4} ;
+    if ( cells[0] == "EIC" ) {algus=4; tootmine=4 } ; // elektrilevi
    console.log ( "ALGUS " + algus + rows[0] + " " + tootmine ) ;
       for (rowNum = algus; rowNum < rows.length-1 ; ++rowNum) {
  //      row = rows[rowNum].join() ;
@@ -64,7 +64,7 @@ body {
           //          console.log ( Math.round(rowNum/24) + " " + rowNum + " "+ paeva_kw ) ;
           paeva_kw=[]; u_kw=[];
          } //  if KP
-         if (cells.length<=tootmine) { tarbimine=2 };
+         if (cells.length<=tootmine) { tootmine=2 };
 	      console.log ( tootmine + cells + " " + cells.length + " " + cells[1] + "X" + cells[tarbimine] + "Y" + cells[tootmine] ) ;
 	 toodang= cells[tootmine].replace(",",".") ;
          paeva_kw.push( toodang );  u_kw.push( cells[tarbimine] ) ;
