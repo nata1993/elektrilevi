@@ -64,10 +64,10 @@ body {
           //          console.log ( Math.round(rowNum/24) + " " + rowNum + " "+ paeva_kw ) ;
           paeva_kw=[]; u_kw=[];
          } //  if KP
-         if (cells.length<=tootmine) { tootmine=2 };
-	      console.log ( tootmine + cells + " " + cells.length + " " + cells[1] + "X" + cells[3] + "Y" + cells[tootmine] ) ;
+         if (cells.length<=tootmine) { tarbimine=2 };
+	      console.log ( tootmine + cells + " " + cells.length + " " + cells[1] + "X" + cells[tarbimine] + "Y" + cells[tootmine] ) ;
 	 toodang= cells[tootmine].replace(",",".") ;
-         paeva_kw.push( toodang );  u_kw.push( cells[tootmine] ) ;
+         paeva_kw.push( toodang );  u_kw.push( cells[tarbimine] ) ;
 	      // u_kw.push( cells[2].replace(",",".") ) ;
       } // for rowNum
    KP=new Date(Date.parse(r_date)).toJSON().slice(0,10) ;
