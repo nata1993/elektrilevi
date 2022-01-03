@@ -84,7 +84,7 @@ body {
       var i, hind; 
       xhr.onreadystatechange = handleStateChange;
 // "https://dashboard.elering.ee/api/nps/price/csv?start=2020-12-31T21:00:00.000Z&end=2021-01-01T20:59:59.999Z&fields=ee");
-      xhr.open("GET", "https://dashboard.elering.ee/api/nps/price/csv?start="+ start_time+"T21:00:00.000Z&end="+end_time+"T20:59:59.999Z&fields=ee");
+      xhr.open("GET", "https://dashboard.elering.ee/api/nps/price/csv?start="+ start_time+"T20:00:00.000Z&end="+end_time+"T19:59:59.999Z&fields=ee");
       xhr.send();  
 	  
        function handleStateChange() {
