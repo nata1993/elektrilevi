@@ -91,13 +91,12 @@ body {
         var p_end = document.createElement('p');
           if ( xhr.readyState == 4 )
            { 
-             var vahe_summa=0, vahe_usumma=0, vahe_kw =0, vahe_ukw=0, vahe_tm_summa=0, marginaal=0;
+             var vahe_summa=0, vahe_usumma=0, vahe_kw =0, vahe_ukw=0, vahe_tm_summa=0;
              rows = [] ;
              rows = csvToArray(xhr.responseText);
 //             console.log( "Kilowats " + start_time + " " + end_time + " " + kws ) ;
 //             console.log( "PRICE" + rows.length + " " + rows[1] ) ;
              p_end.innerHTML="<BR>";
- 	     marginaal=document.getElementById("marginaal").value;   
               for (i = 1; i < rows.length-1 && i <= kws.length; i++) {
                 cells = rows[i][0].split(";") ;
                 hind=cells[2].replace(",",".");
