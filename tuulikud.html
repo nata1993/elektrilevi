@@ -48,7 +48,8 @@ body {
  //      row = rows[rowNum].join() ;
        cells = rows[rowNum].join().split(";") ; 
        r_date = cells[1].replace(/(\d{2})\.(\d{2})\.(\d{4}) [A-Za-z0-9.,-:]*/,'$3-$2-$1') ; //split(" ") ;
-        if ( !KP )
+alert ( r_date + " KP " + KP ) ;
+	 if ( !KP )
          {
           KP=r_date ;
           var yesterday = new Date(Date.parse(KP)-1000*3600*24).toJSON().slice(0,10),reads;
