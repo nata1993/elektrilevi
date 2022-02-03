@@ -98,8 +98,8 @@ body {
               for (i = 1; i < rows.length-1 && i <= kws.length; i++) {
                 cells = rows[i][0].split(";") ;
                 hind=cells[2].replace(",",".");
-                vahe_summa += kws[i-1]*hind ;
-                vahe_kw += kws[i-1] ;
+                vahe_summa += Math.round(kws[i-1]*hind*10)/10 ;
+                vahe_kw += Math.round(kws[i-1]*10)/10 ;
                 p_end.innerHTML += rows[i] + " XXX " + hind + " XXX " + kws[i-1] + " X "+ kws[i-1]*hind + "<BR>" ;
                }
             p_end.innerHTML += "MWh " + vahe_kw + " SUMMA " + vahe_summa + "<BR>" ;
