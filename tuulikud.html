@@ -55,7 +55,7 @@ body {
          }
         if ( KP != r_date )
          {
-                    alert ( KP + " KP " + Date.parse(KP) ) ;  
+    //                alert ( KP + " KP " + Date.parse(KP) ) ;  
           GetPrice(yesterday , KP,paeva_kw, u_kw );
           yesterday = new Date(Date.parse(KP)).toJSON().slice(0,10),reads;
           KP=r_date ;
@@ -100,18 +100,16 @@ body {
               for (i = 1; i < rows.length-1 && i <= kws.length; i++) {
                 cells = rows[i][0].split(";") ;
                 hind=cells[2].replace(",",".");
-                vahe_summa += Math.round( kws[i-1]*hind*100 ) ;
-                vahe_kw += Math.round(kws[i-1]*1000) ;
+                vahe_summa += Math.round( kws[i-1]*hind ) ;
+                vahe_kw += Math.round(kws[i-1]) ;
                 p_end.innerHTML += rows[i] + " XXX " + hind + " XXX " + kws[i-1] + " X "+ Math.round( kws[i-1]*hind*100 ) + "<BR>" ;
                }
             p_end.innerHTML += "KW " + vahe_kw + " SUMMA " + vahe_summa + " X " + vahe_usumma+ "<BR>" ;
             document.body.appendChild(p_end);
             arve_summa += vahe_summa ;
             kogu_kw += vahe_kw ;
-            document.getElementById("summa").innerHTML= Math.round(arve_summa/1000)/100 ;
-            document.getElementById("summa_km").innerHTML=   Math.round(arve_summa/1000*1.2)/100 ;
-            document.getElementById("kw").innerHTML =     Math.round(kogu_kw/10)/100 ;
-			Checkboks() ;
+            document.getElementById("summa").innerHTML= Math.round(arve_summa*10)/10 ;
+            document.getElementById("kw").innerHTML =   Math.round(kogu_kw/10)/100 ;
            }
 
         } ; // handleStateChange
@@ -176,13 +174,6 @@ function readFile(input) {
               hind:hind};
       } // showData
   
-  function Checkboks()
-  { var i=0 ;
-    var cb = document.querySelectorAll('input[name="chk"]:checked');
-    cb.forEach((checkbox) => { i += Number(document.getElementById(checkbox.value).innerHTML); });
-    document.getElementById("kokku").innerHTML= i ;
-    document.getElementById("kokku_km").innerHTML= i*1.2 ;
-  }
   
  </script>
 </head>
