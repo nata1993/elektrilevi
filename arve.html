@@ -23,6 +23,7 @@ body {
 </style>
  <script src="chartist.js"></script>  
  <script>
+ 
   function csvToArray(text) {
     let p = '', row = [''], ret = [row], i = 0, r = 0, s = !0, l;
     for (l of text) {
@@ -39,12 +40,23 @@ body {
     return ret;
 };
   
+ function addRow(row_nr,Row_value) {
+  var tableRef = document.querySelector("#extension_table");
+   tableRef.innerHTML = tableRef.innerHTML + Row_value;
+ }
+
  function display(msg) {
    var rida={ hind:[0] }, rows = csvToArray(msg);
-   var rowNum, KP="",r_date,priceRow;
-   var cells, arve_summa=0, kogu_kw=0, kogu_ukw=0, paeva_kw=[], u_kw=[], u_summa=0;   //        var cellNum;
-      for (rowNum = 2; rowNum < rows.length-1 ; ++rowNum) {
-       cells = rows[rowNum][0].split(";") ; 
+   var rowNum, row, KP="",r_date,priceRow, algus=2, tootmine=1, toodang=0, tarbimine=2;
+   var cells, arve_summa=0, kogu_kw=0, kogu_ukw=0, paeva_kw=[], u_kw=[], u_summa=0, tm_summa=0 ;  //        var cellNum;
+   cells = rows[0][0].split(";") ;
+    if ( cells[0] == "EIC" ) {algus=4; tootmine=4 } ; // elektrilevi
+   console.log ( "ALGUS " + algus + rows[0] + " " + tootmine ) ;
+   addRow(0,"<TH>KUUP&Auml;EV</TH><TH>00-01</TH><TD>01-02</TD><TD>02-03</TD><TD>03-04</TD><TD>04-05</TD><TD>05-06</TD><TH>06-07</TH><TD>07-08</TD><TD>08-09</TD><TD>09-10</TD><TD>10-11</TD><TD>11-12</TD>" +
+            "<TD>12-13</TD><TD>13-14</TD><TD>14-15</TD><TD>15-16</TD><TD>16-17</TD><TD>17-18</TD><TD>18-19</TD><TD>19-20</TD><TD>20-21</TD><TD>21-22</TD><TD>22-23</TD><TD>23-00</TD><TH>KOKKU</TH>");
+      for (rowNum = algus; rowNum < rows.length-1 ; ++rowNum) {
+ //      row = rows[rowNum].join() ;
+       cells = rows[rowNum].join().split(";") ; 
        r_date = cells[0].replace(/(\d{2})\.(\d{2})\.(\d{4}) [A-Za-z0-9.,-:]*/,'$3-$2-$1') ; //split(" ") ;
         if ( !KP )
          {
@@ -60,13 +72,19 @@ body {
           //          console.log ( Math.round(rowNum/24) + " " + rowNum + " "+ paeva_kw ) ;
           paeva_kw=[]; u_kw=[];
          } //  if KP
-       paeva_kw.push( cells[1] ); u_kw.push( cells[2] ) ;
+         if (cells.length<=tootmine) { tootmine=2 };
+	      console.log ( tootmine + cells + " " + cells.length + " " + cells[1] + "X" + cells[tarbimine] + "Y" + cells[tootmine] ) ;
+	 toodang= cells[tootmine].replace(",",".") ;
+         paeva_kw.push( toodang );  u_kw.push( cells[tarbimine] ) ;
+	      // u_kw.push( cells[2].replace(",",".") ) ;
       } // for rowNum
    KP=new Date(Date.parse(r_date)).toJSON().slice(0,10) ;
    GetPrice(yesterday , KP ,paeva_kw, u_kw ) ;
    console.log ( Math.round(rowNum/24) + " " + rowNum + " "+ paeva_kw ) ;
 
      function GetPrice(start_time,end_time, kws, ukws ) {
+//	console.log("KWs"+kws) ;
+//	console.log("u KWs" + ukws) ;	     
         function transferComplete(evt) {
          answer(xhr.status == 200 ? xhr.responseText : null) ;
          }
@@ -74,43 +92,64 @@ body {
       var i, hind; 
       xhr.onreadystatechange = handleStateChange;
 // "https://dashboard.elering.ee/api/nps/price/csv?start=2020-12-31T21:00:00.000Z&end=2021-01-01T20:59:59.999Z&fields=ee");
-      xhr.open("GET", "https://dashboard.elering.ee/api/nps/price/csv?start="+ start_time+"T21:00:00.000Z&end="+end_time+"T20:59:59.999Z&fields=ee");
-      xhr.send();  
+//             console.log( "DAY " + Date(start_time) + " " + end_time + " " + kws ) ;
+a1=new Date(end_time) ; 
+		if ( a1.getTimezoneOffset() == -180 ) 
+		   { xhr.open("GET", "https://dashboard.elering.ee/api/nps/price/csv?start="+ start_time+"T21:00:00.000Z&end="+end_time+"T20:59:59.999Z&fields=ee"); // - suveajal
+		   }
+		 else
+		   { xhr.open("GET", "https://dashboard.elering.ee/api/nps/price/csv?start="+ start_time+"T22:00:00.000Z&end="+end_time+"T21:59:59.999Z&fields=ee"); // talveajal
+//		   		  	console.log("TALV "+ a1.getTimezoneOffset() ) ;
+		   }
+	     xhr.send();  
 	  
        function handleStateChange() {
         var rows, cells ;
-        var p_end = document.createElement('p');
           if ( xhr.readyState == 4 )
            { 
-             var vahe_summa=0, vahe_usumma=0, vahe_kw =0, vahe_ukw=0;
+             var vahe_summa=0, vahe_usumma=0, vahe_kw =0, vahe_ukw=0, vahe_tm_summa=0, marginaal=0;
+  		     var p_row1 = "<TR><TD>" + end_time + "</TD>", p_row2 ="<TR><TD>tootmine</TD>" , p_row3 = "<TR><TD>tarbimine</TD>" , p_row4 = "<TR><TD>€ senti</TD>" ;; 
              rows = [] ;
              rows = csvToArray(xhr.responseText);
-//             console.log( "Kilowats " + start_time + " " + end_time + " " + kws ) ;
-//             console.log( "PRICE" + rows.length + " " + rows[1] ) ;
-             p_end.innerHTML="<BR>";
+             console.log( "Kilowats " + start_time + " " + end_time + " " + kws ) ;
+             console.log( "PRICE" + rows.length + " " + rows[1] ) ;
+  	     marginaal=document.getElementById("marginaal").value;
               for (i = 1; i < rows.length-1 && i <= kws.length; i++) {
                 cells = rows[i][0].split(";") ;
                 hind=cells[2].replace(",",".");
                 vahe_summa += Math.round( kws[i-1]*hind*100 ) ;
                 vahe_usumma += Math.round( ukws[i-1]*hind*100 ) ;
+                vahe_tm_summa += Math.trunc( kws[i-1]*(hind-marginaal*10)*100 ) ;
                 vahe_kw += Math.round(kws[i-1]*1000) ;
                 vahe_ukw += Math.round(ukws[i-1]*1000) ;
-                p_end.innerHTML += rows[i] + " XXX " + hind + " XXX " + kws[i-1] + " X "+ Math.round( kws[i-1]*hind*100 ) + "<BR>" ;
+                p_row1 += "<TD>" + hind + "</TD>" ;
+                p_row2 += "<TD>" + kws[i-1] + "</TD>" ;
+                p_row3 += "<TD>" + ukws[i-1] + "</TD>" ;
+                p_row4 += "<TD>" +Math.round( kws[i-1]*hind ) + "</TD>" ;
                }
-            p_end.innerHTML += "KW " + vahe_kw + " SUMMA " + vahe_summa + " X " + vahe_usumma+ "<BR>" ;
-            document.body.appendChild(p_end);
+            p_row1 = p_row1 + "<TD></TD></TR>" ;
+            p_row2 = p_row2 + "<TD>" + Math.round(vahe_kw*10/1000)/10 + " kWh </TD></TR>" ;			
+            p_row3 = p_row3 + "<TD>" + Math.round(vahe_ukw*10/10)/1000 + " kWh</TD></TR>" ;			
+            p_row4 = p_row4 + "<TD>" + Math.round(vahe_summa/1000) + "</TD></TR>" ;			
+		    addRow(-1,p_row1);
+		    addRow(-1,p_row2);
+		    addRow(-1,p_row3);
+		    addRow(-1,p_row4);
             arve_summa += vahe_summa ;
             u_summa += vahe_usumma ;
+            tm_summa += vahe_tm_summa ;
             kogu_kw += vahe_kw ;
             kogu_ukw+= vahe_ukw;
             document.getElementById("summa").innerHTML= Math.round(arve_summa/1000)/100 ;
             document.getElementById("summa_km").innerHTML=   Math.round(arve_summa/1000*1.2)/100 ;
             document.getElementById("kw").innerHTML =     Math.round(kogu_kw/10)/100 ;
             document.getElementById("ukw").innerHTML =    Math.round(kogu_ukw/10)/100 ;
-            document.getElementById("usumma").innerHTML=  -Math.round(u_summa/1000)/100 ;
-            document.getElementById("usumma_km").innerHTML=  -Math.round(u_summa/1000*1.2)/100 ;
-            document.getElementById("m_summa").innerHTML= -Math.round(kogu_kw*document.getElementById("marginaal").value/1000)/100 ;
-            document.getElementById("m_summa_km").innerHTML= -Math.round(kogu_kw*document.getElementById("marginaal").value/1000*1.2)/100 ;
+            document.getElementById("usumma").innerHTML=  -Math.round(u_summa/100)/1000 ;
+            document.getElementById("usumma_km").innerHTML=  -Math.round(u_summa/100*1.2)/1000 ;
+            document.getElementById("m_summa").innerHTML= -Math.round(kogu_kw*marginaal/1000)/100 ;
+            document.getElementById("m_summa_km").innerHTML= -Math.round(kogu_kw*marginaal/1000*1.2)/100 ;
+            document.getElementById("tm_summa").innerHTML= Math.round(tm_summa/100)/1000 ;
+            document.getElementById("tm_summa_km").innerHTML= Math.round(tm_summa/1000*1.2)/100 ;
             document.getElementById("t_summa").innerHTML= -Math.round(kogu_ukw*document.getElementById("tmarginaal").value/1000)/100 ;
             document.getElementById("t_summa_km").innerHTML= -Math.round(kogu_ukw*document.getElementById("tmarginaal").value/1000*1.2)/100 ;
 			Checkboks() ;
@@ -192,16 +231,17 @@ function readFile(input) {
  Sisesta m&uuml;&uuml;gimarginaal <input id="marginaal" type="text" size="5"> senti kWh ja ostumarginaal <input id="tmarginaal" type="text" size=5> senti kWh. K&uuml;mnendkoha eraldajana kasuta punkti (".").
  <TABLE>
   <TR><TH colspan="2"></TH><TH>kWh</TH><TH>SUMMA</TH><TH>Summa+KM</TH></TR>
-  <TR><TH><INPUT type="checkbox" onclick="Checkboks()" name="chk" value="summa" checked ></TH><TH>Toodetud</TH><TD><div id="kw">00.00</div></TD><TD><div id="summa">0.00</div></TD><TD><div id="summa_km">0.00</div></TD></TR>
+  <TR><TH><INPUT type="checkbox" onclick="Checkboks()" name="chk" value="summa"></TH><TH>Toodetud</TH><TD><div id="kw">00.00</div></TD><TD><div id="summa">0.00</div></TD><TD><div id="summa_km">0.00</div></TD></TR>
   <TR><TH><INPUT type="checkbox" onclick="Checkboks()" name="chk" value="usumma"></TH><TH>Tarbitud</TH><TD><div id="ukw">00.00</div></TD><TD><div id="usumma">0.00</div></TD><TD><div id="usumma_km">0.00</div></TD></TR>
-  <TR><TH><INPUT type="checkbox" onclick="Checkboks()" name="chk" value="m_summa" checked></TH><TH>Marginaal</TH><TD></TD><TD><div id="m_summa">0.00</div></TD><TD><div id="m_summa_km">0.00</div></TD></TR>
+  <TR><TH><INPUT type="checkbox" onclick="Checkboks()" name="chk" value="m_summa"></TH><TH>Marginaal</TH><TD></TD><TD><div id="m_summa">0.00</div></TD><TD><div id="m_summa_km">0.00</div></TD></TR>
+  <TR><TH><INPUT type="checkbox" onclick="Checkboks()" name="chk" value="tm_summa" checked></TH><TH>Marginaaliga</TH><TD></TD><TD><div id="tm_summa">0.00</div></TD><TD><div id="tm_summa_km">0.00</div></TD></TR>
   <TR><TH><INPUT type="checkbox" onclick="Checkboks()" name="chk" value="t_summa"></TH><TH>M tarbimisel</TH><TD></TD><TD><div id="t_summa">0.00</div></TD><TD><div id="t_summa_km">0.00</div></TD></TR>
-  <TR><TH></TH><TH>Kokku</TH><TD><div id="kokku_kw">00.00</div></TD><TD><div id="kokku">0.00</div></TD><TD><div id="kokku_km">0.00</div></TD></TR>  
-<TABLE>
-
+  <TR><TH></TH><TH>Kokku</TH><TD><div id="kokku_kw">00.00</div></TD><TD><div id="kokku">0.00</div></TD><TD><div id="kokku_km">0.00</div></TD></TR>
+</TABLE>
   <div class="ct-chart"></div>
-
   Palun anna <A href="https://e.elering.ee" target="_blank">elering</A> lehelt loetud csv laiendiga faili.
   <input type="file" onchange="readFile(this)"> 
+  <TABLE id="extension_table">
+  </TABLE>
  </body>
 </html>
