@@ -128,8 +128,8 @@ body {
             document.body.appendChild(p_end);
             arve_summa += vahe_summa ;
             kogu_kw += vahe_kw ;
-            document.getElementById("summa").innerHTML= Math.round(arve_summa/100000)/10 ;
-            document.getElementById("kw").innerHTML =   Math.round(kogu_kw/10)/100 ;
+            document.getElementById("summa").innerHTML= Math.round(arve_summa/100000)/10 + " M€" ;
+            document.getElementById("kw").innerHTML =   Math.round(kogu_kw/10)/100 + " GWh" ;
            }
 
         } ; // handleStateChange
@@ -193,14 +193,12 @@ function readFile(input) {
               aeg:aeg,
               hind:hind};
       } // showData
-  
-  
  </script>
 </head>
 <body>
  <TABLE>
   <TR><TH></TH><TH>GWh</TH><TH>SUMMA</TH></TR>
-  <TR><TH>Toodetud</TH><TD><div id="kw">00.00</div> MWh</TD><TD><div id="summa">0.00</div> M€</TD></TR>
+  <TR><TH>Toodetud</TH><TD><div id="kw">00.00 GWh</div></TD><TD><div id="summa">0.00 M€</div></TD></TR>
 <TABLE>
 
   <div class="ct-chart"></div>
