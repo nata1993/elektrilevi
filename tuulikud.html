@@ -119,7 +119,7 @@ body {
                 p_row3 += "<TD>" +Math.round( kws[i-1]*hind ) + "</TD>" ;
                }
             p_row1 = p_row1 + "<TD></TD></TR>" ;
-            p_row2 = p_row2 + "<TD>" + Math.round(vahe_kw*10/1000)/10 + " kWh </TD></TR>" ;
+            p_row2 = p_row2 + "<TD>" + Math.round(vahe_kw*10/1000)/10 + " GWh </TD></TR>" ;
 	    p_row3 = p_row3 + "<TD>" + Math.round(vahe_summa) + "</TD></TR>" ;			
 	    addRow(p_row1);
 	    addRow(p_row2);
@@ -200,7 +200,7 @@ function readFile(input) {
 <body>
  <TABLE>
   <TR><TH></TH><TH>GWh</TH><TH>SUMMA</TH></TR>
-  <TR><TH>Toodetud</TH><TD><div id="kw">00.00</div></TD><TD><div id="summa">0.00</div></TD></TR>
+  <TR><TH>Toodetud</TH><TD><div id="kw">00.00</div> MWh</TD><TD><div id="summa">0.00</div> M€</TD></TR>
 <TABLE>
 
   <div class="ct-chart"></div>
