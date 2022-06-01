@@ -132,8 +132,8 @@ body {
             document.getElementById("m_summa_km").innerHTML= -Math.round(kogu_kw*marginaal/1000*1.2)/100 ;
             document.getElementById("tm_summa").innerHTML= Math.round(tm_summa/100)/1000 ;
             document.getElementById("tm_summa_km").innerHTML= Math.round(tm_summa/1000*1.2)/100 ;
-            document.getElementById("t_summa").innerHTML= -Math.round(kogu_ukw*document.getElementById("tmarginaal").value/1000)/100 ;
-            document.getElementById("t_summa_km").innerHTML= -Math.round(kogu_ukw*document.getElementById("tmarginaal").value/1000*1.2)/100 ;
+            document.getElementById("t_usumma").innerHTML= -Math.round(kogu_ukw*document.getElementById("tmarginaal").value/1000)/100 ;
+            document.getElementById("t_usumma_km").innerHTML= -Math.round(kogu_ukw*document.getElementById("tmarginaal").value/1000*1.2)/100 ;
 			Checkboks() ;
            }
 
@@ -213,11 +213,12 @@ function readFile(input) {
  Sisesta m&uuml;&uuml;gimarginaal <input id="marginaal" type="text" size="5"> senti kWh ja ostumarginaal <input id="tmarginaal" type="text" size=5> senti kWh. K&uuml;mnendkoha eraldajana kasuta punkti (".").
  <TABLE>
   <TR><TH colspan="2"></TH><TH>kWh</TH><TH>SUMMA</TH><TH>Summa+KM</TH></TR>
-  <TR><TH><INPUT type="checkbox" onclick="Checkboks()" name="chk" value="summa" checked ></TH><TH>Toodetud</TH><TD><div id="kw">00.00</div></TD><TD><div id="summa">0.00</div></TD><TD><div id="summa_km">0.00</div></TD></TR>
-  <TR><TH><INPUT type="checkbox" onclick="Checkboks()" name="chk" value="usumma"></TH><TH>Tarbitud</TH><TD><div id="ukw">00.00</div></TD><TD><div id="usumma">0.00</div></TD><TD><div id="usumma_km">0.00</div></TD></TR>
-  <TR><TH><INPUT type="checkbox" onclick="Checkboks()" name="chk" value="m_summa" checked></TH><TH>Marginaal</TH><TD></TD><TD><div id="m_summa">0.00</div></TD><TD><div id="m_summa_km">0.00</div></TD></TR>
-  <TR><TH><INPUT type="checkbox" onclick="Checkboks()" name="chk" value="tm_summa" checked></TH><TH>Marginaaliga</TH><TD></TD><TD><div id="tm_summa">0.00</div></TD><TD><div id="tm_summa_km">0.00</div></TD></TR>
-  <TR><TH><INPUT type="checkbox" onclick="Checkboks()" name="chk" value="t_summa"></TH><TH>M tarbimisel</TH><TD></TD><TD><div id="t_summa">0.00</div></TD><TD><div id="t_summa_km">0.00</div></TD></TR>
+  <TR><TH><INPUT type="checkbox" onclick="Checkboks()" name="chk" value="summa" checked ></TH><TH>Tootmine</TH><TD><div id="kw">00.00</div></TD><TD><div id="summa">0.00</div></TD><TD><div id="summa_km">0.00</div></TD></TR>
+  <TR><TH><INPUT type="checkbox" onclick="Checkboks()" name="chk" value="m_summa" checked></TH><TD>marginaal</TD><TD></TD><TD><div id="m_summa">0.00</div></TD><TD><div id="m_summa_km">0.00</div></TD></TR>
+  <TR><TH><INPUT type="checkbox" onclick="Checkboks()" name="chk" value="tm_summa" checked></TH><TD>marginaaliga</TD><TD></TD><TD><div id="tm_summa">0.00</div></TD><TD><div id="tm_summa_km">0.00</div></TD></TR>
+  <TR><TH><INPUT type="checkbox" onclick="Checkboks()" name="chk" value="usumma"></TH><TH>Tarbimine</TH><TD><div id="ukw">00.00</div></TD><TD><div id="usumma">0.00</div></TD><TD><div id="usumma_km">0.00</div></TD></TR>
+  <TR><TH><INPUT type="checkbox" onclick="Checkboks()" name="chk" value="m_usumma" checked></TH><TD>marginaal</TD><TD></TD><TD><div id="m_summa">0.00</div></TD><TD><div id="m_summa_km">0.00</div></TD></TR>
+  <TR><TH><INPUT type="checkbox" onclick="Checkboks()" name="chk" value="t_usumma"></TH><TH>marginaal tarbimisel</TH><TD></TD><TD><div id="t_usumma">0.00</div></TD><TD><div id="t_usumma_km">0.00</div></TD></TR>
   <TR><TH></TH><TH>Kokku</TH><TD><div id="kokku_kw">00.00</div></TD><TD><div id="kokku">0.00</div></TD><TD><div id="kokku_km">0.00</div></TD></TR>  
 <TABLE>
 
