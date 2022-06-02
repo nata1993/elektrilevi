@@ -46,11 +46,11 @@ body {
    cells = rows[0][0].split(";") ;
     if ( cells[0] == "EIC" ) {algus=4; tootmine=4 } ; // elektrilevi
    console.log ( "ALGUS " + algus + rows[0] + " " + tootmine ) ;
+   console.log ( "Kellaaja alguse otsing " + rows[algus] ) ;
       for (rowNum = algus; rowNum < rows.length-1 ; ++rowNum) {
  //      row = rows[rowNum].join() ;
        cells = rows[rowNum].join().split(";") ; 
        r_date = cells[0].replace(/(\d{2})\.(\d{2})\.(\d{4}) [A-Za-z0-9.,-:]*/,'$3-$2-$1') ; //split(" ") ;
-   console.log ( "Kellaaja alguse otsing " + r_date + " "  + cells[0]) + cells[1] ;
         if ( !KP )
          {
           KP=r_date ;
