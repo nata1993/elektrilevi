@@ -48,10 +48,15 @@ body {
  function display(msg) {
    var rida={ hind:[0] }, rows = csvToArray(msg);
    var rowNum, row, KP="",r_date,priceRow, algus=2, tootmine=1, toodang=0, tarbimine=2;
-   var cells, arve_summa=0, kogu_kw=0, kogu_ukw=0, paeva_kw=[], u_kw=[], u_summa=0, tm_summa=0 ;  //        var cellNum;
+   var cells, arve_summa=0, kogu_kw=0, kogu_ukw=0, paeva_kw=[], u_kw=[], u_summa=0, t_summa=0, t_usumma=0 ;  //        var cellNum;
    cells = rows[0][0].split(";") ;
     if ( cells[0] == "EIC" ) {algus=4; tootmine=4 } ; // elektrilevi
    console.log ( "ALGUS " + algus + rows[0] + " " + tootmine ) ;
+    var first_row_time = rows[algus].join().slice(11,16) ;
+    if  ( first_row_time != "00:00" )
+	 {
+	   alert ( "Palun kontrolli oma ajasätteid, ega\nFirefoxis about:config -> privacy.resistFingerprinting pole sisse lülitatud?\nTe tunnitarbimise algusaeg pole 00:00") ;
+	 }
    addRow(0,"<TH>KUUP&Auml;EV</TH><TH>00-01</TH><TD>01-02</TD><TD>02-03</TD><TD>03-04</TD><TD>04-05</TD><TD>05-06</TD><TH>06-07</TH><TD>07-08</TD><TD>08-09</TD><TD>09-10</TD><TD>10-11</TD><TD>11-12</TD>" +
             "<TD>12-13</TD><TD>13-14</TD><TD>14-15</TD><TD>15-16</TD><TD>16-17</TD><TD>17-18</TD><TD>18-19</TD><TD>19-20</TD><TD>20-21</TD><TD>21-22</TD><TD>22-23</TD><TD>23-00</TD><TH>KOKKU</TH>");
       for (rowNum = algus; rowNum < rows.length-1 ; ++rowNum) {
@@ -107,19 +112,21 @@ a1=new Date(end_time) ;
         var rows, cells ;
           if ( xhr.readyState == 4 )
            { 
-             var vahe_summa=0, vahe_usumma=0, vahe_kw =0, vahe_ukw=0, vahe_tm_summa=0, marginaal=0;
-  		     var p_row1 = "<TR><TD>" + end_time + "</TD>", p_row2 ="<TR><TD>tootmine</TD>" , p_row3 = "<TR><TD>tarbimine</TD>" , p_row4 = "<TR><TD>€ senti</TD>" ;; 
+             var vahe_summa=0, vahe_usumma=0, vahe_kw =0, vahe_ukw=0, vahe_t_summa=0, vahe_t_usumma=0, marginaal=0, umarginaal=0;
+  	     var p_row1 = "<TR><TD>" + end_time + "</TD>", p_row2 ="<TR><TD>tootmine</TD>" , p_row3 = "<TR><TD>tarbimine</TD>" , p_row4 = "<TR><TD>€ senti</TD>" ;; 
              rows = [] ;
              rows = csvToArray(xhr.responseText);
-             console.log( "Kilowats " + start_time + " " + end_time + " " + kws ) ;
-             console.log( "PRICE" + rows.length + " " + rows[1] ) ;
+//             console.log( "Kilowats " + start_time + " " + end_time + " " + kws ) ;
+//             console.log( "PRICE" + rows.length + " " + rows[1] ) ;
   	     marginaal=document.getElementById("marginaal").value;
+	     umarginaal=document.getElementById("tmarginaal").value;
               for (i = 1; i < rows.length-1 && i <= kws.length; i++) {
                 cells = rows[i][0].split(";") ;
                 hind=cells[2].replace(",",".");
                 vahe_summa += Math.round( kws[i-1]*hind*100 ) ;
                 vahe_usumma += Math.round( ukws[i-1]*hind*100 ) ;
-                vahe_tm_summa += Math.trunc( kws[i-1]*(hind-marginaal*10)*100 ) ;
+                vahe_t_summa += Math.trunc( kws[i-1]*(hind-marginaal*10)*100 ) ;
+		vahe_t_usumma += Math.trunc( ukws[i-1]*(hind-umarginaal*10)*100 ) ;
                 vahe_kw += Math.round(kws[i-1]*1000) ;
                 vahe_ukw += Math.round(ukws[i-1]*1000) ;
                 p_row1 += "<TD>" + hind + "</TD>" ;
@@ -137,7 +144,8 @@ a1=new Date(end_time) ;
 		    addRow(-1,p_row4);
             arve_summa += vahe_summa ;
             u_summa += vahe_usumma ;
-            tm_summa += vahe_tm_summa ;
+            t_summa += vahe_t_summa ;
+	    t_usumma += vahe_t_usumma ;
             kogu_kw += vahe_kw ;
             kogu_ukw+= vahe_ukw;
             document.getElementById("summa").innerHTML= Math.round(arve_summa/1000)/100 ;
@@ -148,11 +156,11 @@ a1=new Date(end_time) ;
             document.getElementById("usumma_km").innerHTML=  -Math.round(u_summa/100*1.2)/1000 ;
             document.getElementById("m_summa").innerHTML= -Math.round(kogu_kw*marginaal/1000)/100 ;
             document.getElementById("m_summa_km").innerHTML= -Math.round(kogu_kw*marginaal/1000*1.2)/100 ;
-            document.getElementById("tm_summa").innerHTML= Math.round(tm_summa/100)/1000 ;
-            document.getElementById("tm_summa_km").innerHTML= Math.round(tm_summa/1000*1.2)/100 ;
-            document.getElementById("t_summa").innerHTML= -Math.round(kogu_ukw*document.getElementById("tmarginaal").value/1000)/100 ;
-            document.getElementById("t_summa_km").innerHTML= -Math.round(kogu_ukw*document.getElementById("tmarginaal").value/1000*1.2)/100 ;
-			Checkboks() ;
+            document.getElementById("t_summa").innerHTML= Math.round(tm_summa/100)/1000 ;
+            document.getElementById("t_summa_km").innerHTML= Math.round(tm_summa/1000*1.2)/100 ;
+            document.getElementById("t_usumma").innerHTML= -Math.round(t_usumma/100)/1000 ;
+            document.getElementById("t_usumma_km").innerHTML= -Math.round(t_usumma/1000*1.2)/100 ;
+ 	   Checkboks() ;
            }
 
         } ; // handleStateChange
@@ -231,13 +239,14 @@ function readFile(input) {
  Sisesta m&uuml;&uuml;gimarginaal <input id="marginaal" type="text" size="5"> senti kWh ja ostumarginaal <input id="tmarginaal" type="text" size=5> senti kWh. K&uuml;mnendkoha eraldajana kasuta punkti (".").
  <TABLE>
   <TR><TH colspan="2"></TH><TH>kWh</TH><TH>SUMMA</TH><TH>Summa+KM</TH></TR>
-  <TR><TH><INPUT type="checkbox" onclick="Checkboks()" name="chk" value="summa"></TH><TH>Toodetud</TH><TD><div id="kw">00.00</div></TD><TD><div id="summa">0.00</div></TD><TD><div id="summa_km">0.00</div></TD></TR>
-  <TR><TH><INPUT type="checkbox" onclick="Checkboks()" name="chk" value="usumma"></TH><TH>Tarbitud</TH><TD><div id="ukw">00.00</div></TD><TD><div id="usumma">0.00</div></TD><TD><div id="usumma_km">0.00</div></TD></TR>
-  <TR><TH><INPUT type="checkbox" onclick="Checkboks()" name="chk" value="m_summa"></TH><TH>Marginaal</TH><TD></TD><TD><div id="m_summa">0.00</div></TD><TD><div id="m_summa_km">0.00</div></TD></TR>
-  <TR><TH><INPUT type="checkbox" onclick="Checkboks()" name="chk" value="tm_summa" checked></TH><TH>Marginaaliga</TH><TD></TD><TD><div id="tm_summa">0.00</div></TD><TD><div id="tm_summa_km">0.00</div></TD></TR>
-  <TR><TH><INPUT type="checkbox" onclick="Checkboks()" name="chk" value="t_summa"></TH><TH>M tarbimisel</TH><TD></TD><TD><div id="t_summa">0.00</div></TD><TD><div id="t_summa_km">0.00</div></TD></TR>
-  <TR><TH></TH><TH>Kokku</TH><TD><div id="kokku_kw">00.00</div></TD><TD><div id="kokku">0.00</div></TD><TD><div id="kokku_km">0.00</div></TD></TR>
-</TABLE>
+  <TR><TD><INPUT type="checkbox" onclick="Checkboks()" name="chk" value="summa"></TH><TH>Tootmine</TH><TD><div id="kw">00.00</div></TD><TD><div id="summa">0.00</div></TD><TD><div id="summa_km">0.00</div></TD></TR>
+  <TR><TD><INPUT type="checkbox" onclick="Checkboks()" name="chk" value="m_summa"></TH><TD colspan="2">marginaal</TD><TD><div id="m_summa">0.00</div></TD><TD><div id="m_summa_km">0.00</div></TD></TR>
+  <TR><TD><INPUT type="checkbox" onclick="Checkboks()" name="chk" value="t_summa" checked></TH><TD colspan="2">marginaaliga</TD><TD><div id="t_summa">0.00</div></TD><TD><div id="t_summa_km">0.00</div></TD></TR>
+  <TR><TD><INPUT type="checkbox" onclick="Checkboks()" name="chk" value="usumma"></TD><TH>Tarbimine</TH><TD><div id="ukw">00.00</div></TD><TD><div id="usumma">0.00</div></TD><TD><div id="usumma_km">0.00</div></TD></TR>
+  <TR><TD><INPUT type="checkbox" onclick="Checkboks()" name="chk" value="m_usumma"></TH><TD colspan="2">marginaal</TD><TD><div id="m_summa">0.00</div></TD><TD><div id="m_summa_km">0.00</div></TD></TR>
+  <TR><TD><INPUT type="checkbox" onclick="Checkboks()" name="chk" value="t_usumma"checked></TH><TD colspan="2">marginaaliga tarbimisel</TD><TD><div id="t_usumma">0.00</div></TD><TD><div id="t_usumma_km">0.00</div></TD></TR>
+  <TR><TD></TD><TH>Kokku</TH><TD><div id="kokku_kw">00.00</div></TD><TD><div id="kokku">0.00</div></TD><TD><div id="kokku_km">0.00</div></TD></TR>  
+<TABLE>
   <div class="ct-chart"></div>
   Palun anna <A href="https://e.elering.ee" target="_blank">elering</A> lehelt loetud csv laiendiga faili.
   <input type="file" onchange="readFile(this)"> 
