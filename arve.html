@@ -57,7 +57,7 @@ body {
 	 {
 	   alert ( "Palun kontrolli oma ajasätteid, ega\nFirefoxis about:config -> privacy.resistFingerprinting pole sisse lülitatud?\nTe tunnitarbimise algusaeg pole 00:00") ;
 	 }
-   addRow(0,"<TH>KUUP&Auml;EV</TH><TH>00-01</TH><TD>01-02</TD><TD>02-03</TD><TD>03-04</TD><TD>04-05</TD><TD>05-06</TD><TH>06-07</TH><TD>07-08</TD><TD>08-09</TD><TD>09-10</TD><TD>10-11</TD><TD>11-12</TD>" +
+   addRow(0,"<TH colspan='2'>KUUP&Auml;EV</TH><TH>00-01</TH><TD>01-02</TD><TD>02-03</TD><TD>03-04</TD><TD>04-05</TD><TD>05-06</TD><TH>06-07</TH><TD>07-08</TD><TD>08-09</TD><TD>09-10</TD><TD>10-11</TD><TD>11-12</TD>" +
             "<TD>12-13</TD><TD>13-14</TD><TD>14-15</TD><TD>15-16</TD><TD>16-17</TD><TD>17-18</TD><TD>18-19</TD><TD>19-20</TD><TD>20-21</TD><TD>21-22</TD><TD>22-23</TD><TD>23-00</TD><TH>KOKKU</TH>");
       for (rowNum = algus; rowNum < rows.length-1 ; ++rowNum) {
  //      row = rows[rowNum].join() ;
@@ -113,7 +113,7 @@ a1=new Date(end_time) ;
           if ( xhr.readyState == 4 )
            { 
              var vahe_summa=0, vahe_usumma=0, vahe_kw =0, vahe_ukw=0, vahe_t_summa=0, vahe_t_usumma=0, marginaal=0, umarginaal=0;
-  	     var p_row1 = "<TR><TD>" + end_time + "</TD>", p_row2 ="<TR><TD>tootmine</TD>" , p_row3 = "<TR><TD>tarbimine</TD>" , p_row4 = "<TR><TD>€ senti</TD>" ;; 
+  	     var p_row1 = "<TR><TD>" + end_time + "</TD><TD></TD>", p_row2 ="<TR><TD></TD><TD>tootmine</TD>" , p_row3 = "<TR><TD></TD><TD>tarbimine</TD>" , p_row4 = "<TR><TD></TD><TD>€ senti</TD>" ;; 
              rows = [] ;
              rows = csvToArray(xhr.responseText);
 //             console.log( "Kilowats " + start_time + " " + end_time + " " + kws ) ;
@@ -126,7 +126,7 @@ a1=new Date(end_time) ;
                 vahe_summa += Math.round( kws[i-1]*hind*100 ) ;
                 vahe_usumma += Math.round( ukws[i-1]*hind*100 ) ;
                 vahe_t_summa += Math.trunc( kws[i-1]*(hind-marginaal*10)*100 ) ;
-		vahe_t_usumma += Math.trunc( ukws[i-1]*(hind-umarginaal*10)*100 ) ;
+		vahe_t_usumma += Math.trunc( ukws[i-1]*(hind+umarginaal*10)*100 ) ;
                 vahe_kw += Math.round(kws[i-1]*1000) ;
                 vahe_ukw += Math.round(ukws[i-1]*1000) ;
                 p_row1 += "<TD>" + hind + "</TD>" ;
