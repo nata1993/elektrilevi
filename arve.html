@@ -45,13 +45,17 @@ body {
    tableRef.innerHTML = tableRef.innerHTML + Row_value;
  }
 
- function display(msg) {
+function display(msg) {
    var rida={ hind:[0] }, rows = csvToArray(msg);
    var rowNum, row, KP="",r_date,priceRow, algus=2, tootmine=1, toodang=0, tarbimine=2;
    var cells, arve_summa=0, kogu_kw=0, kogu_ukw=0, paeva_kw=[], u_kw=[], u_summa=0, t_summa=0, t_usumma=0 ;  //        var cellNum;
    cells = rows[0][0].split(";") ;
     if ( cells[0] == "EIC" ) {algus=4; tootmine=4 } ; // elektrilevi
-   console.log ( "ALGUS " + algus + rows[0] + " " + tootmine ) ;
+    if ( cells[0] == "Kuupäev" ) {alert ( "Palun kasuta https://e.elring.ee andmelao andmeid" ) ; return 1 ; } ; // Alexela
+   cells = rows[algus-1][0].split(";") ;	
+   console.log ( "ALGUS " + algus + rows[0] + " " + tootmine + " C " + cells[1]  ) ;
+   if ( /^tarbi/.exec(cells[1]) ) { tarbimine = 1 ; alert ( "Leidsin tarbimise" ) ; } ; // tarbimine
+   
     var first_row_time = rows[algus].join().slice(11,16) ;
     if  ( first_row_time != "00:00" )
 	 {
@@ -70,11 +74,9 @@ body {
          }
         if ( KP != r_date )
          {
-          //          alert ( KP + " KP " + Date.parse(KP) ) ;  
           GetPrice(yesterday , KP,paeva_kw, u_kw );
           yesterday = new Date(Date.parse(KP)).toJSON().slice(0,10),reads;
           KP=r_date ;
-          //          console.log ( Math.round(rowNum/24) + " " + rowNum + " "+ paeva_kw ) ;
           paeva_kw=[]; u_kw=[];
          } //  if KP
          if (cells.length<=tootmine) { tootmine=2 };
