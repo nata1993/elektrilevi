@@ -245,15 +245,17 @@ function readFile(input) {
 <body>
  Sisesta m&uuml;&uuml;gimarginaal <input id="marginaal" type="text" size="5"> senti kWh ja ostumarginaal <input id="tmarginaal" type="text" size=5> senti kWh. K&uuml;mnendkoha eraldajana kasuta punkti (".").
  <TABLE>
-  <tbody><tr><th colspan="2"></th><th>kWh</th><th>SUMMA (&euro;)</th><th>Summa+KM(&euro;)</th><TH>Keskmine(&euro;/kWh)</TH><th>Keskmine +KM(&euro;/kWh)</th></tr>
-  <tr><td><input type="checkbox" onclick="Checkboks()" name="chk" value="summa"></td><th>Tootmine</th><td><div id="kw">0.00</div></td><td><div id="summa">0.00</div></td><td><div id="summa_km">0.00</div></td><td><div id="t_kesk">0.00</div></td><td><div id="t_kesk_km">0.00</div></td></tr>
-  <tr><td><input type="checkbox" onclick="Checkboks()" name="chk" value="m_summa"></td><td colspan="2">marginaal</td><td><div id="m_summa">0</div></td><td colspan="3"><div id="m_summa_km">0</div></td></tr>
-  <tr><td><input type="checkbox" onclick="Checkboks()" name="chk" value="t_summa" checked=""></td><td colspan="2">marginaaliga</td><td><div id="t_summa">0</div></td><td colspan="3"><div id="t_summa_km">0.00</div></td></tr>
-  <tr><td><input type="checkbox" onclick="Checkboks()" name="chk" value="usumma"></td><th>Tarbimine</th><td><div id="ukw">0</div></td><td><div id="usumma">0</div></td><td><div id="usumma_km">0</div></td><td><div id="u_kesk">0.00</div></td><td><div id="u_kesk_km">0.00</div></td></tr>
-  <tr><td><input type="checkbox" onclick="Checkboks()" name="chk" value="m_usumma"></td><td colspan="2">marginaal</td><td><div id="m_usumma">0.00</div></td><td colspan="3"><div id="m_usumma_km">0.00</div></td></tr>
-  <tr><td><input type="checkbox" onclick="Checkboks()" name="chk" value="t_usumma" checked=""></td><td colspan="2">marginaaliga tarbimisel</td><td><div id="t_usumma">0</div></td><td colspan="3"><div id="t_usumma_km">-0.29</div></td></tr>
-  <tr><td></td><th>Kokku</th><td><div id="kokku_kw">0.00</div></td><td><div id="kokku">0.00</div></td><td colspan="3"><div id="kokku_km">0.00</div></td></tr>  
-</tbody><TABLE>
+  <tbody>
+  <TR><TH colspan="2"></TH><TH>kWh</TH><TH>SUMMA (&euro;)</TH><TH>Summa+KM(&euro;)</TH><TH>Keskmine(&euro;/kWh)</TH><TH>Keskmine +KM(&euro;/kWh)</TH></TR>
+  <TR><td><input type="checkbox" onclick="Checkboks()" name="chk" value="summa"></td><th>Tootmine</th><td><div id="kw">0.00</div></td><td><div id="summa">0.00</div></td><td><div id="summa_km">0.00</div></td><td><div id="t_kesk">0.00</div></td><td><div id="t_kesk_km">0.00</div></td></TR>
+  <TR><td><input type="checkbox" onclick="Checkboks()" name="chk" value="m_summa"></td><td colspan="2">marginaal</td><td><div id="m_summa">0</div></td><td colspan="3"><div id="m_summa_km">0</div></td></TR>
+  <TR><td><input type="checkbox" onclick="Checkboks()" name="chk" value="t_summa" checked=""></td><td colspan="2">marginaaliga</td><td><div id="t_summa">0</div></td><td colspan="3"><div id="t_summa_km">0.00</div></td></TR>
+  <TR><td><input type="checkbox" onclick="Checkboks()" name="chk" value="usumma"></td><th>Tarbimine</th><td><div id="ukw">0</div></td><td><div id="usumma">0</div></td><td><div id="usumma_km">0</div></td><td><div id="u_kesk">0.00</div></td><td><div id="u_kesk_km">0.00</div></td></TR>
+  <TR><td><input type="checkbox" onclick="Checkboks()" name="chk" value="m_usumma"></td><td colspan="2">marginaal</td><td><div id="m_usumma">0.00</div></td><td colspan="3"><div id="m_usumma_km">0.00</div></td></TR>
+  <TR><td><input type="checkbox" onclick="Checkboks()" name="chk" value="t_usumma" checked=""></td><td colspan="2">marginaaliga tarbimisel</td><td><div id="t_usumma">0</div></td><td colspan="3"><div id="t_usumma_km">0.00</div></td></TR>
+  <TR><td></td><th>Kokku</th><td><div id="kokku_kw">0.00</div></td><td><div id="kokku">0.00</div></td><td colspan="3"><div id="kokku_km">0.00</div></td></TR>
+  </tbody>
+ <TABLE>
   <div class="ct-chart"></div>
   Palun anna <A href="https://e.elering.ee" target="_blank">elering</A> lehelt loetud csv laiendiga faili.
   <input type="file" onchange="readFile(this)"> 
