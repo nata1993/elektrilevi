@@ -54,7 +54,7 @@ function display(msg) {
     if ( cells[0] == "Kuupäev" ) {alert ( "Palun kasuta https://e.elring.ee andmelao andmeid" ) ; return 1 ; } ; // Alexela
    cells = rows[algus-1][0].split(";") ;	
    console.log ( "ALGUS " + algus + rows[0] + " " + tootmine + " C " + cells[1]  ) ;
-   if ( /^tarbi/.exec(cells[1]) ) { tarbimine = 1 ; alert ( "Leidsin tarbimise" ) ; } ; // tarbimine
+   if ( /^tarbi/.exec(cells[1]) ) { tarbimine = 1 ; alert ( "Leidsin esimesena tarbimise" ) ; } ; // tarbimine
    
     var first_row_time = rows[algus].join().slice(11,16) ;
     if  ( first_row_time != "00:00" )
@@ -80,7 +80,7 @@ function display(msg) {
           paeva_kw=[]; u_kw=[];
          } //  if KP
          if (cells.length<=tootmine) { tootmine=2 };
-	      console.log ( tootmine + cells + " " + cells.length + " " + cells[1] + "X" + cells[tarbimine] + "Y" + cells[tootmine] ) ;
+//	      console.log ( tootmine + cells + " " + cells.length + " " + cells[1] + "X" + cells[tarbimine] + "Y" + cells[tootmine] ) ;
 	 toodang= cells[tootmine].replace(",",".") ;
          paeva_kw.push( toodang );  u_kw.push( cells[tarbimine] ) ;
 	      // u_kw.push( cells[2].replace(",",".") ) ;
@@ -233,6 +233,11 @@ function readFile(input) {
     cb.forEach((checkbox) => { i += Number(document.getElementById(checkbox.value).innerHTML); });
     document.getElementById("kokku").innerHTML= i ;
     document.getElementById("kokku_km").innerHTML= i*1.2 ;
+    var  summa = document.getElementById("summa"), kw = document.getElementById("kw") ;
+    document.getElementById("t_kesk").innerHTML=Math.round( summa.innerHTML/ kw.innerHTML *1000)/1000 ;
+    document.getElementById("t_kesk_km").innerHTML=Math.round(summa_km.innerHTML / kw.innerHTML *1000)/1000 ;
+    document.getElementById("u_kesk").innerHTML=Math.round(Math.abs( usumma.innerHTML )/ ukw.innerHTML *1000)/1000 ;
+    document.getElementById("u_kesk_km").innerHTML=Math.round( Math.abs(usumma_km.innerHTML) / ukw.innerHTML *1000)/1000 ;
   }
   
  </script>
@@ -240,15 +245,15 @@ function readFile(input) {
 <body>
  Sisesta m&uuml;&uuml;gimarginaal <input id="marginaal" type="text" size="5"> senti kWh ja ostumarginaal <input id="tmarginaal" type="text" size=5> senti kWh. K&uuml;mnendkoha eraldajana kasuta punkti (".").
  <TABLE>
-  <TR><TH colspan="2"></TH><TH>kWh</TH><TH>SUMMA</TH><TH>Summa+KM</TH></TR>
-  <TR><TD><INPUT type="checkbox" onclick="Checkboks()" name="chk" value="summa"></TH><TH>Tootmine</TH><TD><div id="kw">00.00</div></TD><TD><div id="summa">0.00</div></TD><TD><div id="summa_km">0.00</div></TD></TR>
-  <TR><TD><INPUT type="checkbox" onclick="Checkboks()" name="chk" value="m_summa"></TH><TD colspan="2">marginaal</TD><TD><div id="m_summa">0.00</div></TD><TD><div id="m_summa_km">0.00</div></TD></TR>
-  <TR><TD><INPUT type="checkbox" onclick="Checkboks()" name="chk" value="t_summa" checked></TH><TD colspan="2">marginaaliga</TD><TD><div id="t_summa">0.00</div></TD><TD><div id="t_summa_km">0.00</div></TD></TR>
-  <TR><TD><INPUT type="checkbox" onclick="Checkboks()" name="chk" value="usumma"></TD><TH>Tarbimine</TH><TD><div id="ukw">00.00</div></TD><TD><div id="usumma">0.00</div></TD><TD><div id="usumma_km">0.00</div></TD></TR>
-  <TR><TD><INPUT type="checkbox" onclick="Checkboks()" name="chk" value="m_usumma"></TH><TD colspan="2">marginaal</TD><TD><div id="m_summa">0.00</div></TD><TD><div id="m_summa_km">0.00</div></TD></TR>
-  <TR><TD><INPUT type="checkbox" onclick="Checkboks()" name="chk" value="t_usumma"checked></TH><TD colspan="2">marginaaliga tarbimisel</TD><TD><div id="t_usumma">0.00</div></TD><TD><div id="t_usumma_km">0.00</div></TD></TR>
-  <TR><TD></TD><TH>Kokku</TH><TD><div id="kokku_kw">00.00</div></TD><TD><div id="kokku">0.00</div></TD><TD><div id="kokku_km">0.00</div></TD></TR>  
-<TABLE>
+  <tbody><tr><th colspan="2"></th><th>kWh</th><th>SUMMA (&euro;)</th><th>Summa+KM(&euro;)</th><TH>Keskmine(&euro;/kWh)</TH><th>Keskmine +KM(&euro;/kWh)</th></tr>
+  <tr><td><input type="checkbox" onclick="Checkboks()" name="chk" value="summa"></td><th>Tootmine</th><td><div id="kw">0.00</div></td><td><div id="summa">0.00</div></td><td><div id="summa_km">0.00</div></td><td><div id="t_kesk">0.00</div></td><td><div id="t_kesk_km">0.00</div></td></tr>
+  <tr><td><input type="checkbox" onclick="Checkboks()" name="chk" value="m_summa"></td><td colspan="2">marginaal</td><td><div id="m_summa">0</div></td><td colspan="3"><div id="m_summa_km">0</div></td></tr>
+  <tr><td><input type="checkbox" onclick="Checkboks()" name="chk" value="t_summa" checked=""></td><td colspan="2">marginaaliga</td><td><div id="t_summa">0</div></td><td colspan="3"><div id="t_summa_km">0.00</div></td></tr>
+  <tr><td><input type="checkbox" onclick="Checkboks()" name="chk" value="usumma"></td><th>Tarbimine</th><td><div id="ukw">0</div></td><td><div id="usumma">0</div></td><td><div id="usumma_km">0</div></td><td><div id="u_kesk">0.00</div></td><td><div id="u_kesk_km">0.00</div></td></tr>
+  <tr><td><input type="checkbox" onclick="Checkboks()" name="chk" value="m_usumma"></td><td colspan="2">marginaal</td><td><div id="m_usumma">0.00</div></td><td colspan="3"><div id="m_usumma_km">0.00</div></td></tr>
+  <tr><td><input type="checkbox" onclick="Checkboks()" name="chk" value="t_usumma" checked=""></td><td colspan="2">marginaaliga tarbimisel</td><td><div id="t_usumma">0</div></td><td colspan="3"><div id="t_usumma_km">-0.29</div></td></tr>
+  <tr><td></td><th>Kokku</th><td><div id="kokku_kw">0.00</div></td><td><div id="kokku">0.00</div></td><td colspan="3"><div id="kokku_km">0.00</div></td></tr>  
+</tbody><TABLE>
   <div class="ct-chart"></div>
   Palun anna <A href="https://e.elering.ee" target="_blank">elering</A> lehelt loetud csv laiendiga faili.
   <input type="file" onchange="readFile(this)"> 
