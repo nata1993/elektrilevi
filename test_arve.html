@@ -50,7 +50,7 @@ function display(msg) {
    var rowNum, row, KP="",r_date,priceRow, algus=1, tootmine=4, toodang=0, tarbimine=4;
    var cells, arve_summa=0, kogu_kw=0, kogu_ukw=0, paeva_kw=[], u_kw=[], u_summa=0, t_summa=0, t_usumma=0 ;  //        var cellNum;
    cells = rows[0][0].split(";") ;
-    if ( cells[0] <> "Kuupäev" ) {alert ( "Palun kasuta https://220energia.ee andmeid" ) ; return 1 ; } ; // Alexela/220
+    if ( cells[0] != "Kuupäev" ) {alert ( "Palun kasuta https://220energia.ee andmeid" ) ; return 1 ; } ; // Alexela/220
    cells = rows[algus-1][0].split(";") ;
    console.log ( "ALGUS " + algus + rows[0] + " " + tootmine + " C " + cells[1]  ) ;
    if ( /^tarbi/.exec(cells[1]) ) { tarbimine = 1 ; alert ( "Leidsin esimesena tarbimise" ) ; } ; // tarbimine
