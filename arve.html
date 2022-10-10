@@ -240,6 +240,20 @@ function readFile(input) {
     document.getElementById("u_kesk_km").innerHTML=Math.round( Math.abs(usumma_km.innerHTML) / ukw.innerHTML *1000)/1000 ;
   }
   
+  function UT()
+  { var i=0 ;
+    var cb = document.querySelectorAll('input[name="chk"]:checked');
+    cb.forEach((checkbox) => { i += Number(document.getElementById(checkbox.value).innerHTML); });
+    document.getElementById("kokku").innerHTML= i ;
+    document.getElementById("kokku_km").innerHTML= i*1.2 ;
+    var  summa = document.getElementById("summa"), kw = document.getElementById("kw") ;
+    document.getElementById("UT_220").innerHTML=Math.round( Math.abs(usumma_km.innerHTML) / ukw.innerHTML *1000)/1000 ;
+    document.getElementById("UT_Alexela").innerHTML=Math.round( Math.abs(usumma_km.innerHTML) / ukw.innerHTML *1000)/1000 ;
+    document.getElementById("UT_EE").innerHTML=Math.round( Math.abs(usumma_km.innerHTML) / ukw.innerHTML *1000)/1000 ;
+    document.getElementById("UT_EG").innerHTML=Math.round( Math.abs(usumma_km.innerHTML) / ukw.innerHTML *1000)/1000 ;
+    document.getElementById("UT_VKG").innerHTML=Math.round( Math.abs(usumma_km.innerHTML) / ukw.innerHTML *1000)/1000 ;
+  }
+	 
  </script>
 </head>
 <body>
@@ -254,13 +268,15 @@ function readFile(input) {
   <TR><td><input type="checkbox" onclick="Checkboks()" name="chk" value="m_usumma"></td><td colspan="2">marginaal</td><td><div id="m_usumma">0.00</div></td><td colspan="3"><div id="m_usumma_km">0.00</div></td></TR>
   <TR><td><input type="checkbox" onclick="Checkboks()" name="chk" value="t_usumma" checked=""></td><td colspan="2">marginaaliga tarbimisel</td><td><div id="t_usumma">0</div></td><td colspan="3"><div id="t_usumma_km">0.00</div></td></TR>
   <TR><td></td><th>Kokku</th><td><div id="kokku_kw">0.00</div></td><td><div id="kokku">0.00</div></td><td colspan="3"><div id="kokku_km">0.00</div></td></TR>
-  <TR><TD colspan="6"></TD></TR>
-  <TR><th colspan="2">Elektrimüüja</th><th>220</th><th>Alexela</th><th>EE</th><td>EG</th><th>VKG</th></TR>
+  <TR><TD colspan="6">...</TD></TR>
+  <TR><th colspan="2">Elektrimüüja</th><th>220</th><th>Alexela</th><th>EE</th><th>EG</th><th>VKG</th></TR>
   <TR><TD colspan="2">UT hind (s/kWh)</TD><td>19,19</td><td>19,19</td><td>19,24</td><td>19,15</td><td>19,95</td></TR>	  
   <TR><TD colspan="2">kuutasu (€)</TD><td>1,99</td><td>1,99</td><td>1,99</td><td>1,95</td><td>0</td></TR>	  
   <TR><th colspan="2">hind UT'ga</th><td><div id="UT_220">220</div></td><td><div id="UT_Alexela">Alexela</div></td><td><div id="UT_EE">EE</div></td><td><div id="UT_EG">EG</div></td><td><div id="UT_VKG">VKG</div></td></TR>
   </tbody>
  <TABLE>
+ <input type="button" VALUE="UT hinna arvutamine" onclick="UT() />  
+ <BR>
   <div class="ct-chart"></div>
   Palun anna <A href="https://e.elering.ee" target="_blank">elering</A> lehelt loetud csv laiendiga faili.
   <input type="file" onchange="readFile(this)"> 
