@@ -242,14 +242,10 @@ function readFile(input) {
   
   function UT()
   { var i=0 ;
-    var cb = document.querySelectorAll('input[name="chk"]:checked');
-    cb.forEach((checkbox) => { i += Number(document.getElementById(checkbox.value).innerHTML); });
-    document.getElementById("kokku").innerHTML= i ;
-    document.getElementById("kokku_km").innerHTML= i*1.2 ;
     var  summa = document.getElementById("summa"), kw = document.getElementById("kw") ;
-    document.getElementById("UT_220").innerHTML=Math.round( Math.abs(usumma_km.innerHTML) / ukw.innerHTML *1000)/1000 ;
-    document.getElementById("UT_Alexela").innerHTML=Math.round( Math.abs(usumma_km.innerHTML) / ukw.innerHTML *1000)/1000 ;
-    document.getElementById("UT_EE").innerHTML=Math.round( Math.abs(usumma_km.innerHTML) / ukw.innerHTML *1000)/1000 ;
+    document.getElementById("UT_220").innerHTML=Math.round( Math.abs(kw*1919)/100 ;
+    document.getElementById("UT_Alexela").innerHTML=Math.round( Math.abs(kw*1919)/100 ;
+    document.getElementById("UT_EE").innerHTML=Math.round( Math.abs(kw*1924)/100 ;
     document.getElementById("UT_EG").innerHTML=Math.round( Math.abs(usumma_km.innerHTML) / ukw.innerHTML *1000)/1000 ;
     document.getElementById("UT_VKG").innerHTML=Math.round( Math.abs(usumma_km.innerHTML) / ukw.innerHTML *1000)/1000 ;
   }
@@ -276,7 +272,7 @@ function readFile(input) {
   </tbody>
  <TABLE>
  <input type="button" VALUE="UT hinna arvutamine" onclick="UT() />  
- <BR>
+ <HR>
   <div class="ct-chart"></div>
   Palun anna <A href="https://e.elering.ee" target="_blank">elering</A> lehelt loetud csv laiendiga faili.
   <input type="file" onchange="readFile(this)"> 
