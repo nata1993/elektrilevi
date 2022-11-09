@@ -23,7 +23,11 @@ body {
 </style>
  <script src="chartist.js"></script>  
  <script>
- 
+ var el_paev=0, el_oo=0, el_paev_tipp=0, el_puhke_tipp=0 ;
+ const el_hinnad=[[5.53,6.65,3.86,[141,254,295,335,391,455,535,639],4.35,2.52,[200,370,455,535,647,775, 935,1143],2.83,1.62,[489,1034,1259,1519,1883,2299,2819,3495],3.95,6.07,2.26,3.52,[218,403,496,583,705,845,1019,1246]],
+                  [6.26,7.53,4.38,[160,287,334,379,443,515,606,725],4.92,2.85,[227,419,515,606,734,878,1059,1295],3.20,1.83,[554,1171,1429,1721,2134,2605,3195,3960],4.47,6.88,2.57,3.99,[247,457,561,660,799,957,1155,1411]],
+		  [6.38,7.68,4.47,[163,293,341,387,452,525,618,739],5.02,2.90,[232,427,525,618,749,895,1080,1321],3.26,1.86,[565,1194,1455,1755,2176,2657,3259,4039],4.55,7.02,2.61,4.07,[252,466,572,673,815,976,1178,1439]]] ;
+
   function csvToArray(text) {
     let p = '', row = [''], ret = [row], i = 0, r = 0, s = !0, l;
     for (l of text) {
@@ -48,7 +52,7 @@ body {
 function display(msg) {
    var rida={ hind:[0] }, rows = csvToArray(msg);
    var rowNum, row, KP="",r_date,priceRow, algus=2, tootmine=1, toodang=0, tarbimine=2;
-   var cells, arve_summa=0, kogu_kw=0, kogu_ukw=0, paeva_kw=[], u_kw=[], u_summa=0, t_summa=0, t_usumma=0 ;  //        var cellNum;
+   var cells, arve_summa=0, kogu_kw=0, kogu_ukw=0, paeva_kw=[], u_kw=[], u_summa=0, t_summa=0, t_usumma=0, week_day=0 ;  //        var cellNum;
    cells = rows[0][0].split(";") ;
     if ( cells[0] == "EIC" ) {algus=4; tootmine=4 } ; // elektrilevi
     if ( cells[0] == "Kuupäev" ) {alert ( "Palun kasuta https://e.elring.ee andmelao andmeid" ) ; return 1 ; } ; // Alexela
@@ -90,6 +94,21 @@ function display(msg) {
    console.log ( Math.round(rowNum/24) + " " + rowNum + " "+ paeva_kw ) ;
 
      function GetPrice(start_time,end_time, kws, ukws ) {
+      wd = new Date(r_date) ;
+      week_day = wd.getDay() ;
+      if ( week_day == 0 || week_day == 6)
+       {
+         el_oo += 1*ukws[0] +1*ukws[1] +1*ukws[2] +1*ukws[3] +1*ukws[4] +1*ukws[5] +1*ukws[6] +1*ukws[7] +1*ukws[8] +1*ukws[9]+1*ukws[10]+
+                  1*ukws[11]+1*ukws[12]+1*ukws[13]+1*ukws[14]+1*ukws[15]+1*ukws[20]+1*ukws[21]+1*ukws[22]+1*ukws[23] ;
+         el_puhke_tipp += 1*ukws[16]+1*ukws[17]+1*ukws[18]+1*ukws[19] ;
+//       console.log(r_date +" 1 " + el_puhke_tipp + " 2 " + el_oo +  " 3 " + ukws  ) ;
+       }
+      else
+       {
+        el_oo     += 1*ukws[0] + 1*ukws[1] + 1*ukws[2] + 1*ukws[3] + 1*ukws[4]  + 1*ukws[5]  + 1*ukws[6]  + 1*ukws[22] + 1*ukws[23] ;
+        el_paev   += 1*ukws[7] + 1*ukws[8] + 1*ukws[12] + 1*ukws[13] + 1*ukws[14] + 1*ukws[15] + 1*ukws[20] + 1*(ukws[21]) ;
+        el_paev_tipp += 1*ukws[9] + 1*ukws[10]+ 1*ukws[11] + 1*ukws[16] + 1*ukws[17] + 1*ukws[18] + 1*ukws[19] ;
+       }
 //	console.log("KWs"+kws) ;
 //	console.log("u KWs" + ukws) ;	     
         function transferComplete(evt) {
@@ -211,7 +230,6 @@ function readFile(input) {
         } ); // Chartist.Line    
     } // kuva 
 
-
    function showData(data) {
        var utc=[],aeg=[],hind=[];
        var rows = csvToArray(data);
@@ -240,7 +258,7 @@ function readFile(input) {
     document.getElementById("u_kesk_km").innerHTML=Math.round( Math.abs(usumma_km.innerHTML) / ukw.innerHTML *1000)/1000 ;
   }
   
-  function UT()
+ function UT()
   { var  ukw = document.getElementById("ukw").innerHTML ;
   // console.log ( ukw ) ;
     document.getElementById("UT_220").innerHTML    = Math.round( Math.abs(ukw*1919) ) /100 + 199 ;
@@ -249,7 +267,18 @@ function readFile(input) {
     document.getElementById("UT_Elektrum").innerHTML= Math.round( Math.abs(ukw*1972) ) /100 + 185 ;
     document.getElementById("UT_VKG").innerHTML    = Math.round( Math.abs(ukw*1995) ) /100 ;
   }
-	 
+
+ function VT()
+  {
+    var kaitse = document.querySelector('#KAITSE').selectedIndex, aja_valik = document.querySelector('#AEG').selectedIndex ;
+    console.log ( kaitse, el_paev , el_paev_tipp , el_oo, el_puhke_tipp, el_hinnad[aja_valik][6][kaitse] , " XXX " , el_hinnad[aja_valik][1]*( el_paev*1 + el_paev_tipp*1) , el_hinnad[aja_valik][2]*(el_oo*1 + el_puhke_tipp*1) ) ;
+    document.getElementById("v1").innerHTML  = ( Math.round( el_hinnad[aja_valik][0]*( el_paev*1 + el_paev_tipp*1 + el_oo*1 + el_puhke_tipp*1)));
+    document.getElementById("v2").innerHTML  = ( Math.round( el_hinnad[aja_valik][1]*( el_paev*1 + el_paev_tipp*1)) + Math.round(el_hinnad[aja_valik][2]*(el_oo*1 + el_puhke_tipp*1))); ;
+    document.getElementById("v2k").innerHTML = ( Math.round( el_hinnad[aja_valik][4]*( el_paev*1 + el_paev_tipp*1)) + Math.round(el_hinnad[aja_valik][5]*(el_oo*1 + el_puhke_tipp*1)) + el_hinnad[aja_valik][6][kaitse] );
+    document.getElementById("v4").innerHTML  = ( Math.round( el_hinnad[aja_valik][7]*( el_paev*1 + el_paev_tipp*1)) + Math.round(el_hinnad[aja_valik][8]*(el_oo*1 + el_puhke_tipp*1)) + el_hinnad[aja_valik][9][kaitse] ) ;
+    document.getElementById("v5").innerHTML  = ( Math.round( el_hinnad[aja_valik][10]*el_paev*1) + Math.round(el_hinnad[aja_valik][11]*el_paev_tipp*1) + Math.round(el_hinnad[aja_valik][12]*el_oo*1) + Math.round(el_hinnad[aja_valik][13]*el_puhke_tipp*1) + el_hinnad[aja_valik][14][kaitse] ) ;
+  }
+
  </script>
 </head>
 <body>
@@ -269,9 +298,28 @@ function readFile(input) {
   <TR><TD colspan="2">UT hind (s/kWh)</TD><td>19,19</td><td>19,24</td><td>19,15</td><td>19.72</td><td>19,95</td></TR>	  
   <TR><TD colspan="2">kuutasu (&euro;)</TD><td>1,99</td><td>1,99</td><td>1,95</td><td>1,85</td><td>0</td></TR>
   <TR><th colspan="2">UT hind sentides</th><td><div id="UT_220">220/Alexela</div></td><td><div id="UT_EE">EE</div></td><td><div id="UT_EG">EG</div></td><td><div id="UT_Elektrum">Elektrum</div></td><td><div id="UT_VKG">VKG</div></td></TR>
+  <TR><TH colspan="2">V&otilde;rgutasud</TH><TH>V&otilde;rk 1</TH><TH>V&otilde;rk 2</TH><TH>V&otilde;rk 2 kuutasuga</TH><TH>V&otilde;rk 4</TH><TH>V&otilde;rk 5</TH></TR>
+  <TR><TH colspan="2">sentides ilma KMuta</TH><TD><div id="v1">V&otilde;rk 1</div></TD><TD><div id="v2">V&otilde;rk 2</div></TD><TD><div id="v2k">V&otilde;rk 2 kuutasuga</div></TD><TD><div id="v4">V&otilde;rk 4</div></TD><TD><div id="v5">V&otilde;rk 5</div></TD></TR>
   </tbody>
  <TABLE>
  <input type="button" VALUE="UT hinna arvutamine" onclick="UT()" >
+<BR>
+ <input type="button" VALUE="Elektrilevi Võrguteenuse hinna leidmine" onclick="VT()">  
+ <SELECT id="AEG">
+ <OPTION VALUE="2203">1.03.2022-30.09.2022										
+ <OPTION VALUE="2210">1.10.2022-30.11.2022
+ <OPTION VALUE="2212">1.12.2022-31.12.2022
+ </SELECT>
+ <SELECT id="KAITSE">
+ <OPTION VALUE="0">KORTER
+ <OPTION VALUE="1">16 A
+ <OPTION VALUE="2">20 A
+ <OPTION VALUE="3">25 A
+ <OPTION VALUE="4">32 A
+ <OPTION VALUE="5">40 A
+ <OPTION VALUE="6">50 A
+ <OPTION VALUE="7">63 A
+ </SELECT>
  <HR>
   <div class="ct-chart"></div>
   Palun anna <A href="https://e.elering.ee" target="_blank">elering</A> lehelt loetud csv laiendiga faili.
