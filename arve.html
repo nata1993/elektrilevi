@@ -102,13 +102,13 @@ function display(msg) {
       if ( week_day == 0 || week_day == 6)
        {
          el_oo += 1*ukws[0] +1*ukws[1] +1*ukws[2] +1*ukws[3] +1*ukws[4] +1*ukws[5] +1*ukws[6] +1*ukws[7] +1*ukws[8] +1*ukws[9]+1*ukws[10]+
-                  1*ukws[11]+1*ukws[12]+1*ukws[13]+1*ukws[14]+1*ukws[15]+1*ukws[20]+1*ukws[21]+1*ukws[22]+1*ukws[23] ;
+                  1*ukws[11]+1*ukws[12]+1*ukws[13]+1*ukws[14]+1*ukws[15]+1*ukws[20]+1*ukws[21]+1*ukws[22]+ (ukws[23])?(1*ukws[23]):(0)] ;
          el_puhke_tipp += 1*ukws[16]+1*ukws[17]+1*ukws[18]+1*ukws[19] ;
 //       console.log(r_date +" 1 " + el_puhke_tipp + " 2 " + el_oo +  " 3 " + ukws  ) ;
        }
       else
        {
-        el_oo     += 1*ukws[0] + 1*ukws[1] + 1*ukws[2] + 1*ukws[3] + 1*ukws[4]  + 1*ukws[5]  + 1*ukws[6]  + 1*ukws[22] + (ukws[23])?(1*ukws[23]):(0) ;
+        el_oo     += 1*ukws[0] + 1*ukws[1] + 1*ukws[2] + 1*ukws[3] + 1*ukws[4]  + 1*ukws[5]  + 1*ukws[6]  + 1*ukws[22] + 1*ukws[23] ;
         el_paev   += 1*ukws[7] + 1*ukws[8] + 1*ukws[12] + 1*ukws[13] + 1*ukws[14] + 1*ukws[15] + 1*ukws[20] + 1*(ukws[21]) ;
         el_paev_tipp += 1*ukws[9] + 1*ukws[10]+ 1*ukws[11] + 1*ukws[16] + 1*ukws[17] + 1*ukws[18] + 1*ukws[19] ;
        }
