@@ -275,7 +275,7 @@ function readFile(input) {
  function VT()
   {
     var kaitse = document.querySelector('#KAITSE').selectedIndex, aja_valik = document.querySelector('#AEG').selectedIndex ;
-    console.log ( kaitse, el_paev , el_paev_tipp , el_oo, el_puhke_tipp, el_hinnad[aja_valik][6][kaitse] , " XXX " , el_hinnad[aja_valik][1]*( el_paev*1 + el_paev_tipp*1) , el_hinnad[aja_valik][2]*(el_oo*1 + el_puhke_tipp*1) ) ;
+    console.log ( "VT ARVUTAMINE", kaitse, el_paev , el_paev_tipp , el_oo, el_puhke_tipp, el_hinnad[aja_valik][6][kaitse] , " XXX " , el_hinnad[aja_valik][1]*( el_paev*1 + el_paev_tipp*1) , el_hinnad[aja_valik][2]*(el_oo*1 + el_puhke_tipp*1) ) ;
     document.getElementById("v1").innerHTML  = ( Math.round( el_hinnad[aja_valik][0]*( el_paev*1 + el_paev_tipp*1 + el_oo*1 + el_puhke_tipp*1)));
     document.getElementById("v2").innerHTML  = ( Math.round( el_hinnad[aja_valik][1]*( el_paev*1 + el_paev_tipp*1)) + Math.round(el_hinnad[aja_valik][2]*(el_oo*1 + el_puhke_tipp*1))); ;
     document.getElementById("v2k").innerHTML = ( Math.round( el_hinnad[aja_valik][4]*( el_paev*1 + el_paev_tipp*1)) + Math.round(el_hinnad[aja_valik][5]*(el_oo*1 + el_puhke_tipp*1)) + el_hinnad[aja_valik][6][kaitse] );
