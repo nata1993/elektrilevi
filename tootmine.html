@@ -46,7 +46,7 @@ body {
  function display(msg) {
    var rida={ hind:[0] }, rows = csvToArray(msg);
    var rowNum, row, KP="",r_date,priceRow, algus=1, tootmine=2, toodetud=0, tarvitatud=0,  tarbimine=3;
-   var cells, arve_summa=0, kogu_kw=0, kogu_ukw=0, paeva_kw=[], tarbitud_kw=[] ;  //        var cellNum;
+   var cells, arve_summa=0, kogu_kw=0, arve_usumma=0, kogu_ukw=0, paeva_kw=[], tarbitud_kw=[] ;  //        var cellNum;
 //   cells = rows[0][0].split(";") ;
    console.log ( "ALGUS " + algus + rows[0] + " " + tootmine ) ;
     addRow("<TH>KUUP&Auml;EV</TH><TH>00-01</TH><TD>01-02</TD><TD>02-03</TD><TD>03-04</TD><TD>04-05</TD><TD>05-06</TD><TH>06-07</TH><TD>07-08</TD><TD>08-09</TD><TD>09-10</TD><TD>10-11</TD><TD>11-12</TD>" +
@@ -134,10 +134,12 @@ body {
             document.body.appendChild(p_end);
             arve_summa += vahe_summa ;
             kogu_kw += vahe_kw ;
+            arve_usumma += vahe_usumma ;
+            kogu_ukw += vahe_ukw ;
             document.getElementById("summa_1").innerHTML= Math.round(arve_summa/100000)/10 + " M€" ;
             document.getElementById("kwh_1").innerHTML =   Math.round(kogu_kw/10)/100 + " GWh" ;
-            document.getElementById("summa_2").innerHTML= Math.round(arve_summa/100000)/10 + " M€" ;
-            document.getElementById("kwh_2").innerHTML =   Math.round(kogu_kw/10)/100 + " GWh" ;
+            document.getElementById("summa_2").innerHTML= Math.round(arve_usumma/100000)/10 + " M€" ;
+            document.getElementById("kwh_2").innerHTML =   Math.round(kogu_ukw/10)/100 + " GWh" ;
            }
 
         } ; // handleStateChange
