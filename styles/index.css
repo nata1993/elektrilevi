@@ -1,0 +1,83 @@
+body {
+    background-image: url("https://hr-john.github.io/elektrilevi/Windmill.jpeg") ;
+    background-size: cover;
+    text-align: center;
+}
+h1 {
+    color: whitesmoke;
+}
+a {
+    color: whitesmoke;
+    font-size: 1.25em;
+}
+a:hover {
+    color: grey;
+}
+p {
+    margin:0;
+    text-indent: 2em
+}
+
+th, td{
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+th {
+    border-bottom: 1px black solid;
+}
+th:nth-child(1), th:nth-child(2),
+td:nth-child(1), td:nth-child(2) {
+    border-right: 1px black solid;
+}
+tr:hover {
+    background-color: rgba(255, 255, 255, 0.85);
+}
+form {
+    display: inline-grid;
+    padding: 10px;
+    width: 40%;
+    min-width: 15em;
+    text-align: left;
+}
+form * {
+    margin: 2px;
+    text-align: center;
+}
+table {
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+}
+
+.grid-container {
+    display: grid;
+    gap: 5px 5px;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    justify-content: center;
+}
+.grid-item1 {
+    grid-column: 1 / span 2;
+    margin-bottom: 10px;
+}
+.grid-item2 {
+    grid-column: 1 / span 2;
+}
+
+.container {
+    display: grid;
+    gap: 5px 5px;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.75);
+}
+.item1 {
+    grid-column: 1;
+}
+.item2 {
+    grid-column: 2;
+}
