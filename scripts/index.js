@@ -81,14 +81,14 @@ function arvuta() {
     document.getElementById('v2').value = Math.round( ( Number(document.getElementById("p").value) * Number(hind[aasta][3]) + Number(document.getElementById("o").value) * Number(hind[aasta][4]) )*100)/100;
     document.getElementById('v3').value = Math.round( ( Number(document.getElementById("kokkukW").value) * Number(hind[aasta][7]) )*100)/100 + kuutasu[aasta][2][document.getElementById("kaitse").value];
     document.getElementById('v4').value = Math.round( ( Number(document.getElementById("p").value) * Number(hind[aasta][8]) + Number(document.getElementById("o").value) * Number(hind[aasta][9]) )*100)/100 + kuutasu[aasta][2][document.getElementById("kaitse").value];
-    document.getElementById('v5').value = Math.round( ( Number(document.getElementById("p").value) * Number(hind[aasta][5]) + Number(document.getElementById("o").value) * Number(hind[aasta][6]) )*100)/100 + kuutasu[aasta][1][document.getElementById("kaitse").value];
+    document.getElementById('vk2').value = Math.round( ( Number(document.getElementById("p").value) * Number(hind[aasta][5]) + Number(document.getElementById("o").value) * Number(hind[aasta][6]) )*100)/100 + kuutasu[aasta][1][document.getElementById("kaitse").value];
     const tt_ak= document.getElementById('tt').value + document.getElementById('ak').value;
     
     document.getElementById('v1').innerHTML = document.getElementById('v1').value;
     document.getElementById('v2').innerHTML = document.getElementById('v2').value;
     document.getElementById('v3').innerHTML = document.getElementById('v3').value;
     document.getElementById('v4').innerHTML = document.getElementById('v4').value;
-    document.getElementById('v5').innerHTML = document.getElementById('v5').value;
+    document.getElementById('vk2').innerHTML = document.getElementById('vk2').value;
     document.getElementById('tt').innerHTML = document.getElementById('tt').value;
     document.getElementById('ak').innerHTML = document.getElementById('ak').value;
 
@@ -96,15 +96,17 @@ function arvuta() {
     document.getElementById('v2k').innerHTML = Math.round(1.2 * (Number(document.getElementById("v2").value) + tt_ak ) );
     document.getElementById('v3k').innerHTML = Math.round(1.2 * (Number(document.getElementById("v3").value) + tt_ak ) );
     document.getElementById('v4k').innerHTML = Math.round(1.2 * (Number(document.getElementById("v4").value) + tt_ak ) );
-    document.getElementById('v5k').innerHTML = Math.round(1.2 * (Number(document.getElementById("v5").value) + tt_ak ) ); 
+    document.getElementById('vk2').innerHTML = Math.round(1.2 * (Number(document.getElementById("vk2").value) + tt_ak ) ); 
 }
 
 function summa() {
     let p = document.getElementById("p");
     let o = document.getElementById("o");
-    if(/(,)/.test(p) || /(,)/.test(o)) {
+    let pt = document.getElementById("pt");
+    let ot = document.getElementById("ot");
+    if (/(,)/.test(p) || /(,)/.test(o) || /(,)/.test(pt) || /(,)/.test(ot) ) {
         return alert("AAA");
     }
 
-    return Math.round(100*(Number(p.value) + Number(o.value)))/100;
+    return Math.round(100*(Number(p.value) + Number(o.value) + Number(pt.value) + Number(ot.value) ))/100;
 }
