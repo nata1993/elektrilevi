@@ -38,8 +38,12 @@
               </select>
               <label for="kwhPäeval">Mitu kWh päeval:</label>
               <input type="text" id="p" name="kwhPäeval" size="4" placeholder="0" onchange="document.getElementById('kokkukW').value = summa()">
+              <label for="kwhPäeval">Mitu kWh päeva tipuajal:</label>
+              <input type="text" id="pt" name="kwhPäevat" size="4" placeholder="0" onchange="document.getElementById('kokkukW').value = summa()">
               <label for="kwhÖösel">Mitu kWh öösel:</label>
               <input type="text" id="o" name="kwhÖösel" size="4" placeholder="0" onchange="document.getElementById('kokkukW').value = summa()">
+              <label for="kwhÖösel">Mitu kWh öö tipuajal:</label>
+              <input type="text" id="ot" name="kwhÖöt" size="4" placeholder="0" onchange="document.getElementById('kokkukW').value = summa()">
               <label for="kokku">Kokku:</label>
               <input id="kokkukW" name="kokku" size=4 placeholder="0">
               <label for="kaitse">Peakaitse suurus amprites:</label>
@@ -68,13 +72,16 @@
                 <td><b>Võrk 2</b></td><td><p id="v2">0.00</p></td><td id="v2k">0.00</td>
               </tr>
               <tr>
-                <td><b>Võrk 2 kuutasuga</b></td><td><p id="v5">0.00</p></td><td id="v5k">0.00</td>
+                <td><b>Võrk 2 kuutasuga</b></td><td><p id="vk2">0.00</p></td><td id="vk2k">0.00</td>
               </tr>
               <tr>
                 <td><b>Võrk 3</b></td><td><p id="v3">0.00</p></td><td id="v3k">0.00</td>
               </tr>
               <tr>
                 <td><b>Võrk 4</b></td><td><p id="v4">0.00</p></td><td id="v4k">0.00</td>
+              </tr>
+              <tr>
+                <td><b>Võrk 5</b></td><td><p id="v5">0.00</p></td><td id="v5k">0.00</td>
               </tr>
               <tr>
                 <td colspan=1><b>Taastuvenergiatasu</b></td><td><p id="tt">0.00</p></td>
