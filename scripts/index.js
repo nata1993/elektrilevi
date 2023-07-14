@@ -96,7 +96,7 @@ function arvuta() {
     document.getElementById('v2k').innerHTML = Math.round(1.2 * (Number(document.getElementById("v2").value) + tt_ak ) );
     document.getElementById('v3k').innerHTML = Math.round(1.2 * (Number(document.getElementById("v3").value) + tt_ak ) );
     document.getElementById('v4k').innerHTML = Math.round(1.2 * (Number(document.getElementById("v4").value) + tt_ak ) );
-    document.getElementById('vk2').innerHTML = Math.round(1.2 * (Number(document.getElementById("vk2").value) + tt_ak ) ); 
+    document.getElementById('vk2k').innerHTML = Math.round(1.2 * (Number(document.getElementById("vk2").value) + tt_ak ) ); 
 }
 
 function summa() {
