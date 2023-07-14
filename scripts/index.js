@@ -2,7 +2,7 @@ function arvuta() {
     const hind = [ 
     [1.13, 0.447,5.12, 6.16, 3.58, 4.23, 2.46, 2.28, 2.74, 1.58, 999, 999, 999, 999],
     [1.13, 0.1,  5.12, 6.16, 3.58, 4.23, 2.46, 2.28, 2.74, 1.58, 999, 999, 999, 999],
-    [1.04, 0.447,5.28, 6.35, 3.69, 5.13, 2.98, 2.98, 3.58, 2.06, 999, 999, 999, 999 ],
+    [1.04, 0.447,5.28, 6.35, 3.69, 5.13, 2.98, 2.98, 3.58, 2.06, 999, 999, 999, 999],
     [0.89, 0.447,5.28, 6.35, 3.69, 5.13, 2.98, 2.98, 3.58, 2.06, 999, 999, 999, 999],
     [1.13, 0.1,  5.12, 6.16, 3.58, 4.23, 2.46, 2.28, 2.74, 1.58, 999, 999, 999, 999],
     [1.13, 0.1,  5.53, 6.65, 3.86, 4.35, 2.52, 999,  2.83, 1.62, 3.95, 6.07, 2.26, 3.52],
@@ -83,8 +83,8 @@ function arvuta() {
     document.getElementById('tt').value = Math.round(Number(document.getElementById("kokkukW").value) * Number(hind[aasta][0])*100)/100;
     document.getElementById('ak').value = Math.round(Number(document.getElementById("kokkukW").value) * Number(hind[aasta][1])*100)/100;
     document.getElementById('v1').value = Math.round(Number(document.getElementById("kokkukW").value) * Number(hind[aasta][2])*100)/100;
-    document.getElementById('v2').value = Math.round( ( Number(p+pt) * Number(hind[aasta][3]) + Number(o+ot) * Number(hind[aasta][4]) )*100)/100;
-    document.getElementById('vk2').value = Math.round( ( (Number(p)+Number(pt)) * Number(hind[aasta][5]) + Number(o+ot) * Number(hind[aasta][6]) )*100)/100 + kuutasu[aasta][1][document.getElementById("kaitse").value];
+    document.getElementById('v2').value = Math.round( ( (Number(p) +Number(pt)) * Number(hind[aasta][3]) + (Number(o) + Number(ot)) * Number(hind[aasta][4]) )*100)/100;
+    document.getElementById('vk2').value = Math.round( ( (Number(p)+Number(pt)) * Number(hind[aasta][5]) + (Number(o) + Number( ot)) * Number(hind[aasta][6]) )*100)/100 + kuutasu[aasta][1][document.getElementById("kaitse").value];
     document.getElementById('v3').value = Math.round( ( Number(document.getElementById("kokkukW").value) * Number(hind[aasta][7]) )*100)/100 + kuutasu[aasta][2][document.getElementById("kaitse").value];
     document.getElementById('v4').value = Math.round( ( Number(document.getElementById("p").value) * Number(hind[aasta][8]) + Number(document.getElementById("o").value) * Number(hind[aasta][9]) )*100)/100 + kuutasu[aasta][2][document.getElementById("kaitse").value];
     document.getElementById('v5').value = Math.round( ( Number(p) * Number(hind[aasta][10]) + Number(pt) * Number(hind[aasta][11]) + Number(o) * Number(hind[aasta][12]) + Number(ot) * Number(hind[aasta][13]) )*100)/100 + kuutasu[aasta][3][kaitse];
