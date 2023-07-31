@@ -32,6 +32,9 @@ th:nth-child(1), th:nth-child(2),
 td:nth-child(1), td:nth-child(2) {
     border-right: 1px black solid;
 }
+tr:nth-child(1) {
+    background-color: rgba(255, 255, 255, 0.85);
+}
 tr:hover {
     background-color: rgba(255, 255, 255, 0.85);
 }
