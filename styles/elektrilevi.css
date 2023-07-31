@@ -1,8 +1,28 @@
 body {
     background-image: url("https://hr-john.github.io/elektrilevi/ressources/Windmill.jpeg") ;
     background-size: cover;
+    text-align: center;
 }
-P { margin:0; text-indent: 2em }
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+p { margin:0; text-indent: 2em }
+
+a {
+    color: white;
+}
+a:hover {
+    color: #333;
+}
+
+
+
+
+
+
+
+
 .ct-series-a .ct-line {
     /* Set the colour of this series line */
     fill: green;
