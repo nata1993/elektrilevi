@@ -13,40 +13,48 @@
   </head>
 
   <body>
-    Sisesta müügimarginaal
-    <input id="marginaal" type="text" size="5">
-    senti kWh ja ostumarginaal
-    <input id="tmarginaal" type="text" size=5>
-    senti kWh. Kümnendkoha eraldajana kasuta punkti (".").
-    <table>
-      <tr>
-        <th colspan="2"></th><th>kWh</th><th>SUMMA</th><th>Summa+KM</th>
-      </tr>
-      <tr>
-        <th><input type="checkbox" onclick="Checkboks()" name="chk" value="summa" checked ></th><th>Toodetud</th><td><div id="kw">00.00</div></td><td><div id="summa">0.00</div></td><td><div id="summa_km">0.00</div></td>
-      </tr>
-      <tr>
-        <th><input type="checkbox" onclick="Checkboks()" name="chk" value="usumma"></th><th>Tarbitud</th><td><div id="ukw">00.00</div></td><td><div id="usumma">0.00</div></td><td><div id="usumma_km">0.00</div></td>
-      </tr>
-      <tr>
-        <th><input type="checkbox" onclick="Checkboks()" name="chk" value="m_summa" checked></th><th>Marginaal</th><td></td><td><div id="m_summa">0.00</div></td><td><div id="m_summa_km">0.00</div></td>
-      </tr>
-      <tr>
-        <th><input type="checkbox" onclick="Checkboks()" name="chk" value="tm_summa" checked></th><th>Marginaaliga</th><td></td><td><div id="tm_summa">0.00</div></td><td><div id="tm_summa_km">0.00</div></td>
-      </tr>
-      <tr>
-        <th><input type="checkbox" onclick="Checkboks()" name="chk" value="t_summa"></th><th>M tarbimisel</th><td></td><td><div id="t_summa">0.00</div></td><td><div id="t_summa_km">0.00</div></td>
-      </tr>
-      <tr>
-        <th></th><th>Kokku</th><td><div id="kokku_kw">00.00</div></td><td><div id="kokku">0.00</div></td><td><div id="kokku_km">0.00</div></td>
-      </tr>  
-    <table>
-    <div class="ct-chart"></div>
-    Palun anna
-    <a href="https://estfeed.elering.ee/metering-points" target="_blank">elering</a>
-    või
-    <a href="https://www.elektrilevi.ee/et/avaleht" target="_blank">elektrilevi</a>
-    lehelt loetud csv laiendiga faili.<br>
-    <input type="file" onchange="readFile(this)">
+    <div class="grid-container">
+      <div class="grid-item1">
+        <h1>Elektriarve arvutamine/leidmine</h1>
+      </div>
+      <div class="grid-item2">
+        Sisesta müügimarginaal <input id="marginaal" type="text" size="5"> senti kWh.<br>
+        Sisesta ostumarginaal <input id="tmarginaal" type="text" size=5> senti kWh.<br>
+        Kümnendkoha eraldajana kasuta punkti (".").<br><br>
+        <table>
+          <tr>
+            <th colspan="2"></th><th>kWh</th><th>SUMMA</th><th>Summa+KM</th>
+          </tr>
+          <tr>
+            <th><input type="checkbox" onclick="Checkboks()" name="chk" value="summa" checked ></th><th>Toodetud</th><td><div id="kw">00.00</div></td><td><div id="summa">0.00</div></td><td><div id="summa_km">0.00</div></td>
+          </tr>
+          <tr>
+            <th><input type="checkbox" onclick="Checkboks()" name="chk" value="usumma"></th><th>Tarbitud</th><td><div id="ukw">00.00</div></td><td><div id="usumma">0.00</div></td><td><div id="usumma_km">0.00</div></td>
+          </tr>
+          <tr>
+            <th><input type="checkbox" onclick="Checkboks()" name="chk" value="m_summa" checked></th><th>Marginaal</th><td></td><td><div id="m_summa">0.00</div></td><td><div id="m_summa_km">0.00</div></td>
+          </tr>
+          <tr>
+            <th><input type="checkbox" onclick="Checkboks()" name="chk" value="tm_summa" checked></th><th>Marginaaliga</th><td></td><td><div id="tm_summa">0.00</div></td><td><div id="tm_summa_km">0.00</div></td>
+          </tr>
+          <tr>
+            <th><input type="checkbox" onclick="Checkboks()" name="chk" value="t_summa"></th><th>M tarbimisel</th><td></td><td><div id="t_summa">0.00</div></td><td><div id="t_summa_km">0.00</div></td>
+          </tr>
+          <tr>
+            <th></th><th>Kokku</th><td><div id="kokku_kw">00.00</div></td><td><div id="kokku">0.00</div></td><td><div id="kokku_km">0.00</div></td>
+          </tr>  
+        <table>
+        <br>
+        Palun anna
+        <a href="https://estfeed.elering.ee/metering-points" target="_blank">elering</a>
+        või
+        <a href="https://www.elektrilevi.ee/et/avaleht" target="_blank">elektrilevi</a>
+        lehelt loetud csv laiendiga faili.<br>
+        <input type="file" onchange="readFile(this)">
+      </div>
+      <div class="grid-item3">
+        <div class="ct-chart"></div>
+      </div>
+    </div>
   </body>
 </html>
