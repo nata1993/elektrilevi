@@ -7,3 +7,5 @@ I'm trying to make an electricity network fees package selection calculator.
 This repository is licensed under [MIT](../LICENSE) (c) 2019 GitHub, Inc.
 
 [Hinnapakettide v&otilde;rdlus](http://hr-john.github.io/elektrilevi)
+[Elektriarve arvutamine/leidmine](http://hr-john.github.io/elektrilevi/elektrilevi.html)
+[Arve](http://hr-john.github.io/elektrilevi/arve.html)
