@@ -25,8 +25,6 @@ function display(msg) {
     var cells = [], arve_summa = 0, kogu_kw = 0, arve_usumma = 0, kogu_ukw = 0, paeva_kw = [], tarbitud_kw = [];  //        var cellNum;
     //   cells = rows[0][0].split(";") ;
     console.log( "ALGUS " + algus + rows[0] + " " + tootmine );
-    addRow("<th>KUUPÄEV</th><th>00-01</th><td>01-02</td><td>02-03</td><td>03-04</td><td>04-05</td><td>05-06</td><th>06-07</th><td>07-08</td><td>08-09</td><td>09-10</td><td>10-11</td><td>11-12</td>" +
-           "<td>12-13</td><td>13-14</td><td>14-15</td><td>15-16</td><td>16-17</td><td>17-18</td><td>18-19</td><td>19-20</td><td>20-21</td><td>21-22</td><td>22-23</td><td>23-00</td><th>KOKKU</th>");
 
     for (rowNum = algus; rowNum < rows.length ; ++rowNum) {
         //      row = rows[rowNum].join() ;
@@ -49,8 +47,8 @@ function display(msg) {
             tootmine = 2
         };
 	      console.log ( tootmine + cells + " " + cells.length + " " + cells[1] + "X" + cells[tarbimine] + "Y" + cells[tootmine]);
-	      toodetud = cells[tootmine].replace(",",".");
-        tarbitud = cells[tarbimine].replace(",",".");
+	      toodetud = cells[tootmine].replace(",", ".");
+        tarbitud = cells[tarbimine].replace(",", ".");
         paeva_kw.push( toodetud );
         tarbitud_kw.push( tarbitud);
     } // for rowNum
@@ -68,10 +66,10 @@ function display(msg) {
         xhr.onreadystatechange = handleStateChange;
         var a1 = new Date(end_time); 
         if ( a1.getTimezoneOffset() == -180 ) {
-            xhr.open("GET", "https://dashboard.elering.ee/api/nps/price/csv?start="+ start_time+"T21:00:00.000Z&end="+end_time+"T20:59:59.999Z&fields=ee"); // - suveajal
+            xhr.open("GET", "https://dashboard.elering.ee/api/nps/price/csv?start=" + start_time + "T21:00:00.000Z&end=" + end_time + "T20:59:59.999Z&fields=ee"); // - suveajal
         }
         else {
-          xhr.open("GET", "https://dashboard.elering.ee/api/nps/price/csv?start="+ start_time+"T22:00:00.000Z&end="+end_time+"T21:59:59.999Z&fields=ee"); // talveajal
+          xhr.open("GET", "https://dashboard.elering.ee/api/nps/price/csv?start=" + start_time + "T22:00:00.000Z&end=" + end_time + "T21:59:59.999Z&fields=ee"); // talveajal
         }
         xhr.send();  
   
@@ -80,7 +78,7 @@ function display(msg) {
             var p_end = document.createElement('p');
             if ( xhr.readyState == 4 ) { 
                 var vahe_summa = 0, vahe_kw = 0, vahe_usumma = 0, vahe_ukw = 0;
-                var p_row1 = "<tr><td>" + end_time + "</td>", p_row2 = "<tr><td>tootmine MWh</td>", p_row3 = "<tr><td>€</td>", p_row4 ="<tr><td>tarbimine MWh</td>", p_row5 = "<tr><td>€</td>" ;  
+                var p_row1 = "<tr><td>" + end_time + "</td>", p_row2 = "<tr><td>tootmine MWh</td>", p_row3 = "<tr><td>€</td>", p_row4 = "<tr><td>tarbimine MWh</td>", p_row5 = "<tr><td>€</td>";  
                 rows = [] ;
                 rows = csvToArray(xhr.responseText);
                 //             console.log( "Kilowats " + start_time + " " + end_time + " " + kws ) ;
@@ -93,7 +91,7 @@ function display(msg) {
                     vahe_kw += Math.round(kws[i-1]*10)/10;
                     vahe_usumma += Math.round(ukws[i-1]*hind*10)/10;
                     vahe_ukw += Math.round(ukws[i-1]*10)/10;
-                    p_end.innerHTML += rows[i][0] + " XXX " + hind + " XXX " + kws[i-1] + " X "+ kws[i-1]*hind + "<br>";
+                    p_end.innerHTML += rows[i][0] + " XXX " + hind + " XXX " + kws[i-1] + " X " + kws[i-1]*hind + "<br>";
                     p_row1 += "<td>" + hind + "</td>";
                     p_row2 += "<td>" + kws[i-1] + "</td>";
                     p_row3 += "<td>" + Math.round( kws[i-1]*hind ) + "</td>";
@@ -101,7 +99,7 @@ function display(msg) {
                     p_row5 += "<td>" + Math.round( kws[i-1]*hind ) + "</td>";
                 }
                 p_row1 = p_row1 + "<td></td></tr>";
-                p_row2 = p_row2 + "<td>" + Math.round(vahe_kw*10/1000)/10 + " GWh </td></tr>";
+                p_row2 = p_row2 + "<td>" + Math.round(vahe_kw*10/1000)/10 + " GWh</td></tr>";
                 p_row3 = p_row3 + "<td>" + Math.round(vahe_summa) + "</td></tr>";			
                 addRow(p_row1);
                 addRow(p_row2);
