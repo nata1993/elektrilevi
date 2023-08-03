@@ -7,15 +7,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eesti elektritoodangu ja hinna leidmine</title>
 
-    <link ref="stylesheet" href="./styles/tootmine.css">
+    <link rel="stylesheet" href="./styles/tootmine.css">
     <script src="chartist.js" defer></script>
     <script src="./scripts/tootmine.js" defer></script>
   </head>
   <body>
     <table>
-      <tr><th></th><th>GWh</th><th>SUMMA</th></tr>
-      <tr><th>Toodetud</th><td><div id="kwh_1">00.00 GWh</div></td><td><div id="summa_1">0.00 M€</div></td></tr>
-      <tr><th>Tarbitud</th><td><div id="kwh_2">00.00 GWh</div></td><td><div id="summa_2">0.00 M€</div></td></tr>	 
+      <tr>
+        <th></th><th>GWh</th><th>SUMMA</th>
+      </tr>
+      <tr>
+        <th>Toodetud</th><td><div id="kwh_1">00.00 GWh</div></td><td><div id="summa_1">0.00 M€</div></td>
+      </tr>
+      <tr>
+        <th>Tarbitud</th><td><div id="kwh_2">00.00 GWh</div></td><td><div id="summa_2">0.00 M€</div></td>
+      </tr>	 
     <table>
     <div class="ct-chart"></div>
     Palun anna <a href="https://dashboard.elering.ee" target="_blank">elering</a> lehelt loetud csv laiendiga faili.
