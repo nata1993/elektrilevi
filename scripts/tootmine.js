@@ -13,12 +13,12 @@ function csvToArray(text) {
     }
     return ret;
 };
-	 
+
 function addRow(Row_value) {
     var tableRef = document.querySelector("#extension_table");
     tableRef.innerHTML = tableRef.innerHTML + Row_value;
 }
-  
+
 function display(msg) {
     var rida = { hind:[0] }, rows = csvToArray(msg);
     var rowNum, row, KP = "", r_date, priceRow, algus = 1, tootmine = 2, toodetud = 0, tarbitud = 0, tarbimine = 3;
