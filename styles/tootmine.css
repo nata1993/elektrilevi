@@ -1,0 +1,91 @@
+body {
+    background-image: url("https://hr-john.github.io/elektrilevi/ressources/Windmill.jpeg");
+    background-size: cover;
+}
+
+p { 
+    margin: 0;
+    text-indent: 2em;
+    color: whitesmoke;
+}
+
+a {
+    color: whitesmoke;
+    font-size: 1.25em;
+}
+a:hover {
+    color: grey;
+}
+
+h1 {
+    color: whitesmoke;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+}
+th, td{
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+#top_table th, #top_table td {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+th {
+    border-bottom: 1px black solid;
+}
+th:nth-child(1), #top_table th:nth-child(2),
+td:nth-child(1), #top_table td:nth-child(2) {
+    border-right: 1px black solid;
+}
+tr:nth-child(1) {
+    background-color: rgba(255, 255, 255, 0.85);
+}
+tr:hover {
+    background-color: rgba(255, 255, 255, 0.85);
+}
+
+#top_table {
+    margin-left: 0%;
+}
+
+.grid {
+    display: grid;
+    gap: 5px 5px;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto auto;
+}
+.grid div {
+    padding: 5px;
+}
+.grid-item1 {
+    text-align: center;
+}
+.grid-item2 {
+    background-color: rgba(255, 255, 255, 0.75);
+    margin-left: 0px;
+    margin-right: auto;
+}
+.grid-item3 {
+    background-color: rgba(255, 255, 255, 0.75);
+}
+
+
+
+
+
+.ct-series-a .ct-line {
+    /* Set the colour of this series line */
+    fill: green;
+    line: red;
+    /* Control the thikness of your lines */
+    stroke-width: 5px;
+    /* Create a dashed line with a pattern */
+    stroke-dasharray: 10px 20px;
+} 

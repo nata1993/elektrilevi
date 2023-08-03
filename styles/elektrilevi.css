@@ -3,21 +3,16 @@ body {
     background-size: cover;
     text-align: center;
 }
+
 h1 {
     color: whitesmoke;
 }
-a {
-    color: whitesmoke;
-    font-size: 1.25em;
-}
-a:hover {
-    color: grey;
-}
-p {
-    margin:0;
-    text-indent: 2em
-}
 
+table {
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+}
 th, td{
     text-align: center;
     padding-top: 5px;
@@ -38,49 +33,71 @@ tr:nth-child(1) {
 tr:hover {
     background-color: rgba(255, 255, 255, 0.85);
 }
-form {
-    display: inline-grid;
-    padding: 10px;
-    width: 40%;
-    min-width: 15em;
-    text-align: left;
+
+p { margin:0; text-indent: 2em }
+
+a {
+    color: #3A3A3A;
 }
-form * {
-    margin: 2px;
-    text-align: center;
-}
-table {
-    margin-left: auto;
-    margin-right: auto;
-    border-collapse: collapse;
+a:hover {
+    color: #777;
 }
 
 .grid-container {
     display: grid;
     gap: 5px 5px;
-    grid-template-columns: auto auto;
-    grid-template-rows: auto auto;
+    grid-template-columns: auto;
+    grid-template-rows: auto, auto, auto;
     justify-content: center;
 }
 .grid-item1 {
-    grid-column: 1 / span 2;
+    grid-row: 1;
     margin-bottom: 10px;
+    padding: 10px;
 }
 .grid-item2 {
-    grid-column: 1 / span 2;
+    grid-row: 2;
+    margin-bottom: 10px;
+    background-color: rgba(255, 255, 255, 0.75);
+    padding: 10px;
+}
+.grid-item3 {
+    grid-row: 3;
+    padding: 10px;
 }
 
 .container {
     display: grid;
     gap: 5px 5px;
     grid-template-columns: auto auto;
-    grid-template-rows: auto;
+    grid-template-rows: auto auto auto;
     justify-content: center;
-    background-color: rgba(255, 255, 255, 0.75);
+    padding: 15px;
 }
 .item1 {
     grid-column: 1;
 }
 .item2 {
     grid-column: 2;
+}
+.item3 {
+    grid-column: 1;
+}
+.item4 {
+    grid-column: 2;
+}
+.item5 {
+    grid-column: 1 / span 2;
+}
+
+
+
+
+
+.ct-series-a .ct-line {
+    /* Set the colour of this series line */
+    fill: green;
+    line: red;
+    /* Control the thikness of your lines */ stroke-width: 5px;
+    /* Create a dashed line with a pattern */ stroke-dasharray: 10px 20px;
 }
