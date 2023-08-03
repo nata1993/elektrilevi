@@ -158,11 +158,11 @@ a1=new Date(end_time) ;
                 vahe_kw += Math.round(kws[i-1]*1000) ;
                 p_row1 += "<TD>" + hind + "</TD>" ;
                 p_row2 += "<TD>" + kws[i-1] + "</TD>" ;
-                p_row3 += "<TD>" +Math.round( kws[i-1]*hind ) + "</TD>" ;
+                p_row3 += "<TD>" +Math.round( kws[i-1]*hind*10 )/10 + "</TD>" ;
                }
             p_row1 = p_row1 + "<TD></TD></TR>" ;
             p_row2 = p_row2 + "<TD>" + Math.round(vahe_kw*10/1000)/10 + " kWh </TD></TR>" ;						
-            p_row3 = p_row3 + "<TD>" + Math.round(vahe_summa/10) + "</TD></TR>" ;			
+            p_row3 = p_row3 + "<TD>" + Math.round(vahe_summa) + "</TD></TR>" ;			
 		    addRow(-1,p_row1);
 		    addRow(-1,p_row2);
 		    addRow(-1,p_row3);
