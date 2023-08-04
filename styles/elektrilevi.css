@@ -2,6 +2,7 @@ body {
     background-image: url("https://hr-john.github.io/elektrilevi/ressources/Windmill.jpeg") ;
     background-size: cover;
     text-align: center;
+    font-size: 1.25em;
 }
 
 h1 {
@@ -34,10 +35,14 @@ tr:hover {
     background-color: rgba(255, 255, 255, 0.85);
 }
 
-p { margin:0; text-indent: 2em }
+p {
+    margin:0;
+    text-indent: 2em;
+}
 
 a {
     color: #3A3A3A;
+    font-size: 1.25em;
 }
 a:hover {
     color: #777;

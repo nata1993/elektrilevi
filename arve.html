@@ -30,8 +30,6 @@
           <div class="item4"><input id="tmarginaal" type="text" size=5 placeholder="senti kWh"></div>
           <div class="item5">Kümnendkoha eraldajana kasuta punkti (".").</div>
         </div>
-      </div>
-      <div class="grid-item2">
         <input type="button" value="UT hinna arvutamine" onclick="UT()" >
         <input type="button" value="Elektrilevi Võrguteenuse hinna leidmine" onclick="VT()">  
         <select id="AEG">
@@ -99,18 +97,16 @@
           </tr>
         </table>
       </div>
-      <div class="grid-item3">
+      <div class="grid-item2">
         <div class="ct-chart"></div>
       </div>
-      <div class="grid-item4">
-        Palun anna uuelt <a href="https://estfeed.elering.ee/" target="_blank">elering</a> lehelt loetud CSV laiendiga tootmis või tarbimis fail:
-        <input type="file" onchange="readFile(this)"><br>
+      <div class="grid-item3">
+        Palun anna uuelt <a href="https://estfeed.elering.ee/" target="_blank">Elering</a> lehelt loetud CSV laiendiga tootmis või tarbimis fail:
+        <input type="file" onchange="readFile(this)">
         <table id="extension_table"></table>
       </div>
-      <div class="grid-item5">
-        <div class="footer">
+      <div class="footer">
         UT hinnad võetud <a HREF="https://elektrihind.ee/paketid/">elektrihind.ee/paketid/</a> ja <a HREF="https://terminaloil.ee/eterminal/universaalteenus/">eTerminal</a> lehelt.
-        </div>
       </div>
     </div>
   </body>

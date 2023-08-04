@@ -26,6 +26,8 @@ var u_kw=[], u_summa=0, el_paev=0, el_oo=0, el_paev_tipp=0, el_puhke_tipp=0 ;
  }
 
 function display(msg) {
+  let table_element = document.getElementById("extension_table");
+  table_element.style.marginTop = "20px";
    var rida={ hind:[0] }, rows = csvToArray(msg);
    var rowNum, row, KP="",r_date,priceRow, algus=5, tootmine=1, toodang=0, tarbimine=0;
    var cells, arve_summa=0, kogu_kw=0, kogu_ukw=0, paeva_kw=[],  t_summa=0, t_usumma=0, week_day=0 ;  //        var cellNum;

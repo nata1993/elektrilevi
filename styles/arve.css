@@ -12,14 +12,15 @@ p {
 }
 
 a {
-    color: whitesmoke;
+    color: black;
     font-size: 1.25em;
 }
 a:hover {
-    color: grey;
+    color: #444;
 }
 
 .footer {
+    margin-top: 20px;
     margin-bottom: 20px;
 }
 
@@ -39,6 +40,16 @@ tr:nth-child(1), tr:nth-child(10), tr:nth-child(14) {
 tr:hover {
     background-color: rgba(255, 255, 255, 0.85);
 }
+#extension_table {
+    font-size: 16px;
+    padding: 10px;
+}
+#extension_table th {
+    border-bottom: 1px black solid;
+}
+#extension_table tr td:nth-child(1) {
+    border-right: 1px black solid;
+}
 
 .grid-container {
     display: grid;
@@ -47,11 +58,14 @@ tr:hover {
     gap: 5px 5px;
     margin-left: auto;
     margin-right: auto;
-    background-color: rgba(255, 255, 255, 0.5);
 }
 .grid-container div {
     margin-left: auto;
     margin-right: auto;
+}
+.grid-item1 {
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 10px;
 }
 .grid-item2 {
     background-color: rgba(255, 255, 255, 0.7);
@@ -61,6 +75,7 @@ tr:hover {
 }
 .grid-item3 {
     background-color: rgba(255, 255, 255, 0.7);
+    padding: 10px;
 }
 
 .container {
