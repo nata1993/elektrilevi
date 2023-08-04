@@ -44,8 +44,8 @@ function display(msg) {
 	 {
 	   alert ( "Palun kontrolli oma ajasätteid, ega\nFirefoxis about:config -> privacy.resistFingerprinting pole sisse lülitatud?\nTe tunnitarbimise algusaeg pole 00:00") ;
 	 }
-   addRow(0,"<TH colspan='2'>KUUP&Auml;EV</TH><TH>00-01</TH><TD>01-02</TD><TD>02-03</TD><TD>03-04</TD><TD>04-05</TD><TD>05-06</TD><TH>06-07</TH><TD>07-08</TD><TD>08-09</TD><TD>09-10</TD><TD>10-11</TD><TD>11-12</TD>" +
-            "<TD>12-13</TD><TD>13-14</TD><TD>14-15</TD><TD>15-16</TD><TD>16-17</TD><TD>17-18</TD><TD>18-19</TD><TD>19-20</TD><TD>20-21</TD><TD>21-22</TD><TD>22-23</TD><TD>23-00</TD><TH>KOKKU</TH>");
+   addRow(0,"<th colspan='2'>KUUP&Auml;EV</th><th>00-01</th><td>01-02</td><td>02-03</td><td>03-04</td><td>04-05</td><td>05-06</td><td>06-07</td><td>07-08</td><td>08-09</td><td>09-10</td><td>10-11</td><td>11-12</td>" +
+            "<td>12-13</td><td>13-14</td><td>14-15</td><td>15-16</td><td>16-17</td><td>17-18</td><td>18-19</td><td>19-20</td><td>20-21</td><td>21-22</td><td>22-23</td><td>23-00</td><th>KOKKU</th>");
       for (rowNum = algus; rowNum < rows.length ; ++rowNum) {
  //      row = rows[rowNum].join() ;
        cells = rows[rowNum].join().split(";") ; 
@@ -73,7 +73,7 @@ function display(msg) {
 
      function GetPrice(start_time,end_time, kws ) {
       wd = new Date(r_date) ;
-      week_day = wd.getDay() ;
+      week_day = wd.getday() ;
 	   if ( tarbimine )
 	   {
          if ( week_day == 0 || week_day == 6)
@@ -117,7 +117,7 @@ a1=new Date(end_time) ;
            { 
              var vahe_summa=0, vahe_kw =0, vahe_ukw=0, vahe_t_summa=0, marginaal=0;
 	     let tekst = (tarbimine)?"tarbimine":"tootmine" ;
-  	     let p_row1 = "<TR><TD>" + end_time + "</TD><TD></TD>", p_row2 ="<TR><TD></TD><TD>"+ tekst+ "</TD>" , p_row3 = "<TR><TD></TD><TD>€ senti</TD>" ;
+  	     let p_row1 = "<tr><td>" + end_time + "</td><td></td>", p_row2 ="<tr><td></td><td>"+ tekst+ "</td>" , p_row3 = "<tr><td></td><td>€ senti</td>" ;
              rows = [] ;
              rows = csvToArray(xhr.responseText);
 //             console.log( "Kilowats " + start_time + " " + end_time + " " + kws ) ;
@@ -129,13 +129,13 @@ a1=new Date(end_time) ;
                 vahe_summa += Math.round( kws[i-1]*hind*100 ) ;
                 vahe_t_summa += Math.trunc( kws[i-1]*(hind-marginaal*10)*100 ) ;
                 vahe_kw += Math.round(kws[i-1]*1000) ;
-                p_row1 += "<TD>" + hind + "</TD>" ;
-                p_row2 += "<TD>" + kws[i-1] + "</TD>" ;
-                p_row3 += "<TD>" +Math.round( kws[i-1]*hind*10 )/10 + "</TD>" ;
+                p_row1 += "<td>" + hind + "</td>" ;
+                p_row2 += "<td>" + kws[i-1] + "</td>" ;
+                p_row3 += "<td>" +Math.round( kws[i-1]*hind*10 )/10 + "</td>" ;
                }
-            p_row1 = p_row1 + "<TD></TD></TR>" ;
-            p_row2 = p_row2 + "<TD>" + Math.round(vahe_kw*10/1000)/10 + " kWh </TD></TR>" ;						
-            p_row3 = p_row3 + "<TD>" + Math.round(vahe_summa) + "</TD></TR>" ;			
+            p_row1 = p_row1 + "<td></td></tr>" ;
+            p_row2 = p_row2 + "<td>" + Math.round(vahe_kw*10/1000)/10 + " kWh </td></tr>" ;						
+            p_row3 = p_row3 + "<td>" + Math.round(vahe_summa) + "</td></tr>" ;			
 		    addRow(-1,p_row1);
 		    addRow(-1,p_row2);
 		    addRow(-1,p_row3);
