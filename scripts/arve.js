@@ -44,8 +44,8 @@ function display(msg) {
 	 {
 	   alert ( "Palun kontrolli oma ajasätteid, ega\nFirefoxis about:config -> privacy.resistFingerprinting pole sisse lülitatud?\nTe tunnitarbimise algusaeg pole 00:00") ;
 	 }
-   addRow(0,"<th colspan='2'>KUUP&Auml;EV</th><th>00-01</th><td>01-02</td><td>02-03</td><td>03-04</td><td>04-05</td><td>05-06</td><td>06-07</td><td>07-08</td><td>08-09</td><td>09-10</td><td>10-11</td><td>11-12</td>" +
-            "<td>12-13</td><td>13-14</td><td>14-15</td><td>15-16</td><td>16-17</td><td>17-18</td><td>18-19</td><td>19-20</td><td>20-21</td><td>21-22</td><td>22-23</td><td>23-00</td><th>KOKKU</th>");
+   addRow(0,"<th colspan='2'>KUUP&Auml;EV</th><th>00-01</th><th>01-02</th><th>02-03</th><th>03-04</th><th>04-05</th><th>05-06</th><th>06-07</th><th>07-08</th><th>08-09</th><th>09-10</th><th>10-11</th><th>11-12</th>" +
+            "<th>12-13</th><th>13-14</th><th>14-15</th><th>15-16</th><th>16-17</th><th>17-18</th><th>18-19</th><th>19-20</th><th>20-21</th><th>21-22</th><th>22-23</th><th>23-00</th><th>KOKKU</th>");
       for (rowNum = algus; rowNum < rows.length ; ++rowNum) {
  //      row = rows[rowNum].join() ;
        cells = rows[rowNum].join().split(";") ; 
@@ -73,7 +73,7 @@ function display(msg) {
 
      function GetPrice(start_time,end_time, kws ) {
       wd = new Date(r_date) ;
-      week_day = wd.getday() ;
+      week_day = wd.getDay() ;
 	   if ( tarbimine )
 	   {
          if ( week_day == 0 || week_day == 6)
