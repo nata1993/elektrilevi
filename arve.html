@@ -23,60 +23,15 @@
   <body>
     <div class="grid-container">
       <div class="grid-item1">
-        Sisesta müügimarginaal: <input id="marginaal" type="text" size="5" placeholder="senti kWh"><br>
-        Sisesta ostumarginaal: <input id="tmarginaal" type="text" size=5 placeholder="senti kWh"><br>
-        Kümnendkoha eraldajana kasuta punkti (".").
+        <div class="container">
+          <div class="item1">Sisesta müügimarginaal:</div>
+          <div class="item2"><input id="marginaal" type="text" size="5" placeholder="senti kWh"></div>
+          <div class="item3">Sisesta ostumarginaal:</div>
+          <div class="item4"><input id="tmarginaal" type="text" size=5 placeholder="senti kWh"></div>
+          <div class="item5">Kümnendkoha eraldajana kasuta punkti (".").</div>
+        </div>
       </div>
       <div class="grid-item2">
-        <table>
-          <tr>
-            <th colspan="2"></th><th>kWh</th><th>SUMMA (€)</th><th>Summa+KM(€)</th><th>Keskmine(€/kWh)</th><th>Keskmine +KM(€/kWh)</th><th></th>
-          </tr>
-          <tr>
-            <td><input type="checkbox" onclick="Checkboks()" name="chk" value="summa"></td><th>Tootmine</th><td><div id="kw">0.00</div></td><td><div id="summa">0.00</div></td><td><div id="summa_km">0.00</div></td><td><div id="t_kesk">0.00</div></td><td><div id="t_kesk_km">0.00</div></td>
-          </tr>
-          <tr>
-            <td><input type="checkbox" onclick="Checkboks()" name="chk" value="m_summa"></td><td colspan="2">marginaal</td><td><div id="m_summa">0</div></td><td colspan="3"><div id="m_summa_km">0</div></td>
-          </tr>
-          <tr>
-            <td><input type="checkbox" onclick="Checkboks()" name="chk" value="t_summa" checked=""></td><td colspan="2">marginaaliga</td><td><div id="t_summa">0</div></td><td colspan="3"><div id="t_summa_km">0.00</div></td>
-          </tr>
-          <tr>
-            <td><input type="checkbox" onclick="Checkboks()" name="chk" value="usumma"></td><th>Tarbimine</th><td><div id="ukw">0</div></td><td><div id="usumma">0</div></td><td><div id="usumma_km">0</div></td><td><div id="u_kesk">0.00</div></td><td><div id="u_kesk_km">0.00</div></td>
-          </tr>
-          <tr>
-            <td><input type="checkbox" onclick="Checkboks()" name="chk" value="m_usumma"></td><td colspan="2">marginaal</td><td><div id="m_usumma">0.00</div></td><td colspan="3"><div id="m_usumma_km">0.00</div></td>
-          </tr>
-          <tr>
-            <td><input type="checkbox" onclick="Checkboks()" name="chk" value="t_usumma" checked=""></td><td colspan="2">marginaaliga tarbimisel</td><td><div id="t_usumma">0</div></td><td colspan="3"><div id="t_usumma_km">0.00</div></td>
-          </tr>
-          <tr>
-            <td></td><th>Kokku</th><td><div id="kokku_kw">0.00</div></td><td><div id="kokku">0.00</div></td><td colspan="3"><div id="kokku_km">0.00</div></td>
-          </tr>
-          <tr>
-            <td colspan="6">...</td>
-          </tr>
-          <tr>
-            <th colspan="2">Elektrimüüja</th><th>220/Alexela</th><th>EE</th><th>EG</th><th>Elektrum</th><th>VKG</th><th>eTerminal</th>
-          </tr>
-          <tr>
-            <td colspan="2">UT hind (s/kWh)</td><td>19,19</td><td>19,24</td><td>19,15</td><td>19.72</td><td>19,95</td><td>19,1</td>
-          </tr>
-          <tr>
-            <td colspan="2">kuutasu (€)</td><td>1,99</td><td>1,99</td><td>1,95</td><td>1,85</td><td>0</td><td>0</td>
-          </tr>
-          <tr>
-            <th colspan="2">UT hind sentides</th><td><div id="UT_220">220/Alexela</div></td><td><div id="UT_EE">EE</div></td><td><div id="UT_EG">EG</div></td><td><div id="UT_Elektrum">Elektrum</div></td><td><div id="UT_VKG">VKG</div></td><td><div id="UT_eT">eTerminal</div></td>
-          </tr>
-          <tr>
-            <th colspan="2">Võrgutasud</th><th>Võrk 1</th><th>Võrk 2</th><th>Võrk 2 kuutasuga</th><th>Võrk 4</th><th>Võrk 5</th><th></th>
-          </tr>
-          <tr>
-            <th colspan="2">sentides ilma KMuta</th><td><div id="v1">Võrk 1</div></td><td><div id="v2">Võrk 2</div></td><td><div id="v2k">Võrk 2 kuutasuga</div></td><td><div id="v4">Võrk 4</div></td><td><div id="v5">Võrk 5</div></td><td></td>
-          </tr>
-        </table>
-      </div>
-      <div class="grid-item3">
         <input type="button" value="UT hinna arvutamine" onclick="UT()" >
         <input type="button" value="Elektrilevi Võrguteenuse hinna leidmine" onclick="VT()">  
         <select id="AEG">
@@ -95,18 +50,64 @@
           <option value="6">50 A
           <option value="7">63 A
         </select>
-      </div>
-      <div class="grid-item4">
         <hr>
+        <table>
+          <tr>
+            <th colspan="2"></th><th>kWh</th><th>SUMMA (€)</th><th>Summa+KM(€)</th><th>Keskmine(€/kWh)</th><th>Keskmine +KM(€/kWh)</th><th></th>
+          </tr>
+          <tr>
+            <th><input type="checkbox" onclick="Checkboks()" name="chk" value="summa"></th><th>Tootmine</th><td><div id="kw">0.00</div></td><td><div id="summa">0.00</div></td><td><div id="summa_km">0.00</div></td><td><div id="t_kesk">0.00</div></td><td><div id="t_kesk_km">0.00</div></td>
+          </tr>
+          <tr>
+            <th><input type="checkbox" onclick="Checkboks()" name="chk" value="m_summa"></th><td>marginaal</td><td></td><td><div id="m_summa">0</div></td><td colspan="3"><div id="m_summa_km">0</div></td>
+          </tr>
+          <tr>
+            <th><input type="checkbox" onclick="Checkboks()" name="chk" value="t_summa" checked=""></th><td>marginaaliga</td><td></td><td><div id="t_summa">0</div></td><td colspan="3"><div id="t_summa_km">0.00</div></td>
+          </tr>
+          <tr>
+            <th><input type="checkbox" onclick="Checkboks()" name="chk" value="usumma"></th><th>Tarbimine</th><td><div id="ukw">0</div></td><td><div id="usumma">0</div></td><td><div id="usumma_km">0</div></td><td><div id="u_kesk">0.00</div></td><td><div id="u_kesk_km">0.00</div></td>
+          </tr>
+          <tr>
+            <th><input type="checkbox" onclick="Checkboks()" name="chk" value="m_usumma"></th><td>marginaal</td><td></td><td><div id="m_usumma">0.00</div></td><td colspan="3"><div id="m_usumma_km">0.00</div></td>
+          </tr>
+          <tr>
+            <th><input type="checkbox" onclick="Checkboks()" name="chk" value="t_usumma" checked=""></th><td>marginaaliga tarbimisel</td><td></td><td><div id="t_usumma">0</div></td><td colspan="3"><div id="t_usumma_km">0.00</div></td>
+          </tr>
+          <tr>
+            <th colspan="2">Kokku</th><td><div id="kokku_kw">0.00</div></td><td><div id="kokku">0.00</div></td><td colspan="3"><div id="kokku_km">0.00</div></td>
+          </tr>
+          <tr>
+            <td colspan="8"><hr></td>
+          </tr>
+          <tr>
+            <th colspan="2">Elektrimüüja</th><th>220/Alexela</th><th>EE</th><th>EG</th><th>Elektrum</th><th>VKG</th><th>eTerminal</th>
+          </tr>
+          <tr>
+            <td colspan="2">UT hind (s/kWh)</td><td>19,19</td><td>19,24</td><td>19,15</td><td>19.72</td><td>19,95</td><td>19,1</td>
+          </tr>
+          <tr>
+            <td colspan="2">kuutasu (€)</td><td>1,99</td><td>1,99</td><td>1,95</td><td>1,85</td><td>0</td><td>0</td>
+          </tr>
+          <tr>
+            <th colspan="2">UT hind sentides</th><td><div id="UT_220">0</div></td><td><div id="UT_EE">0</div></td><td><div id="UT_EG">0</div></td><td><div id="UT_Elektrum">0</div></td><td><div id="UT_VKG">0</div></td><td><div id="UT_eT">0</div></td>
+          </tr>
+          <tr>
+            <th colspan="2">Võrgutasud</th><th>Võrk 1</th><th>Võrk 2</th><th>Võrk 2 kuutasuga</th><th>Võrk 4</th><th>Võrk 5</th><th></th>
+          </tr>
+          <tr>
+            <td colspan="2">sentides KM-ta</td><td><div id="v1">0</div></td><td><div id="v2">0</div></td><td><div id="v2k">0 + kuutasu</div></td><td><div id="v4">0</div></td><td><div id="v5">0</div></td><td></td>
+          </tr>
+        </table>
       </div>
-      <div class="grid-item5">
+      <div class="grid-item3">
         <div class="ct-chart"></div>
       </div>
-      <div class="grid-item6">
-        Palun anna uuelt <a href="https://estfeed.elering.ee/" target="_blank">elering</a> lehelt loetud CSV laiendiga tootmis või tarbimis faili <input type="file" onchange="readFile(this)"><br>
+      <div class="grid-item4">
+        Palun anna uuelt <a href="https://estfeed.elering.ee/" target="_blank">elering</a> lehelt loetud CSV laiendiga tootmis või tarbimis fail:
+        <input type="file" onchange="readFile(this)"><br>
         <table id="extension_table"></table>
       </div>
-      <div class="grid-item8">
+      <div class="grid-item5">
         <div class="footer">
         UT hinnad võetud <a HREF="https://elektrihind.ee/paketid/">elektrihind.ee/paketid/</a> ja <a HREF="https://terminaloil.ee/eterminal/universaalteenus/">eTerminal</a> lehelt.
         </div>
