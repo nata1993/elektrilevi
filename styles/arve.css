@@ -6,6 +6,13 @@ body {
     font-size: 1.25em;
 }
 
+input[type="button"] {
+    height: 30px;
+}
+select {
+    height: 30px;
+}
+
 p {
     margin:0;
     text-indent: 2em;
