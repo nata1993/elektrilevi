@@ -1,352 +1,206 @@
 <!DOCTYPE html>
 <html lang="et-EE">
-<head>
- <TITLE>
-   Elektriarve arvutamine/leidmine
- </TITLE>
-<style>
-body {
-    background-color: #a0c6d0 ;
-//  background-image: url("https://hr-john.github.io/elektrilevi/Windmill.jpeg") ;
-//  background-size: cover;
-}
- P { margin:0; text-indent: 2em }
-}
- 
- .ct-series-a .ct-line {
-  /* Set the colour of this series line */
-  fill: green;
-  line: red;
-  /* Control the thikness of your lines */ //  stroke-width: 5px;
-  /* Create a dashed line with a pattern */ //  stroke-dasharray: 10px 20px;
-}
- 
-</style>
-	
- <script src="chartist.js"></script>  
- <script>
- var u_kw=[], u_summa=0, el_paev=0, el_oo=0, el_paev_tipp=0, el_puhke_tipp=0 ;
- const el_hinnad=[[5.53,6.65,3.86,[141,254,295,335,391,455,535,639],4.35,2.52,[200,370,455,535,647, 775, 935,1143],2.83,1.62,[489,1034,1259,1519,1883,2299,2819,3495],3.95,6.07,2.26,3.52,[218,403,496,583,705, 845,1019,1246]],
-                  [6.26,7.53,4.38,[160,287,334,379,443,515,606,725],4.92,2.85,[227,419,515,606,734, 878,1059,1295],3.20,1.83,[554,1171,1429,1721,2134,2605,3195,3960],4.47,6.88,2.57,3.99,[247,457,561,660,799, 957,1155,1411]],
-		  [6.38,7.68,4.47,[163,293,341,387,452,525,618,739],5.02,2.90,[232,427,525,618,749, 895,1080,1321],3.26,1.86,[565,1194,1455,1755,2176,2657,3259,4039],4.55,7.02,2.61,4.07,[252,466,572,673,815, 976,1178,1439]],
-		  [7.21,8.68,5.05,[184,331,385,437,511,593,699,835],5.67,3.28,[262,483,593,699,847,1012,1221,1493],3.69,2.10,[639,1350,1645,1984,2460,3003,3684,4566],5.14,7.94,2.95,4.60,[285,527,647,761,921,1103,1332,1627]]] ;
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8JVLQKWE8Y"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  function csvToArray(text) {
-    let p = '', row = [''], ret = [row], i = 0, r = 0, s = !0, l;
-    for (l of text) {
-        if ('"' === l) {
-            if (s && l === p) row[i] += l;
-            s = !s;
-        } else if (',' === l && s) l = row[++i] = '';
-        else if ('\n' === l && s) {
-            if ('\r' === p) row[i] = row[i].slice(0, -1);
-            row = ret[++r] = [l = '']; i = 0;
-        } else row[i] += l;
-        p = l;
-    }
-    return ret;
-};
-  
- function addRow(row_nr,Row_value) {
-  var tableRef = document.querySelector("#extension_table");
-   tableRef.innerHTML = tableRef.innerHTML + Row_value;
- }
-
-function display(msg) {
-   var rida={ hind:[0] }, rows = csvToArray(msg);
-   var rowNum, row, KP="",r_date,priceRow, algus=5, tootmine=1, toodang=0, tarbimine=0;
-   var cells, arve_summa=0, kogu_kw=0, kogu_ukw=0, paeva_kw=[],  t_summa=0, t_usumma=0, week_day=0 ;  //        var cellNum;
-   cells = rows[0][0].split(";") ;
-    if ( cells[0] == "EIC" ) {algus=4; tootmine=4 } ; // elektrilevi
-    if ( cells[0] == "Kuupäev" ) {alert ( "Palun kasuta https://estfeed.elering.ee/ andmelao andmeid" ) ; return 1 ; } ; // Alexela
-   cells = rows[4][0].split(";") ;
-    if ( cells[1].includes("Toodetud" ) ) { tarbimine=0; }
-    if ( cells[1].includes("Tarbitud" ) ) { tarbimine=1; u_kw=[]; u_summa=0;}
-   cells = rows[algus-1][0].split(";") ;
-   console.log ( "ALGUS " + algus + rows[0] + " " + tootmine + " C " + cells[1]  ) ;
- //  if ( /^tarbi/.exec(cells[1]) ) { tarbimine = 1 ; alert ( "Leidsin esimesena tarbimise" ) ; } ; // tarbimine
-   
-    var first_row_time = rows[algus].join().slice(11,16) ;
-    if  ( first_row_time != "00:00" )
-	 {
-	   alert ( "Palun kontrolli oma ajasätteid, ega\nFirefoxis about:config -> privacy.resistFingerprinting pole sisse lülitatud?\nTe tunnitarbimise algusaeg pole 00:00") ;
-	 }
-   addRow(0,"<TH colspan='2'>KUUP&Auml;EV</TH><TH>00-01</TH><TD>01-02</TD><TD>02-03</TD><TD>03-04</TD><TD>04-05</TD><TD>05-06</TD><TH>06-07</TH><TD>07-08</TD><TD>08-09</TD><TD>09-10</TD><TD>10-11</TD><TD>11-12</TD>" +
-            "<TD>12-13</TD><TD>13-14</TD><TD>14-15</TD><TD>15-16</TD><TD>16-17</TD><TD>17-18</TD><TD>18-19</TD><TD>19-20</TD><TD>20-21</TD><TD>21-22</TD><TD>22-23</TD><TD>23-00</TD><TH>KOKKU</TH>");
-      for (rowNum = algus; rowNum < rows.length ; ++rowNum) {
- //      row = rows[rowNum].join() ;
-       cells = rows[rowNum].join().split(";") ; 
-       r_date = cells[0].replace(/(\d{2})\.(\d{2})\.(\d{4}) [A-Za-z0-9.,-:]*/,'$3-$2-$1') ; //split(" ") ;
-        if ( !KP )
-         {
-          KP=r_date ;
-          var yesterday = new Date(Date.parse(KP)-1000*3600*24).toJSON().slice(0,10),reads;
-         }
-        if ( KP != r_date )
-         {
-          GetPrice(yesterday , KP, paeva_kw );
-          yesterday = new Date(Date.parse(KP)).toJSON().slice(0,10),reads;
-          KP=r_date ;
-          paeva_kw=[];
-         } //  if KP
-         if (cells.length<=tootmine) { tootmine=2 };
-//	      console.log ( tootmine + cells + " " + cells.length + " " + cells[1] + "X" + cells[tootmine] ) ;
-	     toodang= cells[tootmine].replace(",",".") ;
-         paeva_kw.push( toodang );
-      } // for rowNum
-   KP=new Date(Date.parse(r_date)).toJSON().slice(0,10) ;
-   GetPrice(yesterday , KP ,paeva_kw ) ;
-   console.log ( Math.round(rowNum/24) + " " + rowNum + " "+ paeva_kw ) ;
-
-     function GetPrice(start_time,end_time, kws ) {
-      wd = new Date(r_date) ;
-      week_day = wd.getDay() ;
-	   if ( tarbimine )
-	   {
-         if ( week_day == 0 || week_day == 6)
-          {
-           el_oo += 1*kws[0] +1*kws[1] +1*kws[2] +1*kws[3] +1*kws[4] +1*kws[5] +1*kws[6] +1*kws[7] +1*kws[8] +1*kws[9]+1*kws[10]+
-                    1*kws[11]+1*kws[12]+1*kws[13]+1*kws[14]+1*kws[15]+1*kws[20]+1*kws[21]+1*kws[22]+ (kws[23])?(1*kws[23]):(0) ;
-           el_puhke_tipp += 1*kws[16]+1*kws[17]+1*kws[18]+1*kws[19] ;
-           console.log(r_date +" 1 " + el_puhke_tipp + " 2 " + el_oo +  " 3 " + kws  ) ;
-          }
-      else
-          {
-           el_oo     += 1*kws[0] + 1*kws[1] + 1*kws[2] + 1*kws[3] + 1*kws[4]  + 1*kws[5]  + 1*kws[6]  + 1*kws[22] ;
-             if ( kws[23] ) { el_oo += 1*kws[23] ; }  // kellakeeramine ja puuduolev tund
-           el_paev   += 1*kws[7] + 1*kws[8] + 1*kws[12] + 1*kws[13] + 1*kws[14] + 1*kws[15] + 1*kws[20] + 1*kws[21] ;
-           el_paev_tipp += 1*kws[9] + 1*kws[10]+ 1*kws[11] + 1*kws[16] + 1*kws[17] + 1*kws[18] + 1*kws[19] ;
-          }
-       }
-//	console.log("KWs"+kws) ;
-//	console.log("u KWs" + ukws) ;	     
-        function transferComplete(evt) {
-         answer(xhr.status == 200 ? xhr.responseText : null) ;
-         }
-      var xhr = new XMLHttpRequest();
-      var i, hind; 
-      xhr.onreadystatechange = handleStateChange;
-// "https://dashboard.elering.ee/api/nps/price/csv?start=2020-12-31T21:00:00.000Z&end=2021-01-01T20:59:59.999Z&fields=ee");
-//             console.log( "DAY " + Date(start_time) + " " + end_time + " " + kws ) ;
-a1=new Date(end_time) ; 
-		if ( a1.getTimezoneOffset() == -180 ) 
-		   { xhr.open("GET", "https://dashboard.elering.ee/api/nps/price/csv?start="+ start_time+"T21:00:00.000Z&end="+end_time+"T20:59:59.999Z&fields=ee"); // - suveajal
-		   }
-		 else
-		   { xhr.open("GET", "https://dashboard.elering.ee/api/nps/price/csv?start="+ start_time+"T22:00:00.000Z&end="+end_time+"T21:59:59.999Z&fields=ee"); // talveajal
-//		   		  	console.log("TALV "+ a1.getTimezoneOffset() ) ;
-		   }
-	     xhr.send();  
-	  
-       function handleStateChange() {
-        var rows, cells ;
-          if ( xhr.readyState == 4 )
-           { 
-             var vahe_summa=0, vahe_kw =0, vahe_ukw=0, vahe_t_summa=0, marginaal=0;
-	     let tekst = (tarbimine)?"tarbimine":"tootmine" ;
-  	     let p_row1 = "<TR><TD>" + end_time + "</TD><TD></TD>", p_row2 ="<TR><TD></TD><TD>"+ tekst+ "</TD>" , p_row3 = "<TR><TD></TD><TD>€ senti</TD>" ;
-             rows = [] ;
-             rows = csvToArray(xhr.responseText);
-//             console.log( "Kilowats " + start_time + " " + end_time + " " + kws ) ;
-//             console.log( "PRICE" + rows.length + " " + rows[1] ) ;
-  	     marginaal=(tarbimine)?document.getElementById("tmarginaal").value*-1:document.getElementById("marginaal").value;
-              for (i = 1; i < rows.length-1 && i <= kws.length; i++) {
-                cells = rows[i][0].split(";") ;
-                hind=cells[2].replace(",",".");
-                vahe_summa += Math.round( kws[i-1]*hind*100 ) ;
-                vahe_t_summa += Math.trunc( kws[i-1]*(hind-marginaal*10)*100 ) ;
-                vahe_kw += Math.round(kws[i-1]*1000) ;
-                p_row1 += "<TD>" + hind + "</TD>" ;
-                p_row2 += "<TD>" + kws[i-1] + "</TD>" ;
-                p_row3 += "<TD>" +Math.round( kws[i-1]*hind*10 )/10 + "</TD>" ;
-               }
-            p_row1 = p_row1 + "<TD></TD></TR>" ;
-            p_row2 = p_row2 + "<TD>" + Math.round(vahe_kw*10/1000)/10 + " kWh </TD></TR>" ;						
-            p_row3 = p_row3 + "<TD>" + Math.round(vahe_summa) + "</TD></TR>" ;			
-		    addRow(-1,p_row1);
-		    addRow(-1,p_row2);
-		    addRow(-1,p_row3);
-            kogu_kw += vahe_kw ;
-             if ( tarbimine) 
-			  {
- 			    u_summa += vahe_summa ;
-			    t_usumma += vahe_t_summa ;
-               document.getElementById("ukw").innerHTML =    Math.round(kogu_kw/10)/100 ;
-               document.getElementById("usumma").innerHTML=  -Math.round(u_summa/100)/1000 ;
-               document.getElementById("usumma_km").innerHTML=  -Math.round(u_summa/100*1.2)/1000 ;
-               document.getElementById("m_usumma").innerHTML= Math.round(kogu_kw*marginaal/1000)/100 ;
-               document.getElementById("m_usumma_km").innerHTML= Math.round(kogu_kw*marginaal/1000*1.2)/100 ;
-               document.getElementById("t_usumma").innerHTML= -Math.round(t_usumma/100)/1000 ;
-               document.getElementById("t_usumma_km").innerHTML= -Math.round(t_usumma/1000*1.2)/100 ;
-			  }
-			  else
-			  {
-                arve_summa += vahe_summa ;
-		 	    t_summa += vahe_t_summa ;
-               document.getElementById("summa").innerHTML= Math.round(arve_summa/1000)/100 ;
-               document.getElementById("summa_km").innerHTML=   Math.round(arve_summa/1000*1.2)/100 ;
-               document.getElementById("kw").innerHTML =     Math.round(kogu_kw/10)/100 ;
-               document.getElementById("m_summa").innerHTML= -Math.round(kogu_kw*marginaal/1000)/100 ;
-               document.getElementById("m_summa_km").innerHTML= -Math.round(kogu_kw*marginaal/1000*1.2)/100 ;
-               document.getElementById("t_summa").innerHTML= Math.round(t_summa/100)/1000 ;
-               document.getElementById("t_summa_km").innerHTML= Math.round(t_summa/1000*1.2)/100 ;
-			  }
- 	   Checkboks() ;
-           }
-
-        } ; // handleStateChange
-    } // GetPrice
-   } // display
-  
-function readFile(input) {
-  let file = input.files[0];
-  let reader = new FileReader();
-  reader.readAsText(file);
-  reader.onload = function() {
-   display(reader.result);
-   };
-  reader.onerror = function() {
-   console.log(reader.error);
-  };
-}
-   
-  
-     function kuva() {
-      var yesterday = new Date(kp).toJSON().slice(0,10), reads;
-      var utc = new Date(kp+1000*3600*24).toJSON().slice(0,10);
-      GetPrice(yesterday,utc,null,function(reads) {
-         alert ( "READS " + reads ) ;       
-      }
-       ) ;
-       var rida = showData(reads);
-       var data = {
-             labels:  rida.aeg ,
-             series:  [ 
-               {
-                name:'HIND',
-                data:rida.hind
-               }
-              ]
-           };
-       new Chartist.Line('.ct-chart', data, {
-         high: Math.ceil(Math.max.apply(Math,rida.hind)/10)*10 ,
-         low: 0,
-         showPoint: false,
-         axisY: {
-           Offset: 20,
-           onlyInteger: true
-          },
-         series: {  'HIND': { lineSmooth: Chartist.Interpolation.step() } } // Näitab hind ühtlaselt tunni jooksul
-        } ); // Chartist.Line    
-    } // kuva 
-
-   function showData(data) {
-       var utc=[],aeg=[],hind=[];
-       var rows = csvToArray(data);
-       var rowNum;
-       var cells;   //        var cellNum;
-        for (rowNum = 1; rowNum < rows.length-1 ; ++rowNum) {
-         cells = rows[rowNum][0].split(";") ;
-         utc.push(cells[0]);aeg.push(cells[1].substr(-5,5));hind.push(cells[2].replace(",","."));
-        } // for rowNum
-      return {
-              utc:utc,
-              aeg:aeg,
-              hind:hind};
-      } // showData
-  
-  function Checkboks()
-  { var i=0 ;
-    var cb = document.querySelectorAll('input[name="chk"]:checked');
-    cb.forEach((checkbox) => { i += Number(document.getElementById(checkbox.value).innerHTML); });
-    document.getElementById("kokku").innerHTML= i ;
-    document.getElementById("kokku_km").innerHTML= i*1.2 ;
-    var  summa = document.getElementById("summa"), kw = document.getElementById("kw") ;
-    document.getElementById("t_kesk").innerHTML=Math.round( summa.innerHTML/ kw.innerHTML *1000)/1000 ;
-    document.getElementById("t_kesk_km").innerHTML=Math.round(summa_km.innerHTML / kw.innerHTML *1000)/1000 ;
-    document.getElementById("u_kesk").innerHTML=Math.round(Math.sign(usumma.innerHTML)*Math.abs( usumma.innerHTML )/ ukw.innerHTML *1000)/1000 ;
-    document.getElementById("u_kesk_km").innerHTML=Math.round(Math.sign(usumma.innerHTML)*Math.abs(usumma_km.innerHTML) / ukw.innerHTML *1000)/1000 ;
-  }
-  
- function UT()
-  { var  ukw = document.getElementById("ukw").innerHTML ;
-  // console.log ( ukw ) ;
-    document.getElementById("UT_220").innerHTML    = Math.round( Math.abs(ukw*1919) ) /100 + 199 ;
-    document.getElementById("UT_EE").innerHTML     = Math.round( Math.abs(ukw*1924) ) /100 + 199 ;
-    document.getElementById("UT_EG").innerHTML     = Math.round( Math.abs(ukw*1915) ) /100 + 195 ;
-    document.getElementById("UT_Elektrum").innerHTML= Math.round( Math.abs(ukw*1972) ) /100 + 185 ;
-    document.getElementById("UT_VKG").innerHTML    = Math.round( Math.abs(ukw*1995) ) /100 ;
-    document.getElementById("UT_eT").innerHTML     = Math.round( Math.abs(ukw*1910) ) /100 ;
-  }
-
- function VT()
-  {
-    var kaitse = document.querySelector('#KAITSE').selectedIndex, aja_valik = document.querySelector('#AEG').selectedIndex ;
-    console.log ( "VT ARVUTAMINE", kaitse, el_paev , el_paev_tipp , el_oo, el_puhke_tipp, el_hinnad[aja_valik][6][kaitse] , " XXX " , el_hinnad[aja_valik][1]*( el_paev*1 + el_paev_tipp*1) , el_hinnad[aja_valik][2]*(el_oo*1 + el_puhke_tipp*1) ) ;
-    document.getElementById("v1").innerHTML  = ( Math.round( el_hinnad[aja_valik][0]*( el_paev*1 + el_paev_tipp*1 + el_oo*1 + el_puhke_tipp*1)));
-    document.getElementById("v2").innerHTML  = ( Math.round( el_hinnad[aja_valik][1]*( el_paev*1 + el_paev_tipp*1)) + Math.round(el_hinnad[aja_valik][2]*(el_oo*1 + el_puhke_tipp*1))); ;
-    document.getElementById("v2k").innerHTML = ( Math.round( el_hinnad[aja_valik][4]*( el_paev*1 + el_paev_tipp*1)) + Math.round(el_hinnad[aja_valik][5]*(el_oo*1 + el_puhke_tipp*1)) + el_hinnad[aja_valik][6][kaitse] );
-    document.getElementById("v4").innerHTML  = ( Math.round( el_hinnad[aja_valik][7]*( el_paev*1 + el_paev_tipp*1)) + Math.round(el_hinnad[aja_valik][8]*(el_oo*1 + el_puhke_tipp*1)) + el_hinnad[aja_valik][9][kaitse] ) ;
-    document.getElementById("v5").innerHTML  = ( Math.round( el_hinnad[aja_valik][10]*el_paev*1) + Math.round(el_hinnad[aja_valik][11]*el_paev_tipp*1) + Math.round(el_hinnad[aja_valik][12]*el_oo*1) + Math.round(el_hinnad[aja_valik][13]*el_puhke_tipp*1) + el_hinnad[aja_valik][14][kaitse] ) ;
-  }
-
- </script>
-</head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8JVLQKWE8Y"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-8JVLQKWE8Y');
-</script>
-<body>
-
- Sisesta m&uuml;&uuml;gimarginaal <input id="marginaal" type="text" size="5"> senti kWh ja ostumarginaal <input id="tmarginaal" type="text" size=5> senti kWh. K&uuml;mnendkoha eraldajana kasuta punkti (".").
- <TABLE>
-  <tbody>
-  <TR><TH colspan="2"></TH><TH>kWh</TH><TH>SUMMA (&euro;)</TH><TH>Summa+KM(&euro;)</TH><TH>Keskmine(&euro;/kWh)</TH><TH>Keskmine +KM(&euro;/kWh)</TH></TR>
-  <TR><td><input type="checkbox" onclick="Checkboks()" name="chk" value="summa"></td><th>Tootmine</th><td><div id="kw">0.00</div></td><td><div id="summa">0.00</div></td><td><div id="summa_km">0.00</div></td><td><div id="t_kesk">0.00</div></td><td><div id="t_kesk_km">0.00</div></td></TR>
-  <TR><td><input type="checkbox" onclick="Checkboks()" name="chk" value="m_summa"></td><td colspan="2">marginaal</td><td><div id="m_summa">0</div></td><td colspan="3"><div id="m_summa_km">0</div></td></TR>
-  <TR><td><input type="checkbox" onclick="Checkboks()" name="chk" value="t_summa" checked=""></td><td colspan="2">marginaaliga</td><td><div id="t_summa">0</div></td><td colspan="3"><div id="t_summa_km">0.00</div></td></TR>
-  <TR><td><input type="checkbox" onclick="Checkboks()" name="chk" value="usumma"></td><th>Tarbimine</th><td><div id="ukw">0</div></td><td><div id="usumma">0</div></td><td><div id="usumma_km">0</div></td><td><div id="u_kesk">0.00</div></td><td><div id="u_kesk_km">0.00</div></td></TR>
-  <TR><td><input type="checkbox" onclick="Checkboks()" name="chk" value="m_usumma"></td><td colspan="2">marginaal</td><td><div id="m_usumma">0.00</div></td><td colspan="3"><div id="m_usumma_km">0.00</div></td></TR>
-  <TR><td><input type="checkbox" onclick="Checkboks()" name="chk" value="t_usumma" checked=""></td><td colspan="2">marginaaliga tarbimisel</td><td><div id="t_usumma">0</div></td><td colspan="3"><div id="t_usumma_km">0.00</div></td></TR>
-  <TR><td></td><th>Kokku</th><td><div id="kokku_kw">0.00</div></td><td><div id="kokku">0.00</div></td><td colspan="3"><div id="kokku_km">0.00</div></td></TR>
-  <TR><TD colspan="6">...</TD></TR>
-  <TR><th colspan="2">Elektrimüüja</th><th>220/Alexela</th><th>EE</th><th>EG</th><th>Elektrum</th><th>VKG</th><th>eTerminal</th></TR>
-  <TR><TD colspan="2">UT hind (s/kWh)</TD><td>19,19</td><td>19,24</td><td>19,15</td><td>19.72</td><td>19,95</td><td>19,1</td></TR>
-  <TR><TD colspan="2">kuutasu (&euro;)</TD><td>1,99</td><td>1,99</td><td>1,95</td><td>1,85</td><td>0</td><td>0</td></TR>
-  <TR><th colspan="2">UT hind sentides</th><td><div id="UT_220">220/Alexela</div></td><td><div id="UT_EE">EE</div></td><td><div id="UT_EG">EG</div></td><td><div id="UT_Elektrum">Elektrum</div></td><td><div id="UT_VKG">VKG</div></td><td><div id="UT_eT">eTerminal</div></td></TR>
-  <TR><TH colspan="2">V&otilde;rgutasud</TH><TH>V&otilde;rk 1</TH><TH>V&otilde;rk 2</TH><TH>V&otilde;rk 2 kuutasuga</TH><TH>V&otilde;rk 4</TH><TH>V&otilde;rk 5</TH><TD></TD></TR>
-  <TR><TH colspan="2">sentides ilma KMuta</TH><TD><div id="v1">V&otilde;rk 1</div></TD><TD><div id="v2">V&otilde;rk 2</div></TD><TD><div id="v2k">V&otilde;rk 2 kuutasuga</div></TD><TD><div id="v4">V&otilde;rk 4</div></TD><TD><div id="v5">V&otilde;rk 5</div></TD><TD></TD></TR>
-  </tbody>
- <TABLE>
- <input type="button" VALUE="UT hinna arvutamine" onclick="UT()" >
-<BR>
- <input type="button" VALUE="Elektrilevi Võrguteenuse hinna leidmine" onclick="VT()">  
- <SELECT id="AEG">
- <OPTION VALUE="2203">1.03.2022-30.09.2022										
- <OPTION VALUE="2210">1.10.2022-30.11.2022
- <OPTION VALUE="2212">1.12.2022-31.12.2022
- <OPTION VALUE="2301">1.01.2023-...
- </SELECT>
- <SELECT id="KAITSE">
- <OPTION VALUE="0">KORTER
- <OPTION VALUE="1">16 A
- <OPTION VALUE="2">20 A
- <OPTION VALUE="3">25 A
- <OPTION VALUE="4">32 A
- <OPTION VALUE="5">40 A
- <OPTION VALUE="6">50 A
- <OPTION VALUE="7">63 A
- </SELECT>
- <HR>
-  <div class="ct-chart"></div>
-  Palun anna uuelt <A href="https://estfeed.elering.ee/" target="_blank">elering</A> lehelt loetud CSV laiendiga tootmis või tarbimis faili <input type="file" onchange="readFile(this)"><BR>
-  <TABLE id="extension_table">
-  </TABLE>
- UT hinnad v&otilde;etud <A HREF="https://elektrihind.ee/paketid/">elektrihind.ee/paketid/</A> ja <A HREF="https://terminaloil.ee/eterminal/universaalteenus/">eTerminal</A> lehelt
- </body>
+      gtag('config', 'G-8JVLQKWE8Y');
+    </script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/elektrilevi/ressources/favicon.ico" type="image/x-icon" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elektriarve arvutamine/leidmine</title>
+    
+    <link rel="stylesheet" href="./styles/arve.css">
+    <script src="./scripts/arve.js"></script>
+    <script src="chartist.js" defer></script>
+  </head>
+  <body>
+    <div class="grid-container">
+      <div class="grid-item1">
+        <div class="container">
+          <div class="item1">Sisesta müügimarginaal:</div>
+          <div class="item2"><input id="marginaal" type="text" size="5" placeholder="senti kWh"></div>
+          <div class="item3">Sisesta ostumarginaal:</div>
+          <div class="item4"><input id="tmarginaal" type="text" size=5 placeholder="senti kWh"></div>
+          <div class="item5">Kümnendkoha eraldajana kasuta punkti (".").</div>
+        </div>
+        <input type="button" value="UT hinna arvutamine" onclick="UT()" >
+        <input type="button" value="Elektrilevi Võrguteenuse hinna leidmine" onclick="VT()">  
+        <select id="AEG">
+          <option value="2203">1.03.2022-30.09.2022										
+          <option value="2210">1.10.2022-30.11.2022
+          <option value="2212">1.12.2022-31.12.2022
+          <option value="2301">1.01.2023-...
+        </select>
+        <select id="KAITSE">
+          <option value="0">KORTER
+          <option value="1">16 A
+          <option value="2">20 A
+          <option value="3">25 A
+          <option value="4">32 A
+          <option value="5">40 A
+          <option value="6">50 A
+          <option value="7">63 A
+        </select>
+        <br><br>
+        Palun anna uuelt <a href="https://estfeed.elering.ee/" target="_blank">Elering</a> lehelt loetud CSV laiendiga tootmis või tarbimis fail:
+        <input type="file" onchange="readFile(this)">
+        <hr>
+        <table>
+          <!-- ülemine tabel -->
+          <tr>
+            <th colspan="2"></th>
+            <th>kWh</th>
+            <th>SUMMA (€)</th>
+            <th>Summa+KM (€)</th>
+            <th>Keskmine (€/kWh)</th>
+            <th>Keskmine+KM (€/kWh)</th>
+            <th></th>
+          </tr>
+          <tr>
+            <th><input type="checkbox" onclick="Checkboks()" name="chk" value="summa"></th>
+            <th>Tootmine</th>
+            <td><div id="kw">0.00</div></td>
+            <td><div id="summa">0.00</div></td>
+            <td><div id="summa_km">0.00</div></td>
+            <td><div id="t_kesk">0.00</div></td>
+            <td><div id="t_kesk_km">0.00</div></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th><input type="checkbox" onclick="Checkboks()" name="chk" value="m_summa"></th>
+            <td>marginaal</td>
+            <td></td>
+            <td><div id="m_summa">0</div></td>
+            <td></td>
+            <td><div id="m_summa_km">0</div></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th><input type="checkbox" onclick="Checkboks()" name="chk" value="t_summa" checked=""></th>
+            <td>marginaaliga</td>
+            <td></td>
+            <td><div id="t_summa">0</div></td>
+            <td></td>
+            <td><div id="t_summa_km">0.00</div></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th><input type="checkbox" onclick="Checkboks()" name="chk" value="usumma"></th>
+            <th>Tarbimine</th>
+            <td><div id="ukw">0</div></td>
+            <td><div id="usumma">0</div></td>
+            <td><div id="usumma_km">0</div></td>
+            <td><div id="u_kesk">0.00</div></td>
+            <td><div id="u_kesk_km">0.00</div></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th><input type="checkbox" onclick="Checkboks()" name="chk" value="m_usumma"></th>
+            <td>marginaal</td>
+            <td></td>
+            <td><div id="m_usumma">0.00</div></td>
+            <td></td>
+            <td><div id="m_usumma_km">0.00</div></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th><input type="checkbox" onclick="Checkboks()" name="chk" value="t_usumma" checked=""></th>
+            <td>marginaaliga tarbimisel</td>
+            <td></td>
+            <td><div id="t_usumma">0</div></td>
+            <td></td>
+            <td><div id="t_usumma_km">0.00</div></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th colspan="2">Kokku</th>
+            <td><div id="kokku_kw">0.00</div></td>
+            <td><div id="kokku">0.00</div></td>
+            <td></td>
+            <td><div id="kokku_km">0.00</div></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td colspan="8"><hr></td>
+          </tr>
+          <!-- alumine tabel -->
+          <tr>
+            <th colspan="2">Elektrimüüja</th>
+            <th>220/Alexela</th>
+            <th>EE</th>
+            <th>EG</th>
+            <th>Elektrum</th>
+            <th>VKG</th>
+            <th>eTerminal</th>
+          </tr>
+          <tr>
+            <td colspan="2">UT hind (s/kWh)</td>
+            <td>19,19</td>
+            <td>19,24</td>
+            <td>19,15</td>
+            <td>19.72</td>
+            <td>19,95</td>
+            <td>19,1</td>
+          </tr>
+          <tr>
+            <td colspan="2">kuutasu (€)</td>
+            <td>1,99</td>
+            <td>1,99</td>
+            <td>1,95</td>
+            <td>1,85</td>
+            <td>0</td>
+            <td>0</td>
+          </tr>
+          <tr>
+            <th colspan="2">UT hind sentides</th>
+            <td><div id="UT_220">0</div></td>
+            <td><div id="UT_EE">0</div></td>
+            <td><div id="UT_EG">0</div></td>
+            <td><div id="UT_Elektrum">0</div></td>
+            <td><div id="UT_VKG">0</div></td>
+            <td><div id="UT_eT">0</div></td>
+          </tr>
+          <tr>
+            <th colspan="2">Võrgutasud</th>
+            <th>Võrk 1</th>
+            <th>Võrk 2</th>
+            <th>Võrk 2 kuutasuga</th>
+            <th>Võrk 4</th>
+            <th>Võrk 5</th>
+            <th></th>
+          </tr>
+          <tr>
+            <td colspan="2">sentides KM-ta</td>
+            <td><div id="v1">0</div></td>
+            <td><div id="v2">0</div></td>
+            <td><div id="v2k">0 + kuutasu</div></td>
+            <td><div id="v4">0</div></td>
+            <td><div id="v5">0</div></td>
+            <td></td>
+          </tr>
+        </table>
+      </div>
+      <div class="grid-item2">
+        <div class="ct-chart"></div>
+      </div>
+      <div class="grid-item3">
+        <table id="extension_table"></table>
+      </div>
+      <div class="footer">
+        UT hinnad võetud <a HREF="https://elektrihind.ee/paketid/">elektrihind.ee/paketid/</a> ja <a HREF="https://terminaloil.ee/eterminal/universaalteenus/">eTerminal</a> lehelt.
+      </div>
+    </div>
+  </body>
 </html>
