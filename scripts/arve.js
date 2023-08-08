@@ -1,3 +1,8 @@
+document.addEventListener("DOMContentLoaded", function(event){
+  GetMüügiMarginaalCookie("marginaal");
+  GetOstuMarginaalCookie("tmarginaal");
+});
+
 var u_kw = [], u_summa = 0, el_paev = 0, el_oo = 0, el_paev_tipp = 0, el_puhke_tipp = 0;
  const el_hinnad =
  [
@@ -259,4 +264,24 @@ function VT() {
   document.getElementById("v2k").innerHTML = ( Math.round( el_hinnad[aja_valik][4]*( el_paev*1 + el_paev_tipp*1)) + Math.round(el_hinnad[aja_valik][5]*(el_oo*1 + el_puhke_tipp*1)) + el_hinnad[aja_valik][6][kaitse] );
   document.getElementById("v4").innerHTML = ( Math.round( el_hinnad[aja_valik][7]*( el_paev*1 + el_paev_tipp*1)) + Math.round(el_hinnad[aja_valik][8]*(el_oo*1 + el_puhke_tipp*1)) + el_hinnad[aja_valik][9][kaitse] );
   document.getElementById("v5").innerHTML = ( Math.round( el_hinnad[aja_valik][10]*el_paev*1) + Math.round(el_hinnad[aja_valik][11]*el_paev_tipp*1) + Math.round(el_hinnad[aja_valik][12]*el_oo*1) + Math.round(el_hinnad[aja_valik][13]*el_puhke_tipp*1) + el_hinnad[aja_valik][14][kaitse] );
+}
+
+function setMüügiMarginaalCookie(id) {
+  const element = document.getElementById(id);
+  localStorage.setItem("MüügiMarginaal", element.value);
+}
+
+function setOstuMarginaalCookie(id) {
+  const element = document.getElementById(id);
+  localStorage.setItem("OstuMarginaal", element.value);
+}
+
+function GetMüügiMarginaalCookie(id) {
+  const element = document.getElementById(id);
+  element.value = localStorage.getItem("MüügiMarginaal");
+}
+function GetOstuMarginaalCookie(id) {
+  const element = document.getElementById(id);
+  element.value = localStorage.getItem("OstuMarginaal");
+  console.log(localStorage.getItem("OstuMarginaal"));
 }
