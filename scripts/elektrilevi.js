@@ -1,3 +1,9 @@
+// Apply cookies when page has loaded
+document.addEventListener("DOMContentLoaded", function(event){
+    GetMüügiMarginaalCookie("marginaal");
+    GetOstuMarginaalCookie("tmarginaal");
+});
+
 function csvToArray(text) {
     let p = '', row = [''], ret = [row], i = 0, r = 0, s = !0, l;
     for (l of text) {
@@ -178,3 +184,24 @@ function Checkboks() {
     document.getElementById("kokku").innerHTML= i ;
     document.getElementById("kokku_km").innerHTML= i*1.2 ;
 }
+
+// Set cookies
+function setMüügiMarginaalCookie(id) {
+    const element = document.getElementById(id);
+    localStorage.setItem("MüügiMarginaal", element.value);
+  }
+  
+  function setOstuMarginaalCookie(id) {
+    const element = document.getElementById(id);
+    localStorage.setItem("OstuMarginaal", element.value);
+  }
+  
+  function GetMüügiMarginaalCookie(id) {
+    const element = document.getElementById(id);
+    element.value = localStorage.getItem("MüügiMarginaal");
+  }
+  function GetOstuMarginaalCookie(id) {
+    const element = document.getElementById(id);
+    element.value = localStorage.getItem("OstuMarginaal");
+    console.log(localStorage.getItem("OstuMarginaal"));
+  }

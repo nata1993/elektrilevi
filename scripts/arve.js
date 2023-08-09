@@ -1,3 +1,4 @@
+// Apply cookies when page has loaded
 document.addEventListener("DOMContentLoaded", function(event){
   GetMüügiMarginaalCookie("marginaal");
   GetOstuMarginaalCookie("tmarginaal");
@@ -266,6 +267,7 @@ function VT() {
   document.getElementById("v5").innerHTML = ( Math.round( el_hinnad[aja_valik][10]*el_paev*1) + Math.round(el_hinnad[aja_valik][11]*el_paev_tipp*1) + Math.round(el_hinnad[aja_valik][12]*el_oo*1) + Math.round(el_hinnad[aja_valik][13]*el_puhke_tipp*1) + el_hinnad[aja_valik][14][kaitse] );
 }
 
+// Set cookies
 function setMüügiMarginaalCookie(id) {
   const element = document.getElementById(id);
   localStorage.setItem("MüügiMarginaal", element.value);
