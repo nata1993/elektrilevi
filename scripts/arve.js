@@ -270,12 +270,16 @@ function VT() {
 // Set cookies
 function setMüügiMarginaalCookie(id) {
   const element = document.getElementById(id);
-  localStorage.setItem("MüügiMarginaal", element.value);
+  const value = element.value.replace(",",".");
+  element.value = value;
+  localStorage.setItem("MüügiMarginaal", value);
 }
 
 function setOstuMarginaalCookie(id) {
   const element = document.getElementById(id);
-  localStorage.setItem("OstuMarginaal", element.value);
+  const value = element.value.replace(",",".");
+  element.value = value;
+  localStorage.setItem("OstuMarginaal", value);
 }
 
 function GetMüügiMarginaalCookie(id) {
@@ -285,5 +289,4 @@ function GetMüügiMarginaalCookie(id) {
 function GetOstuMarginaalCookie(id) {
   const element = document.getElementById(id);
   element.value = localStorage.getItem("OstuMarginaal");
-  console.log(localStorage.getItem("OstuMarginaal"));
 }

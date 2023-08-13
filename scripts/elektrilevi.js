@@ -188,20 +188,23 @@ function Checkboks() {
 // Set cookies
 function setMüügiMarginaalCookie(id) {
     const element = document.getElementById(id);
+    const value = element.value.replace(",",".");
+    element.value = value;
     localStorage.setItem("MüügiMarginaal", element.value);
-  }
+}
   
-  function setOstuMarginaalCookie(id) {
+function setOstuMarginaalCookie(id) {
     const element = document.getElementById(id);
+    const value = element.value.replace(",",".");
+    element.value = value;
     localStorage.setItem("OstuMarginaal", element.value);
-  }
-  
-  function GetMüügiMarginaalCookie(id) {
+}
+
+function GetMüügiMarginaalCookie(id) {
     const element = document.getElementById(id);
     element.value = localStorage.getItem("MüügiMarginaal");
-  }
-  function GetOstuMarginaalCookie(id) {
+}
+function GetOstuMarginaalCookie(id) {
     const element = document.getElementById(id);
     element.value = localStorage.getItem("OstuMarginaal");
-    console.log(localStorage.getItem("OstuMarginaal"));
-  }
+}

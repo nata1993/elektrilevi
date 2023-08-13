@@ -111,9 +111,6 @@ tr:hover {
     display: grid;
     grid-template-columns: auto auto;
 }
-.item5 {
-    grid-column: 1 / span 2;
-}
 
 
 
