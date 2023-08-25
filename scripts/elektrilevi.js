@@ -192,7 +192,6 @@ function setMüügiMarginaalCookie(id) {
     const isError = simpleSanitizer(value);
     if(isError !== "error") {
         element.value = value;
-        console.log("hye");
         localStorage.setItem("MüügiMarginaal", value);
     }
 }
@@ -203,7 +202,6 @@ function setOstuMarginaalCookie(id) {
     const isError = simpleSanitizer(value);
     if(isError !== "error") {
         element.value = value;
-        console.log("hye");
         localStorage.setItem("OstuMarginaal", value);
     }
 }
@@ -222,14 +220,14 @@ function GetOstuMarginaalCookie(id) {
 function simpleSanitizer(value) {
     const length = value.length;
     let dot = 0;
+    const regex = /[][!"#$%&'()*+,/:;<=>?@\^_`{|}~-€$]/gm;
+
     for(let i = 0; i < length; i++) {
-        if(value[i] === ",") {
-        value = value.replace(",", ".");
-        }
+        value = value.replace(regex, ".");
     }
     for(let i = 0; i < length; i++) {
         if(value[i] === ".") {
-        dot++;
+            dot++;
         } 
     }
 
