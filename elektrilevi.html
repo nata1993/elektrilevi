@@ -20,19 +20,16 @@
       <div class="grid-item2">
         <div class="container">
           <div class="item1">
-            Sisesta müügimarginaal (s/kWh):
+            Sisesta müügimarginaal:
           </div>
           <div class="item2">
-            <input id="marginaal" type="text" size="5">
+            <input id="marginaal" type="text" size="5" onchange="setMüügiMarginaalCookie('marginaal')"><label>senti/kWh</label>
           </div>
           <div class="item3">
-            Sisesta ostumarginaal (s/kWh):
+            Sisesta ostumarginaal:
           </div>
           <div class="item4">
-            <input id="tmarginaal" type="text" size=5>
-          </div>
-          <div class="item5">
-            Kümnendkoha eraldajana kasuta punkti (".").
+            <input id="tmarginaal" type="text" size=5 onchange="setOstuMarginaalCookie('tmarginaal')"><label>senti/kWh</label>
           </div>
         </div>
         <table>

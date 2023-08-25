@@ -111,14 +111,11 @@ tr:hover {
     display: grid;
     grid-template-columns: auto auto;
 }
-.item5 {
-    grid-column: 1 / span 2;
-}
 
 
 
 
- .ct-series-a .ct-line {
+.ct-series-a .ct-line {
   /* Set the colour of this series line */
   fill: green;
   line: red;

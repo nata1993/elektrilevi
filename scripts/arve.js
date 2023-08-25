@@ -1,3 +1,4 @@
+// Apply cookies when page has loaded
 document.addEventListener("DOMContentLoaded", function(event){
   GetMüügiMarginaalCookie("marginaal");
   GetOstuMarginaalCookie("tmarginaal");
@@ -266,14 +267,29 @@ function VT() {
   document.getElementById("v5").innerHTML = ( Math.round( el_hinnad[aja_valik][10]*el_paev*1) + Math.round(el_hinnad[aja_valik][11]*el_paev_tipp*1) + Math.round(el_hinnad[aja_valik][12]*el_oo*1) + Math.round(el_hinnad[aja_valik][13]*el_puhke_tipp*1) + el_hinnad[aja_valik][14][kaitse] );
 }
 
+// Set cookies
 function setMüügiMarginaalCookie(id) {
   const element = document.getElementById(id);
-  localStorage.setItem("MüügiMarginaal", element.value);
+  let value = element.value;
+  const isError = simpleSanitizer(value);
+  if(isError !== "error") {
+      value = value.replace(",", ".");
+      element.value = value;
+      console.log("hye");
+      localStorage.setItem("MüügiMarginaal", value);
+  }
 }
 
 function setOstuMarginaalCookie(id) {
   const element = document.getElementById(id);
-  localStorage.setItem("OstuMarginaal", element.value);
+  const value = element.value;
+  const isError = simpleSanitizer(value);
+  if(isError !== "error") {
+      value = value.replace(",", ".");
+      element.value = value;
+      console.log("hye");
+      localStorage.setItem("OstuMarginaal", value);
+  }
 }
 
 function GetMüügiMarginaalCookie(id) {
@@ -283,5 +299,27 @@ function GetMüügiMarginaalCookie(id) {
 function GetOstuMarginaalCookie(id) {
   const element = document.getElementById(id);
   element.value = localStorage.getItem("OstuMarginaal");
-  console.log(localStorage.getItem("OstuMarginaal"));
+}
+
+// Väga lihtsustatud sisendi puhastus kasutaja müksamisega sisestamaks marginaali arvu korrektses arvuvormis.
+// Toimib põhimõttel, et kui on rohkem kui üks komakoht arvus, siis see ei ole enam arv kujul, mida me vajame.
+function simpleSanitizer(value) {
+  const length = value.length;
+  let dot = 0;
+  for(let i = 0; i < length; i++) {
+    if(value[i] === ",") {
+      value = value.replace(",", ".");
+    }
+  }
+  for(let i = 0; i < length; i++) {
+    if(value[i] === ".") {
+      dot++;
+    } 
+  }
+
+  if(dot > 1) {
+    alert("Sisesta marginaal korrektse arvväärtusena - punkt komakoha eraldajana!");
+    return "error";
+  }
+  return value;
 }

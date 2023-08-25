@@ -19,45 +19,45 @@ function addRow(Row_value) {
     tableRef.innerHTML = tableRef.innerHTML + Row_value;
 }
 
+// Create table and fill it with data from CSF file
 function display(msg) {
-    var rida = { hind:[0] }, rows = csvToArray(msg);
-    var rowNum, row, KP = "", r_date, priceRow, algus = 1, tootmine = 2, toodetud = 0, tarbitud = 0, tarbimine = 3;
-    var cells = [], arve_summa = 0, kogu_kw = 0, arve_usumma = 0, kogu_ukw = 0, paeva_kw = [], tarbitud_kw = [];  //        var cellNum;
+    var rows = csvToArray(msg);
+    var rowNum, arrayLength = rows.length, KP = "", r_date, algus = 1, tootmine = 2, toodetud = 0, tarbitud = 0, tarbimine = 3;
+    var cells = [], arve_summa = 0, kogu_kw = 0, arve_usumma = 0, kogu_ukw = 0, paeva_kw = [], tarbitud_kw = [];
     //   cells = rows[0][0].split(";") ;
-    console.log( "ALGUS " + algus + rows[0] + " " + tootmine );
 
-    for (rowNum = algus; rowNum < rows.length ; ++rowNum) {
+    // Iterating csv file data for what?
+    for (rowNum = algus; rowNum < arrayLength; ++rowNum) {
         //      row = rows[rowNum].join() ;
         cells = rows[rowNum].join().split(";"); 
-        r_date = cells[1].replace(/(\d{2})\.(\d{2})\.(\d{4}) [A-Za-z0-9.,-:]*/,'$3-$2-$1'); //split(" ") ;
-	      if ( !KP ) {
-            KP = r_date ;
-            var yesterday = new Date(Date.parse(KP)-1000*3600*24).toJSON().slice(0,10), reads;
-        }
-        if ( KP != r_date ) {
-        //                alert ( KP + " KP " + Date.parse(KP) ) ;  
-            GetPrice(yesterday , KP,paeva_kw, tarbitud_kw);
-            yesterday = new Date(Date.parse(KP)).toJSON().slice(0,10), reads;
+        r_date = cells[1].replace(/(\d{2})\.(\d{2})\.(\d{4}) [A-Za-z0-9.,-:]*/, '$3-$2-$1'); //split(" ") ;
+
+	    if ( !KP ) {
             KP = r_date;
-            //          console.log ( Math.round(rowNum/24) + " " + rowNum + " "+ paeva_kw ) ;
+            var yesterday = new Date(Date.parse(KP) - 1000*3600*24).toJSON().slice(0,10);
+        }
+        if ( KP != r_date ) {  
+            GetPrice(yesterday , KP, paeva_kw, tarbitud_kw);
+            yesterday = new Date(Date.parse(KP)).toJSON().slice(0,10);
+            KP = r_date;
             paeva_kw = [];
-	          tarbitud_kw = [];
+	        tarbitud_kw = [];
         } //  if KP
+
         if (cells.length <= tootmine) {
             tootmine = 2
         };
-	      console.log ( tootmine + cells + " " + cells.length + " " + cells[1] + "X" + cells[tarbimine] + "Y" + cells[tootmine]);
-	      toodetud = cells[tootmine].replace(",", ".");
+
+	    toodetud = cells[tootmine].replace(",", ".");
         tarbitud = cells[tarbimine].replace(",", ".");
         paeva_kw.push( toodetud );
         tarbitud_kw.push( tarbitud);
     } // for rowNum
+
     KP = new Date(Date.parse(r_date)).toJSON().slice(0, 10);
-    GetPrice(yesterday , KP ,paeva_kw, tarbitud_kw ) ;
-    console.log( Math.round(rowNum/24) + " " + rowNum + " "+ paeva_kw );
+    GetPrice(yesterday , KP ,paeva_kw, tarbitud_kw );
 
     function GetPrice(start_time, end_time, kws, ukws) {
-        console.log("KWs" + kws + " " + ukws);
         function transferComplete(evt) {
             answer(xhr.status == 200 ? xhr.responseText : null);
         }
@@ -81,8 +81,6 @@ function display(msg) {
                 var p_row1 = "<tr><td>" + end_time + "</td>", p_row2 = "<tr><td>tootmine MWh</td>", p_row3 = "<tr><td>€</td>", p_row4 = "<tr><td>tarbimine MWh</td>", p_row5 = "<tr><td>€</td>";  
                 rows = [] ;
                 rows = csvToArray(xhr.responseText);
-                //             console.log( "Kilowats " + start_time + " " + end_time + " " + kws ) ;
-                //             console.log( "PRICE" + rows.length + " " + rows[1] ) ;
                 p_end.innerHTML="<br>";
                 for (i = 1; i < rows.length-1 && i <= kws.length; i++) {
                     cells = rows[i][0].split(";");
@@ -119,6 +117,7 @@ function display(msg) {
     } // GetPrice
 } // display
 
+// Read CSV file and display table from data
 function readFile(input) {
     let file = input.files[0];
     let reader = new FileReader();
@@ -163,7 +162,7 @@ function showData(data) {
     var utc = [], aeg = [], hind = [];
     var rows = csvToArray(data);
     var rowNum;
-    var cells;   //        var cellNum;
+    var cells;
     for (rowNum = 1; rowNum < rows.length-1; ++rowNum) {
         cells = rows[rowNum][0].split(";");
         utc.push(cells[0]);
