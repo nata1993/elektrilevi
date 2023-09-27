@@ -90,21 +90,21 @@ function arvuta() {
     document.getElementById('v5').value = Math.round( ( Number(p) * Number(hind[aasta][10]) + Number(pt) * Number(hind[aasta][11]) + Number(o) * Number(hind[aasta][12]) + Number(ot) * Number(hind[aasta][13]) )*100)/100 + kuutasu[aasta][3][kaitse];
     const tt_ak= document.getElementById('tt').value + document.getElementById('ak').value;
     
-    document.getElementById('v1').innerHTML = document.getElementById('v1').value;
-    document.getElementById('v2').innerHTML = document.getElementById('v2').value;
-    document.getElementById('vk2').innerHTML = document.getElementById('vk2').value;
-    document.getElementById('v3').innerHTML = document.getElementById('v3').value;
-    document.getElementById('v4').innerHTML = document.getElementById('v4').value;
-    document.getElementById('v5').innerHTML = document.getElementById('v5').value;
-    document.getElementById('tt').innerHTML = document.getElementById('tt').value;
-    document.getElementById('ak').innerHTML = document.getElementById('ak').value;
+    document.getElementById('v1').innerHTML = (document.getElementById('v1').value/10).toFixed(2);
+    document.getElementById('v2').innerHTML = (document.getElementById('v2').value/100).toFixed(2);
+    document.getElementById('vk2').innerHTML = (document.getElementById('vk2').value/100).toFixed(2);
+    document.getElementById('v3').innerHTML = (document.getElementById('v3').value/100).toFixed(2);
+    document.getElementById('v4').innerHTML = (document.getElementById('v4').value/100).toFixed(2);
+    document.getElementById('v5').innerHTML = (document.getElementById('v5').value/100).toFixed(2);
+    document.getElementById('tt').innerHTML = (document.getElementById('tt').value/100).toFixed(2);
+    document.getElementById('ak').innerHTML = (document.getElementById('ak').value/100).toFixed(2);
 
-    document.getElementById('v1k').innerHTML = Math.round(1.2 * (Number(document.getElementById("v1").value) + tt_ak ) );
-    document.getElementById('v2k').innerHTML = Math.round(1.2 * (Number(document.getElementById("v2").value) + tt_ak ) );
-    document.getElementById('vk2k').innerHTML = Math.round(1.2 * (Number(document.getElementById("vk2").value) + tt_ak ) );
-    document.getElementById('v3k').innerHTML = Math.round(1.2 * (Number(document.getElementById("v3").value) + tt_ak ) );
-    document.getElementById('v4k').innerHTML = Math.round(1.2 * (Number(document.getElementById("v4").value) + tt_ak ) );
-    document.getElementById('v5k').innerHTML = Math.round(1.2 * (Number(document.getElementById("v5").value) + tt_ak ) );
+    document.getElementById('v1k').innerHTML = (Math.round(1.2 * (Number(document.getElementById("v1").value) + tt_ak ))/100).toFixed(2);
+    document.getElementById('v2k').innerHTML = (Math.round(1.2 * (Number(document.getElementById("v2").value) + tt_ak ))/100).toFixed(2);
+    document.getElementById('vk2k').innerHTML = (Math.round(1.2 * (Number(document.getElementById("vk2").value) + tt_ak ))/100).toFixed(2);
+    document.getElementById('v3k').innerHTML = (Math.round(1.2 * (Number(document.getElementById("v3").value) + tt_ak ))/100).toFixed(2);
+    document.getElementById('v4k').innerHTML = (Math.round(1.2 * (Number(document.getElementById("v4").value) + tt_ak ))/100).toFixed(2);
+    document.getElementById('v5k').innerHTML = (Math.round(1.2 * (Number(document.getElementById("v5").value) + tt_ak ))/100).toFixed(2);
 }
 
 function summa() {
