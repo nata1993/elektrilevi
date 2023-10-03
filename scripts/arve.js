@@ -270,26 +270,25 @@ function VT() {
 // Set cookies
 function setMüügiMarginaalCookie(id) {
   const element = document.getElementById(id);
-  let value = element.value;
-  const isError = simpleSanitizer(value);
-  if(isError !== "error") {
-      value = value.replace(",", ".");
-      element.value = value;
-      console.log("hye");
-      localStorage.setItem("MüügiMarginaal", value);
+  let re = new RegExp("[0-9]|[$&+,:;=?@#|'<>.^*()%!\-]");
+  if (re.test(element.value)) {
+    localStorage.setItem("MüügiMarginaal", element.value);
+  }
+  else {
+    alert("Palun sisesta korrektse arvväärtusena marginaal.");
   }
 }
 
 function setOstuMarginaalCookie(id) {
   const element = document.getElementById(id);
-  const value = element.value;
-  const isError = simpleSanitizer(value);
-  if(isError !== "error") {
-      value = value.replace(",", ".");
-      element.value = value;
-      console.log("hye");
-      localStorage.setItem("OstuMarginaal", value);
+  let re = new RegExp("[0-9]|[$&+,:;=?@#|'<>.^*()%!\-]");
+  if (re.test(element.value)) {
+    localStorage.setItem("OstuMarginaal", element.value);
   }
+  else {
+    alert("Palun sisesta korrektse arvväärtusena marginaal.");
+  }
+
 }
 
 function GetMüügiMarginaalCookie(id) {
@@ -299,27 +298,4 @@ function GetMüügiMarginaalCookie(id) {
 function GetOstuMarginaalCookie(id) {
   const element = document.getElementById(id);
   element.value = localStorage.getItem("OstuMarginaal");
-}
-
-// Väga lihtsustatud sisendi puhastus kasutaja müksamisega sisestamaks marginaali arvu korrektses arvuvormis.
-// Toimib põhimõttel, et kui on rohkem kui üks komakoht arvus, siis see ei ole enam arv kujul, mida me vajame.
-function simpleSanitizer(value) {
-  const length = value.length;
-  let dot = 0;
-  for(let i = 0; i < length; i++) {
-    if(value[i] === ",") {
-      value = value.replace(",", ".");
-    }
-  }
-  for(let i = 0; i < length; i++) {
-    if(value[i] === ".") {
-      dot++;
-    } 
-  }
-
-  if(dot > 1) {
-    alert("Sisesta marginaal korrektse arvväärtusena - punkt komakoha eraldajana!");
-    return "error";
-  }
-  return value;
 }
