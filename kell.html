@@ -1,0 +1,203 @@
+
+<!DOCTYPE html>
+<html lang="et-EE">
+  <head>
+
+<script>
+ var today = new Date() ; //.toJSON().slice(0, 10);
+ var yesterday = new Date ;
+ yesterday.setDate(today.getDate() -1);
+ var hind=[],hinnad=[];
+ 
+ function change_day(change){
+ // alert ("TODAY " + today );
+  today.setDate(today.getDate() + change); // .toJSON().slice(0,10);
+  yesterday.setDate(today.getDate() -1);
+ alert ("NEW DAY " + today );
+  
+ }
+ 
+</script>
+
+<script
+ src="https://cdn.jsdelivr.net/npm/chart.js">
+ 
+import {
+  Chart,
+  Colors,
+  BarController,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Legend
+} from 'https://cdn.jsdelivr.net/npm/chart.js'
+
+Chart.register(
+  Colors,
+  BarController,
+  BarElement,
+  CategoryScale,
+  LinearScale,
+  Legend
+);
+
+</script>
+    <script>
+function addData() {
+     const ctx = document.getElementById('myChart');
+  
+   new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23],
+      datasets: [{
+        label: 'Elektri börsihind',
+        data: hind,
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+//		  max: 100
+        }
+      }
+    }
+  });
+ }
+
+
+
+
+// cookies
+
+
+// Set cookies
+function setTodayCookie(id) {
+  const element = document.getElementById(id);
+  let re = new RegExp("[0-9]|[$&+,:;=?@#|'<>.^*()%!\-]");
+  if (re.test(element.value)) {
+    localStorage.setItem("MüügiMarginaal", element.value);
+  }
+  else {
+    alert("Palun sisesta korrektse arvväärtusena marginaal.");
+  }
+}
+
+function setOstuMarginaalCookie(id) {
+  const element = document.getElementById(id);
+  let re = new RegExp("[0-9]|[$&+,:;=?@#|'<>.^*()%!\-]");
+    localStorage.setItem("OstuMarginaal", element.value);
+  if (re.test(element.value)) {
+  }
+  else {
+    alert("Palun sisesta korrektse arvväärtusena marginaal.");
+  }
+}
+
+function GetTodayCookie(id) {
+  const element = document.getElementById(id);
+  element.value = localStorage.getItem("MüügiMarginaal");
+}
+function GetOstuMarginaalCookie(id) {
+  const element = document.getElementById(id);
+  element.value = localStorage.getItem("OstuMarginaal");
+}
+
+
+ const el_hinnad =
+  [7.21,8.68,5.05,[184,331,385,437,511,593,699,835],5.67,3.28,[262,483,593,699,847,1012,1221,1493],3.69,2.10,[639,1350,1645,1984,2460,3003,3684,4566],5.14,7.94,2.95,4.60,[285,527,647,761,921,1103,1332,1627]];
+
+function csvToArray(text) {
+  let p = '', row = [''], ret = [row], i = 0, r = 0, s = !0, l;
+  for (l of text) {
+    if ('"' === l) {
+      if (s && l === p) row[i] += l;
+      s = !s;
+    }
+    else if (',' === l && s) l = row[++i] = '';
+    else if ('\n' === l && s) {
+      if ('\r' === p) row[i] = row[i].slice(0, -1);
+      row = ret[++r] = [l = '']; i = 0;
+    }
+      else row[i] += l;
+      p = l;
+  }
+  return ret;
+};
+
+  function GetPrice(start_time,end_time) {
+    function transferComplete(evt) {
+      answer(xhr.status == 200 ? xhr.responseText : null);
+    }
+    var xhr = new XMLHttpRequest();
+    var i; 
+    xhr.onreadystatechange = handleStateChange;
+    // "https://dashboard.elering.ee/api/nps/price/csv?start=2020-12-31T21:00:00.000Z&end=2021-01-01T20:59:59.999Z&fields=ee");
+    //             console.log( "DAY " + Date(start_time) + " " + end_time + " " + kws );
+    a1 = new Date(end_time); 
+    if ( a1.getTimezoneOffset() == -180 ) {
+      xhr.open("GET", "https://dashboard.elering.ee/api/nps/price/csv?start="+ start_time+"T21:00:00.000Z&end="+end_time+"T20:59:59.999Z&fields=ee"); // - suveajal
+    }
+    else {
+      xhr.open("GET", "https://dashboard.elering.ee/api/nps/price/csv?start="+ start_time+"T22:00:00.000Z&end="+end_time+"T21:59:59.999Z&fields=ee"); // talveajal
+      //		   		  	console.log("TALV "+ a1.getTimezoneOffset() );
+    }
+    xhr.send();  
+
+    function handleStateChange() {
+      var rows, cells;
+      if ( xhr.readyState == 4 ) { 
+        var marginaal = 0;
+        let p_row1 = "<tr><td>" + end_time + "</td><td></td>", p_row3 = "<tr><td></td><td>€ senti</td>";
+        rows = [];
+        rows = csvToArray(xhr.responseText);
+        //             console.log( "Kilowats " + start_time + " " + end_time + " " + kws );
+        //             console.log( "PRICE" + rows.length + " " + rows[1] );
+        for (i = 1; i < rows.length-1 ; i++) {
+          cells = rows[i][0].split(";");
+          hind.push(cells[2].replace(",","."));
+        }
+	    alert ( "HIND GetPrice " + hind ) ;
+	    localStorage.setItem('hinnad_'+today.toJSON().slice(0, 10),hind) ; 
+      }
+    }; // handleStateChange
+  } // GetPrice
+
+
+ // Apply cookies when page has loaded
+
+document.addEventListener("DOMContentLoaded", function(event){
+   alert ( "HIND " + hind ) ; 
+   addData();
+});  
+
+ </script>
+ <body>
+ Tere
+   <div class="item2"><input hidden id="tmarginaal" type="number" size=5 value="1" onchange="setOstuMarginaalCookie('tmarginaal')"></div>
+
+ <div>
+  <canvas id="myChart" width="300" height="150"></canvas>
+</div>
+L&Otilde;PP
+ <input type="button" value="TAGASI" onclick="change_day(-1)" > <input type="button" value="EDASI" onclick="change_day(1)" >
+
+  <script>
+  var cookie_today = localStorage.getItem('hinnad_'+today.toJSON().slice(0, 10));
+   alert ( "KÜPSIKUD  " + localStorage.getItem('hinnad_'+today.toJSON().slice(0, 10) ) ) ; 
+  if ( cookie_today == null ) {  
+
+   GetPrice(yesterday.toJSON().slice(0, 10) , today.toJSON().slice(0, 10) ) ;
+     alert ( "JAMA kuupäev " + yesterday.toJSON().slice(0, 10) + " " + today.toJSON().slice(0, 10)) ;
+   }
+  else {
+   hind = localStorage.getItem('hinnad_'+today.toJSON().slice(0, 10)).split(",") ;
+   alert ( "poolik HIND " + localStorage.getItem('hinnad_'+today.toJSON().slice(0, 10)).split(",") ) ; 
+  }
+  //alert ( "JAMA kuupäev " + hind) ;
+
+   </script>
+ </body>
+ 
