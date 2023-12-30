@@ -87,9 +87,9 @@ function arvuta() {
     const ot = document.getElementById("ot").value;
     const kaitse = document.getElementById("kaitse").value;
     if ( aasta>9 ) {
-        const KM = 1.22 ;
+        var KM = 1.22 ;
     } else {
-        const KM = 1.2 ;
+        var KM = 1.2 ;
     }
         
     
