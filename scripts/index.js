@@ -80,6 +80,12 @@ function arvuta() {
     const pt = document.getElementById("pt").value;
     const ot = document.getElementById("ot").value;
     const kaitse = document.getElementById("kaitse").value;
+    if ( aasta>9 ) {
+        const KM = 1.22 ;
+    } else {
+        const KM = 1.2 ;
+    }
+        
     
     document.getElementById('tt').value = Math.round(Number(document.getElementById("kokkukW").value) * Number(hind[aasta][0])*100)/100;
     document.getElementById('ak').value = Math.round(Number(document.getElementById("kokkukW").value) * Number(hind[aasta][1])*100)/100;
@@ -102,12 +108,12 @@ function arvuta() {
     document.getElementById('ak').innerHTML = (document.getElementById('ak').value/100).toFixed(2);
 
     // Fill "Kokku" fields
-    document.getElementById('v1k').innerHTML = (Math.round(1.2 * (Number(document.getElementById("v1").value) + tt_ak ))/100).toFixed(2);
-    document.getElementById('v2k').innerHTML = (Math.round(1.2 * (Number(document.getElementById("v2").value) + tt_ak ))/100).toFixed(2);
-    document.getElementById('vk2k').innerHTML = (Math.round(1.2 * (Number(document.getElementById("vk2").value) + tt_ak ))/100).toFixed(2);
-    document.getElementById('v3k').innerHTML = (Math.round(1.2 * (Number(document.getElementById("v3").value) + tt_ak ))/100).toFixed(2);
-    document.getElementById('v4k').innerHTML = (Math.round(1.2 * (Number(document.getElementById("v4").value) + tt_ak ))/100).toFixed(2);
-    document.getElementById('v5k').innerHTML = (Math.round(1.2 * (Number(document.getElementById("v5").value) + tt_ak ))/100).toFixed(2);
+    document.getElementById('v1k').innerHTML = (Math.round(KM * (Number(document.getElementById("v1").value) + tt_ak ))/100).toFixed(2);
+    document.getElementById('v2k').innerHTML = (Math.round(KM * (Number(document.getElementById("v2").value) + tt_ak ))/100).toFixed(2);
+    document.getElementById('vk2k').innerHTML = (Math.round(KM * (Number(document.getElementById("vk2").value) + tt_ak ))/100).toFixed(2);
+    document.getElementById('v3k').innerHTML = (Math.round(KM * (Number(document.getElementById("v3").value) + tt_ak ))/100).toFixed(2);
+    document.getElementById('v4k').innerHTML = (Math.round(KM * (Number(document.getElementById("v4").value) + tt_ak ))/100).toFixed(2);
+    document.getElementById('v5k').innerHTML = (Math.round(KM * (Number(document.getElementById("v5").value) + tt_ak ))/100).toFixed(2);
 }
 
 // Calculate total of electricity consumption
