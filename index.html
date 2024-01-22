@@ -1,98 +1,26 @@
 <!DOCTYPE html>
-<html lang="et-EE">
-  <head>
-    <meta charset="UTF-8">
-    <link rel="icon" href="/elektrilevi/ressources/favicon.ico" type="image/x-icon" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobiva Elektrilevi paketi leidmine</title>
-    
-    <link rel="stylesheet" href="./styles/index.css">
-    <script src="./scripts/index.js" defer></script>
-  </head>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" href="/elektrilevi/ressources/favicon.ico" type="image/x-icon" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Teenuste sisukord</title>
 
-  <body>
-    <div class="grid-container">
-      <div class="grid-item1">
-        <h1>Elektrilevi võrgupaketi kalkulaator</h1>
-        <a href="https://www.elektrilevi.ee/-/doc/8644141/kliendile/elektrilevi_hinnakiri_lisateenused_EST.pdf" target="_blank">Elektrilevi võrgupaketid</a>
-        <br><br>
-      </div>
-      <div class="grid-item2">
-        <div class="container">
-          <div class="item1">
-            <form>
-              <label for="aasta">Vali aasta:</label>
-              <select name="aasta" id="aasta">
-                <option value="2">2017
-                <option value="3">2018
-                <option value="0">2020
-                <option value="1">2021
-                <option value="4">2021 lõpp
-                <option value="5">2022 (03-09)
-                <option value="6">2022 (10-11)
-                <option value="7">2022 (12)
-                <option value="8">2023
-                <option value="9" selected>2023 lõpp
-                <option value="10" selected>2024
-              </select>
-              <label for="kwhPäeval">Mitu kWh päeval:</label>
-              <input type="text" id="p" name="kwhPäeval" size="4" placeholder="0" onchange="document.getElementById('kokkukW').value = summa()">
-              <label for="kwhPäevat">Mitu kWh päeva tipuajal:</label>
-              <input type="text" id="pt" name="kwhPäevat" size="4" placeholder="0" onchange="document.getElementById('kokkukW').value = summa()">
-              <label for="kwhÖösel">Mitu kWh öösel:</label>
-              <input type="text" id="o" name="kwhÖösel" size="4" placeholder="0" onchange="document.getElementById('kokkukW').value = summa()">
-              <label for="kwhÖöt">Mitu kWh öö tipuajal:</label>
-              <input type="text" id="ot" name="kwhÖöt" size="4" placeholder="0" onchange="document.getElementById('kokkukW').value = summa()">
-              <label for="kokku">Kokku:</label>
-              <input id="kokkukW" name="kokku" size=4 placeholder="0">
-              <label for="kaitse">Peakaitse suurus amprites:</label>
-              <select id="kaitse" name="kaitse">
-                <option value="0">korter
-                <option value="1" selected>16
-                <option value="2">20
-                <option value="3">25
-                <option value="4">32
-                <option value="5">40
-                <option value="6">50
-                <option value="7">63
-              </select>
-              <button type="button" onclick="arvuta()">ARVUTA</button>
-            </form>
-          </div>
-          <div class="item2">
-            <table>
-              <tr>
-                <th><b>Pakett</b></th><th>HIND (€)</th><th>KOKKU (HIND + Tasud + KM) (€)</th>
-              </tr>
-              <tr>
-                <td><b>Võrk 1</b></td><td><p id="v1">0.00</p></td><td id="v1k">0.00</td>
-              </tr>
-              <tr>
-                <td><b>Võrk 2</b></td><td><p id="v2">0.00</p></td><td id="v2k">0.00</td>
-              </tr>
-              <tr>
-                <td><b>Võrk 2 kuutasuga</b></td><td><p id="vk2">0.00</p></td><td id="vk2k">0.00</td>
-              </tr>
-              <tr>
-                <td><b>Võrk 3</b></td><td><p id="v3">0.00</p></td><td id="v3k">0.00</td>
-              </tr>
-              <tr>
-                <td><b>Võrk 4</b></td><td><p id="v4">0.00</p></td><td id="v4k">0.00</td>
-              </tr>
-              <tr>
-                <td><b>Võrk 5</b></td><td><p id="v5">0.00</p></td><td id="v5k">0.00</td>
-              </tr>
-              <tr>
-                <td colspan=1><b>Taastuvenergiatasu</b></td><td><p id="tt">0.00</p></td>
-              </tr>
-              <tr>
-                <td colspan=1><b>Aktsiis</b></td><td><p id="ak">0.00</p></td>
-              </tr>   
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-  </body>
+        <link rel="stylesheet" href="./styles/index.css">
+    </head>
+    <body>
+        <h1>Teenuste sisukord</h1>
+        <div>
+            <div class="container">
+                <div class="items">
+                    <a href="./el_paketi_kalkulaator.html">Elektrilevi võrgupaketi kalkulaator</a>
+                    <a href="./tootmine.html">Eesti elektritoodangu ja hinna leidmine</a>
+                    <a href="./elektrilevi.html">Elektriarve arvutamine/leidmine</a>
+                    <a href="./arve.html">Arve</a>
+                    <a href="./tuulikud.html">Tuulikud</a>
+                </div>
+            </div>
+        </div>  
+    </body>
 </html>
