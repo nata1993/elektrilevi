@@ -6,4 +6,4 @@ I'm trying to make an electricity network fees package selection calculator.
 
 This repository is licensed under [MIT](/LICENSE) (c) 2019 GitHub, Inc.
 
-[Teenused](http://hr-john.github.io/index)  
+[Teenused](http://hr-john.github.io/index.html)  
