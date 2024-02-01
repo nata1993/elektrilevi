@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function(event){
   GetOstuMarginaalCookie("tmarginaal");
 });
 
-var u_kw = [], u_summa = 0, el_paev = 0, el_oo = 0, el_paev_tipp = 0, el_puhke_tipp = 0;
+var u_kw = [], u_summa = 0, el_paev = 0, el_oo = 0, el_paev_tipp = 0, el_puhke_tipp = 0, KM = 1.22 ;
  const el_hinnad =
  [
   [5.53,6.65,3.86,[141,254,295,335,391,455,535,639],4.35,2.52,[200,370,455,535,647, 775, 935,1143],2.83,1.62,[489,1034,1259,1519,1883,2299,2819,3495],3.95,6.07,2.26,3.52,[218,403,496,583,705, 845,1019,1246]],
@@ -151,22 +151,22 @@ function display(msg) {
           t_usumma += vahe_t_summa;
           document.getElementById("ukw").innerHTML = Math.round(kogu_kw/10)/100;
           document.getElementById("usumma").innerHTML = -Math.round(u_summa/100)/1000;
-          document.getElementById("usumma_km").innerHTML = -Math.round(u_summa/100*1.2)/1000;
+          document.getElementById("usumma_km").innerHTML = -Math.round(u_summa/100*KM)/1000;
           document.getElementById("m_usumma").innerHTML = Math.round(kogu_kw*marginaal/1000)/100;
-          document.getElementById("m_usumma_km").innerHTML = Math.round(kogu_kw*marginaal/1000*1.2)/100;
+          document.getElementById("m_usumma_km").innerHTML = Math.round(kogu_kw*marginaal/1000*KM)/100;
           document.getElementById("t_usumma").innerHTML = -Math.round(t_usumma/100)/1000;
-          document.getElementById("t_usumma_km").innerHTML = -Math.round(t_usumma/1000*1.2)/100;
+          document.getElementById("t_usumma_km").innerHTML = -Math.round(t_usumma/1000*KM)/100;
         }
         else {
           arve_summa += vahe_summa;
           t_summa += vahe_t_summa;
           document.getElementById("summa").innerHTML = Math.round(arve_summa/1000)/100;
-          document.getElementById("summa_km").innerHTML = Math.round(arve_summa/1000*1.2)/100;
+          document.getElementById("summa_km").innerHTML = Math.round(arve_summa/1000*KM)/100;
           document.getElementById("kw").innerHTML = Math.round(kogu_kw/10)/100;
           document.getElementById("m_summa").innerHTML = -Math.round(kogu_kw*marginaal/1000)/100;
-          document.getElementById("m_summa_km").innerHTML = -Math.round(kogu_kw*marginaal/1000*1.2)/100;
+          document.getElementById("m_summa_km").innerHTML = -Math.round(kogu_kw*marginaal/1000*KM)/100;
           document.getElementById("t_summa").innerHTML = Math.round(t_summa/100)/1000;
-          document.getElementById("t_summa_km").innerHTML = Math.round(t_summa/1000*1.2)/100;
+          document.getElementById("t_summa_km").innerHTML = Math.round(t_summa/1000*KM)/100;
         }
         Checkboks();
       }
@@ -239,7 +239,7 @@ function Checkboks() {
   var cb = document.querySelectorAll('input[name="chk"]:checked');
   cb.forEach((checkbox) => { i += Number(document.getElementById(checkbox.value).innerHTML); });
   document.getElementById("kokku").innerHTML = i;
-  document.getElementById("kokku_km").innerHTML = i * 1.2;
+  document.getElementById("kokku_km").innerHTML = i * KM;
   var summa = document.getElementById("summa"), kw = document.getElementById("kw");
   document.getElementById("t_kesk").innerHTML = Math.round( summa.innerHTML/ kw.innerHTML*1000)/1000;
   document.getElementById("t_kesk_km").innerHTML = Math.round(summa_km.innerHTML / kw.innerHTML*1000)/1000;
