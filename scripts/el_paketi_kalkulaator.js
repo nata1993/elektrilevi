@@ -106,6 +106,7 @@ function arvuta() {
         var v3 = Math.round( (kokkuKW * Number(hind[aasta][7]) )*100)/100 + kuutasu[aasta][2][kaitse];
     } else {
         document.getElementById('v3').innerHTML = "-";
+        document.getElementById('v3k').innerHTML = "-";
     }
     let v4 = Math.round( ( Number(p) * Number(hind[aasta][8]) + Number(o) * Number(hind[aasta][9]) )*100)/100 + kuutasu[aasta][2][kaitse];
     let v5 = Math.round( ( Number(p) * Number(hind[aasta][10]) + Number(pt) * Number(hind[aasta][11]) + Number(o) * Number(hind[aasta][12]) + Number(ot) * Number(hind[aasta][13]) )*100)/100 + kuutasu[aasta][3][kaitse];
@@ -117,11 +118,8 @@ function arvuta() {
     document.getElementById('v1').innerHTML = ToFixed(v1/10, 2);
     document.getElementById('v2').innerHTML = ToFixed(v2/100, 2);
     document.getElementById('vk2').innerHTML = ToFixed(vk2/100, 2);
-
     if(aasta < 5) {
         document.getElementById('v3').innerHTML = (v3/100).toFixed(2);
-    } else {
-        document.getElementById('v3').innerHTML = "-";
     }
     document.getElementById('v4').innerHTML = ToFixed(v4/100, 2);
     document.getElementById('v5').innerHTML = (v5/100).toFixed(2);
@@ -134,8 +132,6 @@ function arvuta() {
     document.getElementById('vk2k').innerHTML = ToFixed(Math.round(KM * (vk2 + taastuvtasu_aktsiis ))/100, 2);
     if(aasta < 5) {
         document.getElementById('v3k').innerHTML = ToFixed(Math.round(KM * (v3 + taastuvtasu_aktsiis ))/100, 2);
-    } else {
-        document.getElementById('v3k').innerHTML = "-";
     }
     document.getElementById('v4k').innerHTML = ToFixed(Math.round(KM * (v4 + taastuvtasu_aktsiis ))/100, 2);
     document.getElementById('v5k').innerHTML = ToFixed(Math.round(KM * (v5 + taastuvtasu_aktsiis ))/100, 2);

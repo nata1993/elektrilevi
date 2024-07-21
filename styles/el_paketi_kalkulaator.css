@@ -86,3 +86,7 @@ table {
 .item2 {
     grid-column: 2;
 }
+
+.asterix {
+    text-align: left;
+}
