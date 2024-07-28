@@ -37,8 +37,11 @@ function addRow(row_nr, Row_value) {
 }
 
 function display(msg) {
-  let table_element = document.getElementById("extension_table");
-  table_element.style.marginTop = "20px";
+  const elementclass1 = document.getElementsByClassName("grid-item2");
+  elementclass1[0].setAttribute("style", "display: initial");
+  const elementclass2 = document.getElementsByClassName("grid-item3");
+  elementclass2[0].setAttribute("style", "display: initial");
+  
   var rida = { hind:[0] }, rows = csvToArray(msg);
   var rowNum, row, KP = "", r_date, priceRow, algus = 5, tootmine = 1, toodang = 0, tarbimine = 0;
   var cells, arve_summa = 0, kogu_kw = 0, kogu_ukw = 0, paeva_kw = [],  t_summa = 0, t_usumma = 0, week_day = 0;  //        var cellNum;
@@ -56,8 +59,8 @@ function display(msg) {
   if  ( first_row_time != "00:00" ) {
     alert ( "Palun kontrolli oma ajasätteid, ega\nFirefoxis about:config -> privacy.resistFingerprinting pole sisse lülitatud?\nTe tunnitarbimise algusaeg pole 00:00");
   }
-  addRow(0, "<th colspan='2'>KUUP&Auml;EV</th><th>00-01</th><th>01-02</th><th>02-03</th><th>03-04</th><th>04-05</th><th>05-06</th><th>06-07</th><th>07-08</th><th>08-09</th><th>09-10</th><th>10-11</th><th>11-12</th>" +
-          "<th>12-13</th><th>13-14</th><th>14-15</th><th>15-16</th><th>16-17</th><th>17-18</th><th>18-19</th><th>19-20</th><th>20-21</th><th>21-22</th><th>22-23</th><th>23-00</th><th>KOKKU</th>");
+  addRow(0, "<thead><th>KUUPÄEV</th><th></th><th>00-01</th><th>01-02</th><th>02-03</th><th>03-04</th><th>04-05</th><th>05-06</th><th>06-07</th><th>07-08</th><th>08-09</th><th>09-10</th><th>10-11</th><th>11-12</th>" +
+          "<th>12-13</th><th>13-14</th><th>14-15</th><th>15-16</th><th>16-17</th><th>17-18</th><th>18-19</th><th>19-20</th><th>20-21</th><th>21-22</th><th>22-23</th><th>23-00</th><th>KOKKU</th></thead>");
   for (rowNum = algus; rowNum < rows.length; ++rowNum) {
     //      row = rows[rowNum].join();
     cells = rows[rowNum].join().split(";"); 
@@ -123,7 +126,7 @@ function display(msg) {
       if ( xhr.readyState == 4 ) { 
         var vahe_summa = 0, vahe_kw = 0, vahe_ukw = 0, vahe_t_summa = 0, marginaal = 0;
         let tekst = (tarbimine) ? "tarbimine" : "tootmine";
-        let p_row1 = "<tr><td>" + end_time + "</td><td></td>", p_row2 = "<tr><td></td><td>" + tekst+ "</td>", p_row3 = "<tr><td></td><td>€ senti</td>";
+        let p_row1 = "<tr><td>" + end_time + "</td><td>€/MWh</td>", p_row2 = "<tr><td></td><td>" + tekst + "</td>", p_row3 = "<tr><td></td><td>¢</td>";
         rows = [];
         rows = csvToArray(xhr.responseText);
         //             console.log( "Kilowats " + start_time + " " + end_time + " " + kws );
