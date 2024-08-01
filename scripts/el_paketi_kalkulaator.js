@@ -13,113 +13,128 @@ function arvuta() {
         [1.05, 0.1,  7.21, 8.68, 5.05, 5.67, 3.28, 999,  3.69, 2.10, 5.14, 7.94, 2.95, 4.60]
     ];
     const kuutasu = [ 
-    [
-        [ 125, 246,  285,  320,  369,  425,  495,  586],
-        [ 184, 333,  410,  480,  578,  690,  830, 1012],
-        [ 458, 988, 1201, 1446, 1788, 2180, 2670, 3307],
-        [ 9999, 9999, 9999, 9999, 9999, 9999, 9999, 9999]
-    ],
-    [
-        [ 125, 246,  285,  320,  369,  425,  495,  586],
-        [ 184, 333,  410,  480,  578,  690,  830, 1012],
-        [ 458, 988, 1201, 1446, 1788, 2180, 2670, 3307],
-        [ 9999, 9999, 9999, 9999, 9999, 9999, 9999, 9999]
-    ],
-    [
-        [ 125, 246,  285,  320,  369,  425,  495,  586],
-        [ 125, 246,  285,  320,  369,  425,  495,  586],
-        [ 419, 888, 1086, 1306, 1614, 1966, 2406, 2978],
-        [ 9999, 9999, 9999, 9999, 9999, 9999, 9999, 9999]
-    ],
-    [
-        [ 125, 246,  285,  320,  369,  425,  495,  586],
-        [ 125, 246,  285,  320,  369,  425,  495,  586],
-        [ 419, 888, 1086, 1306, 1614, 1966, 2406, 2978],
-        [ 9999, 9999, 9999, 9999, 9999, 9999, 9999, 9999]
-    ],
-    [
-        [ 125, 246,  285,  320,  369,  425,  495,  586],
-        [ 184, 333,  410,  480,  578,  690,  830, 1012],
-        [ 458, 988, 1201, 1446, 1788, 2180, 2670, 3307],
-        [ 9999, 9999, 9999, 9999, 9999, 9999, 9999, 9999]
-    ],
-    [
-        [ 141, 254,   295,  335,  391,  455,  535,  639],
-        [ 200, 370,   455,  535,  647,  775,  935, 1143],
-        [ 489, 1034, 1259, 1519, 1883, 2299, 2819, 3495],
-        [ 218, 403,   496,  583,  705,  845, 1019, 1246]
-    ],
-    [
-        [ 160,  287,  334,  379,  443,  515,  606,  725],
-        [ 227,  419,  515,  606,  734,  878, 1059, 1295],
-        [ 554, 1171, 1429, 1721, 2134, 2605, 3195, 3960],
-        [ 247,  457,  561,  660,  799,  957, 1155, 1411]
-    ],
-    [
-        [ 163,  293,  341,  387,  452,  525,  618,  739],
-        [ 232,  427,  525,  618,  749,  895, 1080, 1321],
-        [ 565, 1194, 1455, 1755, 2176, 2657, 3259, 4039],
-        [252,466,572,673,815, 976,1178,1439]
-    ],
-    [
-        [ 184,  331,  385,  437,  511,  593,  699,  835],
-        [ 262,  483,  593,  699,  847, 1012, 1221, 1493],
-        [ 639, 1350, 1645, 1984, 2460, 3003, 3684, 4566],
-        [285,527,647,761,921,1103,1332,1627]
-    ],
-    [
-        [ 184,  331,  385,  437,  511,  593,  699,  835],
-        [ 262,  483,  593,  699,  847, 1012, 1221, 1493],
-        [ 639, 1350, 1645, 1984, 2460, 3003, 3684, 4566],
-        [285,527,647,761,921,1103,1332,1627]
-    ],
-    [
-        [ 184,  331,  385,  437,  511,  593,  699,  835],
-        [ 262,  483,  593,  699,  847, 1012, 1221, 1493],
-        [ 639, 1350, 1645, 1984, 2460, 3003, 3684, 4566],
-        [ 285,  527,  647,  761,  921, 1103, 1332, 1627]
-    ]
+        [
+            [ 125, 246,  285,  320,  369,  425,  495,  586],
+            [ 184, 333,  410,  480,  578,  690,  830,  1012],
+            [ 458, 988,  1201, 1446, 1788, 2180, 2670, 3307],
+            [ 9999,9999, 9999, 9999, 9999, 9999, 9999, 9999]
+        ],
+        [
+            [ 125, 246,  285,  320,  369,  425,  495,  586],
+            [ 184, 333,  410,  480,  578,  690,  830,  1012],
+            [ 458, 988,  1201, 1446, 1788, 2180, 2670, 3307],
+            [ 9999,9999, 9999, 9999, 9999, 9999, 9999, 9999]
+        ],
+        [
+            [ 125, 246,  285,  320,  369,  425,  495,  586],
+            [ 125, 246,  285,  320,  369,  425,  495,  586],
+            [ 419, 888,  1086, 1306, 1614, 1966, 2406, 2978],
+            [ 9999,9999, 9999, 9999, 9999, 9999, 9999, 9999]
+        ],
+        [
+            [ 125, 246,  285,  320,  369,  425,  495,  586],
+            [ 125, 246,  285,  320,  369,  425,  495,  586],
+            [ 419, 888,  1086, 1306, 1614, 1966, 2406, 2978],
+            [ 9999,9999, 9999, 9999, 9999, 9999, 9999, 9999]
+        ],
+        [
+            [ 125, 246,  285,  320,  369,  425,  495,  586],
+            [ 184, 333,  410,  480,  578,  690,  830,  1012],
+            [ 458, 988,  1201, 1446, 1788, 2180, 2670, 3307],
+            [ 9999,9999, 9999, 9999, 9999, 9999, 9999, 9999]
+        ],
+        [
+            [ 141, 254,   295,  335,  391,  455,  535,  639],
+            [ 200, 370,   455,  535,  647,  775,  935, 1143],
+            [ 489, 1034, 1259, 1519, 1883, 2299, 2819, 3495],
+            [ 218, 403,   496,  583,  705,  845, 1019, 1246]
+        ],
+        [
+            [ 160,  287,  334,  379,  443,  515,  606,  725],
+            [ 227,  419,  515,  606,  734,  878, 1059, 1295],
+            [ 554,  1171, 1429, 1721, 2134, 2605, 3195, 3960],
+            [ 247,  457,  561,  660,  799,  957, 1155, 1411]
+        ],
+        [
+            [ 163,  293,  341,  387,  452,  525,  618,  739],
+            [ 232,  427,  525,  618,  749,  895,  1080, 1321],
+            [ 565,  1194, 1455, 1755, 2176, 2657, 3259, 4039],
+            [ 252,  466,  572,  673,  815,  976,  1178, 1439]
+        ],
+        [
+            [ 184,  331,  385,  437,  511,  593,  699,  835],
+            [ 262,  483,  593,  699,  847,  1012, 1221, 1493],
+            [ 639,  1350, 1645, 1984, 2460, 3003, 3684, 4566],
+            [ 285,  527,  647,  761,  921,  1103, 1332, 1627]
+        ],
+        [
+            [ 184,  331,  385,  437,  511,  593,  699,  835],
+            [ 262,  483,  593,  699,  847,  1012, 1221, 1493],
+            [ 639,  1350, 1645, 1984, 2460, 3003, 3684, 4566],
+            [ 285,  527,  647,  761,  921,  1103, 1332, 1627]
+        ],
+        [
+            [ 184,  331,  385,  437,  511,  593,  699,  835],
+            [ 262,  483,  593,  699,  847,  1012, 1221, 1493],
+            [ 639,  1350, 1645, 1984, 2460, 3003, 3684, 4566],
+            [ 285,  527,  647,  761,  921,  1103, 1332, 1627]
+        ]
     ];
+
     const aasta = document.getElementById("aasta").value;
     const p = document.getElementById("p").value;
-    const o = document.getElementById("o").value;
     const pt = document.getElementById("pt").value;
+    const o = document.getElementById("o").value;
     const ot = document.getElementById("ot").value;
     const kaitse = document.getElementById("kaitse").value;
-    if ( aasta>9 ) {
-        var KM = 1.22 ;
-    } else {
-        var KM = 1.2 ;
-    }
-        
-    
-    document.getElementById('tt').value = Math.round(Number(document.getElementById("kokkukW").value) * Number(hind[aasta][0])*100)/100;
-    document.getElementById('ak').value = Math.round(Number(document.getElementById("kokkukW").value) * Number(hind[aasta][1])*100)/100;
-    document.getElementById('v1').value = Math.round(Number(document.getElementById("kokkukW").value) * Number(hind[aasta][2])*100)/100;
-    document.getElementById('v2').value = Math.round( ( (Number(p) +Number(pt)) * Number(hind[aasta][3]) + (Number(o) + Number(ot)) * Number(hind[aasta][4]) )*100)/100;
-    document.getElementById('vk2').value = Math.round( ( (Number(p)+Number(pt)) * Number(hind[aasta][5]) + (Number(o) + Number( ot)) * Number(hind[aasta][6]) )*100)/100 + kuutasu[aasta][1][document.getElementById("kaitse").value];
-    document.getElementById('v3').value = Math.round( ( Number(document.getElementById("kokkukW").value) * Number(hind[aasta][7]) )*100)/100 + kuutasu[aasta][2][document.getElementById("kaitse").value];
-    document.getElementById('v4').value = Math.round( ( Number(document.getElementById("p").value) * Number(hind[aasta][8]) + Number(document.getElementById("o").value) * Number(hind[aasta][9]) )*100)/100 + kuutasu[aasta][2][document.getElementById("kaitse").value];
-    document.getElementById('v5').value = Math.round( ( Number(p) * Number(hind[aasta][10]) + Number(pt) * Number(hind[aasta][11]) + Number(o) * Number(hind[aasta][12]) + Number(ot) * Number(hind[aasta][13]) )*100)/100 + kuutasu[aasta][3][kaitse];
-    const tt_ak= document.getElementById('tt').value + document.getElementById('ak').value;
-    
-    // Fill "Hind" fields
-    document.getElementById('v1').innerHTML = (document.getElementById('v1').value/10).toFixed(2);
-    document.getElementById('v2').innerHTML = (document.getElementById('v2').value/100).toFixed(2);
-    document.getElementById('vk2').innerHTML = (document.getElementById('vk2').value/100).toFixed(2);
-    document.getElementById('v3').innerHTML = (document.getElementById('v3').value/100).toFixed(2);
-    document.getElementById('v4').innerHTML = (document.getElementById('v4').value/100).toFixed(2);
-    document.getElementById('v5').innerHTML = (document.getElementById('v5').value/100).toFixed(2);
-    document.getElementById('tt').innerHTML = (document.getElementById('tt').value/100).toFixed(2);
-    document.getElementById('ak').innerHTML = (document.getElementById('ak').value/100).toFixed(2);
+    const kokkuKW = Element_Numeric_Value("kokkukW");
+    let KM;
 
-    // Fill "Kokku" fields
-    document.getElementById('v1k').innerHTML = (Math.round(KM * (Number(document.getElementById("v1").value) + tt_ak ))/100).toFixed(2);
-    document.getElementById('v2k').innerHTML = (Math.round(KM * (Number(document.getElementById("v2").value) + tt_ak ))/100).toFixed(2);
-    document.getElementById('vk2k').innerHTML = (Math.round(KM * (Number(document.getElementById("vk2").value) + tt_ak ))/100).toFixed(2);
-    document.getElementById('v3k').innerHTML = (Math.round(KM * (Number(document.getElementById("v3").value) + tt_ak ))/100).toFixed(2);
-    document.getElementById('v4k').innerHTML = (Math.round(KM * (Number(document.getElementById("v4").value) + tt_ak ))/100).toFixed(2);
-    document.getElementById('v5k').innerHTML = (Math.round(KM * (Number(document.getElementById("v5").value) + tt_ak ))/100).toFixed(2);
+    // VAT increased by 10% from 20% to 22% in year 2024
+    if ( aasta > 9 ) {
+        KM = 1.22 ;
+    } else {
+        KM = 1.2 ;
+    }
+    
+    ////// Crunch the numbers
+    let v1 = Math.round(kokkuKW * Number(hind[aasta][2])*100)/100;
+    let v2 = Math.round( ( (Number(p) + Number(pt)) * Number(hind[aasta][3]) + (Number(o) + Number(ot)) * Number(hind[aasta][4]) )*100)/100;
+    let vk2 = Math.round( ( (Number(p)+ Number(pt)) * Number(hind[aasta][5]) + (Number(o) + Number(ot)) * Number(hind[aasta][6]) )*100)/100 + kuutasu[aasta][1][kaitse];
+    // The Võrk 3 was replaced fully with Võrk 4 from 1. march 2022
+    if(aasta < 5) {
+        var v3 = Math.round( (kokkuKW * Number(hind[aasta][7]) )*100)/100 + kuutasu[aasta][2][kaitse];
+    } else {
+        document.getElementById('v3').innerHTML = "-";
+        document.getElementById('v3k').innerHTML = "-";
+    }
+    let v4 = Math.round( ( Number(p) * Number(hind[aasta][8]) + Number(o) * Number(hind[aasta][9]) )*100)/100 + kuutasu[aasta][2][kaitse];
+    let v5 = Math.round( ( Number(p) * Number(hind[aasta][10]) + Number(pt) * Number(hind[aasta][11]) + Number(o) * Number(hind[aasta][12]) + Number(ot) * Number(hind[aasta][13]) )*100)/100 + kuutasu[aasta][3][kaitse];
+    let taastuvenergiatasu = Math.round(kokkuKW * Number(hind[aasta][0])*100)/100;
+    let aktsiis = Math.round(kokkuKW * Number(hind[aasta][1])*100)/100;
+    const taastuvtasu_aktsiis = taastuvenergiatasu + aktsiis;
+    
+    ////// Fill "Hind" fields
+    document.getElementById('v1').innerHTML = ToFixed(v1/10, 2);
+    document.getElementById('v2').innerHTML = ToFixed(v2/100, 2);
+    document.getElementById('vk2').innerHTML = ToFixed(vk2/100, 2);
+    if(aasta < 5) {
+        document.getElementById('v3').innerHTML = (v3/100).toFixed(2);
+    }
+    document.getElementById('v4').innerHTML = ToFixed(v4/100, 2);
+    document.getElementById('v5').innerHTML = (v5/100).toFixed(2);
+    document.getElementById('TaastuvEnergTasu').innerHTML = ToFixed(taastuvenergiatasu/100, 2);
+    document.getElementById('Aktsiis').innerHTML = ToFixed(aktsiis/100, 2);
+
+    ////// Fill "Kokku" fields
+    document.getElementById('v1k').innerHTML = ToFixed(Math.round(KM * (v1 + taastuvtasu_aktsiis ))/100, 2);
+    document.getElementById('v2k').innerHTML = ToFixed(Math.round(KM * (v2 + taastuvtasu_aktsiis ))/100, 2);
+    document.getElementById('vk2k').innerHTML = ToFixed(Math.round(KM * (vk2 + taastuvtasu_aktsiis ))/100, 2);
+    if(aasta < 5) {
+        document.getElementById('v3k').innerHTML = ToFixed(Math.round(KM * (v3 + taastuvtasu_aktsiis ))/100, 2);
+    }
+    document.getElementById('v4k').innerHTML = ToFixed(Math.round(KM * (v4 + taastuvtasu_aktsiis ))/100, 2);
+    document.getElementById('v5k').innerHTML = ToFixed(Math.round(KM * (v5 + taastuvtasu_aktsiis ))/100, 2);
 }
 
 // Calculate total of electricity consumption
@@ -133,4 +148,13 @@ function summa() {
     }
 
     return Math.round(100*(Number(p.value) + Number(o.value) + Number(pt.value) + Number(ot.value) ))/100;
+}
+
+function Element_Numeric_Value(id) {
+    const id_value = document.getElementById(id).value;
+    return Number(id_value);
+}
+
+function ToFixed(value, decimal_point) {
+    return value.toFixed(decimal_point);
 }

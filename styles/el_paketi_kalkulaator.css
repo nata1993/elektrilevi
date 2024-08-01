@@ -81,7 +81,12 @@ table {
 }
 .item1 {
     grid-column: 1;
+    background-color: rgba(255, 255, 255, 0.25);
 }
 .item2 {
     grid-column: 2;
+}
+
+.asterix {
+    text-align: left;
 }

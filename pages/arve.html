@@ -18,16 +18,21 @@
     
     <link rel="stylesheet" href="../styles/arve.css">
     <script src="../scripts/arve.js"></script>
-    <script src="chartist.js" defer></script>
   </head>
   <body>
     <div class="grid-container">
       <div class="grid-item1">
         <div class="container">
           <div class="item1">Sisesta müügimarginaal:</div>
-          <div class="item2"><input id="marginaal" type="number" size="5" onchange="setMüügiMarginaalCookie('marginaal')"><label>senti/kWh</label></div>
+          <div class="item2">
+            <input id="marginaal" type="number" size="5" onchange="setMüügiMarginaalCookie('marginaal')">
+            <label>senti/kWh</label>
+          </div>
           <div class="item3">Sisesta ostumarginaal:</div>
-          <div class="item4"><input id="tmarginaal" type="number" size=5 onchange="setOstuMarginaalCookie('tmarginaal')"><label>senti/kWh</label></div>
+          <div class="item4">
+            <input id="tmarginaal" type="number" size=5 onchange="setOstuMarginaalCookie('tmarginaal')">
+            <label>senti/kWh</label>
+          </div>
         </div>
         <input type="button" value="UT hinna arvutamine" onclick="UT()" >
         <input type="button" value="Elektrilevi Võrguteenuse hinna leidmine" onclick="VT()">  
@@ -48,7 +53,9 @@
           <option value="7">63 A
         </select>
         <br><br>
-        Palun anna uuelt <a href="https://estfeed.elering.ee/" target="_blank">Elering</a> lehelt loetud CSV laiendiga tootmis või tarbimis fail:
+        Palun anna uuelt
+        <a href="https://estfeed.elering.ee/" target="_blank">Elering</a>
+        lehelt loetud CSV laiendiga tootmis või tarbimis fail:
         <input type="file" onchange="readFile(this)">
         <hr>
         <table>
@@ -198,7 +205,12 @@
         <table id="extension_table"></table>
       </div>
       <div class="footer">
-        UT hinnad võetud <a HREF="https://elektrihind.ee/paketid/">elektrihind.ee/paketid/</a> ja <a HREF="https://terminaloil.ee/eterminal/universaalteenus/">eTerminal</a> lehelt.<BR>
+        UT hinnad võetud
+        <a href="https://elektrihind.ee/paketid/" target="_blank">elektrihind.ee/paketid/</a>
+        ja
+        <a href="https://terminaloil.ee/eterminal/universaalteenus/" target="_blank">eTerminal</a>
+        lehelt.
+        <br>
         PS! Me kasutame küpsiseid, et meelde jätta müügi- ja ostumarginaalid järgmiseks külastuskorraks.
       </div>
     </div>
