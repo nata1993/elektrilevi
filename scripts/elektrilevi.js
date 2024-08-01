@@ -27,7 +27,7 @@ function csvToArray(text) {
   
 function display(msg) {
     var rida = { hind:[0] }, rows = csvToArray(msg);
-    var rowNum, row, KP="", r_date, priceRow, algus = 4, tootmine = 1, toodang = 0, tarbimine = 0;
+    var rowNum, row, KP="", r_date, priceRow, algus = 5, tootmine = 1, toodang = 0, tarbimine = 0;
     var cells, arve_summa = 0, kogu_kw = 0, kogu_ukw = 0, paeva_kw = [], u_kw =[], u_summa = 0, tm_summa = 0 ;  //        var cellNum;
     cells = rows[0][0].split(";") ;
     if ( cells[0] == "EIC" ) {
