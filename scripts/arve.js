@@ -28,6 +28,7 @@ function csvToArray(text) {
       else row[i] += l;
       p = l;
   }
+  console.log("csv array", ret);
   return ret;
 };
   
@@ -37,11 +38,14 @@ function addRow(row_nr, Row_value) {
 }
 
 function display(msg) {
+  /*
   const elementclass1 = document.getElementsByClassName("grid-item2");
   elementclass1[0].setAttribute("style", "display: initial");
+  */
   const elementclass2 = document.getElementsByClassName("grid-item3");
   elementclass2[0].setAttribute("style", "display: initial");
-  
+
+
   var rida = { hind:[0] }, rows = csvToArray(msg);
   var rowNum, row, KP = "", r_date, priceRow, algus = 5, tootmine = 1, toodang = 0, tarbimine = 0;
   var cells, arve_summa = 0, kogu_kw = 0, kogu_ukw = 0, paeva_kw = [],  t_summa = 0, t_usumma = 0, week_day = 0;  //        var cellNum;
@@ -52,8 +56,8 @@ function display(msg) {
   if ( cells[1].includes("Toodetud" ) ) { tarbimine = 0; }
   if ( cells[1].includes("Tarbitud" ) ) { tarbimine = 1; u_kw = []; u_summa = 0; }
   cells = rows[algus-1][0].split(";");
-  console.log ( "ALGUS " + algus + rows[0] + " " + tootmine + " C " + cells[1] );
-  //  if ( /^tarbi/.exec(cells[1]) ) { tarbimine = 1; alert ( "Leidsin esimesena tarbimise" ); }; // tarbimine
+  // console.log ( "ALGUS " + algus + rows[0] + " " + tootmine + " C " + cells[1] );
+  // if ( /^tarbi/.exec(cells[1]) ) { tarbimine = 1; alert ( "Leidsin esimesena tarbimise" ); }; // tarbimine
   
   var first_row_time = rows[algus].join().slice(11,16);
   if  ( first_row_time != "00:00" ) {
@@ -74,9 +78,9 @@ function display(msg) {
       yesterday = new Date(Date.parse(KP)).toJSON().slice(0,10), reads;
       KP = r_date;
       paeva_kw = [];
-    } //  if KP
+    } // if KP
     if (cells.length <= tootmine) { tootmine = 2 };
-    //	      console.log ( tootmine + cells + " " + cells.length + " " + cells[1] + "X" + cells[tootmine] );
+    // console.log ( tootmine + cells + " " + cells.length + " " + cells[1] + "X" + cells[tootmine] );
     toodang = cells[tootmine].replace(",", ".");
     paeva_kw.push(toodang);
   } // for rowNum
@@ -101,8 +105,8 @@ function display(msg) {
         el_paev_tipp += 1*kws[9] + 1*kws[10]+ 1*kws[11] + 1*kws[16] + 1*kws[17] + 1*kws[18] + 1*kws[19];
       }
     }
-    //	console.log("KWs"+kws);
-    //	console.log("u KWs" + ukws);	     
+    // console.log("KWs"+kws);
+    // console.log("u KWs" + ukws);	     
     function transferComplete(evt) {
       answer(xhr.status == 200 ? xhr.responseText : null);
     }
@@ -110,14 +114,14 @@ function display(msg) {
     var i, hind; 
     xhr.onreadystatechange = handleStateChange;
     // "https://dashboard.elering.ee/api/nps/price/csv?start=2020-12-31T21:00:00.000Z&end=2021-01-01T20:59:59.999Z&fields=ee");
-    //             console.log( "DAY " + Date(start_time) + " " + end_time + " " + kws );
+    // console.log( "DAY " + Date(start_time) + " " + end_time + " " + kws );
     a1 = new Date(end_time); 
     if ( a1.getTimezoneOffset() == -180 ) {
       xhr.open("GET", "https://dashboard.elering.ee/api/nps/price/csv?start="+ start_time+"T21:00:00.000Z&end="+end_time+"T20:59:59.999Z&fields=ee"); // - suveajal
     }
     else {
       xhr.open("GET", "https://dashboard.elering.ee/api/nps/price/csv?start="+ start_time+"T22:00:00.000Z&end="+end_time+"T21:59:59.999Z&fields=ee"); // talveajal
-      //		   		  	console.log("TALV "+ a1.getTimezoneOffset() );
+      // console.log("TALV "+ a1.getTimezoneOffset() );
     }
     xhr.send();  
 
@@ -129,8 +133,8 @@ function display(msg) {
         let p_row1 = "<tr><td>" + end_time + "</td><td>€/MWh</td>", p_row2 = "<tr><td></td><td>" + tekst + "</td>", p_row3 = "<tr><td></td><td>¢</td>";
         rows = [];
         rows = csvToArray(xhr.responseText);
-        //             console.log( "Kilowats " + start_time + " " + end_time + " " + kws );
-        //             console.log( "PRICE" + rows.length + " " + rows[1] );
+        // console.log( "Kilowats " + start_time + " " + end_time + " " + kws );
+        // console.log( "PRICE" + rows.length + " " + rows[1] );
         marginaal = (tarbimine) ? document.getElementById("tmarginaal").value * -1 : document.getElementById("marginaal").value;
         for (i = 1; i < rows.length-1 && i <= kws.length; i++) {
           cells = rows[i][0].split(";");
@@ -223,11 +227,11 @@ function showData(data) {
   var rows = csvToArray(data);
   var rowNum;
   var cells; 
-  //        var cellNum;
+  // var cellNum;
   for (rowNum = 1; rowNum < rows.length-1; ++rowNum) {
     cells = rows[rowNum][0].split(";");
     _utc.push(cells[0]);
-    _aeg.push(cells[1].substr(-5,5));
+    _aeg.push(cells[1].substring(-5,5));
     _hind.push(cells[2].replace(",","."));
   } // for rowNum
   return {
@@ -291,7 +295,6 @@ function setOstuMarginaalCookie(id) {
   else {
     alert("Palun sisesta korrektse arvväärtusena marginaal.");
   }
-
 }
 
 function GetMüügiMarginaalCookie(id) {
